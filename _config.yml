@@ -14,7 +14,7 @@ language:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://yoursite.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: post-:id.html
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -85,4 +85,5 @@ exclude_generator:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: github
+  repo: https://github.com/yujiangshui/qxzmblog.git
