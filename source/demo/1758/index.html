@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<title>用 jQuery 制作一个简单的遮罩弹窗效果教程 Demo 页面</title>
+	<link rel="stylesheet" type="text/css" href="../base.min.css" />
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://qxzm-cdn.b0.upaiyun.com/js/html5.js"></script>
+	<![endif]-->
+	
+	<style>
+	
+	.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}
+		.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}
+	
+	</style>
+	
+	<script>
+	
+	$(function(){
+		$('.click').click(function(){
+			$('.bg').css({'display':'block'});
+			$('.content').css({'display':'block'});
+		});
+		$('.bg').click(function(){
+			//$('.bg').css({'display':'none'});
+			//$('.content').css({'display':'none'});
+		});
+		$('.click1').click(function(){
+			$('.bg').fadeIn(200);
+			$('.content').fadeIn(400);
+		});
+		$('.bg').click(function(){
+			$('.bg').fadeOut(200);
+			$('.content').fadeOut(200);
+		});
+	});
+	</script>
+	
+</head>
+<body>
+
+<header class="header">
+	<div class="hd-wrap">
+		<h1 class="logo fl"><a href="http://www.qianxingzhem.com" target="_blank">潜行者M Demo</a></h1>
+		<a class="return fr" href="http://www.qianxingzhem.com/post-1758.html" target="_blank">返回相关文章>></a>
+	</div>
+</header>
+
+<article class="main-wrap">
+<div class="main">
+	<h2>效果</h2>
+	<div class="show">
+	
+	
+ <div class="click">点击这里</div>
+ <div class="click1">效果增强版的</div>
+ 
+ <div class="bg"></div>
+ <div class="content">这里是正文内容</div>
+ 
+ 
+	</div>
+	<h2>代码</h2>
+	<h3>HTML结构</h3>
+	<div class="code">
+		<pre>&lt;div class="click"&gt;点击这里&lt;/div&gt;
+&nbsp;&lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
+&nbsp;&lt;div class="bg"&gt;&lt;/div&gt;
+&nbsp;&lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
+	</div>
+	<h3>CSS代码</h3>
+	<div class="code">
+		<pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}
+.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre>
+	</div>
+	<h3>JS代码</h3>
+	<div class="code">
+		<pre>   $(function(){
+		$('.click').click(function(){
+			$('.bg').css({'display':'block'});
+			$('.content').css({'display':'block'});
+		});
+		$('.bg').click(function(){
+			//$('.bg').css({'display':'none'});
+			//$('.content').css({'display':'none'});
+		});
+		$('.click1').click(function(){
+			$('.bg').fadeIn(200);
+			$('.content').fadeIn(400);
+		});
+		$('.bg').click(function(){
+			$('.bg').fadeOut(200);
+			$('.content').fadeOut(200);
+		});
+	});</pre>
+	</div>
+</div>
+</article>
+
+<footer class="footer">
+神说：有代码的文章要有一个 Demo，于是就有了 Demo。<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+<a href="http://www.qianxingzhem.com/donate" target="_blank">包养本人>></a>
+</footer>
+
+</body>
+</html>

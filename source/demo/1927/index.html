@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<title>HTML 的 id 和 class 可以使用 Unicode 编码的特殊字符命名 Demo 页面</title>
+	<link rel="stylesheet" type="text/css" href="../base.min.css" />
+	<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://qxzm-cdn.b0.upaiyun.com/js/html5.js"></script>
+	<![endif]-->
+	
+	<style>
+	#ಠ{background-color: red;}
+	.❤{background-color: green;}
+	</style>
+	
+
+	
+</head>
+<body>
+
+<header class="header">
+	<div class="hd-wrap">
+		<h1 class="logo fl"><a href="http://www.qianxingzhem.com" target="_blank">潜行者M Demo</a></h1>
+		<a class="return fr" href="http://www.qianxingzhem.com/post-1927.html" target="_blank">返回相关文章>></a>
+	</div>
+</header>
+
+<article class="main-wrap">
+<div class="main">
+	<h2>效果</h2>
+	<div class="show">
+	
+		<div id="ಠ" >
+			这个 div 的 id 是 ಠ ，点击测试 原生 JavaScript 选择器
+		</div>
+		<div class="❤">
+			这个 div 的 class 是 ❤，点击测试 jQuery 选择器
+		</div>
+
+	</div>
+	<h2>代码</h2>
+	<h3>HTML结构</h3>
+	<div class="code">
+		<pre>右键查看源代码</pre>
+	</div>
+	<h3>CSS代码</h3>
+	<div class="code">
+		<pre>	#ಠ{background-color: red;}
+	.❤{background-color: green;}</pre>
+	</div>
+	<h3>JS代码</h3>
+	<div class="code">
+		<pre>	$(function(){
+		$('.❤').click(function(){
+			alert('成功了，jQuery 选择器支持 ❤');
+		});
+
+		var aaa = document.getElementById("ಠ");
+
+		aaa.onclick = ceshi;
+
+		function ceshi(){
+			alert('原生 JavaScript 选择器支持');
+		}
+
+	});
+</pre>
+	</div>
+</div>
+</article>
+
+<footer class="footer">
+神说：有代码的文章要有一个 Demo，于是就有了 Demo。<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+<a href="http://www.qianxingzhem.com/donate" target="_blank">包养本人>></a>
+</footer>
+
+	<script>
+	
+	$(function(){
+		$('.❤').click(function(){
+			alert('成功了，jQuery 选择器支持 ❤');
+		});
+
+		var aaa = document.getElementById("ಠ");
+
+		aaa.onclick = ceshi;
+
+		function ceshi(){
+			alert('原生 JavaScript 选择器支持 ಠ');
+		}
+
+	});
+
+
+	
+	
+	</script>
+
+</body>
+</html>
