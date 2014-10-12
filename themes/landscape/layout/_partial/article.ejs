@@ -35,6 +35,8 @@
   <% } %>
 </article>
 
+<% if (is_post()) { %>
+
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="<%= post.id %>" data-title="<%= post.title %>" data-url="http://www.qianxingzhem.com<%- url_for(post.path) %>"></div>
 <!-- 多说评论框 end -->
@@ -46,11 +48,13 @@ var duoshuoQuery = {short_name:"qxzm"};
     ds.type = 'text/javascript';ds.async = true;
     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
+    (document.getElementsByTagName('head')[0]
      || document.getElementsByTagName('body')[0]).appendChild(ds);
   })();
   </script>
 <!-- 多说公共JS代码 end -->
+
+<% } %>
 
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
