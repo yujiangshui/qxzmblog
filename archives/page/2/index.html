@@ -67,104 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e4-bd-bf-e7-94-a8-emmet-e6-8f-90-e9-ab-98-e7-bc-96-e5-86-99-css-e7-9a-84-e6-95-88-e7-8e-87" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1951.html" class="article-date">
-  <time datetime="2013-05-16T23:49:20.000Z" itemprop="datePublished">May 17 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1951.html">使用 Emmet 提高编写 CSS 的效率</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前面，<a href="http://www.qianxingzhem.com/" target="_blank" rel="external">潜行者m</a> 介绍了 <a href="http://www.qianxingzhem.com/post-1937.html" target="_blank" rel="external">Emmet 的功能</a>和<a href="http://www.qianxingzhem.com/post-1940.html" target="_blank" rel="external">如何使用 Emmet 来生成 HTML 代码</a>，这次再来讲解一下如何使用 Emmet 提高 CSS 编写效率。</p>
-<p>首先，Sublime Text 2 已经提供了比较强大的 CSS 样式所写方法来提高 CSS 编写效率。例如编写 position: absolute; 这一个属性，我们只需要输入 posa 这四个字母即可。它会弹出缩写样式的提示：</p>
-<p><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/05/1951/emmetcss0.png" alt="Sublime text 2 快速生成 CSS 代码"></p>
-<p>你不妨在编写 CSS 的时候，留意一下 ST2 提供了哪些属性的缩写方法，这样就可以提高一定的效率了。但是 Emmet 提供了更多的功能，请往下看。</p>
-<h2 id="简写属性和属性值">简写属性和属性值</h2>
-<p>如果你想生成 width:100px; 你只需要输入 w100 就可以了，因为 Emmet 的默认设置 w 是 width 的缩写，后面紧跟的数字就是属性值。默认的属性值单位是 px ，你可以在值的后面紧跟字符生成单位，可以是任意字符。例如，w100foo 会生成 width:100foo; 这样一条语句。你同样也可以简写属性单位，如果你紧跟属性值后面的字符是 p ，那么将会生成 width:100%; 这样的语句，其中 p 表示百分比单位。与此类似的还有：<code>e</code> → em; <code>x</code> → ex。</p>
-<p>例如 margin 这样的属性，可能并不是一个属性值，生成多个属性值需要用横杠（-）连接两个属性值，因为 Emmet 的指令中是不允许空格的。例如使用 m10-20 这条命令可以生成 margin: 10px 20px; 这样一条语句。如果你想生成负值，多加一条横杠即可。需要注意的是，如果你对每个属性都指定了单位，那么不需要使用横杠分割。例如使用 m10ff20ff 这条命令可以生成 margin: 10ff 20ff; 这条语句，如果你在 20ff 前面加了横杠的话，20ff 就会变成负值了。</p>
-<p>如果你想一次生成多条语句，可以使用 ‘+’ 连接两条语句，例如使用 <code>h10p+m5e</code> 可以生成 height: 10%;margin: 5em; 这两条语句。</p>
-<p>颜色值也是可以快速生成的，例如 <code>c#3</code> → <code>color: #333;，更复杂一点的，使用 &lt;code&gt;bd5#0s</code> 可以生成 border: 5px #000 solid; 这样一句。下面是规则：</p>
-<pre>#1 → #111111
-#e0 → #e0e0e0
-#fc0 → #ffcc00</pre>
-生成 !important 这条语句也当然很简单，只需要一个 ‘!’ 就可以了。
-
-## 增加额外的选项
-
-使用 @f 即可生成 CSS3 中的 font-face 的代码结构：
-<pre>@font-face {
- font-family:;
- src:url();
- }</pre>
-但是这个结构太简单，不包含一些其他的 font-face 的属性，诸如 background-image、 border-radius、 font、@font-face、 text-outline、 text-shadow 等属性，我们可以在生成的时候输入 '+' 生成增强的结构，例如我们可以输入 @f+ 命令，即可输出选项增强版的 font-face 结构：
-<pre>@font-face {
- font-family: 'FontName';
- src: url('FileName.eot');
- src: url('FileName.eot?#iefix') format('embedded-opentype'),
- url('FileName.woff') format('woff'),
- url('FileName.ttf') format('truetype'),
- url('FileName.svg#FontName') format('svg');
- font-style: normal;
- font-weight: normal;
- }</pre>
-
-<h2 id="增加实验性前缀（Vendor_Prefixes）">增加实验性前缀（Vendor Prefixes）</h2>
-<p>CSS3 等现在还没有出正式的 W3C 规范，但是很多浏览器已经实现了对应的功能，仅作为测试只用，所以在属性前面加上自己独特的实验性前缀，不同的浏览器只会识别带有自己规定前缀的样式。然而为了实现兼容性，我们不得不编写大量的冗余代码，而且要加上对应的前缀。使用 Emmet 可以快速生成带有前缀的 CSS3 属性。</p>
-<p>ST2 已经内置了一些常见的需要实验性前缀的 CSS3 属性，例如输入 trf 会弹出提示，然后敲击回车键即可生成。而 Emmet 增强了这个功能。在任意字符前面加上一条横杠（-），即可生成该属性的带前缀代码，例如输入 -foo-css，会生成：</p>
-<pre>-webkit-foo-css: ;
- -moz-foo-css: ;
- -ms-foo-css: ;
- -o-foo-css: ;
- foo-css: ;</pre>
-虽然 foo-css 并不是什么属性，但是照样可以生成。此外，你还可以详细的控制具体生成哪几个浏览器前缀或者先后顺序，使用 `-wm-trf` 即可生成：
-<pre>-webkit-transform: ;
- -moz-transform: ;
- transform: ;</pre>
-可想而知，w 就是 webkit 前缀的缩写，m 是 moz 前缀缩写，s 是 ms 前缀缩写，o 就是 opera 浏览器前缀的缩写。如果使用 -osmw-abc 即可生成：
-<pre>-o-abc: ;
- -ms-abc: ;
- -moz-abc: ;
- -webkit-abc: ;
- abc: ;</pre>
-
-<h2 id="生成渐变背景">生成渐变背景</h2>
-<p>CSS3 中新增加了一条属性 <code>linear-gradient 使用这个属性可以直接制作出渐变的效果。但是这个属性的参数比较复杂，而且需要添加实验性前缀，无疑需要生成大量代码。而在 Emmet 中使用 lg() 指令即可快速生成，例如：使用 &lt;code&gt;lg(left, #fff 50%, #000) 可以直接生成：</code></p>
-<p><pre>background-image: -webkit-gradient(linear, 0 0, 100% 0, color-stop(0.5, #fff), to(#000));<br> background-image: -webkit-linear-gradient(left, #fff 50%, #000);<br> background-image: -moz-linear-gradient(left, #fff 50%, #000);<br> background-image: -o-linear-gradient(left, #fff 50%, #000);<br> background-image: linear-gradient(left, #fff 50%, #000);</pre><br>直接帮你生成好了浏览器前缀。</p>
-<p>Emmet 的还有一些其他的强大功能，将在后面继续讲解介绍，尽请关注。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1951.html" data-id="gqyxwbloxt2nq7ce" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emmet/">emmet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-20-e5-b2-81-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1953.html" class="article-date">
@@ -215,6 +117,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1953" data-title="20岁了" data-url="http://www.qianxingzhem.com/post-1953.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -272,6 +192,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1948" data-title="XP 下 IE6、IE7、IE8 无法正常读取 cookie 的解决方法" data-url="http://www.qianxingzhem.com/post-1948.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e8-ae-a9-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5-e5-9c-a8-e6-bb-9a-e5-8a-a8-e7-9a-84-e6-97-b6-e5-80-99-e6-94-be-e5-b1-81" class="article article-type-post" itemscope itemprop="blogPost">
@@ -326,6 +264,24 @@ $(<span class="string">"body"</span>).fartscroll(<span class="number">5</span>);
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1944" data-title="让你的网页在滚动的时候 放屁" data-url="http://www.qianxingzhem.com/post-1944.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -558,6 +514,24 @@ $ 就表示一位数字，只出现一个的话，就从1开始。如果出现�
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1940" data-title="Emmet 生成 HTML 的语法" data-url="http://www.qianxingzhem.com/post-1940.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e5-89-8d-e7-ab-af-e5-bc-80-e5-8f-91-e7-a5-9e-e5-99-a8-emmet-e4-bb-8b-e7-bb-8d" class="article article-type-post" itemscope itemprop="blogPost">
@@ -626,6 +600,24 @@ $ 就表示一位数字，只出现一个的话，就从1开始。如果出现�
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1937" data-title="前端开发神器 Emmet 介绍" data-url="http://www.qianxingzhem.com/post-1937.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -719,6 +711,24 @@ filter: url(desaturate.svg#greyscale);
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1931" data-title="使用 CSS 将彩色图片转换成黑白图片" data-url="http://www.qianxingzhem.com/post-1931.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post-html-e7-9a-84-id-e5-92-8c-class-e5-8f-af-e4-bb-a5-e4-bd-bf-e7-94-a8-unicode-e7-bc-96-e7-a0-81-e7-9a-84-e7-89-b9-e6-ae-8a-e5-ad-97-e7-ac-a6-e5-91-bd-e5-90-8d" class="article article-type-post" itemscope itemprop="blogPost">
@@ -765,6 +775,24 @@ filter: url(desaturate.svg#greyscale);
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1927" data-title="HTML 的 id 和 class 可以使用 Unicode 编码的特殊字符命名" data-url="http://www.qianxingzhem.com/post-1927.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -831,6 +859,24 @@ filter: url(desaturate.svg#greyscale);
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1924" data-title="在 Sublime Text 2 中使用 SFTP 插件快速编辑远程服务器文件" data-url="http://www.qianxingzhem.com/post-1924.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -995,6 +1041,108 @@ filter: url(desaturate.svg#greyscale);
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1921" data-title="让浏览者禁用响应式布局界面" data-url="http://www.qianxingzhem.com/post-1921.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-php-e8-8e-b7-e5-8f-96-e5-b9-b6-e8-a7-a3-e6-9e-90-json-e6-98-be-e7-a4-ba-e5-9c-a8-e9-a1-b5-e9-9d-a2-e4-b8-ad" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1904.html" class="article-date">
+  <time datetime="2013-04-22T10:01:19.000Z" itemprop="datePublished">Apr 22 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1904.html">使用 PHP 获取并解析 JSON 显示在页面中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久没写过 PHP 的文章了，也很久没有用 PHP 了，差点忘了怎么做了。JSON 是现在比较流行的数据交流方式，比 XML 都流行，一般用作 api 接口进行数据获取、交流。</p>
+<p>就文章的标题来说，本文介绍两个小要点：PHP 获取内容、PHP 解析 JSON 并显示。</p>
+<h2 id="PHP_获取接口内容">PHP 获取接口内容</h2>
+<p>你如果想解析 JSON 数据并且显示在页面中，第一步肯定要先得到 JSON 接口文件的内容。在 PHP 中获取一个页面的内容，可以使用 <a href="http://php.net/manual/zh/function.fopen.php" target="_blank" rel="external">fopen() 函数</a>远程页面然后使用 <a href="http://php.net/manual/en/function.fread.php" target="_blank" rel="external">fread() 函数</a>循环获取内容。</p>
+<p>假设接口文件页面为：<a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5" target="_blank" rel="external">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5</a> ，那么我们可以使用下面语句获取这个接口文件内容：</p>
+<p><pre>$handle = fopen(“<a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5&quot;,&quot;rb" target="_blank" rel="external">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5&quot;,&quot;rb</a>“);<br>$content = “”;<br>while (!feof($handle)) {<br>    $content .= fread($handle, 10000);<br>}<br>fclose($handle);</pre><br>这样 content 保存的就是 JSON api 内容。</p>
+<h2 id="PHP_解析_JSON_并显示">PHP 解析 JSON 并显示</h2>
+<p>原始的内容是无法直接调用的，必须被 PHP 进行进一步处理，才能被调用显示在网页中。在 PHP 5.2 及后续版本中，使用 json_decode() 函数来解析 JSON 数据，将其转换成 PHP 可以调用的数据格式。例如：</p>
+<p><pre>$content = json_decode($content);</pre><br>解析之后呢，我们就可以按照 PHP 中调用数组数据的方法一样的调用 JSON 中的数据。这个调用方法需要按照具体的 JSON 数据格式来写，演示请看下面。关于 json_decode 函数的使用，具体看 PHP 手册，这里不再赘述：<a href="http://php.net/manual/en/function.json-decode.php" target="_blank" rel="external">http://php.net/manual/en/function.json-decode.php</a></p>
+<h2 id="实战调用琼台博客的_api">实战调用琼台博客的 api</h2>
+<p>细心的朋友会发现 <a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m 博客</a>的边栏最下面多了一个“友文推荐”模块，里面推荐了一些<a href="http://www.qttc.net" target="_blank" rel="external">琼台博客</a>的文章。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/04/1904/youwen.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/04/1904/youwen.png" alt="友文推荐"></a></p>
+<p>友文推荐是琼台博客倡议的一种博客之间交流方式，比传统的友情链接更有效，同时实现了博客内容互补。由于琼台博客的博客程序是他自己本人编写的，所以他提供了 JSON api 接口，可以获取到最新的可推荐的文章。</p>
+<p>本人使用 PHP 获取这个 JSON 接口，然后输出到自己博客的边栏中，下面来实战操作一下。</p>
+<h3 id="第一步，查看_api_调用方式">第一步，查看 api 调用方式</h3>
+<p>调用之前，你肯定要看一下对方的 api 调用手册，包括调用地址、如何调用、数据输出格式等等。琼台博客的 api 说明地址如下：<a href="http://www.qttc.net/openapi.html" target="_blank" rel="external">http://www.qttc.net/openapi.html</a>。</p>
+<p>根据文档，我使用了 <a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5" target="_blank" rel="external">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5</a> 这样的参数，意思就是调用五条他推荐的文章。</p>
+<h3 id="第二步，获取_api_结构数据">第二步，获取 api 结构数据</h3>
+<p>很简单，上面说过了，具体代码如下：</p>
+<p><pre>$handle = fopen(“<a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5&quot;,&quot;rb" target="_blank" rel="external">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5&quot;,&quot;rb</a>“);<br>$content = “”;<br>while (!feof($handle)) {<br>    $content .= fread($handle, 10000);<br>}<br>fclose($handle);</pre><br>先打开这数据文件，然后把所有内容保存到 content 变量中，因为可以肯定 api 数据不会超过 10000个字符，所以用 10000 作为 fread 函数的第二个参数。这样，api 返回的 JSON 数据就保存在了 content 变量中。</p>
+<h3 id="第三步，解析并输出内容">第三步，解析并输出内容</h3>
+<p>使用下面代码解析数据，然后调用输出</p>
+<p><pre>$content = json_decode($content);<br>foreach ($content-&gt;data as $key) {<br>    echo ‘&lt;li&gt;&lt;a target=”_blank” href=”‘.$key-&gt;b_url.’”&gt;’.$key-&gt;b_title.’&lt;/a&gt;&lt;/li&gt;’;<br>}</pre><br>首先对 content 变量中的 JSON  数据处理，然后变成 PHP 可以调用的数据，再使用 foreach 遍历输出这五条内容，按照我需要的 HTML 格式，将内容插入进去即可。</p>
+<p>再加上样式修饰，这样就完成了 获取并解析 JSON 显示在页面中了。调用其它 api 数据的方法大同小异。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1904.html" data-id="kf0w2qaauutph8ek" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/">JSON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1904" data-title="使用 PHP 获取并解析 JSON 显示在页面中" data-url="http://www.qianxingzhem.com/post-1904.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
   
@@ -1037,7 +1185,7 @@ filter: url(desaturate.svg#greyscale);
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -1047,10 +1195,6 @@ filter: url(desaturate.svg#greyscale);
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/post-23.html">Hello World</a>
-          </li>
         
           <li>
             <a href="/post-2003.html">本博将停止更新</a>
@@ -1066,6 +1210,10 @@ filter: url(desaturate.svg#greyscale);
         
           <li>
             <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
           </li>
         
       </ul>
@@ -1085,6 +1233,8 @@ filter: url(desaturate.svg#greyscale);
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
     </div>
     <nav id="mobile-nav">
   

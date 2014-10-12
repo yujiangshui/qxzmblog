@@ -67,86 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1801.html" class="article-date">
-  <time datetime="2013-03-23T17:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
-<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
-<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
-<h2 id="id_和_class_的区别">id 和 class 的区别</h2>
-<p>有经验的朋友可以略过这一部分。</p>
-<h3 id="唯一性和重复可用性">唯一性和重复可用性</h3>
-<p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
-<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
-<h3 id="CSS_中优先级不同">CSS 中优先级不同</h3>
-<p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
-<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
-<h3 id="跳转功能">跳转功能</h3>
-<p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
-<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="external">http://baike.baidu.com/view/371.htm#8</a></p>
-<h2 id="为什么使用_class_而不是_id">为什么使用 class 而不是 id</h2>
-<p>使用 class 究竟有什么好处？</p>
-<h3 id="减少命名">减少命名</h3>
-<p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
-<h3 id="高度重复使用">高度重复使用</h3>
-<p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
-<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
-<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
-<h3 id="优先级低">优先级低</h3>
-<p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
-<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
-<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
-<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
-<h2 id="id_也是必须有的">id 也是必须有的</h2>
-<p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
-<h3 id="锚标记跳转">锚标记跳转</h3>
-<p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
-<h3 id="用在_input_中">用在 input 中</h3>
-<p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
-<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
-<h2 id="最佳的使用组合">最佳的使用组合</h2>
-<p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
-<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
-<p>欢迎讨论交流。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ws87j4yk8zhifdmu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post--e6-8e-a8-e8-8d-90-e4-b8-80-e4-b8-aa-e6-9c-80-e5-a5-bd-e7-9a-84-wordpress-e9-97-ae-e9-a2-98-e8-a7-a3-e5-86-b3-e5-b9-b3-e5-8f-b0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1795.html" class="article-date">
@@ -196,6 +116,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1795" data-title="推荐一个最好的 WordPress 问题解决平台" data-url="http://www.qianxingzhem.com/post-1795.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -253,6 +191,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1787" data-title="新版个人简历+博客写作方向" data-url="http://www.qianxingzhem.com/post-1787.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -322,6 +278,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1782" data-title="在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项" data-url="http://www.qianxingzhem.com/post-1782.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -396,6 +370,24 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1778" data-title="使用 jquery.easing.js 增强动画过渡效果" data-url="http://www.qianxingzhem.com/post-1778.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -488,6 +480,24 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1767" data-title="如何用 WordPress 写出一篇“好看”的文章" data-url="http://www.qianxingzhem.com/post-1767.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
@@ -552,6 +562,24 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1758" data-title="用 jQuery 制作一个简单的遮罩弹窗效果教程" data-url="http://www.qianxingzhem.com/post-1758.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -624,6 +652,24 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1746" data-title="10个前端开发必备的工具或使用方法" data-url="http://www.qianxingzhem.com/post-1746.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post-dd-belatedpng-e4-b8-8e-unitpngfix-e4-b8-a4-e7-a7-8d-e8-a7-a3-e5-86-b3ie6-e4-b8-adpng-e6-96-87-e4-bb-b6-e9-80-8f-e6-98-8e-e9-97-ae-e9-a2-98-e6-96-b9-e6-a1-88-e6-a8-aa-e5-90-91-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
@@ -693,6 +739,24 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1641" data-title="DD_belatedPNG 与 unitpngfix 两种解决IE6中PNG文件透明问题方案横向对比" data-url="http://www.qianxingzhem.com/post-1641.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e8-bf-91-e6-9c-9f-e7-9a-84-e5-86-99-e4-bd-9c-e8-ae-a1-e5-88-92-e5-92-8c-e5-ad-a6-e4-b9-a0-e6-96-b9-e5-90-91" class="article article-type-post" itemscope itemprop="blogPost">
@@ -743,6 +807,89 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1740" data-title="近期的写作计划和学习方向" data-url="http://www.qianxingzhem.com/post-1740.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-9c-ac-e7-ab-99-e5-8e-9f-e5-88-9b-e4-b8-bb-e9-a2-98-qetro-e7-8e-b0-e5-af-b9-e5-a4-96-e5-85-ac-e5-bc-80-e5-8f-91-e5-b8-83" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1730.html" class="article-date">
+  <time datetime="2013-02-07T08:57:06.000Z" itemprop="datePublished">Feb 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/作品/">作品</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1730.html">本站原创主题 Qetro 现对外公开发布</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>早在去年的8月份，本人就开始制作这套主题，期间收集了不少网友提供的建议。今年二月份以来，经过近一周的工作，对大部分代码进行了重写，推出了公开版本。</p>
+<p>早在去年10月份的 1.2 版本，就打算对外公开，但是由于当时的水平有限，所以一直没有怎么处理主题，让很多网友久等了！！没有这些网友的敦促，相信也不会有公开版本。</p>
+<p>这套主题功能和结构都比较简单，比较适合初学者研究、折腾、二次改造使用，在今后的升级，将会不断的增加新的功能，如果你有什么建议和功能需求，请邮：qianxingzhem#126.com（#换@）</p>
+<p>关于主题更详细的介绍和下载地址，请看这里：<a href="http://www.qianxingzhem.com/theme/qetro" target="_blank" rel="external">Theme Qetro</a></p>
+<p>同时，祝大家新年快乐，万事如意！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1730.html" data-id="rc7gz6zdlmseogz2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress主题/">WordPress主题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1730" data-title="本站原创主题 Qetro 现对外公开发布" data-url="http://www.qianxingzhem.com/post-1730.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
   
@@ -785,7 +932,7 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -795,10 +942,6 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/post-23.html">Hello World</a>
-          </li>
         
           <li>
             <a href="/post-2003.html">本博将停止更新</a>
@@ -814,6 +957,10 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
         
           <li>
             <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
           </li>
         
       </ul>
@@ -833,6 +980,8 @@ $(element).slideUp({ duration: <span class="number">1000</span>, easing: <span c
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
     </div>
     <nav id="mobile-nav">
   

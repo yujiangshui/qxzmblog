@@ -67,109 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-911-e3-80-81-e5-ad-a6-e4-b9-a0-e5-88-b6-e4-bd-9c-e4-b8-bb-e9-a2-98-e4-b9-8b-e5-89-8d-e7-9a-84-e5-87-86-e5-a4-87" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1247.html" class="article-date">
-  <time datetime="2012-09-03T00:29:43.000Z" itemprop="datePublished">Sep 3 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1247.html">【基础篇】1、学习制作主题之前的准备</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="我学习主题制作的过程">我学习主题制作的过程</h2>
-<p>最初学习 WordPress 主题制作的时候，需要一整套比较完整，比较全面的教程。经过搜索找到了由水煮鱼博客翻译的国外wordpress主题制作教程。第一遍看的时候，比较枯燥难懂，也是因为当时的 CSS、PHP 水平比较底下，导致没有耐心看下去。过了一段时间，决定彻底攻克下来，于是下定决心花了一天时间看完了。随后根据教程中讲解的，一遍实践下来，就了解的差不多了。过了几天，就按照自己的思路做出了自己第一个主题。</p>
-<p><strong>所以总结一下，学习主题制作教程需要两点</strong></p>
-<ol>
-<li>一点点 CSS、PHP、HTML 基础。没有基础比较吃力</li>
-<li><p>找一套完整的教程，彻底学完，并且动手实践。<br>水煮鱼博客的 WordPress 主题制作教程非常不错，很多人都是靠它入门的，但是也有一些缺点</p>
-</li>
-<li><p>老外写的，思想的差异，你懂的。</p>
-</li>
-<li>07年的，已经过时了，有些函数貌似被抛弃了。</li>
-<li>翻译的，部分晦涩难懂，源代码的注释是英文。<br>所以我打算根据自己这几个月来的主题制作得到的经验，重新补充升级一下。</li>
-</ol>
-<h2 id="搭建本地环境">搭建本地环境</h2>
-<p>在这里，我默认你的电脑系统为 Windows 系列，我们需要在本地搭建 PHP 环境。你可以选择一些整合的傻瓜安装包，但是如果你想多研究一下 PHP 的话，我还是建议分别安装 PHP、Apache、Mysql 然后配置一下。傻瓜化的安装步骤请移步本人这篇文章：<a href="http://www.qianxingzhem.com/post-455.html" target="_blank" rel="external">本地搭建配置apache+php+mysql环境</a></p>
-<p>搭建好本地系统之后，需要安装 WordPress ，这是废话，你懂的。</p>
-<p>我有服务器，为什么还要自己本地安装？</p>
-<ol>
-<li>在本地读取文件、加载速度快，不受网络限制。</li>
-<li>直接修改文件刷新即可，不需要一遍遍的上传文件、覆盖、访问。<br>当然，你不怕麻烦，也可以上传远程服务器。</li>
-</ol>
-<h2 id="文本编辑类工具">文本编辑类工具</h2>
-<ul>
-<li>记事本：小巧默认，但是编码、代码高亮功能不行，不推荐新手使用。</li>
-<li>EmEditor：编码比较好，但是对代码段的处理不太好，而且是收费的，不过在中国免费，你懂。</li>
-<li>NotePad++：推荐，本人目前就在用这个，无论从代码高亮、代码段等的处理，都比较好，免费开源。</li>
-<li>Dreamweaver：推荐新手使用，可以帮你自动完成很多代码，不过有种受限的感觉。<br>其他的开发环境，用也行，不过制作主题来说，有点大材小用。</li>
-</ul>
-<h2 id="浏览器类">浏览器类</h2>
-<ul>
-<li>Firefox &amp; FireBug ：推荐，做 Web 相关的东西，必不可少。</li>
-<li>IEtest ： 做IE兼容测试，如果你需要的话。</li>
-<li>Chrome：做兼容测试。</li>
-<li>Opera：做兼容测试。</li>
-</ul>
-<h2 id="制作主题的大体流程">制作主题的大体流程</h2>
-<ol>
-<li>思考并设计好你的主题样式。</li>
-<li>制作出 HTML 页面，即大体的风格。</li>
-<li>根据 WordPress 的主题机制等，进行改造。<br>完成。</li>
-</ol>
-<h2 id="学习重点">学习重点</h2>
-<ol>
-<li>WordPress 的主题机制，以及相关技巧。</li>
-</ol>
-<h2 id="对于新手来说">对于新手来说</h2>
-<p>你只需要准备一下两个东西就可以了</p>
-<ol>
-<li>Dreamweaver （推荐使用 8）</li>
-<li>xampp （一键搭建环境，搜索一下非常多）</li>
-<li>FireFox (浏览器，用来查看效果）</li>
-</ol>
-<h2 id="本人用到的工具">本人用到的工具</h2>
-<ol>
-<li>NotePad++</li>
-<li>FireFox</li>
-</ol>
-<h2 id="之前的系列文章">之前的系列文章</h2>
-<ol>
-<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a><br>&nbsp;</li>
-</ol>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1247.html" data-id="iihfxgw01m6foppb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post--e5-8f-b0-e9-a3-8e-e8-bf-87-e5-90-8e-e7-9a-84-e4-ba-ba-e7-94-9f-e6-80-9d-e8-80-83" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1245.html" class="article-date">
@@ -236,6 +133,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1245" data-title="台风过后的人生思考" data-url="http://www.qianxingzhem.com/post-1245.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -315,6 +230,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1235" data-title="开始执行的wordpress主题教程计划" data-url="http://www.qianxingzhem.com/post-1235.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e8-ae-be-e8-ae-a1-e4-b8-ad-e9-bb-98-e8-ae-a4-e6-a0-b7-e5-bc-8f-e7-9a-84-e5-bc-ba-e5-a4-a7-e5-a8-81-e5-8a-9b" class="article article-type-post" itemscope itemprop="blogPost">
@@ -387,6 +320,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1230" data-title="设计中默认样式的强大威力" data-url="http://www.qianxingzhem.com/post-1230.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -469,6 +420,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1226" data-title="ThinkSAAS 常用数据表结构" data-url="http://www.qianxingzhem.com/post-1226.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e6-98-8e-e5-a4-a9-e8-bf-99-e4-b8-aa-e6-97-b6-e5-80-99-ef-bc-8c-e6-88-91-e5-b7-b2-e7-bb-8f-e5-9c-a8-e5-ad-a6-e6-a0-a1-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
@@ -516,6 +485,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1242" data-title="明天这个时候，我已经在学校了" data-url="http://www.qianxingzhem.com/post-1242.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -570,6 +557,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1223" data-title="Style.css文件生成工具" data-url="http://www.qianxingzhem.com/post-1223.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e8-b5-9a-e9-92-b1-e8-b5-9a-e7-96-af-e4-ba-86-e7-9a-84qq-e5-85-ac-e5-8f-b8" class="article article-type-post" itemscope itemprop="blogPost">
@@ -621,6 +626,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1213" data-title="赚钱赚疯了的QQ公司" data-url="http://www.qianxingzhem.com/post-1213.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -685,6 +708,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1220" data-title="全代码打造简洁美观回到顶部按钮" data-url="http://www.qianxingzhem.com/post-1220.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -762,6 +803,118 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1211" data-title="人们究竟怎么去看你博客里的文章" data-url="http://www.qianxingzhem.com/post-1211.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e6-af-8f-e5-91-a8-e4-b8-80-e6-9b-b2-e3-80-91forever-at-your-mercy-ashram" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1205.html" class="article-date">
+  <time datetime="2012-08-27T07:30:09.000Z" itemprop="datePublished">Aug 27 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1205.html">【每周一曲】Forever At Your Mercy - Ashram</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="写在前面，本人是个音乐发烧友，喜欢各种音乐艺术。音乐风格喜欢放眼全宇宙，不仅仅局限在国内的通俗流行乐。我更喜欢国外的，富有特色的音乐。偏向摇滚乐，最喜欢摇滚风格，已经轻音乐、重金属等。基本比较常见的音乐风格流派均有欣赏。每段时间都有不同的听歌重点。于是特写作这个系列，每周分享一首近期喜欢的音乐，并且挖掘同风格的其他优秀音乐，写写自己的感触。希望大家能认真的听一听，说不定你也喜欢这种音乐风格。">写在前面，本人是个音乐发烧友，喜欢各种音乐艺术。音乐风格喜欢放眼全宇宙，不仅仅局限在国内的通俗流行乐。我更喜欢国外的，富有特色的音乐。偏向摇滚乐，最喜欢摇滚风格，已经轻音乐、重金属等。基本比较常见的音乐风格流派均有欣赏。每段时间都有不同的听歌重点。于是特写作这个系列，每周分享一首近期喜欢的音乐，并且挖掘同风格的其他优秀音乐，写写自己的感触。希望大家能认真的听一听，说不定你也喜欢这种音乐风格。</h2>
+<p>本周音乐：Forever At Your Mercy</p>
+<p>作曲者：Ashram</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/5253049_2087142/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/5253049_2087142/singlePlayer.swf" wmode="transparent"></object>
+
+<p>歌词：</p>
+<p><pre>Your smile’s a butterfly<br> Your eyes a two flames fire<br> Your skirt around my nights like a summer moon<br> Lighting up my place but still not mine to hold</pre></p>
+<p><pre>Here I am and here I‘ll stay<br> Here I am<br> Forever at your mercy</pre></p>
+<p><pre>Your skin’s a forbidden dream<br> Your taste a cool grapevine<br> All you give is grace and beauty in trembling shades<br> Please just realize youve got me hypnotized</pre></p>
+<p><pre>Here I am and here Ill stay<br> Here I am<br> Forever at your mercy</pre><br>其实，相信当大家看到这首歌的标题的时候，就已经知道这首歌是什么风格了。忧郁，低沉风格。</p>
+<p>ashram这个来自意大利的乐队，只有三个人，一个钢琴，一个小提琴，一个唱。以极简的曲风，和低沉婉转的嗓音占据人们的心。</p>
+<p>这首歌，当我听到butterfly 这个词的时候，心就跟着嗓音震颤起来，立刻感受到了这首歌要表达的悲伤，忧郁之情。</p>
+<p>不过我更喜欢的则是后半部分的，当旋律和歌声突起的时候，那种旋律是如此的振奋人心。交织变成如此美妙的旋律。</p>
+<p>当然具体还要你去聆听去欣赏，一定要静下心来欣赏。</p>
+<p>最近爱上了ashram的歌，除了这首，还有几首比较称赞：</p>
+<p>Lady - 很奇怪的感情，很清澈的嗓音</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/0_2087136/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/0_2087136/singlePlayer.swf" wmode="transparent"></object>
+
+<p>&nbsp;</p>
+<p>Lullaby - 很释怀的感觉，特别是后来的舒畅的嗓音</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/0_2087129/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/0_2087129/singlePlayer.swf" wmode="transparent"></object>
+
+<p>&nbsp;</p>
+<p>Elizabeth - 经典轻音乐，说不定你以前听过</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/0_2087133/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/0_2087133/singlePlayer.swf" wmode="transparent"></object>
+
+<p>&nbsp;</p>
+<p>Il Mostro - 同上，很经典的轻音乐，感觉前奏的曲调和上面的相似</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/0_2087130/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/0_2087130/singlePlayer.swf" wmode="transparent"></object>
+
+<p>&nbsp;</p>
+<p>至于其他的歌，还望有兴趣的朋友，自行搜索一下。可以打开这里：<a href="http://www.xiami.com/artist/23516" target="_blank" rel="external">http://www.xiami.com/artist/23516</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1205.html" data-id="hptllrkaqoiwlpbp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐推荐/">音乐推荐</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1205" data-title="【每周一曲】Forever At Your Mercy - Ashram" data-url="http://www.qianxingzhem.com/post-1205.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
   
@@ -804,7 +957,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -814,10 +967,6 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/post-23.html">Hello World</a>
-          </li>
         
           <li>
             <a href="/post-2003.html">本博将停止更新</a>
@@ -833,6 +982,10 @@
         
           <li>
             <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
           </li>
         
       </ul>
@@ -852,6 +1005,8 @@
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
     </div>
     <nav id="mobile-nav">
   

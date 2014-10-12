@@ -67,91 +67,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9111-ef-bc-8c-e9-80-9a-e8-bf-87-index-php-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90-e6-96-87-e7-ab-a0-e9-a1-b5-e9-9d-a2single-php" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1568.html" class="article-date">
-  <time datetime="2012-11-26T17:08:25.000Z" itemprop="datePublished">Nov 27 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1568.html">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在上一节我们讲解了如何对 index.php 文件进行分块，这节课就来讲解，如何通过这个文件，生成一个 文章模板（single.php 文件）。通过这节课，你会体验到文件分块的好处。</p>
-<p>生成这个 文章页面模板 的步骤很简单。首先，我们先来仔细想一下，文章页面和博客首页有什么不同？除非是很特殊的设计，它们之间的不同，就在于主体区域。因为博客首页，更多的是要展示文章的信息，包括标题、时间、摘要等，通常以列表的形式出现。而具体的文章页面，就需要显示文章内容。至于其他的元素，例如头部、边栏、底部等这些都是不需要变化的。</p>
-<p>那么生成的步骤就出来了。只需要把 index.php 复制一遍，然后命名为 single.php ，之后再修改一下这个文件，把结构改一下、添加上评论功能等，就变成了一个文章页面模板了。</p>
-<h2 id="修改文档结构">修改文档结构</h2>
-<p>对于文章内容页面，为了更加方便的使用 CSS 对其进行控制，我们需要对其 结构进行修改。之前的结构</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single0.png" alt="" title="single0.png"></a></p>
-<p>修改后的结构，已经添加了 文章信息描述 和 评论模块</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single1.png" alt="" title="single1"></a></p>
-<p>之后，我们还要修改调用数据的函数。之前复制的时候，还是 the_excerpt() 这个显示文章摘要，我们现在要使用下面语句来调用全文内容</p>
-<p><pre>&lt;?php the_content(); ?&gt;</pre><br>不需要任何参数，即可直接输出一篇文章的所有内容。当然，也可以为这个函数加上一些参数，这样可以根据自己的需要进行定义。更加详细的用法，请看 <a href="http://codex.wordpress.org/Template_Tags/the_content" target="_blank" rel="external">官方文档</a> 或者 <a href="http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-the_content%28%29.html" target="_blank" rel="external">中文版</a> 的。在这里，就不再赘述了。</p>
-<p>完成上述步骤之后，我们刷新一下博客，然后随便打开一篇文章的时候，发现已经可以显示出来文章全文了。下面我们需要来进行一些样式的修饰。</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single2.png" alt="" title="single2"></a></p>
-<h2 id="添加_CSS_样式">添加 CSS 样式</h2>
-<p>之后可以看到文章数据之后，我们就需要对其使用 CSS 排版布局。排版主要的内容包括：文章整体布局、文章内元素的修饰、新增结构的布局等。关于文章内元素的修饰，在高级篇还会更加深入的讲解。在初级篇中，我简单的对其进行修饰一下，不对一些文章内的细节进行修饰。之后，文章页面效果图如下：</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single3.png" alt="" title="single3"></a></p>
-<h2 id="添加相应数据调用">添加相应数据调用</h2>
-<p>修饰完成之后，我们需要在新增的“文章信息”模块中，添加相应的数据调用。只需要把下面一段代码复制到那个位置即可：</p>
-<p><pre>原创作者：&lt;a href=”&lt;?php echo $authordata-&gt;user_url; ?&gt;” title=”&lt;?php echo $authordata-&gt;display_name;?&gt;”&gt;&lt;?php echo $authordata-&gt;display_name;?&gt;&lt;/a&gt;&lt;br /&gt;<br> 原文链接：&lt;a href=”&lt;?php echo get_permalink($post-&gt;ID);?&gt;” title=”&lt;?php echo $post-&gt;post_title; ?&gt;”&gt;&lt;?php echo $post-&gt;post_title; ?&gt;&lt;/a&gt;&lt;br /&gt;<br> 版权声明：&lt;a href=”&lt;?php bloginfo(‘siteurl’); ?&gt;”&gt;© &lt;?php bloginfo(‘name’); ?&gt; &lt;/a&gt; 版权所有，转载请声明版权！</pre><br>显示效果如下：</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single4.png" alt="" title="single4"></a></p>
-<p>上面的代码，对于有一定 PHP 基础的朋友来说，很容易理解。就是通过 WordPress 内置的几个全局对象，调取当前文章的相应信息，然后以 HTML 的方式呈现出来，于是就有了大家看到的那个效果。</p>
-<h2 id="添加评论功能">添加评论功能</h2>
-<p>评论功能，是一篇文章必不可少的模块。增加评论模块，通常在 主题目录下面 新建一个名为 comments.php 的文件，然后在里面添加上相应的评论提交、评论调用显示的函数，之后在相应位置，加上调用函数。但是评论模块比较复杂，在基础篇中，就不讲解如何去手动添加评论模块，而是推荐使用第三方评论插件。</p>
-<p>在这里推荐一下 <a href="http://duoshuo.com/" target="_blank" rel="external">多说</a> 这个评论插件。在 WordPress 中安装这个插件，然后在他们官方网站上注册账号，通过密钥链接起来之后，就可以使用他们的插件了。他们定义的评论框样式美观，而且是拥有完整的评论功能，还可以使用社会化的网络登录并且同步到微博等等功能。所以推荐一下，大家可以去他们官方网站（<a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a>）得到详细的使用教程和方法。</p>
-<p>新建完 comments.php 之后，保持这个文档内容为空即可。然后找到主题文件中的评论功能的位置，在这里添加下面的代码：</p>
-<p><pre>&lt;?php comments_template(); ?&gt;</pre><br>这个函数就是用来调用评论模块的，我们只需要做这么多即可。因为安装 多说 插件之后，它会自动检测 这个函数 然后将其内容替换成他们的评论模块。安装完多说插件，并且安装官方要求配置好之后，就会看到如下的评论框样式。</p>
-<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/11/1568/single5.png" alt="" title="single5"></a></p>
-<p>好，我们的文章页面就这样完成了。</p>
-<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
-<p><a href="http://pan.baidu.com/share/link?shareid=141181&amp;uk=706095745" target="_blank" rel="external">myTheme(基础篇-11) 主题下载</a></p>
-<h2 id="本系列文章">本系列文章</h2>
-<ol>
-<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1259.html" target="_blank" rel="external">【基础篇】3、设计制作你的HTML主题文件</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1268.html" target="_blank" rel="external">【基础篇】4、安装主题文件</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1304.html" target="_blank" rel="external">【基础篇】5、制作主题的头部区域</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1502.html" target="_blank" rel="external">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1551.html" target="_blank" rel="external">【基础篇】7，制作博客的搜索模块</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1556.html" target="_blank" rel="external">【基础篇】8，添加博客边栏功能</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1564.html" target="_blank" rel="external">【基础篇】9，制作底部区域 footer</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1566.html" target="_blank" rel="external">【基础篇】10，将现有 index.php 文件分块处理</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1568.html" data-id="q9mrjvf5zgwba4xc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9110-ef-bc-8c-e5-b0-86-e7-8e-b0-e6-9c-89-index-php-e6-96-87-e4-bb-b6-e5-88-86-e5-9d-97-e5-a4-84-e7-90-86" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1566.html" class="article-date">
@@ -241,6 +156,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1566" data-title="【基础篇】10，将现有 index.php 文件分块处理" data-url="http://www.qianxingzhem.com/post-1566.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-919-ef-bc-8c-e5-88-b6-e4-bd-9c-e5-ba-95-e9-83-a8-e5-8c-ba-e5-9f-9f-footer" class="article article-type-post" itemscope itemprop="blogPost">
@@ -297,6 +230,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1564" data-title="【基础篇】9，制作底部区域 footer" data-url="http://www.qianxingzhem.com/post-1564.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -359,6 +310,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1561" data-title="学会在互联网的海量信息中学习" data-url="http://www.qianxingzhem.com/post-1561.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -456,6 +425,24 @@
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1556" data-title="【基础篇】8，添加博客边栏功能" data-url="http://www.qianxingzhem.com/post-1556.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-917-ef-bc-8c-e5-88-b6-e4-bd-9c-e5-8d-9a-e5-ae-a2-e7-9a-84-e6-90-9c-e7-b4-a2-e6-a8-a1-e5-9d-97" class="article article-type-post" itemscope itemprop="blogPost">
@@ -532,6 +519,24 @@
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1551" data-title="【基础篇】7，制作博客的搜索模块" data-url="http://www.qianxingzhem.com/post-1551.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -633,6 +638,24 @@ a:active{color:#666666; text-decoration:none;}</pre>
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1539" data-title="网页中代码的顺序是不可忽略的细节" data-url="http://www.qianxingzhem.com/post-1539.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
     <article id="post-wordpress-e8-87-aa-e5-ae-9a-e4-b9-89-e8-8f-9c-e5-8d-95-e5-8a-9f-e8-83-bd-e4-bb-8b-e7-bb-8d-e5-92-8c-e4-bd-bf-e7-94-a8-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
@@ -702,6 +725,24 @@ a:active{color:#666666; text-decoration:none;}</pre>
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1521" data-title="WordPress 自定义菜单功能介绍和使用详解" data-url="http://www.qianxingzhem.com/post-1521.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -792,6 +833,24 @@ a:active{color:#666666; text-decoration:none;}</pre>
   </div>
   
 </article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1502" data-title="【基础篇】6，使用主循环调用显示日志摘要等数据" data-url="http://www.qianxingzhem.com/post-1502.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
 
 
   
@@ -890,6 +949,145 @@ a:active{color:#666666; text-decoration:none;}</pre>
   
 </article>
 
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1499" data-title="网页编码就是那点事" data-url="http://www.qianxingzhem.com/post-1499.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e8-bf-81-e7-a7-bb-sae-e5-ae-8c-e5-85-a8-e6-93-8d-e4-bd-9c-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1387.html" class="article-date">
+  <time datetime="2012-10-19T23:24:52.000Z" itemprop="datePublished">Oct 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1387.html">WordPress 迁移 SAE 完全操作攻略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。</p>
+<h2 id="SAE_是什么">SAE 是什么</h2>
+<p>在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件、优质高速的硬件等，方便开发者进行应用的开发。狭义的讲，就是一个网站空间，可以把网站放上去，但是和普通的虚拟主机、VPS等又有很多不同的地方。在后面你会了解到。它的地址：<a href="http://sae.sina.com.cn" target="_blank" rel="external">http://sae.sina.com.cn</a></p>
+<h3 id="为什么要迁移_SAE">为什么要迁移 SAE</h3>
+<p>之所以迁移到 SAE 上，是因为 SAE 有以下几个优点。</p>
+<ol>
+<li>硬件质量高，网站访问速度快。</li>
+<li>专业，不用怕数据丢失或者服务商跑路。</li>
+<li>按照你使用的资源进行收费，收费合理，性价比高。<br>最看重的是 SAE 平台的<strong>稳定、高速和性价比</strong>，与原来的美国空间、香港空间相比，低价高质量。</li>
+</ol>
+<h3 id="开通_SAE">开通 SAE</h3>
+<p>开通 SAE 只需要打开 SAE ，然后点击右上方的注册即可，它使用新浪微博作为账号。其中还要区分几个概念，包括安全邮箱、安全密码等等。此外，SAE 平台使用 SVN 的方式上传文件，它的使用要比传统的 FTP 上传方便简单，但是需要学习和适应，这点官方文档写的非常详细。你需要花费一点时间，查看一下他们的帮助文档，这些很简单，也不是本文要说的重点。帮助文档：<a href="http://sae.sina.com.cn/?m=devcenter" target="_blank" rel="external">http://sae.sina.com.cn/?m=devcenter</a></p>
+<h2 id="迁移_WordPress">迁移 WordPress</h2>
+<p>本文的重点不是 SAE 的注册和开通，而是在于如何合理正确高效的把 WordPress 博客，从之前的主机中迁移到 SAE 中。</p>
+<h3 id="安装_WordPress_应用">安装 WordPress 应用</h3>
+<p>SAE 之所以高速、稳定，是因为它限制了部分功能。例如：出于完全考虑，SAE 禁止了 I/O 读写操作，这样，就无法使用传统的函数，进行生成或者读取操作等。</p>
+<p>所以，官方原版的 WordPress 是不能直接安装上去的，因为里面的一些功能（例如：在线安装主题）是 SAE 平台所不支持的。但是 WordPress 这么流行的系统，当然有团队修改里面的代码，把不支持的功能，进行改写做成了 WordPress for SAE 版本，同时还上架到 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，这样只需要点几下鼠标，就可以在你的应用空间中，安装上 WordPress 。</p>
+<p>1，创建一个应用。登陆之后，在 <a href="http://sae.sina.com.cn/?m=myapp" target="_blank" rel="external">我的应用</a> 页面中，找到右上方的 “安装应用” 。会出现如下的配置窗口。SAE 的应用安装，基于安装包（zip格式）安装，可以直接填写网上的安装包，也可以本地上传。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" alt="" title="创建应用"></a></p>
+<p>2，在 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，找到 <a href="http://sae.sina.com.cn/?m=apps&amp;a=detail&amp;aid=1" target="_blank" rel="external">WordPress for SAE</a> 的安装包地址，可以把地址填写到上面的 安装应用 表单中。其实，也可以点击右上方的 “安装应用”，直接进行安装。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" alt="" title="从应用仓库中安装"></a></p>
+<p>3，输入一个 二级域名 和 验证码 之后，点击创建，就会告诉你已经创建成功了。现在你就可以管理这个应用了。根据提示，进行应用的初始化，就是安装 WordPress 时配置安装信息。</p>
+<p>配置完成之后，系统会提示你安装完成。WordPress 系统就算安装完成了。你可以进入后台看一下相关配置，这个版本的 WordPress 是比较老的 ，截止到本文写作时，版本为 3.2.1。所以在安装插件的时候，需要注意插件是否支持这个版本。其中内置了几个比较常用的插件以及三个主题。下面就要进行博客数据的迁移。</p>
+<h3 id="转移文章等数据">转移文章等数据</h3>
+<p>文章等数据的迁移是整个迁移工作中，最简单的一个步骤。很多文章写道需要把数据库里的数据导入等等，其实不用这么麻烦，使用 WordPress 内置的工具（导入、导出）即可完成。</p>
+<ol>
+<li>首先在原先的博客中，点击 “工具” -》 “导出” ，选择 “全部内容” ，点击导出。会弹出一个 xml 文件的下载。这个文件就记录了你博客上面的文章、评论、页面等等数据。</li>
+<li>在 SAE 的博客上面，点击 “工具” -》 “导入” ，选择列表中的 “WordPress”。然后上传这个 xml 文件，将作者名等修改一下即可。注意，不要勾选 “下载远程附件” 这个项目，因为 SAE 不支持 读写操作，所以选择这个会报错。<br>这个时候，文章等数据迁移完毕，打开应用首页，你已经可以看到你的文章数据了。</li>
+</ol>
+<h3 id="配置后台网站信息与之前网站完全一致">配置后台网站信息与之前网站完全一致</h3>
+<p>采用上面这种方法，只能迁移文章、页面、评论等数据，而无法迁移原有 WordPress 的后台设置。所以我们要打开 SAE 上的 WordPress 后台中的 “设置” 标签，把下面的内容依次重新设置一下，把它们设置的和原先博客中设置的一样。</p>
+<h3 id="对于图片/网站附件的处理">对于图片/网站附件的处理</h3>
+<p>数据迁移通常分为两种：<strong>内容迁移</strong>和<strong>资源迁移</strong>。内容迁移很简单，上面已经完成。令人头痛的是资源迁移，即 图片资源、附件资源等。<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 搜寻了很多资料来解决这个资源迁移的问题。</p>
+<p><strong>1，直接使用 SVN 的方式，上传到原有博客的 upload 目录中。</strong></p>
+<p>这是最简单的一种方式，但是有很多问题。首先，SAE 的应用代码空间，只有100M大小。上面通常存放代码、基础的图片等资源，不适合存储附件等。潜行者m 博客光图片资源以及超过100M大小，肯定无法使用 SVN 的方式上传到 代码空间。但是对于图片附件比较少的博客来说，可以直接使用这种方法。</p>
+<p><strong>2，使用 SAE 的 Storage 服务</strong></p>
+<p>Storage 服务，是 SAE 为应用提供的专门用于存储文件的空间。容量大，下载速度快。当你使用 WordPress for SAE 写文章上传附件的时候，会自动上传到这个空间中，然后进行调用。这就相当于外链的空间了。</p>
+<p>所以我们首先要把 资源文件 上传到这个应用的 Storage 空间中，然后修改文章中对于资源的引用，把外链修改上。上传有两种方法：</p>
+<p>第一种手动创建目录，然后依次上传。打开应用页面，在左下方找到 “Storage”，打开之后，点击 “管理” ，然后就可以创建目录、上传文件等操作。然后，将原来文章中的资源外链修改一下，Storage 空间的外链通常为 XXX-wordpress.stor.sinaapp.com 加上目录。其中 XXX 为你的应用名称。</p>
+<p>第二种是使用工具上传。如果附件很多，上传的工作量可想而知。所以有人就写出了上传的程序。经过搜索，找到了一个工具 <a href="http://www.shootsoft.net/149" target="_blank" rel="external">SAE Mutiple Uploads 0.2</a> 。具体的介绍和使用说明，打开他们的官方教程好了，上面说的很详细了。但是我在操作的时候，不知道为什么，没有成功。工具显示上传成功，但是我在 Storage 空间中，并没有发现我上传的资源。提供一个思路，你可以尝试一下，说不定是我的人品问题。</p>
+<p><strong>补充(2012.10.22)</strong>：<a href="http://sypopo.com/" target="_blank" rel="external">信仰飘扬</a> 提醒，可以使用 Cyberduck 这个软件方便进行 storage 空间的管理。<strong>
+</strong></p>
+<p><strong>3，使用第三方外链服务(又拍云/华为网盘等)</strong></p>
+<p>只有在迁移的时候，才感觉出来外链的重要性，因为无论怎么迁移，外链是不会变的。因此，我考虑将所有资源放在外链上，然后以后就用外链链接资源。据了解，免费的网盘有部分支持图片外链，例如华为等。收费的比较好的有又拍云。最后我选择了又拍云，购买了又拍云的服务。</p>
+<p>又拍云具体的操作流程我就不多说了，速度非常快。上传资源之后，在网上偶然发现了 <a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">荒野无灯</a> 写的又拍云上传插件：<a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">Hacklog Remote Attachment Upyun(又拍云版)</a>。果断激动了一下，因为这个插件，可以让你上传文件的时候，自动上传到远程的又拍云服务器上，同时还有一个非常重要的功能，可以修改数据库，将数据库里面的原有的失效资源连接，自动修正成又拍云的外链。</p>
+<p>但是安装用了一下，还是出错，问了一下灯哥，原来是这个版本太低了，出现了这个错误。所以这个方法就留给以后的人看了，等 SAE 上的 WordPress for SAE 升级之后，就能用了。</p>
+<p>如果想要批量修改原有失效的资源连接，可能只有像荒野无灯写的插件那样，对数据库进行修改。否则只能一篇文章一篇文章的进行修改。如果你有更好的办法，希望能回复交流！</p>
+<p><strong>补充（2012.10.21）</strong>：Denis 提供了一个解决这类问题的好方法，即使用插件 <a href="http://fairyfish.net/2010/05/31/search-and-replace/" target="_blank" rel="external">Search &amp; Replace </a> 批量对数据库里面的图片链接进行修改。</p>
+<h3 id="在_WordPress_for_SAE_中安装主题和插件">在 WordPress for SAE 中安装主题和插件</h3>
+<p>由于 SAE 禁止了读写操作，所以安装主题和插件，无法向以前那样，直接在后台进行上传或者远程安装。必须要通过 SVN 的方式上传。默认的安装了 WordPress for SAE 之后，并没有开启 SVN 服务，因为开启 SVN 服务，需要花费一些资源，所以要消耗一些云豆。我们在后台左侧找到 “代码管理” 然后点击 “创建 SVN 库” 就开启了 SVN 服务，之后根据 SAE 的<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=212" target="_blank" rel="external">说明文档</a>使用即可。安装主题和插件，只需要把主题和插件复制到相应的目录，然后 SVN 上传一下即可，和使用 FTP 一样。但是要注意，主题和插件中的功能不能有 读写操作 等 SAE 不支持的功能，否则可能出现意外情况。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" alt="" title="SAE 安装 wordpress 插件主题"></a></p>
+<h3 id="将域名解析到_SAE">将域名解析到 SAE</h3>
+<p>现在文章等内容、图片等资源都已经迁移过来了。现在要检查一下迁移之后的网站和原先的网站还有什么地方不同。所有的地方都必须丝毫不差才可以。特别是 “固定链接” 等等，如果有不同，会导致收录等问题。</p>
+<p>当你觉得完全相同，在迁移之后，就要把域名解析到 SAE 中。在管理后台找到左侧的 <strong>“应用管理”</strong> 打开之后，在下面会有独立域名设置。由于 SAE 比较特殊，所以它暂时不支持备案，如果你的域名是备案过的，那么需要填写备案表格，向 SAE 提交申请。如果你的域名没有备案，SAE 支持绑定到国外的合作伙伴那里，然后做一个跳转。比较简单，所以不再多说。</p>
+<p>这两种方案区别很大，备案域名直接接入服务器，ping 值只有 50MS 左右，响应速度和 百度 差不多，下载速度也非常快。绑定到国外的未备案域名，通过香港节点访问，ping 值有 160 MS左右，下载速度略慢，相当于高质量的香港空间，但是要消耗两倍的流量，也就是交两倍的钱。</p>
+<h3 id="转移之后的SAE优化">转移之后的SAE优化</h3>
+<p>鉴于大部分的同学的网站都是没有备案的，但是要花两倍的钱，所以我们就要进行优化。优化的重点就是减少 SAE 流量的损耗。一般通过三个方法进行优化：</p>
+<ol>
+<li>开启 gzip。开启 SAE 的 gzip 教程，请看这里：<a href="http://www.hiadmin.org/blog-seo/wordpress-sae-gzip" target="_blank" rel="external">开启SAE的Gzip压缩为WordPress提速</a></li>
+<li>压缩图片、CSS、JavaScript等文件，尽量使用外链。<br>完成这些步骤之后，可以尽量的避免系统资源的消耗，这样就可以节省云豆。同时，你还可以开发应用，进行开发者认证，这样每月都会送你一些云豆。如果你流量不大的话，这样几乎都成了免费的了。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1387.html" data-id="bndotivog1db9byd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1387" data-title="WordPress 迁移 SAE 完全操作攻略" data-url="http://www.qianxingzhem.com/post-1387.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
 
   
   
@@ -932,7 +1130,7 @@ a:active{color:#666666; text-decoration:none;}</pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -942,10 +1140,6 @@ a:active{color:#666666; text-decoration:none;}</pre>
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/post-23.html">Hello World</a>
-          </li>
         
           <li>
             <a href="/post-2003.html">本博将停止更新</a>
@@ -961,6 +1155,10 @@ a:active{color:#666666; text-decoration:none;}</pre>
         
           <li>
             <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
           </li>
         
       </ul>
@@ -980,6 +1178,8 @@ a:active{color:#666666; text-decoration:none;}</pre>
     </div>
   </div>
 </footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
     </div>
     <nav id="mobile-nav">
   
