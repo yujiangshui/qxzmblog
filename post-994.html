@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>潜行者m的CSS2笔记（一） | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。
+注意，这份笔记不适合新手，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="潜行者m的CSS2笔记（一）">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-994.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。
+注意，这份笔记不适合新手，">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m的CSS2笔记（一）">
+<meta name="twitter:description" content="以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。
+注意，这份笔记不适合新手，">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-b8-80-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-994.html" class="article-date">
+  <time datetime="2012-05-14T09:03:11.000Z" itemprop="datePublished">May 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      潜行者m的CSS2笔记（一）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。</p>
+<p><strong>注意，这份笔记不适合新手，这里面的知识点，不是系统的基础的，而是经常不小心忽略掉但是又常用的。</strong>有经验的朋友，可以看一下，里面的知识点你忽略了多少。</p>
+<p>1，相同类型的css定义，默认执行后面的一个，可以用！important语法修改优先性。例如：background-color:red;!important</p>
+<p>2，标注某些css hack的地方，使用hack；没完成的地方使用todo。（在大型的工程中，用注释标注一下，方便查询修改）</p>
+<p>3，block块状对象占据整行，其他的都移到下一行；in-line行间（内联）允许与下一对象共享一行。</p>
+<p>4，尽量减少div的嵌套，会增加浏览器解析的难度。</p>
+<p>5，最终宽度=左外边距+左边框+左内边距+宽度+右内边距+右边框+右外边距，最终高度也是如此，需要精确计算，放置错位。</p>
+<p>6，重叠的margin会叠加显示，以大值为准。当两个div设定float之后，就不会叠加了。</p>
+<p>7，浮动的清理（clear）。使用clear属性来拒绝某个方向上的浮动，这样就不会浮动到上一层了。（这个最好实践一下）</p>
+<p>8，父position:relative;子position:absolute。子在父中绝对定位，将以父位置为基准。</p>
+<p>9，div应当重点放在大面积区域上，对于简单的导航等，用ul解决。</p>
+<p>10，下拉菜单等，可以通过伪类选择器以及display属性来控制。display:none;表示隐藏当前元素。（通常使用javascript来实现下拉菜单，但是现在用纯css也可以实现的很好）</p>
+<p>11，css hack:*html—这种方式仅被IE浏览器支持解析，是最常用的css hack之一。</p>
+<p>12，div是一个块，用来整体布局设计——block<br>span是一个范围，用来区别内容——in-line</p>
+<p>13，background-attachment:scroll/fixed;设置背景图片的滚动方式。</p>
+<p>14，background-color:transparent;透明模式，显示背景。</p>
+<p>15，background-position:左对齐方式 上对齐方式 ;用它可以对图像进行精确的定位，同时实现css sprites功能。例如：background-position:0px -27px;</p>
+<p>16，ul/ol属性：<br>list-style-image:none/url;设置图片作为列表中的项目。<br>list-style-position:inside/outside;设置项目符号的放置位置。<br>list-style-type:none/disc/……;设置li的表现形式（没有/点状/圆圈/方块等等）</p>
+<p>17，display属性：<br>block：将对象显示成盒状，后一个对象换行显示。<br>none：隐藏/不显示对象。<br>inline：行间内联样式，将对象排列成一行。<br>inline-block：对象显示成块状，但呈现内联样式。<br>list-item：将对象作为列表项显示</p>
+<p>18，float:left;更适合对象布局，但是浮动多了，容易造成浏览器解析混乱。希望让信息显示为段落，最好使用display:inline;（通常设置一个原子类fl{float:left;display:inline;}，元素浮动的时候，加上class=”fl”)</p>
+<p>19，text-indent:value;用于控制段落文本的首行缩进想过。text-indent:20px;表示对象首行缩进20px。如果想要比其他提前一些，可以使用负数值来实现。text-indent:-88888px;设置超大的数值，还可以起到隐藏文本的效果。</p>
+<p>20，对于表单样式的控制最基本的方法就是使用border以及background-color。即对表单元素的背景、边框进行设置优化，消除默认难看的样式。</p>
+<p>先打这么多，剩下的留在<strong>潜行者m的CSS2笔记（二）</strong>中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-994.html" data-id="qy6lquv1pg90pm63" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1005.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          潜行者m的CSS2笔记（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-992.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">阮一峰博客与zac博客的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

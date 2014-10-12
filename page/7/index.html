@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/page/7/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-wordpress-e8-bf-81-e7-a7-bb-sae-e5-ae-8c-e5-85-a8-e6-93-8d-e4-bd-9c-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1387.html" class="article-date">
+  <time datetime="2012-10-19T23:24:52.000Z" itemprop="datePublished">Oct 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1387.html">WordPress 迁移 SAE 完全操作攻略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。</p>
+<h2 id="SAE_是什么">SAE 是什么</h2>
+<p>在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件、优质高速的硬件等，方便开发者进行应用的开发。狭义的讲，就是一个网站空间，可以把网站放上去，但是和普通的虚拟主机、VPS等又有很多不同的地方。在后面你会了解到。它的地址：<a href="http://sae.sina.com.cn" target="_blank" rel="external">http://sae.sina.com.cn</a></p>
+<h3 id="为什么要迁移_SAE">为什么要迁移 SAE</h3>
+<p>之所以迁移到 SAE 上，是因为 SAE 有以下几个优点。</p>
+<ol>
+<li>硬件质量高，网站访问速度快。</li>
+<li>专业，不用怕数据丢失或者服务商跑路。</li>
+<li>按照你使用的资源进行收费，收费合理，性价比高。<br>最看重的是 SAE 平台的<strong>稳定、高速和性价比</strong>，与原来的美国空间、香港空间相比，低价高质量。</li>
+</ol>
+<h3 id="开通_SAE">开通 SAE</h3>
+<p>开通 SAE 只需要打开 SAE ，然后点击右上方的注册即可，它使用新浪微博作为账号。其中还要区分几个概念，包括安全邮箱、安全密码等等。此外，SAE 平台使用 SVN 的方式上传文件，它的使用要比传统的 FTP 上传方便简单，但是需要学习和适应，这点官方文档写的非常详细。你需要花费一点时间，查看一下他们的帮助文档，这些很简单，也不是本文要说的重点。帮助文档：<a href="http://sae.sina.com.cn/?m=devcenter" target="_blank" rel="external">http://sae.sina.com.cn/?m=devcenter</a></p>
+<h2 id="迁移_WordPress">迁移 WordPress</h2>
+<p>本文的重点不是 SAE 的注册和开通，而是在于如何合理正确高效的把 WordPress 博客，从之前的主机中迁移到 SAE 中。</p>
+<h3 id="安装_WordPress_应用">安装 WordPress 应用</h3>
+<p>SAE 之所以高速、稳定，是因为它限制了部分功能。例如：出于完全考虑，SAE 禁止了 I/O 读写操作，这样，就无法使用传统的函数，进行生成或者读取操作等。</p>
+<p>所以，官方原版的 WordPress 是不能直接安装上去的，因为里面的一些功能（例如：在线安装主题）是 SAE 平台所不支持的。但是 WordPress 这么流行的系统，当然有团队修改里面的代码，把不支持的功能，进行改写做成了 WordPress for SAE 版本，同时还上架到 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，这样只需要点几下鼠标，就可以在你的应用空间中，安装上 WordPress 。</p>
+<p>1，创建一个应用。登陆之后，在 <a href="http://sae.sina.com.cn/?m=myapp" target="_blank" rel="external">我的应用</a> 页面中，找到右上方的 “安装应用” 。会出现如下的配置窗口。SAE 的应用安装，基于安装包（zip格式）安装，可以直接填写网上的安装包，也可以本地上传。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" alt="" title="创建应用"></a></p>
+<p>2，在 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，找到 <a href="http://sae.sina.com.cn/?m=apps&amp;a=detail&amp;aid=1" target="_blank" rel="external">WordPress for SAE</a> 的安装包地址，可以把地址填写到上面的 安装应用 表单中。其实，也可以点击右上方的 “安装应用”，直接进行安装。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" alt="" title="从应用仓库中安装"></a></p>
+<p>3，输入一个 二级域名 和 验证码 之后，点击创建，就会告诉你已经创建成功了。现在你就可以管理这个应用了。根据提示，进行应用的初始化，就是安装 WordPress 时配置安装信息。</p>
+<p>配置完成之后，系统会提示你安装完成。WordPress 系统就算安装完成了。你可以进入后台看一下相关配置，这个版本的 WordPress 是比较老的 ，截止到本文写作时，版本为 3.2.1。所以在安装插件的时候，需要注意插件是否支持这个版本。其中内置了几个比较常用的插件以及三个主题。下面就要进行博客数据的迁移。</p>
+<h3 id="转移文章等数据">转移文章等数据</h3>
+<p>文章等数据的迁移是整个迁移工作中，最简单的一个步骤。很多文章写道需要把数据库里的数据导入等等，其实不用这么麻烦，使用 WordPress 内置的工具（导入、导出）即可完成。</p>
+<ol>
+<li>首先在原先的博客中，点击 “工具” -》 “导出” ，选择 “全部内容” ，点击导出。会弹出一个 xml 文件的下载。这个文件就记录了你博客上面的文章、评论、页面等等数据。</li>
+<li>在 SAE 的博客上面，点击 “工具” -》 “导入” ，选择列表中的 “WordPress”。然后上传这个 xml 文件，将作者名等修改一下即可。注意，不要勾选 “下载远程附件” 这个项目，因为 SAE 不支持 读写操作，所以选择这个会报错。<br>这个时候，文章等数据迁移完毕，打开应用首页，你已经可以看到你的文章数据了。</li>
+</ol>
+<h3 id="配置后台网站信息与之前网站完全一致">配置后台网站信息与之前网站完全一致</h3>
+<p>采用上面这种方法，只能迁移文章、页面、评论等数据，而无法迁移原有 WordPress 的后台设置。所以我们要打开 SAE 上的 WordPress 后台中的 “设置” 标签，把下面的内容依次重新设置一下，把它们设置的和原先博客中设置的一样。</p>
+<h3 id="对于图片/网站附件的处理">对于图片/网站附件的处理</h3>
+<p>数据迁移通常分为两种：<strong>内容迁移</strong>和<strong>资源迁移</strong>。内容迁移很简单，上面已经完成。令人头痛的是资源迁移，即 图片资源、附件资源等。<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 搜寻了很多资料来解决这个资源迁移的问题。</p>
+<p><strong>1，直接使用 SVN 的方式，上传到原有博客的 upload 目录中。</strong></p>
+<p>这是最简单的一种方式，但是有很多问题。首先，SAE 的应用代码空间，只有100M大小。上面通常存放代码、基础的图片等资源，不适合存储附件等。潜行者m 博客光图片资源以及超过100M大小，肯定无法使用 SVN 的方式上传到 代码空间。但是对于图片附件比较少的博客来说，可以直接使用这种方法。</p>
+<p><strong>2，使用 SAE 的 Storage 服务</strong></p>
+<p>Storage 服务，是 SAE 为应用提供的专门用于存储文件的空间。容量大，下载速度快。当你使用 WordPress for SAE 写文章上传附件的时候，会自动上传到这个空间中，然后进行调用。这就相当于外链的空间了。</p>
+<p>所以我们首先要把 资源文件 上传到这个应用的 Storage 空间中，然后修改文章中对于资源的引用，把外链修改上。上传有两种方法：</p>
+<p>第一种手动创建目录，然后依次上传。打开应用页面，在左下方找到 “Storage”，打开之后，点击 “管理” ，然后就可以创建目录、上传文件等操作。然后，将原来文章中的资源外链修改一下，Storage 空间的外链通常为 XXX-wordpress.stor.sinaapp.com 加上目录。其中 XXX 为你的应用名称。</p>
+<p>第二种是使用工具上传。如果附件很多，上传的工作量可想而知。所以有人就写出了上传的程序。经过搜索，找到了一个工具 <a href="http://www.shootsoft.net/149" target="_blank" rel="external">SAE Mutiple Uploads 0.2</a> 。具体的介绍和使用说明，打开他们的官方教程好了，上面说的很详细了。但是我在操作的时候，不知道为什么，没有成功。工具显示上传成功，但是我在 Storage 空间中，并没有发现我上传的资源。提供一个思路，你可以尝试一下，说不定是我的人品问题。</p>
+<p><strong>补充(2012.10.22)</strong>：<a href="http://sypopo.com/" target="_blank" rel="external">信仰飘扬</a> 提醒，可以使用 Cyberduck 这个软件方便进行 storage 空间的管理。<strong>
+</strong></p>
+<p><strong>3，使用第三方外链服务(又拍云/华为网盘等)</strong></p>
+<p>只有在迁移的时候，才感觉出来外链的重要性，因为无论怎么迁移，外链是不会变的。因此，我考虑将所有资源放在外链上，然后以后就用外链链接资源。据了解，免费的网盘有部分支持图片外链，例如华为等。收费的比较好的有又拍云。最后我选择了又拍云，购买了又拍云的服务。</p>
+<p>又拍云具体的操作流程我就不多说了，速度非常快。上传资源之后，在网上偶然发现了 <a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">荒野无灯</a> 写的又拍云上传插件：<a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">Hacklog Remote Attachment Upyun(又拍云版)</a>。果断激动了一下，因为这个插件，可以让你上传文件的时候，自动上传到远程的又拍云服务器上，同时还有一个非常重要的功能，可以修改数据库，将数据库里面的原有的失效资源连接，自动修正成又拍云的外链。</p>
+<p>但是安装用了一下，还是出错，问了一下灯哥，原来是这个版本太低了，出现了这个错误。所以这个方法就留给以后的人看了，等 SAE 上的 WordPress for SAE 升级之后，就能用了。</p>
+<p>如果想要批量修改原有失效的资源连接，可能只有像荒野无灯写的插件那样，对数据库进行修改。否则只能一篇文章一篇文章的进行修改。如果你有更好的办法，希望能回复交流！</p>
+<p><strong>补充（2012.10.21）</strong>：Denis 提供了一个解决这类问题的好方法，即使用插件 <a href="http://fairyfish.net/2010/05/31/search-and-replace/" target="_blank" rel="external">Search &amp; Replace </a> 批量对数据库里面的图片链接进行修改。</p>
+<h3 id="在_WordPress_for_SAE_中安装主题和插件">在 WordPress for SAE 中安装主题和插件</h3>
+<p>由于 SAE 禁止了读写操作，所以安装主题和插件，无法向以前那样，直接在后台进行上传或者远程安装。必须要通过 SVN 的方式上传。默认的安装了 WordPress for SAE 之后，并没有开启 SVN 服务，因为开启 SVN 服务，需要花费一些资源，所以要消耗一些云豆。我们在后台左侧找到 “代码管理” 然后点击 “创建 SVN 库” 就开启了 SVN 服务，之后根据 SAE 的<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=212" target="_blank" rel="external">说明文档</a>使用即可。安装主题和插件，只需要把主题和插件复制到相应的目录，然后 SVN 上传一下即可，和使用 FTP 一样。但是要注意，主题和插件中的功能不能有 读写操作 等 SAE 不支持的功能，否则可能出现意外情况。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" alt="" title="SAE 安装 wordpress 插件主题"></a></p>
+<h3 id="将域名解析到_SAE">将域名解析到 SAE</h3>
+<p>现在文章等内容、图片等资源都已经迁移过来了。现在要检查一下迁移之后的网站和原先的网站还有什么地方不同。所有的地方都必须丝毫不差才可以。特别是 “固定链接” 等等，如果有不同，会导致收录等问题。</p>
+<p>当你觉得完全相同，在迁移之后，就要把域名解析到 SAE 中。在管理后台找到左侧的 <strong>“应用管理”</strong> 打开之后，在下面会有独立域名设置。由于 SAE 比较特殊，所以它暂时不支持备案，如果你的域名是备案过的，那么需要填写备案表格，向 SAE 提交申请。如果你的域名没有备案，SAE 支持绑定到国外的合作伙伴那里，然后做一个跳转。比较简单，所以不再多说。</p>
+<p>这两种方案区别很大，备案域名直接接入服务器，ping 值只有 50MS 左右，响应速度和 百度 差不多，下载速度也非常快。绑定到国外的未备案域名，通过香港节点访问，ping 值有 160 MS左右，下载速度略慢，相当于高质量的香港空间，但是要消耗两倍的流量，也就是交两倍的钱。</p>
+<h3 id="转移之后的SAE优化">转移之后的SAE优化</h3>
+<p>鉴于大部分的同学的网站都是没有备案的，但是要花两倍的钱，所以我们就要进行优化。优化的重点就是减少 SAE 流量的损耗。一般通过三个方法进行优化：</p>
+<ol>
+<li>开启 gzip。开启 SAE 的 gzip 教程，请看这里：<a href="http://www.hiadmin.org/blog-seo/wordpress-sae-gzip" target="_blank" rel="external">开启SAE的Gzip压缩为WordPress提速</a></li>
+<li>压缩图片、CSS、JavaScript等文件，尽量使用外链。<br>完成这些步骤之后，可以尽量的避免系统资源的消耗，这样就可以节省云豆。同时，你还可以开发应用，进行开发者认证，这样每月都会送你一些云豆。如果你流量不大的话，这样几乎都成了免费的了。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1387.html" data-id="bndotivog1db9byd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-85-b3-e4-ba-8e-e6-88-91-e7-9a-84-e6-9c-89-e7-bc-ba-e9-99-b7-e7-9a-84-e5-8d-95-e6-a0-b8-e5-a4-84-e7-90-86-e5-a4-a7-e8-84-91-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e6-80-9d-e8-80-83-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1324.html" class="article-date">
+  <time datetime="2012-10-16T12:27:06.000Z" itemprop="datePublished">Oct 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1324.html">关于我的有缺陷的单核处理大脑的解决方案思考</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上一篇文章已经是9月30日的时候写的。从9月13日就开始减少更新了，之前都是一天一篇。为什么？</p>
+<p>接了一个做网站的任务，同时更新设计自己的主题，还要学习一些东西。但是这些都不是什么问题，因为这些工作的时间，都占不多。那为什么我文章写得这么少了？甚至更新的主题都没有发布呢？</p>
+<p><strong>这主要是因为我的这个有缺陷的单核处理大脑！！！</strong></p>
+<p>怎么说？我是一个非常有条理和顺序的人。所以，我会计划好每项工作的次序，然后进行处理。同时，我信奉专一的原则，简单高效。所以我单一的根据任务列表进行任务处理。但这个时候，缺陷就体现出来了。</p>
+<h2 id="处理做网站的任务">处理做网站的任务</h2>
+<p>先要和客户协商，然后各种要求、需求进行分析等等。对方客户是一个比较忙的，同时对这一块认识比较少。所以前一个星期，几乎就在迷茫中度过。和客户 协商，又经常对不上，不协商干别的，又想起还有这个任务，所以就要先忙这个任务。所以就干巴巴的等着，什么都不能干，因为我的任务顺序列表已经做好了，要 按照这个进行处理。</p>
+<p>后面还算是比较好，了解清楚之后，就按照他的要求，给做出初稿和建议等等。这些需要几天的时间。然后又是继续交流，根据需求等，进行布局的修改，图 的制作等等。这些就是半个多月的时间。当然，效率是比较底下的，因为时间空闲比较多，等待的时间比较多。所以很多时间都玩游戏去了。</p>
+<h2 id="如果有这些空闲时间，为什么不写写文章？">如果有这些空闲时间，为什么不写写文章？</h2>
+<p>其实我心理已经构思好了很多好文章素材，就差写了。但是这里出现了一个问题。我要先把主题升级，彻底升级完成之后，写文章就写的舒畅，写的爽。所以要先把主题升级完成。这时候，就要去做主题的工作。</p>
+<p>但是，做主题的时候，就要想起，还有客户的任务没有完成，应该先完成客户的任务，再弄自己的东西。所以主题的升级过程是比较缓慢的。用了好几天的零 碎时间，才完成了大部分的主题工作。现在面临的问题是在IE6下面的兼容。然后再重新整版修改，做成对外发布的版本。为什么要兼容IE6？我一直很反感兼 容IE6，但是看到了一些知名设计师的作品等，全都是跨浏览器兼容的，随便一个平台、随便一个浏览器都可以正常的访问使用。所以，我想到，作为一个设计 师，你可以不兼容早期的浏览器。但是要想作一个高级的设计师，跨浏览器只是一个基本功。要从基本功练起。</p>
+<p>这时候，问题又来了。测试早期浏览器的软件 IEtest ，实在是太烂了。在 Win7 平台下，经常崩溃。最近打开的时候，突然发现有升级版本。果断升级，结果更令人失望。本来之前，只有 IE6 会经常崩溃，偶尔能用。而现在，只有IE7 和IE9可以使用，IE6和IE8直接打开就崩溃。彻底失望了，直接删掉不用了。这样的话，就需要用 VMware 建立 XP 虚拟机，直接通过那个进行测试。但是直接通过内网，测试网页有问题。所以还需要在里面的 XP 系统中，安装 php 环境，搭建好那一整套系统，才能进行测试。然后任务链就断在这里了。</p>
+<h2 id="我想应该看书学习。">我想应该看书学习。</h2>
+<p>对，那这些时间应该看书学习。但是当看书的时候，手就痒痒，想敲代码。于是就看不进去了，就开机。一开机，就遇到了上面的那些问题。究竟应该先做什么。于是就这样进入了无限的死循环。一直到客户的任务完全完成之后，才能走出这个死循环，但是却进入了下一个死循环。</p>
+<h2 id="思考">思考</h2>
+<p>遇到这种问题，只能从两个方面来解决。</p>
+<p>1，提高效率。</p>
+<p>单任务，通过高效率，快速完成，不拖延，以最大的效率和速度完成。然后进行下一个任务。</p>
+<p>2，多进程处理。</p>
+<p>在任务完成的空闲时间中，同时完成其他需要完成的任务。但是会比较混乱，效率会比较低。</p>
+<p>你说我应该怎么办？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1324.html" data-id="3pw16ajix6q9ms8s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-html5-e6-ad-a3-e7-a1-ae-e5-90-88-e7-90-86-e7-9a-84-e9-87-8d-e6-9e-84-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1313.html" class="article-date">
+  <time datetime="2012-09-30T01:29:39.000Z" itemprop="datePublished">Sep 30 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1313.html">使用 HTML5 正确合理的重构你的网页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这可能是我在建博之后到现在为止，写过的最长的一篇文章，不过也是在这个博客里面，文章最短的。什么意思呢？</p>
+<p>这里的这篇文章，我就写这么几个字。但是这篇文章，我写了大约两天，包括构思，查阅资料，排版等等。</p>
+<p>denis 的水煮鱼博客，不知道编辑器抽了风，编辑起来好麻烦。</p>
+<p>好了，直接给出地址：<a href="http://fairyfish.net/article/designing-with-html5/" target="_blank" rel="external">http://fairyfish.net/article/designing-with-html5/</a> ，我懒得复制过来排版了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1313.html" data-id="b80ocgprmujp4t26" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-915-e3-80-81-e5-88-b6-e4-bd-9c-e4-b8-bb-e9-a2-98-e7-9a-84-e5-a4-b4-e9-83-a8-e5-8c-ba-e5-9f-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1304.html" class="article-date">
+  <time datetime="2012-09-26T02:52:55.000Z" itemprop="datePublished">Sep 26 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1304.html">【基础篇】5、制作主题的头部区域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上节课的时候，我们了解接触到了第一个函数。在这节课中，我将会讲解更多的有关头部的 WordPress 函数，并且教你打造一个完整、规范的头部。</p>
+<p>这里的头部，主要分为两部分：</p>
+<ol>
+<li>HTML 文档中的 &lt;head&gt; 区域</li>
+<li>主题中的顶部（通常包含博客名称、描述、导航等内容）</li>
+</ol>
+<h2 id="HTML_文档的_&lt;head&gt;_区域">HTML 文档的 &lt;head&gt; 区域</h2>
+<p>众所周知，HTML 文档中，&lt;head&gt; 区域用来描述这个文档的各种信息，大部分的内容，都是看不见的，只有一个&lt;title&gt;元素，在标题栏上可以看见。但是并不是它不重要，这里 面包含文档声明，也是很重要的地方。与这块有关的，有很多函数等，在【基础篇】，我直说几个简单的，可以满足基本功能即可。在后面的【中级篇】教程中，我会更详细的讲解更多的函数和相关用法。</p>
+<p>将以下代码复制进 head 标签内</p>
+<p><pre>&lt;title&gt;&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;&lt;/title&gt;<br> &lt;meta http-equiv=”Content-Type” content=”text/html; charset=&lt;?php bloginfo( ‘charset’ ); ?&gt;” /&gt;<br> &lt;link rel=”stylesheet” type=”text/css” href=”&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;” /&gt;</pre><br>简单的介绍一下相关功能。</p>
+<p><strong>&lt;title&gt;标签：</strong></p>
+<p>作为网页的标题，我们通常使用博客标题和博客描述作为博客首页的标题。所以我们使用了&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数。但是在实际应用中，你会发现一个问题，如果就这样做了，所有的博客页面，全部都是相同的“博客标题 博客描述”。关于这个问题，我会单独拿出来在后面进行讨论。</p>
+<p><strong>&lt;meta&gt;标签：</strong></p>
+<p>声明文档的编码，WordPress默认的编码就是 utf-8 ，所以我们尽可以大胆写上utf-8。但是在官方主题中，还是用了&lt;?php bloginfo( ‘charset’ ); ?&gt;这个函数，来获取博客编码。所以我们需要这样写。</p>
+<p><strong>&lt;link&gt;标签：</strong></p>
+<p>加载必须的style.css文件。&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;这个函数在之前的文章中，提到过，在这里不再赘述。</p>
+<h2 id="主题中的顶部">主题中的顶部</h2>
+<p>在本系列的demo主题，顶部只有一个网站标题和网站的副标题描述。所以我们就需要使用&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数，替换掉之前我们的文本，即</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" alt="" title="zhuanhuanhead"></a></p>
+<p>这里还有个细节需要注意，在博客名称的地方，我使用了一个超链接，指向的是一个“#”，现在要把它修改成博客首页，则需要使用这个</p>
+<p><pre>&lt;?php bloginfo(‘siteurl’); ?&gt;</pre><br>用它替换 href 属性中的 # 。</p>
+<p>好了，头部的处理就这样完成了，我们可以在浏览器中访问一下。这时候，就可以看到标题、网站标题、网站描述变了。你在后台中修改相应的信息，刷新之后，相应的也会变。</p>
+<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
+<p><a href="http://pan.baidu.com/share/link?shareid=67876&amp;uk=706095745" target="_blank" rel="external">myTheme(基础篇-5) 本节课主题下载</a></p>
+<h2 id="本系列文章">本系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html" target="_blank" rel="external">【基础篇】3、设计制作你的HTML主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html" target="_blank" rel="external">【基础篇】4、安装主题文件</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1304.html" data-id="66g09nl4pjqmw9hb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-9c-a8-e4-b8-bb-e9-a2-98-e4-b8-ad-e6-b7-bb-e5-8a-a0-adminbar-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1297.html" class="article-date">
+  <time datetime="2012-09-24T04:34:48.000Z" itemprop="datePublished">Sep 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1297.html">在主题中添加 AdminBar 功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，你必须的知道，什么叫做 AdminBar 。这是 WordPress 中的一个非常方便的功能，当管理员或者有管理权限的用户访问页面的时候，就会看到最上面有一个黑色的条条，上面有各种快捷链接。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" alt="adminbar" title="adminbar"></a></p>
+<p>不知道为什么，竟然还有很多人写如何去掉这个功能。但是很少有人写如何增加这个功能。</p>
+<p>这个功能需要增加？对，没错。在早期我制作主题的时候，就出现了没有 AdminBar 的情况。要想在主题中，增加这个功能，必须要用到两个函数：</p>
+<p><pre>&lt;?php wp_head(); ?&gt;、&lt;?php wp_footer(); ?&gt;</pre><br>这两个函数，是实现WordPress中某些功能而使用的。例如本文写的 AdminBar 的功能，就是使用这两个函数。新手制作主题的时候，往往会看到或者使用到 wp_head() 这个函数，但是会忽视 wp_footer() 这个函数。所以，AdminBar 不会显示，但是会空出那么高的高度。</p>
+<p>这两个函数的位置也需要注意。</p>
+<ul>
+<li>wp_head() —— 通常放在&lt;/head&gt;上面的一行</li>
+<li>wp_footer() —— 通常放在最下面的&lt;/body&gt;的上面一行<br>只有准确放置了这两个函数，AdminBar 才会出现。</li>
+</ul>
+<p><span style="color: #ff0000;">注意：</span></p>
+<p>忽略了一个地方，在现在的版本中，用户可以自定义在浏览博客的时候，是否显示最上面这个工具条。在 “用户”-》“我的个人资料” 中可以设置。在以前的版本中，记得好像没有这个选项。感谢 “<a href="http://www.linyousai.cn/" target="_blank" rel="external">鬼娃娃</a>” 提醒。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1297.html" data-id="ap4ov9b7y0xp0axz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP主题函数/">WP主题函数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e8-bf-91-e6-9c-9f-e6-af-94-e8-be-83-e7-b9-81-e5-bf-99-ef-bc-8c-e6-9a-82-e5-81-9c-e5-8d-9a-e5-ae-a2-e7-9a-84-e6-9b-b4-e6-96-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1290.html" class="article-date">
+  <time datetime="2012-09-13T04:29:52.000Z" itemprop="datePublished">Sep 13 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1290.html">近期比较繁忙，暂停博客的更新</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期面临比较多的事情</p>
+<p>1， 补考离散 T T。</p>
+<p>2，根据这段时间的使用和收集的建议，重构一下这个WordPress主题 Qetro 然后对外发布。</p>
+<p>3，重新改造 实验室 的页面和相应应用，使用 Ajax 提升用户体验。</p>
+<p>4，开发几个筹划好的应用。</p>
+<p>我的博客文章均为原创，每篇写作时间大约在一小时左右，所以我决定，暂停博客文章的更新，先把手头任务完成之后，再继续更新。</p>
+<p>大约10天左右，10天以内完成上面的事情。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1290.html" data-id="7utewnr0ds82vnqk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wordpress-e7-9a-846-e7-a7-8d-e5-9b-ba-e5-ae-9a-e8-bf-9e-e6-8e-a5-e4-bc-98-e7-bc-ba-e7-82-b9-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1240.html" class="article-date">
+  <time datetime="2012-09-11T09:17:07.000Z" itemprop="datePublished">Sep 11 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1240.html">WordPress的6种固定连接优缺点对比</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有人说 WordPress 的 SEO 做的比较好，我想这个和 WordPress 可以方便的自定义文章的固定链接有分不开的联系。在众多的 WordPress 博客中，有很多种的固定连接，本文就是把这些固定链接的形式和效果跟大家分析一下，然后根据你自己的需求，选择适合你博客的固定连接。</p>
+<h2 id="默认固定链接样式">默认固定链接样式</h2>
+<p>没有在后台的 “设置-》》固定链接” 中设置链接样式的话，就属于默认的固定连接样式，它的形式如下</p>
+<pre>http://www.qianxingzhem.com/?p=123</pre>
+
+<h3 id="优点">优点</h3>
+<ol>
+<li>链接短小</li>
+<li>移植性好，当 WordPress 搬家时，新主机万一不支持 Rewrite 模块，你不需要进行301定向</li>
+</ol>
+<h3 id="缺点">缺点</h3>
+<ol>
+<li>缺乏语义性，对搜索引擎收录稍稍有影响，但是不大</li>
+</ol>
+<h2 id="日期、月份和名称链接样式">日期、月份和名称链接样式</h2>
+<p>这是官方默认的链接样式，分日期、月份和名称两种，形式如下</p>
+<pre>http://www.qianxingzhem.com/2012/09/11/sample-post/</pre>
+<pre>http://www.qianxingzhem.com/2012/09/sample-post/</pre>
+
+<h3 id="优点-1">优点</h3>
+<ol>
+<li>语义性增强，增加了文章发布时间和文章名称</li>
+<li>文章发布时间和文章名称在链接中，有利于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-1">缺点</h3>
+<ol>
+<li>生成的链接长度太长，不利于发送等</li>
+<li>文章标题直接显示在连接中，有的时候并不希望这样</li>
+</ol>
+<h2 id="名称型样式">名称型样式</h2>
+<p>直接加一个文章名称，形式如下</p>
+<pre>http://www.qianxingzhem.com/sample-post/</pre>
+
+<h3 id="优点-2">优点</h3>
+<ol>
+<li>语义性强，文章名称在链接中，便于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-2">缺点</h3>
+<ol>
+<li>生成链接长度过长，中文链接会被编码，链接乱且长</li>
+</ol>
+<h2 id="关键词类型链接样式">关键词类型链接样式</h2>
+<p>将文章中的关键词提取出来，然后自定义固定连接，用“-”链接关键词，很多高手博客使用这种链接，样式如下</p>
+<pre>http://fairyfish.net/m/limit-login-attempts/</pre>
+
+<h3 id="优点-3">优点</h3>
+<ol>
+<li>语义性强，便于搜索引擎理解</li>
+<li>生成链接长度合适</li>
+</ol>
+<h3 id="缺点-3">缺点</h3>
+<ol>
+<li>需要博主有一定的英语水平和耐心</li>
+<li>对中文博客的效果不大，几乎没有中国人会搜索一个英文单词来看你的中文文章</li>
+</ol>
+<h2 id="数字型链接样式">数字型链接样式</h2>
+<p>直接把文章的ID写在链接中，样式如下</p>
+<pre>http://www.qianxingzhem.com/123</pre>
+
+<h3 id="优点-4">优点</h3>
+<ol>
+<li>链接极短</li>
+</ol>
+<h3 id="缺点-4">缺点</h3>
+<ol>
+<li>没有任何语义性</li>
+</ol>
+<h2 id="数字型语义增强版链接样式">数字型语义增强版链接样式</h2>
+<p>不仅仅是文章 ID 还增加一些英文单词，例如：post、archives等，形式如下</p>
+<pre>http://www.qianxingzhem.com/archives/123</pre>
+<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+
+<h3 id="优点-5">优点</h3>
+<ol>
+<li>链接较短</li>
+<li>增加了关键词，便于搜索引擎理解这个页面是一篇文章</li>
+</ol>
+<h3 id="缺点-5">缺点</h3>
+<ol>
+<li>语义性不是非常明确<br>目前，潜行者m博客用的就是这种 数字型语义增强版 固定链接样式。</li>
+</ol>
+<h2 id="如何自定义博客固定链接">如何自定义博客固定链接</h2>
+<h3 id="了解结构标签">了解结构标签</h3>
+<p>WordPress 设置了一系列的固定链接结构标签，来让你定义固定链接，具体标签及功能如下</p>
+<ul>
+<li>%year% 文章发表的年份，四位数，如 2004</li>
+<li>%monthnum% 月份，如 05</li>
+<li>%day% 天，如 28</li>
+<li>%hour% 小时，如 15</li>
+<li>%minute% 分钟，如 43</li>
+<li>%second% 秒，如 33</li>
+<li>%postname% 文章标题的别名 (编辑文章/页面时的别名栏)</li>
+<li>%post_id% 文章的唯一ID，如 423</li>
+<li>%category% 分类的别名 (新建/编辑分类时的别名栏)</li>
+<li>%tag% 标签的别名(新建/编辑标签时的别名栏)</li>
+<li>%author% 作者的别名<br>之后，我们需要打开后台 “固定链接设置” 页面，找到 “自定义链接结构” 根据自己的需求，写上链接结构，加上结构标签。例如潜行者m博客用的链接样式<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+在后台自定义链接结构时，需要定义成
+<pre>/post-%post_id%.html</pre>
+
+</li>
+</ul>
+<h2 id="其他注意事项">其他注意事项</h2>
+<p>固定链接在 WordPress 博客中非常重要，强烈建议在建博初期就确定下来，而且之后不要再更换。如果你更换了固定链接，之前的固定链接打开之后，就会出现404错误，影响搜索引擎收录。</p>
+<p>当然，如果你迫不得已更换博客的固定链接，请安装相应的 301链接重定向 插件，使用插件将之前的固定链接重定向到更新后的固定链接上。这类的插件比较多，这里我推荐几个：Simple 301 Redirects、Redirection等。</p>
+<p>关于 WordPress 固定链接更详细的说明，请看官方文档 ：<a href="http://codex.wordpress.org/zh-cn:%E4%BD%BF%E7%94%A8%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5" target="_blank" rel="external">zh-cn:使用固定链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1240.html" data-id="ikygpse9arzldo9o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-914-e3-80-81-e5-ae-89-e8-a3-85-e4-b8-bb-e9-a2-98-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1268.html" class="article-date">
+  <time datetime="2012-09-10T01:01:50.000Z" itemprop="datePublished">Sep 10 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1268.html">【基础篇】4、安装主题文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在前面的几个教程中，我们已经设计出了主题的模板、样式，同时也添加了模拟数据，现在我们要做的就是把现有模板文件安装到 WordPress 中，这样有两个好处</p>
+<ol>
+<li>添加函数调用之后，刷新即可显示相应数据，方便对数据的规划。</li>
+<li>还有其他各种好处。<br>到了这个步骤，你就会发现 远程调试 和 本地调试 的区别了。远程调试，需要不断的在远程服务器上修改文件，然后刷新速度还要看网速等；本地调试直接复制，然后使用文本编辑器直接打开编辑即可，刷新加载速度也非常快。所以推荐在本地进行调试。</li>
+</ol>
+<h2 id="安装主题">安装主题</h2>
+<p>WordPress 主题安装相信大家都不陌生，我们只需要把上节课只做好的 “myTheme” 文件夹复制到 “wp-contentthemes” 文件目录下面，然后把 Html 文件后缀修改成 PHP 即 index.php，一个文件夹有了index.php 和 style.css 这两个文件，才能被系统识别。之后我们登录后台，找到 “外观-》主题” 就可以看到我们的 “myTheme” 主题了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/themelist.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/themelist.jpg" alt="" title="themelist"></a></p>
+<p>你会发现你制作的这个主题显示和其他下载的主题显示的不同，标准主题中，需要在 style.css 文件中添加一些信息，同时还要生成缩略图。关于这一部分，将会在 【中级篇】 中进行讲解。</p>
+<h2 id="启用主题">启用主题</h2>
+<p>点击启用之后，我们再访问我们博客的首页，就可以发现，已经显示出来我们之前的模拟数据了。但是完全没有 CSS 的样式效果。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/blogindex.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/blogindex.jpg" alt="" title="blogindex"></a></p>
+<p>原因很简单，我们之前的模板中，引用 style.css 文件的时候，直接用的相对目录</p>
+<p><pre>&lt;link rel=”stylesheet” type=”text/css” href=”style.css” /&gt;</pre><br>href 属性直接指向了 style.css 文件，指向的是 主题 文件下面的 style.css 文件，当我们访问博客首页的时候，就无法加载到这个 style.css 文件了。</p>
+<p>正确的做法是，使用 绝对链接 到你的 style.css 。这里，我们需要将原来模板中的 &lt;link&gt;标签的 href 属性改成 <a href="http://localhost/cms/wp/wp-content/themes/myTheme/style.css" target="_blank" rel="external">http://localhost/cms/wp/wp-content/themes/myTheme/style.css</a> 。这里包含你的网址和 CSS 文件的绝对地址。这样就正常了，但是这样做有很多问题：</p>
+<ul>
+<li>使用你的模板的时候，需要修改这个属性的值，把前面的网址改成你的博客网址。</li>
+<li>修改模板名称的时候，我们同样需要修改这个属性的值。</li>
+<li>以及其他麻烦。<br>你懂这种代码，修改起来还比较容易，但是面对不懂的用户呢？你让他们如何修改？所以我们就需要想出解决方法。</li>
+</ul>
+<p>如果说，我可以使用某种东西，然后它就自动得到当前网站的地址，加上当前主题的目录名，自动的生成这个地址，那么这些问题都会迎刃而解。</p>
+<p>WordPress 的主题机制以及为我们准备好了这样的东西，那就是 <strong>WordPress 主题函数</strong>。WordPress 以及帮我们准备好了大量的函数，来调用这些数据。我们只需要插入主题文件中即可。</p>
+<h2 id="style-css_文件调用函数">style.css 文件调用函数</h2>
+<p>我们只需要在原来模板的 href 属性中，将原来的 “style.css” 换成 “&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;” 就可以了。</p>
+<p>下面，潜行者m带着你简单分析一下这个函数</p>
+<p><pre>&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;</pre><br>首先，WordPress 是 PHP 开发的，所以执行函数的时候，都需要用 PHP 标签括起来，例如：</p>
+<p><pre>&lt;?php …….. ?&gt;</pre><br>其次，这里面的函数名是 bloginfo(); 这是 WordPress 内置的函数，其功能就是调用各种博客相关数据的，这些数据通常在 “WordPress 后台 》 设置 》 常规” 里面进行设置。这个函数有很多参数，例如上面的那个参数  “stylesheet_url” ，就是调用了 style.css 的绝对地址。所以我们插入这个函数之后，WordPress 的主题机制会运行这些函数，将博客数据替换出来。</p>
+<p>这是我们学习的第一个函数，我这里只是简单的讲解一下，在后面的教程中，我将会更加详细的对参数以及用法进行解析。如果你想超前学习，可以看一下本人之前的关于 bloginfo(); 函数的常用参数文章：<a href="http://www.qianxingzhem.com/post-364.html" target="_blank" rel="external">wordpress中bloginfo()函数详解</a></p>
+<p>添加修改之后，我们可以看到，页面已经恢复正常了</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/cssurl.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/cssurl.png" alt="" title="cssurl"></a></p>
+<h2 id="学习重点">学习重点</h2>
+<p>经过这一个小事情之后，我们可以明确一下学习重点。那就是各种常用 WordPress 函数的参数以及使用方法，之后插入模板文件中，就可以显示 WordPress 的数据了，也就达到了制作主题的目的了。</p>
+<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
+<p>myTheme 主题下载地址 : <a href="http://pan.baidu.com/share/link?shareid=32228&amp;uk=706095745" target="_blank" rel="external">&gt;&gt;点击这里</a></p>
+<h2 id="之前的系列文章">之前的系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html" target="_blank" rel="external">【基础篇】3、设计制作你的HTML主题文件</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1268.html" data-id="a0cgr059cul6rq1i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-913-e3-80-81-e8-ae-be-e8-ae-a1-e5-88-b6-e4-bd-9c-e4-bd-a0-e7-9a-84html-e4-b8-bb-e9-a2-98-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1259.html" class="article-date">
+  <time datetime="2012-09-09T05:46:41.000Z" itemprop="datePublished">Sep 9 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1259.html">【基础篇】3、设计制作你的HTML主题文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这已经好多天没有写文章了，最近我的wlan账号出了一点问题，所以这些天我没怎么上网。今天宿舍网线终于扯上了，又有网可以上了。</p>
+<p>新学期的食堂饭菜又贵了，一般贵个五毛或者一块，没有涨价的，质量下降了。今天中午吃的面，4块的，量只有去年3块5的，加的料子根本没有多少，去年直接加1/4多。坑爹啊，再也不在那吃了。没钱吃饭了，吃饭就吃穷了。无语。好了，牢骚发完了，看文章</p>
+<p>================================================</p>
+<p>制作主题之前，你必须使用 HTML 和 CSS 来制作出一个模板，确定博客主题的整体风格。这样，需要你有一定的 HTML 和 CSS 基础。</p>
+<p>在这里，为了教程演示，潜行者m制作了一个比较简单的小模板，结构简单、CSS样式也不多，方便新手学习，下面简单说一下模板的结构以及重要的CSS 样式，仅供新手学习。如果你有一定的 HTML 和 CSS 基础，可以略过这一部分。如何制作模板网页，如果新手的话，可以稍微看一下我的这篇文章 <a href="http://www.qianxingzhem.com/post-961.html" target="_blank" rel="external">网页设计的一般步骤</a></p>
+<h2 id="模板文件结构">模板文件结构</h2>
+<p>新建一个文件夹，命名为 “myTheme” 。在里面要添加至少两个文件，一个是 index.html 另一个是 style.css 。此外，为了之后的制作，我们还应当添加两个文件夹，分别是 /images 和 /js ，分别用来存放主题需要的图片和 Javascript 文件。</p>
+<h2 id="模板文件内容">模板文件内容</h2>
+<p>我做了一个比较简单的模板，具体演示效果如下图</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/1.jpg" alt="" title="1"></a></p>
+<p>现在还没有添加任何的数据，只是一个大体的框架，在下面我将会添加数据，然后整体效果就会出来了。</p>
+<p>这个文件在文章后面可以下载到。</p>
+<h2 id="为模板添加模拟数据">为模板添加模拟数据</h2>
+<p>从上图大家就可以看到各个部分的功能等。下面，我要在模板中添加模拟数据，之后使用 CSS 对其进行外观定义。之后，我们就可以对照数据，添加 WordPress 相应的调用数据的函数，完成主体制作。</p>
+<p>添加模拟数据，并且定义了外观CSS之后的模板文件如下图</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/6.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/6.jpg" alt="" title="bloginfo"></a></p>
+<p>在下图中，我对添加的数据作了一个说明</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/09/7.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/09/7.jpg" alt="" title="bloginfo"></a></p>
+<p>这样，我们的模板文件就算是做好了，对应数据以及相应的 CSS 都已经编写好了。你现在已经看到了一个简单的博客页面。根据前面说的WordPress 的大体制作步骤，我们现在只需要使用相应的函数调用相应的数据就可以了。</p>
+<h2 id="其他问题">其他问题</h2>
+<div><br><br>我是新手，不会做这种模板怎么办？<br><br>1.  制作主题等，需要一定的  Html 和 CSS 基础，如果你没有基础，请寻找相应资料，先学习一下 Html 和 CSS ，否则后面的学习会比较吃力。<br>2.  你也可以在网上下载 Html 模板或者下载我做好的教程模板，先不管如何去设计制作模板，先使用现有资源进一步学习。<br></div>
+
+<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
+<p>myTheme 模板文件下载地址 : <a href="http://pan.baidu.com/share/link?shareid=30204&amp;uk=706095745" target="_blank" rel="external">&gt;&gt;点击这里</a></p>
+<h2 id="之前的系列文章">之前的系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1259.html" data-id="foex5i8hw14stwu1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-912-e3-80-81wordpress-e7-9a-84-e4-b8-bb-e9-a2-98-e6-9c-ba-e5-88-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1251.html" class="article-date">
+  <time datetime="2012-09-04T14:23:27.000Z" itemprop="datePublished">Sep 4 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1251.html">【基础篇】2、WordPress的主题机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在制作 WordPress 主题之前，先要大体了解一下 WordPress 的主题机制，这样才能将自己设计的 HTML 模板等，转换成 WordPress 所能识别的主题文件。在这篇文章中，有一些概念会比较抽象，在随后的教程中，你会亲身感受到这些概念，就明白了。所以，你只需要记住下面三个大标题即可，如果不懂不用怕，在后面的基础教程中，你会理解的。</p>
+<p>经过<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a>思考总结，WordPress 主要有以下三个显而易见的主题机制：<strong>函数调用数据机制</strong>、<strong>缺失文件替换机制</strong>、<strong>分离文件分块调用机制</strong>。</p>
+<h2 id="一个_WordPress_主题默认的文件目录">一个 WordPress 主题默认的文件目录</h2>
+<p>这是来自官方的说明，一个主题中需要包含以下文件。当然对于新手和比较简单的模板，我们并不需要设计生成这么多的文件，如果做比较专业的主题，则需要设计生成更多的文件，这个将会在【中级篇】的文章中深入介绍。</p>
+<ul>
+<li>404错误页 = 404.php</li>
+<li>存档页 = archive.php</li>
+<li>存档索引页 = archives.php</li>
+<li>评论页 = comments.php</li>
+<li>底部 = footer.php</li>
+<li>头部 = header.php</li>
+<li>链接 = links.php</li>
+<li>首页 = index.php</li>
+<li>静态页 = page.php</li>
+<li>弹出式评论页 = comments-popup.php</li>
+<li>单篇博文页 = single.php</li>
+<li>搜索表单 = searchform.php</li>
+<li>搜索 = search.php</li>
+<li>侧栏 = sidebar.php</li>
+<li>样式表 = style.css</li>
+</ul>
+<h2 id="函数调用数据机制">函数调用数据机制</h2>
+<p>首先你要明白，一个主题，要展示输入的文章等数据，它会需要一种代码来从数据库中提取数据，然后结合你自己编写的 HTML 文件，生成供浏览者观看的页面。</p>
+<p>在 WordPress 中，官方团队为你写好了一系列的数据调用函数，使用这些函数以及相应的参数，就可以调用相应的博客数据并且显示出来。这样，当我们设计好了我们的 HTML 模板之后，只需要在相应的地方，加上调用相应数据的函数，就可以显示出来了。</p>
+<p>在随后的教程中，我们就会遇到那些常用的函数，以及函数的参数和使用方法、效果。</p>
+<h2 id="缺失文件替换机制">缺失文件替换机制</h2>
+<p>从上面的标准主题的文件列表里面，我们可以清晰的看到每个文件都有每个文件的功能，例如 sidebar.php 是边栏文件； single.php 是用来显示文章的文件。同时，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a>还说了，如果是比较简单的主题，并不需要这么多的文件。这里，你会不会产生一种疑问：如果缺少了某个功能文件，WordPress 会怎样处理？</p>
+<p>这就是 WordPress 的缺失文件替换机制要处理的。WordPress 主题里面，最重要的只有两个文件：index.php、style.css这两个文件。一个是模板文件，另一个是 CSS 定义样式用的。而其他的 single.php 等文件，则是index.php的下级文件。WordPress 发现没有相对应的功能文件（例如显示文章的 single.php），它就会使用上级文件来代替显示缺失文件的内容（缺失single.php，就使用index.php来显示文章内容）。</p>
+<p>具体关系如下图：</p>
+<p><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/wpstruct.png" alt="" title="文件等级关系"></p>
+<h2 id="分离文件分块调用机制">分离文件分块调用机制</h2>
+<p>制作主题的时候，通常先制作index.php文件，来做出整体的效果。做完index.php文件之后，我们通常会把顶部的信息、边栏、底部的信息，分离出来，分别生成 header.php、sidebar.php、footer.php 这三个文件。之后，在index.php以及其他的主题文件中，使用相应的函数来调用这三个文件。</p>
+<p>为什么？因为头部、边栏和底部的内容，通常是不变化的，变化最多的就是博客的主体。所以将这几块分离出来，提高代码的重用，同时也提高修改和二次开发的效率，这点是非常科学的，你将会慢慢体会到。</p>
+<h2 id="本节课的总结">本节课的总结</h2>
+<p>通过本节课，我们了解到了 WordPress 主体的标准文件列表，同时我们了解了三种 WordPress 的主题机制。其中，缺失文件替换机制，让我们了解到，比较简单的模板，并不需要设计生成标准文件列表里面的文件，我们只需要设计主要的文件即可，因为缺失的其他功能文件，WordPress 系统会使用index.php 的文件内容来显示。所以，在【基础篇】，我们要做的主题文件列表如下：</p>
+<ul>
+<li>index.php = 主体文件</li>
+<li>header.php = 头部文件</li>
+<li>sidebar.php = 边栏文件</li>
+<li>footer.php = 底部文件</li>
+<li>single.php = 文章显示文件</li>
+<li>page.php = 页面显示文件<br>同时，我们还确定了我们制作主题的大体流程：</li>
+</ul>
+<ol>
+<li>制作 index.html 和 style.css 文件，确定主题的整体风格。</li>
+<li>放入WordPress 主题目录中，修改成 index.php。</li>
+<li>对 index.php 进行文件分割，分离出内容不变的 header.php、footer.php、sidebar.php 文件。</li>
+<li>由 index.php 文件，生成 single.php 文章页面，并进行简单改造。</li>
+<li>由 single.php 文件生成 page.php 文件，因为文章和页面的布局比较像。</li>
+<li>在各种主题文件中，插入 WordPress 数据调用函数，然后显示博客数据。<br>随后的【基础篇】教程，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a>将围绕这几个大体流程来依次讲解，直到最后做出一个比较简单的主题。</li>
+</ol>
+<h2 id="之前的系列文章">之前的系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a><br>&nbsp;</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1251.html" data-id="l2yg7w8ckc0xcn8o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

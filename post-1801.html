@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>为什么使用 class 属性来标注 HTML 元素而不是 id 属性 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：
+&lt;div class=”header” id=”header” &gt;&lt;/div&gt;现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么使用 class 属性来标注 HTML 元素而不是 id 属性">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1801.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：
+&lt;div class=”header” id=”header” &gt;&lt;/div&gt;现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么使用 class 属性来标注 HTML 元素而不是 id 属性">
+<meta name="twitter:description" content="在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：
+&lt;div class=”header” id=”header” &gt;&lt;/div&gt;现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1801.html" class="article-date">
+  <time datetime="2013-03-23T17:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      为什么使用 class 属性来标注 HTML 元素而不是 id 属性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
+<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
+<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
+<h2 id="id_和_class_的区别">id 和 class 的区别</h2>
+<p>有经验的朋友可以略过这一部分。</p>
+<h3 id="唯一性和重复可用性">唯一性和重复可用性</h3>
+<p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
+<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
+<h3 id="CSS_中优先级不同">CSS 中优先级不同</h3>
+<p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
+<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
+<h3 id="跳转功能">跳转功能</h3>
+<p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
+<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="external">http://baike.baidu.com/view/371.htm#8</a></p>
+<h2 id="为什么使用_class_而不是_id">为什么使用 class 而不是 id</h2>
+<p>使用 class 究竟有什么好处？</p>
+<h3 id="减少命名">减少命名</h3>
+<p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
+<h3 id="高度重复使用">高度重复使用</h3>
+<p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
+<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
+<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
+<h3 id="优先级低">优先级低</h3>
+<p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
+<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
+<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
+<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
+<h2 id="id_也是必须有的">id 也是必须有的</h2>
+<p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
+<h3 id="锚标记跳转">锚标记跳转</h3>
+<p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
+<h3 id="用在_input_中">用在 input 中</h3>
+<p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
+<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
+<h2 id="最佳的使用组合">最佳的使用组合</h2>
+<p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
+<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
+<p>欢迎讨论交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ws87j4yk8zhifdmu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1806.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          纯纯的超棒的写作工具：Writings.io
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1795.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">推荐一个最好的 WordPress 问题解决平台</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

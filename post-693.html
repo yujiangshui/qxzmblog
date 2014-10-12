@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>cPanel X面板使用教程4—数据库操作 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用cPanel X面板的主机，通常的配置是linux+php+mysql+apache（或nginx）。所以，mysql数据库的功能不容忽视，在cPanel X面板上，可以新建数据库，也可以管理数据库等。
+
+1，mysql数据库：
+在这里，我们可以新建数据库，新建数据库用户和密码，并且绑定用户到数据库当中。
+新建数据库的方法，很简单，按照上面的步骤，输入数据库名称，点击生成，之后新建的数据库就出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cPanel X面板使用教程4—数据库操作">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-693.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="使用cPanel X面板的主机，通常的配置是linux+php+mysql+apache（或nginx）。所以，mysql数据库的功能不容忽视，在cPanel X面板上，可以新建数据库，也可以管理数据库等。
+
+1，mysql数据库：
+在这里，我们可以新建数据库，新建数据库用户和密码，并且绑定用户到数据库当中。
+新建数据库的方法，很简单，按照上面的步骤，输入数据库名称，点击生成，之后新建的数据库就出">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql0.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql1.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql2.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql3.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql4.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cPanel X面板使用教程4—数据库操作">
+<meta name="twitter:description" content="使用cPanel X面板的主机，通常的配置是linux+php+mysql+apache（或nginx）。所以，mysql数据库的功能不容忽视，在cPanel X面板上，可以新建数据库，也可以管理数据库等。
+
+1，mysql数据库：
+在这里，我们可以新建数据库，新建数据库用户和密码，并且绑定用户到数据库当中。
+新建数据库的方法，很简单，按照上面的步骤，输入数据库名称，点击生成，之后新建的数据库就出">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b4-e6-95-b0-e6-8d-ae-e5-ba-93-e6-93-8d-e4-bd-9c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-693.html" class="article-date">
+  <time datetime="2012-02-16T15:40:43.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cPanel X面板使用教程4—数据库操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>面板的主机，通常的配置是<a href="www.qianxingzhem.com/post-455.html">linux+php+mysql+apache</a>（或nginx）。所以，<a href="www.qianxingzhem.com/post-455.html">mysql数据库</a>的功能不容忽视，在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>上，可以新建数据库，也可以管理数据库等。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql0.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql0.jpg" alt="mysql0"></a></p>
+<p><strong>1，mysql数据库：</strong></p>
+<p>在这里，我们可以新建数据库，新建数据库用户和密码，并且绑定用户到数据库当中。</p>
+<p>新建数据库的方法，很简单，按照上面的步骤，输入数据库名称，点击生成，之后新建的数据库就出现在了下面的数据库列表中。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql1.jpg" alt="mysql1"></a></p>
+<p>虽然已经生成了，但是这个数据库目前是无法使用的，因为没有数据库用户名。我们还需要添加一个数据库用户，之后才能用程序使用这个数据库用户连接数据库使用。生成一个用户名也很简单，在下面生成即可。要注意的是，需要在相应数据库中，插入相应的用户，才能正常使用。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql2.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql2.jpg" alt="mysql2"></a></p>
+<p>插入的时候，它还会提示你，你插入的用户的权限</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql3.jpg" alt="mysql3"></a></p>
+<p>这里，我们可以对不同的用户勾选不同的权限配置，来确保数据库的安全。如果不懂的朋友，可以像我一样，勾选全部权限即可。</p>
+<p><strong>2，mysql 数据库向导：</strong></p>
+<p>向导就是把上面的内容，一步步的显示出来而不是一次性都出来，所以在这里就不多说了。建议第一次，先使用向导有一个大体的了解，以后为了方便，就不要用向导了。</p>
+<p><strong>3，phpmy 管理：</strong></p>
+<p>这里，不得不提一下翻译者的水平，一看就不是一个电脑专业的。这里应该是phpmyadmin，一款著名的mysql数据库管理工具。打开看一下，和以往的phpmyadmin有很大的不同。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql4.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql4.jpg" alt="mysql4"></a></p>
+<p>效果华丽多了，我一直不太喜欢用phpmyadmin，就是因为它的实现效果实在是太差劲了，没想到这个主题还不错。在这里面，可以方便的导入导出数据库、修改数据等。具体的使用，不再赘述了。</p>
+<p><strong>4，远程mysql：</strong></p>
+<p>通常来说，数据库和网站都是放在一个服务器上的，这样使用localhost或者127.0.0.1作为数据库地址即可。但是，数据库也是可以远程调用的，这样有一个安全隐患。例如，有人通过程序漏洞等，读取了你的网站的配置文件，得到了你数据库地址和用户名密码等信息，就可以连接你的数据库，导出这些信息。但是<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的默认配置是无法让外部连接的，如果想要外部连接，我们必须在这里添加上域名或者服务器IP。</p>
+<h2 id="相关文章：">相关文章：</h2>
+<p><a href="http://www.qianxingzhem.com/post-589.html" target="_blank" rel="external">1，cPanel X面板使用教程1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html" target="_blank" rel="external">2，cPanel X面板使用教程2—FTP功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html" target="_blank" rel="external">3，cPanel X面板使用教程3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html" target="_blank" rel="external">4，cPanel X面板使用教程4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中，我们最常用的就是 网站备份、FTP相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-693.html" data-id="k45b5qw6mgup1dk4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-696.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          你应该学会还手的
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-671.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DNS相关记录与解析说明</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

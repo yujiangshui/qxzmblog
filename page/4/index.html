@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/page/4/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1801.html" class="article-date">
+  <time datetime="2013-03-23T17:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
+<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
+<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
+<h2 id="id_和_class_的区别">id 和 class 的区别</h2>
+<p>有经验的朋友可以略过这一部分。</p>
+<h3 id="唯一性和重复可用性">唯一性和重复可用性</h3>
+<p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
+<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
+<h3 id="CSS_中优先级不同">CSS 中优先级不同</h3>
+<p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
+<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
+<h3 id="跳转功能">跳转功能</h3>
+<p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
+<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="external">http://baike.baidu.com/view/371.htm#8</a></p>
+<h2 id="为什么使用_class_而不是_id">为什么使用 class 而不是 id</h2>
+<p>使用 class 究竟有什么好处？</p>
+<h3 id="减少命名">减少命名</h3>
+<p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
+<h3 id="高度重复使用">高度重复使用</h3>
+<p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
+<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
+<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
+<h3 id="优先级低">优先级低</h3>
+<p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
+<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
+<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
+<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
+<h2 id="id_也是必须有的">id 也是必须有的</h2>
+<p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
+<h3 id="锚标记跳转">锚标记跳转</h3>
+<p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
+<h3 id="用在_input_中">用在 input 中</h3>
+<p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
+<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
+<h2 id="最佳的使用组合">最佳的使用组合</h2>
+<p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
+<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
+<p>欢迎讨论交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ws87j4yk8zhifdmu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e6-8e-a8-e8-8d-90-e4-b8-80-e4-b8-aa-e6-9c-80-e5-a5-bd-e7-9a-84-wordpress-e9-97-ae-e9-a2-98-e8-a7-a3-e5-86-b3-e5-b9-b3-e5-8f-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1795.html" class="article-date">
+  <time datetime="2013-03-17T17:40:06.000Z" itemprop="datePublished">Mar 18 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1795.html">推荐一个最好的 WordPress 问题解决平台</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 WordPress ，肯定就会遇到一些问题。基础的使用问题就不多说了，主要的问题就是诸如 插件开发、主题功能 等等，遇到这些问题就比较麻烦了。一般来说有三种方法：</p>
+<ol>
+<li><a href="http://www.google.com.hk" target="_blank" rel="external">搜索</a>一下这个问题有没有别人解决过。这个可能有时候找不到。不推荐使用 百度，你的搜索效率会降低。</li>
+<li>检索 <a href="http://codex.wordpress.org/" target="_blank" rel="external">WordPress 官方文档</a>，然后在海量的英文中查找阅读相应的函数等。</li>
+<li>在专业的 <a href="http://bbs.wpjam.com/" target="_blank" rel="external">WordPress 问题解决平台</a>上面问一下这个问题。<br>很显然，本文要推荐一个最好的解决平台，那就是 <a href="http://bbs.wpjam.com/" target="_blank" rel="external">WPJAM问答</a>。</li>
+</ol>
+<p>之前网上已经有一些相关的问题解决平台（例如 <a href="http://faq.wopus.org/" target="_blank" rel="external">Wopus 问答</a>），为什么说这个刚开不久的 WPJAM问答是最好的呢？它的优势有：</p>
+<ol>
+<li>无需注册直接使用多说或者评论框登陆即可发布问题。</li>
+<li>问题主要由 Denis 亲自解答。<br>主要还是最后一条比较有诱惑力，Denis 是<a href="http://blog.wpjam.com/" target="_blank" rel="external">我爱水煮鱼博客</a>的博主，是国内公认的 WordPress 骨灰级技术大神，对于 WordPress 的理解和使用技巧已经远超我等小菜。所以绝大多数 WordPress 相关的问题，都会被很正确的解答。</li>
+</ol>
+<p>欢迎有问题的同学去提问！也希望能推荐给你的其他朋友！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1795.html" data-id="l80o9zrpli7lomjm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e6-96-b0-e7-89-88-e4-b8-aa-e4-ba-ba-e7-ae-80-e5-8e-86-e5-8d-9a-e5-ae-a2-e5-86-99-e4-bd-9c-e6-96-b9-e5-90-91" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1787.html" class="article-date">
+  <time datetime="2013-03-06T15:33:11.000Z" itemprop="datePublished">Mar 6 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1787.html">新版个人简历+博客写作方向</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好久没有写一些生活记录类的文章了，今天就来一篇记录一下。马上就要开学了，有种很奇怪的感觉。如果说还在家里，觉得每天都坐在电脑面前真的有点无聊。如果说要回到学校，又是这种事那种事的，也挺烦人的。反正我留下或者开学，都无所谓了，就那么过吧。只是越学越觉得学得不踏实，很多东西只是皮毛，却以为用的很熟练。Javascript 从上学期就要拿下，结果这个假期都没有搞下。还有很多设计草稿，还只是画在上面，还没有做。执行力真的有些不行了。</p>
+<h2 id="新版个人简历">新版个人简历</h2>
+<p>原本跟团队里面的人承诺，假期也要升级我的个人简历，但是转眼一个假期就过来了，也没有去做。当然草图是有的，打算应用视差滚动做一个，一共有六个页面，包括怎么滚动怎么交互都想好了。但是一个假期都没把视差滚动的相关技术研究好。之前看到网上有些插件，于是就想用插件的方法，但是插件都太不好用了。看起来太麻烦，就不想看，然后就忙别的了。</p>
+<p>当然，昨天上午彻底不能忍了，于是就查找视差滚动相关教程，然后就找到了，然后看完之后豁然开朗，做这种效果太简单了。教程文章：<a href="http://f6design.com/journal/2011/08/06/build-a-parallax-scrolling-website-interface-with-jquery-and-css/" target="_blank" rel="external">Build a parallax scrolling website interface with jQuery and CSS</a> 。这是11年8月份的文章，当时视差滚动已经流行了一段时间了，不得不承认，国内的技术水平和设计实力就是不如国外啊。国内很难找到关于视差滚动的教程，更找不到一些作品。</p>
+<p>然后就开始动手做呗。拿出之前画的草图，挑选了几个场景，然后 PS 素材，写写代码，就做出来了。当然，这个版本的跟我之前的构思差距太远了，很多细节都没处理上，但是用了几个小时就做出来了。主要还是为了应付哈，有些滚动的方式什么的处理的不算好，大家可以看一下，如果有什么建议提一下。<a href="http://www.yujiangshui.com" target="_blank" rel="external">点击这里打开 于江水</a>。</p>
+<h2 id="博客写作方向">博客写作方向</h2>
+<p>先来吐槽一下百度这个大垃圾搜索引擎。自从之前那次<a href="http://www.qianxingzhem.com/post-1048.html" target="_blank" rel="external"> robots 事件</a>之后，google 的收录几天就全部恢复了，百度到现在还只是几十篇文章。瞎了百度的狗眼算法，光记忆中的就有两次 K我的博客，连搜索“潜行者m”这样的独一无二的关键词都找不到。距离那次已经接近半年的时间了，从那次之后，我就不用百度的搜索服务了。说是专注搜索体验，连我的原创博客都K，搜索也出现很多垃圾，滚蛋吧。</p>
+<p>谷歌是最好的搜索引擎，但无奈香港节点经常抽风。所以，本人推荐使用 <a href="http://cn.bing.com/" target="_blank" rel="external">Bing</a>。自从上次百度K站事件过来，我用 Bing 已经快半年了，这半年的搜索体验还算不错，虽然图片搜索经常抽风。也比百度的狗屎算法强多了。百度其他服务也有好的，也就百度云放点文件还不错。对了，百度还把我一老站给K了，流量直接减半。那论坛根本连碰都没碰，根本没改版过，也没有什么服务器的问题，就这么无缘无故的K掉。老子真想用 robots 吧百度给屏蔽掉，只能期待 X60 抓紧崛起。</p>
+<p>其实也分析过为什么会这样。我写过的文章，通常都投稿到<a href="http://blog.wpjam.com/" target="_blank" rel="external"> 我爱水煮鱼 </a>博客上面，一般就给通过了。然后，通常就会有转载到别的地方的。对于百度这种垃圾算法而言，我的博客文章就成了复制转载的。所以写作方向要改变，这个博客主要记录前端相关的学习总结，包括一些 CSS3 Html5 之类的，推荐一些 jQuery 插件，翻译一些教程等。我还会写一些 WordPress 的文章，主要以翻译文档为主，但是不会发在这个博客上了。关于 WordPress 的文章，我直接发到 水煮鱼 博客上，这个博客如果有好的前端文章，发表一个月后再投稿到 水煮鱼 上。</p>
+<p>还是尽量高的提高文章质量，更新频率不会太高。</p>
+<h2 id="回到学校">回到学校</h2>
+<p>返校之后，马上开始酝酿已久的一个项目。抓紧给团队的人施压，给他们上课让他们学习。就目前了解的情况来看，大家在假期里都玩的挺好，一点都没学。虽然说，慢慢来，不能太慢了吧。</p>
+<p>最后，再吐槽一下 IE，某日不小心搜索 HTML5 兼容性 出来的。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1787/1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1787/1.png" alt="吐槽IE"></a></p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1787.html" data-id="wb119d7gc5quo0s1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-9c-a8-e9-a1-b5-e9-9d-a2-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-bb-9a-e5-8a-a8-e4-b8-80-e5-ae-9a-e8-b7-9d-e7-a6-bb-e5-90-8e-e8-b7-9f-e9-9a-8f-e6-bb-9a-e5-8a-a8-e6-a8-a1-e5-9d-97-e7-9a-84-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1782.html" class="article-date">
+  <time datetime="2013-03-03T23:14:46.000Z" itemprop="datePublished">Mar 4 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1782.html">在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在在网页中，经常可以看到一些滚动跟随模块。比较常见的两种场景：</p>
+<ol>
+<li>页面滚动到了导航条位置，然后导航条就固定到页面顶端，跟随滚动</li>
+<li>边栏高度不如正文高，滚动到边栏末端，出现一个跟随页面的滚动的边栏模块<br>本文就是来介绍如何实现这个效果，并且解决这个效果带来的一些问题。</li>
+</ol>
+<h2 id="实现的基本原理">实现的基本原理</h2>
+<p>固定到页面的某个位置，并且跟随页面滚动，实际上就是用到了一个 CSS 中的<a href="http://www.w3school.com.cn/css/pr_class_position.asp" target="_blank" rel="external"> position 属性值 fixed</a>。对 HTML 对象指定 position 属性为 fixed 之后，这个对象就会保证位置不变，跟随页面滚动。但是这个属性在早期的 IE 浏览器中是不支持的，有很多 hack 方法，在这里不再赘述。</p>
+<p>那么，要想实现 滚动一定距离 之后，某个模块跟随页面滚动，要做的就是用 Javascript 来监控页面的滚动事件，判断滚动距离是否达到目标位置，然后对要跟随滚动的模块修改 position 属性为 fixed。当然，也可以提前做好一个滚动跟随模块，用 display 属性隐藏起来，等滚动到了一定距离，取消显示。至于怎么出现和出现什么内容，就看你自己的需求了。用 jQuery 监控方法如下：</p>
+<p><pre>$(window).scroll(function(){<br>    if ($(window).scrollTop()&gt;64){<br>        $(“#menu”).css({position:”fixed”,left:”0px”,top:”0px”});<br>    }else{<br>        $(“#menu”).css({position: “relative”});<br>    }<br>});</pre><br>这里，对 window 对象使用<a href="http://api.jquery.com/scroll/" target="_blank" rel="external"> jQuery 的 scroll 方法</a>，用来监控滚动事件。当页面滚动的时候，就会触发定义的函数。函数的功能也比较简单，使用 <a href="http://api.jquery.com/scrollTop/" target="_blank" rel="external">scrollTop 方法</a>来获取当前网页滚动的位置距离页面顶部多高（单位 px），然后用 if 语句判断，当滚动距离页面顶端超过 64px 之后，就对 id 为 menu 的模块修改 CSS 样式，让它跟随页面滚动。当小于这个高度的时候，再修改回去。</p>
+<p>虽然功能比较简陋，但大体的原理就是这样，更多具体的效果，请自由发挥。</p>
+<h2 id="两个跟随滚动插件">两个跟随滚动插件</h2>
+<p>神说，这么好的效果应该做成插件，于是就有了插件。这里简单的介绍两款基于 jQuery 的插件：<strong>Sidebar Follow</strong> 和 <strong>Scroll Follow</strong> 。</p>
+<h3 id="Sidebar_Follow">Sidebar Follow</h3>
+<p>这是 <a href="http://www.neoease.com/" target="_blank" rel="external">mg12 </a>写的一个小插件，代码比较少，功能也比较简单，所以使用起来就比较方便。看名字就可以知道，主要用于边栏模块的跟随滚动。代码页比较少，有兴趣的同学可以看一下。</p>
+<p><a href="http://www.neoease.com/sidebar-follow-scrolling-section/" target="_blank" rel="external">Sidebar Follow官方主页和使用说明</a></p>
+<h3 id="Scroll_Follow">Scroll Follow</h3>
+<p>这是个比较老功能比较强大的插件，可以实现各种你想要的跟随滚动效果。具体的下载地址和使用方法，也不再赘述了。</p>
+<p><a href="http://kitchen.net-perspective.com/open-source/scroll-follow/" target="_blank" rel="external">Scroll Follow官方主页和使用说明</a></p>
+<h2 id="添加跟随滚动模块的注意事项">添加跟随滚动模块的注意事项</h2>
+<p>本文介绍的技术其实没有什么技术含量，写本文的最主要的目的，是想介绍下面这两个注意事项。</p>
+<h3 id="尽量少的使用">尽量少的使用</h3>
+<p>再好的功能，也要适度使用。屏幕的空间本来就有限，加上一个很高的导航条，再加上左下角、右下角的广告，右边再来个边栏跟随，这样的页面你如何才能专注的看正文内容？所以要尽量多的留出浏览者阅读的空间，适度的补充内容，尽量保证页面的整洁。才能有一个比较好的用户体验。</p>
+<h3 id="设置合理的结构防止页面塌陷">设置合理的结构防止页面塌陷</h3>
+<p>这个问题才是本文的重点，网上很多采用这个效果的页面都中了这个问题。先来看看<a href="http://www.qianxingzhem.com/demo/1782/" target="_blank" rel="external">问题演示 demo</a>。</p>
+<p>塌陷的具体问题效果很明显，就是下面的内容突然跑上去了，产生了<a href="http://www.blueidea.com/tech/web/2007/4950.asp" target="_blank" rel="external">回流（reflow）</a>。回流简单的说，就是当你页面中某个部分突然消失了，浏览器就需要重新渲染网页的内容。潜行者M的 Demo 页面由于结构比较简单，所以具体效果只是内容突然上去而已。但是对于结构比较复杂、代码比较多的网站来说，一旦出现回流，浏览器就要重新计算渲染，页面就会卡一下子。如果浏览者的电脑配置比较低，甚至会卡一下电脑。如果浏览者的浏览器版本比较低，可能会导致页面错乱。</p>
+<p>事关用户体验的问题，是不能容忍的。问题的原因，就是突然改变了相关结构的 CSS 属性导致。就本例而言，原来的导航条 position 属性是 relative ，在页面中占据一定空间。突然改成了 fixed 脱离了文档流，自然浏览器要把原来位置补上，重新渲染。</p>
+<p>所以，在设计页面跟随滚动模块之前，一定要考虑到这个细节。最好设置比较好的 HTML 结构，撑起来。也可以在要滚动的模块外面包裹一层结构，用来占位。也可以在一开始，就让滚动模块脱离文档流。<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者M</a>的建议是，最好专门设置一个用来滚动的模块，先隐藏，然后触发显示。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1782.html" data-id="ggjzu8yqdthpmt76" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-jquery-easing-js-e5-a2-9e-e5-bc-ba-e5-8a-a8-e7-94-bb-e8-bf-87-e6-b8-a1-e6-95-88-e6-9e-9c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1778.html" class="article-date">
+  <time datetime="2013-03-02T20:51:32.000Z" itemprop="datePublished">Mar 3 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/JS-JQ/">JS/JQ</a>►<a class="article-category-link" href="/post-category/JS-JQ/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1778.html">使用 jquery.easing.js 增强动画过渡效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery 提供了一些诸如 show、hide、slideUp、fadeIn 等等动画方法，可以方便的切换元素的显隐。更有强大的自定义动画方法 animate ，可以实现很多动画效果。为了让动画有好的过渡变化过程，官方为这些方法设置 easing 属性，但是官方没有给出很多过渡效果。</p>
+<p>jquery.easing.js 这个插件，增加了很多过渡效果，引入之后可以让动画过渡过程更加多样化。</p>
+<p>先来看一下：<a href="http://www.qianxingzhem.com/demo/1778/" target="_blank" rel="external">Demo</a>。官方也有案例：<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank" rel="external">打开官方主页</a>。</p>
+<h2 id="如何使用_jquery-easing-js">如何使用 jquery.easing.js</h2>
+<h3 id="第一步_引入插件">第一步 引入插件</h3>
+<p>jQuery 插件嘛，当然要先引入 jQuery，然后再引入 jquery.easing.js  。</p>
+<p><pre>&lt;script type=”text/javascript” src=”<a href="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script&amp;gt</a>;<br>&lt;script type=”text/javascript” src=”<a href="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js&quot;&gt;&lt;/script&amp;gt" target="_blank" rel="external">http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js&quot;&gt;&lt;/script&amp;gt</a>;</pre><br>然后再在引入代码下面编写调用的 Javascript 代码，注意<a href="http://www.qianxingzhem.com/post-1539.html" target="_blank" rel="external">代码顺序</a>。</p>
+<h3 id="第二步_启用插件">第二步 启用插件</h3>
+<p>首先先假设使用 animate 方法把网页上的 class 为 aa 的 div 的宽度，从原本的 300px 变成 600px。按照 animate 的写法，加上 easing 。</p>
+<p><pre>$(‘.aa’).animate( {‘width’:’600’} , { duration:1000,easing:’easeInOutCirc’ });</pre><br>这样，就对 aa 对象，启用了一个 easeInOutCirc 过渡效果，在 1000毫秒 内变成 600px。</p>
+<h2 id="可以应用的动画方法">可以应用的动画方法</h2>
+<p>不仅仅支持 animate 方法，还支持 hide、show、slideDown、slideUp、fadeIn、fadeOut等等支持 easing 的动画方法。只需要按照官方对应的格式去写就可以，<strong>这个插件相当于扩充了官方的过渡效果样式</strong>。</p>
+<h2 id="插件的参数">插件的参数</h2>
+<p>这个插件有三个参数：<strong>duration</strong>、<strong>easing</strong>、<strong>complete</strong>。</p>
+<h3 id="duration_参数">duration 参数</h3>
+<p>用来指定动画变化的时间，以毫秒为单位。</p>
+<h3 id="easing_参数">easing 参数</h3>
+<p>指定这个动画要使用何种过渡样式。具体的过渡样式名和效果，需要在<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank" rel="external">官方主页上查看左边的 “Example”</a>，选择找到自己想要的效果。</p>
+<h3 id="complete_参数">complete 参数</h3>
+<p>设置一个回调函数，当动画完成之后，执行这个函数。</p>
+<h2 id="其他注意事项">其他注意事项</h2>
+<h3 id="使用_slideUp_动画方法">使用 slideUp 动画方法</h3>
+<p>slideUp 这类的动画方法，要比 animate 简单一些，不需要复杂的属性参数，所以可以直接这样写：</p>
+<pre><code>$(element).slideUp(<span class="number">1000</span>, <span class="keyword">method</span>, callback});
+$(element).slideUp({ duration: <span class="number">1000</span>, easing: <span class="keyword">method</span>, complete: callback});`&lt;/pre&gt;
+其他的 hide 、show 之类的方法，自行类比。
+
+<span class="comment">### 指定默认的 easing 样式</span>
+
+在使用中 easing 参数是可以省略的，省略之后，就会调用默认的过渡样式。可以使用下面一句代码，指定默认的动画过渡样式。
+&lt;pre&gt;`jQuery.easing.def = <span class="string">"过渡样式名，例如 easeInOutCirc"</span>;
+</code></pre><p>用起来挺简单的，但是有了更和谐的变化效果，可以增强用户体验。更多用法欢迎观看<a href="http://www.qianxingzhem.com/demo/1778/" target="_blank" rel="external"> Demo </a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1778.html" data-id="gde17xnyebg24h7n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e7-94-a8-wordpress-e5-86-99-e5-87-ba-e4-b8-80-e7-af-87-e2-80-9c-e5-a5-bd-e7-9c-8b-e2-80-9d-e7-9a-84-e6-96-87-e7-ab-a0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1767.html" class="article-date">
+  <time datetime="2013-02-28T18:45:24.000Z" itemprop="datePublished">Mar 1 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1767.html">如何用 WordPress 写出一篇“好看”的文章</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一篇文章是否好看，无非在于两方面，第一个就是文章本身的内容，另一个就是文章显示的排版布局。<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m博客</a>自创建以来，也已经过去了近两年的时间，这其中积攒了很多在 WordPress 写作的经验，特别是在文字排版这块。回首观看，早期的文章质量比现在的要差远了，本文就是总结一下对于使用 WordPress 写作文章排版的经验。</p>
+<h2 id="一些基础知识">一些基础知识</h2>
+<p>在后台编写文章通常使用可视化的编辑器，你看到的排版布局就是比较具体的效果，但实际上数据是用 HTML 结构来记载的。例如，当你回车换行，那么在换行的地方系统就会加上一个段落标签（&lt;p&gt;），当你插入一个连接的时候，用的就是锚标记（&lt;a&gt;）。HTML 是具有语义性的，根据 HTML 的语义性写出的一篇文章，对于 SEO 、排版都有好处。此外，WordPress 主题的作者，通常也会针对这些结构进行一些设计和样式处理，会使其显示的效果更好。</p>
+<h2 id="用标题划分文章层次">用标题划分文章层次</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type0.png" alt="用标题划分文章层次"></a></p>
+<p>标题标签（&lt;hn&gt;）是非常重要的一个 HTML 标签，它对于 SEO 也有很重要的作用。通常用它来划分文章的层次。写一篇文章，肯定要有一定的层次，也就是所谓的大论点、小论点等。通常的文章一般具有三个层次：文章标题、大标题、小标题，通常来说，对应的标签是 h1、h2、h3。对于有的主题来说，设计者会用 h2 作为文章标题，这点也需要注意。标题标签一共有六个（h1-6），分别代表不同的重要等级，实际应用当中，只会使用 h1-3。需要注意以下两点：</p>
+<ul>
+<li>内文标题层次不要高于文章标题。如果文章标题使用了 h1，那么内文大标题只能使用 h2。</li>
+<li>小标题包含在大标题中。分清楚小标题属于哪个大标题属于什么层次，不能把小标题和大标题的层次混合。<br>合理的使用标题划分文章层次，可以让文章变得更容易理解，对阅读者和 SEO 都有好处，更有一些插件可以根据文章的标题建立目录层次，例如 水煮鱼 开发的 <a href="http://blog.wpjam.com/project/toc/" target="_blank" rel="external">TOC 文章目录插件</a>。</li>
+</ul>
+<h2 id="对于重要的文字进行加重处理">对于重要的文字进行加重处理</h2>
+<p>这一点大家都知道，不再赘述。但是要注意的一点，只对非常重要的关键词进行加重，加重的效果通常是文字加粗，这样可以吸引浏览者的目光，如果太多的话，就会分散阅读者的注意力，要尽可能的少。下图就是个加太多的例子。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type1.png" alt="" title="对重要的文字加重"></a></p>
+<h2 id="善用有序和无序列表">善用有序和无序列表</h2>
+<p>如果你在文中写的内容具有明显的并排性，可以作为一个列表，那么一定要使用无序列表（&lt;ul&gt;）或者有序列表（&lt;ol&gt;）。无序列表就是指没有顺序的列表。如果你想列举某项产品有什么样的有点，或者是一些赛事列表，那么你应该使用无序列表。有序列表是指一些有顺序的并排信息。如果你想写一下使用某个软件的四个步骤，或者是发布一个有明确顺序的资源列表，那么就用无序列表。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type2.png" alt="善用有序和无序列表"></a></p>
+<p>见过很多文章会对一些并排性的内容，手动编写诸如 1、2、3 之类的编号，其实这是错误的，应该使用有序列表， CSS 自动添加编号上去。</p>
+<h2 id="善用空格">善用空格</h2>
+<p>空格是文章中比不可少的一部分，但是很多人用空格的方法是错误的。空格不是用来排版的，它不像是在 Word 之类的软件里面，使用空格在段落的开头空开两格。中文的写作习惯是在文章段落的开头，空开两个字符，这空开的距离，并不应该使用空格来实现，而是使用 CSS 对段落标签增加属性 text-indent 来实现的。这个是主题设计者的工作，如果你用的主题并没有做这个，那就不会自动空开了，你只能自己修改 CSS 或者用空格模拟空出两字的效果，但这是不合理的。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type3.png" alt="善用空格"></a></p>
+<p>那么空格究竟要用在什么地方呢？用在重要的关键词上面，特别是英文关键词。英文在中文文章中是个不太好处理的东西，绝大多数的作者会直接把英文字母和中文混写在一起，但是这样的显示效果并不好。具体对比效果如下图</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type4.png" alt="善用空格"></a></p>
+<p>在稍微重要的关键词的两边，我加了两个空格，稍稍加一点距离，对于英文单词，除了空格之外还对首字母进行大写，两条文字一对比效果很明显就可以看出来。</p>
+<h2 id="标注文章引用内容">标注文章引用内容</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type5.png" alt="标注文章引用内容"></a></p>
+<p>有的文章可能会引用一些其他文章的资料、名人名言等，这样就需要选中这块文字，点击“块引用”，这样就可以告诉阅读者，这是一块来自他人的内容，我引用过来的。</p>
+<h2 id="用预格式化描述代码等有格式的内容">用预格式化描述代码等有格式的内容</h2>
+<p>例如一段代码，通常有换行、空格之类的用来保持代码的结构，如果以普通的文字发布，可能会破坏这个结构，所以要用预格式化。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type6.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type6.png" alt="用预格式化描述代码"></a></p>
+<h2 id="使用其他修饰的注意事项">使用其他修饰的注意事项</h2>
+<p>其他的文字修饰还有很多，包括：斜体、删除线、下划线、颜色、字体大小等。这些文字修饰要慎用，用多了，会让阅读者感觉杂乱影响阅读心情。就颜色来说，一篇文章中最多不要超过两种颜色。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type7.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type7.png" alt="颜色不要超过两种"></a></p>
+<h2 id="尽量多的使用图片">尽量多的使用图片</h2>
+<p>虽然不能极端的说没有图片的文章不是好文章，但是一篇好文章是肯定有图片的。文章中的图片主要有以下两个用处：</p>
+<ul>
+<li>与文章内容相符增强文章表现力</li>
+<li>缓和阅读中的视觉疲惫<br>所以，文章中，要尽量配图。配图也要跟文章主题相符合，例如：介绍人物的文章，配张人物图片；介绍软件的，配张软件截图；写心情生活类的，可以配张唯美的图片等等。</li>
+</ul>
+<h2 id="用心去写文章">用心去写文章</h2>
+<p>一篇文章最吸引人的是文章的内容，再好的排版，没有好的内容，人们也不会去看的。所以要用心去写文章。</p>
+<p>写之前有明确的目的（介绍自己的写作排版经验），有一个大体的构思（包括写哪几部分），然后觉得写出来会给阅读者一定的帮助，这时候就开始动手写。写的过程中，按照之前的构思，列出大纲和知识点收集整理相关资料，然后针对每个知识点去截图或者用 PS 作图来更形象的描述这个问题。写完并且上传图片之后，还要反复检查两边，看看是否有废话、错别字以及没介绍清楚的地方。</p>
+<p>就本文而言，本人用了两个小时的时间来写作，为写出一篇有价值的文章，付出这些是值得的。</p>
+<h2 id="一个反例">一个反例</h2>
+<p>下图是从 <a href="http://www.cgrabbit.info/blog/i-was-in-life-you-small-to-think-about.html" target="_blank" rel="external">所谓刚子</a> 博客上截取的，是一篇被我缩小的文章，整体是一大段文字没有任何的段落层次、修饰、图片，是一个非常好的反例。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type8.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/03/1767/type8.png" alt="一个排版不好的反例"></a></p>
+<p>如果只是一篇短小的文字，这样是可以的，如果是一篇很长的文字，不免让阅读者疲惫。</p>
+<h2 id="写在最后">写在最后</h2>
+<p>用 WordPress 写出一篇好看的文章，首先要用心去写，写出一篇高质量、有阅读价值的文章，其次要对文章不同的内容进行修饰。本文就介绍了一些写作经验。</p>
+<p>至于文章内容具体的修饰样式，是根据你用的 WordPress 主题而定。本人的原创主题 <a href="http://www.qianxingzhem.com/theme/qetro" target="_blank" rel="external">Qetro </a>就对文字的排版进行了一定的优化，如果你的博客写文字比较多一点，不妨试用一下看看效果。 ^_^</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1767.html" data-id="6g7ni52lx22eibmm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1758.html" class="article-date">
+  <time datetime="2013-02-25T20:07:40.000Z" itemprop="datePublished">Feb 26 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1758.html">用 jQuery 制作一个简单的遮罩弹窗效果教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。</p>
+<p>神说，有代码的文章，应该有个 Demo ，于是就有了 <a href="http://www.qianxingzhem.com/demo/1758/" target="_blank" rel="external">Demo</a>。</p>
+<h2 id="HTML_结构">HTML 结构</h2>
+<p>首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。</p>
+<pre> &lt;div class="click"&gt;点击这里&lt;/div&gt;
+ &lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
+ &lt;div class="bg"&gt;&lt;/div&gt;
+ &lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
+
+<h2 id="CSS_代码">CSS 代码</h2>
+<p>对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。</p>
+<p><pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}<br>.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre><br>简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。</p>
+<p>特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。</p>
+<h2 id="jQuery_代码">jQuery 代码</h2>
+<p>分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。</p>
+<p><pre>   $(function(){<br>        $(‘.click’).click(function(){<br>            $(‘.bg’).css({‘display’:’block’});<br>            $(‘.content’).css({‘display’:’block’});<br>        });<br>        $(‘.bg’).click(function(){<br>            $(‘.bg’).css({‘display’:’none’});<br>            $(‘.content’).css({‘display’:’none’});<br>        });<br>    });</pre><br>这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。</p>
+<h2 id="更多技巧和方法">更多技巧和方法</h2>
+<h3 id="更平缓的显示">更平缓的显示</h3>
+<p>点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。</p>
+<p><pre> $(‘.click1’).click(function(){<br>    $(‘.bg’).fadeIn(200);<br>    $(‘.content’).fadeIn(400);<br> });<br> $(‘.bg’).click(function(){<br>    $(‘.bg’).fadeOut(800);<br>    $(‘.content’).fadeOut(800);<br> });</pre><br>这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。</p>
+<h3 id="其他的实现方法">其他的实现方法</h3>
+<p>现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：<a href="http://www.54173.cn/blog/?p=701" target="_blank" rel="external">简单的jQuery弹出遮罩层</a>。</p>
+<p>差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1758.html" data-id="rme6guiuxyi5ubdo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-10-e4-b8-aa-e5-89-8d-e7-ab-af-e5-bc-80-e5-8f-91-e5-bf-85-e5-a4-87-e7-9a-84-e5-b7-a5-e5-85-b7-e6-88-96-e4-bd-bf-e7-94-a8-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1746.html" class="article-date">
+  <time datetime="2013-02-20T17:04:52.000Z" itemprop="datePublished">Feb 21 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1746.html">10个前端开发必备的工具或使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>工欲善其事必先利其器，有了本文介绍的工具和一些功能，你就可以高效的处理任务和信息。下面的这些工具都是本人平时经常用到的，如果你有更好的更有效率的工具，请告知一声，补充一下！</p>
+<h2 id="火狐浏览器">火狐浏览器</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool0.png" alt="使用火狐浏览器"></a></p>
+<p>前端要看网页，浏览器是必备的，但为什么要选择火狐浏览器而不是谷歌、IE、opera、360？首先，IE就不要谈了，360那些国产的也不要提了，opera 国内使用率并不高。使用谷歌浏览器也是一个好的选择，但是我本人倾向于使用火狐。因为在之前的使用过程中，感觉 chrome 是拿来上网用的，而 Firefox 才是拿来开发用的，特别是下面介绍的一些功能插件都是基于火狐浏览器的。当然谷歌浏览器上面也有一套不错的开发工具。</p>
+<h2 id="Firebug">Firebug</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool1.png" alt="FireBug"></a></p>
+<p>这个插件具有非常强大的功能，它把网页的 HTML 结构进行了整理，查看和修改 CSS 也非常方便。这只是基础的功能，还有控制台等可以调试 JavaScript 等，是前端不可缺少的工具。具体使用方法不再赘述。</p>
+<h2 id="查看选中部分源代码">查看选中部分源代码</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool2.png" alt="查看选中部分源代码"></a></p>
+<p>这是火狐浏览器中内置的一个功能，通过选取网页上的一快内容，然后右击查看选中部分源代码，可以快速查看到你选中部分的源代码内容。这样就可以非常快速的了解到某个区域的 HTML 结构，从而避免从海量文件中寻找对应代码。</p>
+<h2 id="Yslow">Yslow</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool3.png" alt="使用 Yslow"></a></p>
+<p>网站性能优化也是前端的一个重要任务，而雅虎出品的 Yslow 插件，就是进行网站性能测试的工具。使用它进行测试之后，会给出一个等级以及存在哪些问题以及如何进行修正。官方地址：<a href="http://yslow.org/" target="_blank" rel="external">点击这里</a></p>
+<h2 id="查看元素（三维视图）">查看元素（三维视图）</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool4.png" alt="查看元素 三维视图"></a></p>
+<p>火狐浏览器自带的查看源代码功能还是比较弱的，于是有 查看元素 这个功能。使用鼠标放在某个元素上，右击 查看元素 ，即可看到这个元素的 HTML 结构和对应的 CSS 样式，也可以很方便的修改。但是通常使用 FireBUG 来完成这个任务，因为自带的功能不是特别强。这里主要介绍的是 查看元素 功能中的 三维视图 功能。这个功能可以把你的网页变成三维视图，从而可以非常方便的查看到网站的结构是否合理、是否正确闭合、是否嵌套层数太多。</p>
+<h2 id="自适应设计视图">自适应设计视图</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool5.png" alt="自适应设计视图"></a></p>
+<p>目前响应式设计越来越流行，这个功能就是来测试网页的响应式布局效果。同样也是火狐浏览器中内置的功能，在 菜单 中 Web开发者 选项中可以找到。虽然网上也有一些网页版的响应式测试工具，但是我个人觉得还是浏览器自带的比较方便实用，速度也比较快。此外，据说 chrome 上面也有类似的工具。</p>
+<h2 id="IE9">IE9</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool6.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool6.png" alt="IE9"></a></p>
+<p>IE9 是用来做兼容性测试用的。如何做 IE 兼容性测试呢？IE9 已经像 firefox chrome 一样，内置了非常简陋、难用的页面调试功能，但是其中有一个非常重要的功能，就是设置浏览器和文档解析模式。它可以方便的切换到 IE7 、IE8 文档渲染模式，此外还有怪异模式等等。这样，用IE9就可以同时做IE7和IE8的兼容性测试。对了，IE6呢，IE6怎么办。原来你还在费力的做IE6的兼容？</p>
+<h2 id="有道云笔记">有道云笔记</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool7.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool7.png" alt="有道云笔记"></a></p>
+<p>前端也是需要不断学习的，包括一些总结或者网上的资料。以及一些优秀作品的网页截图、图片资源等等，都是需要分类整理的。面多这么多的信息，你如果用文件夹和 Word文档或者浏览器的收藏夹来整理，那简直是弱爆了。有道云笔记是我用过最好的比较，容量大，使用方便。可以直接使用网易邮箱登陆开通，如果你还没有账号，可以通过<a href="http://note.youdao.com/?invitation=9014799" target="_blank" rel="external">我的邀请链接</a>注册。</p>
+<h2 id="火狐剪报">火狐剪报</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool8.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool8.png" alt="火狐剪报"></a></p>
+<p>快速对当前网页进行截图，并且可以进行简单编辑。搭配有道云笔记，可以记录优秀的设计，提供一些灵感。此外有很多类似的网页截图工具。</p>
+<h2 id="notepad++">notepad++</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool9.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool9.png" alt="NotePad ++"></a></p>
+<p>非常小巧好用的文本编辑器。用来快速高效的搜索修改代码。如果你想修改一点小代码的时候，却要忍受几秒的编辑软件启动时间，那么就用这个吧。无论是写代码还是修改代码，个人觉得都比那些功能齐全的编辑软件好很多。当然文本编辑器也有很多，但是用了一遍我个人觉得这是最好的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1746.html" data-id="ib3j6eyv86vdg4rs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-dd-belatedpng-e4-b8-8e-unitpngfix-e4-b8-a4-e7-a7-8d-e8-a7-a3-e5-86-b3ie6-e4-b8-adpng-e6-96-87-e4-bb-b6-e9-80-8f-e6-98-8e-e9-97-ae-e9-a2-98-e6-96-b9-e6-a1-88-e6-a8-aa-e5-90-91-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1641.html" class="article-date">
+  <time datetime="2013-02-18T20:45:08.000Z" itemprop="datePublished">Feb 19 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1641.html">DD_belatedPNG 与 unitpngfix 两种解决IE6中PNG文件透明问题方案横向对比</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然 IE6 骂声不断，但是仍然还有不少的市场份额。而在网页中，png 文件体积小、无锯齿、透明度好而被广泛使用。当这两件事情碰在一起，问题就来了，IE6 不支持 png 的透明，它会把透明的部分显示成白色的。</p>
+<p>有问题就会有解决方法，可以使用早期IE6支持的滤镜来实现透明效果，有些牛人就根据这个原理进行了封装，做成了 JS 来使用。所以，我们只需要调用他们编写 JS 文件即可。在网上有众多解决这种问题的方法和插件，但是实际上目前有这两种方式比较有效，那就是DD_belatedPNG.js 和 unitpngfix.js 这两种方法。本文就是简单介绍一下使用方法和特点，然后将其进行一个对比。</p>
+<h2 id="DD_belatedPNG-js_方法">DD_belatedPNG.js 方法</h2>
+<p>DD_belatedPNG.js 这个插件功能非常强大，强大的背后就是复杂的使用方法和体积大小。首先要下载这个 JS 文件，然后引用到页面中，之后就要为其填写配置一些参数。通常要用两个参数，一个是 CSS 选择器，使用这个选择需要处理的层或者图片，另一个是类型，就是这个图片是作为 img 图片还是 background 背景图片来使用的。插件体积的话，压缩版也有7KB。</p>
+<p>知更鸟已经写了一篇比较简单的使用方法：<a href="http://zmingcx.com/dd_belatedpng-solve-png-images-under-ie6-transparent-application-tutorial.html" target="_blank" rel="external">使用DD_belatedPNG让IE6支持PNG透明图片</a></p>
+<p>官方的英文版提供了更加详细的教程：<a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/" target="_blank" rel="external">点击这里</a></p>
+<h2 id="unitpngfix-js_方法">unitpngfix.js 方法</h2>
+<p>unitpngfix.js 这个插件使用起来非常简单，不需要配置什么参数，只需要引入JS插件即可。而且非常小巧，只有2KB，不需要进行任何配置。但是要注意，JS 文件里面还要配置一个小图片地址，这个图片就是一个1像素的透明图片，是这个插件必须的素材。所以你需要上传或者在网上找个，然后填写进去。</p>
+<p>更加详细的使用方法请看官方页面：<a href="http://labs.unitinteractive.com/unitpngfix.php" target="_blank" rel="external">点击这里</a></p>
+<p>上面介绍两种方法的两种方法的使用方法，下面我们从实际应用来对比一下。</p>
+<h2 id="实践对比测试">实践对比测试</h2>
+<p>介绍的再怎么好，也要通过实践检验。下面就来动手做个 Demo 亲自测试一下使用过程和效果。Demo 页面非常简单，就是一个带有透明 png 背景图片的 div ，并且把背景图片放在了右下角，关键代码：</p>
+<p><pre>div{width:400px;height:400px;margin:20px;background:url(222.png) bottom right no-repeat;border:1px solid #000;}</pre><br>打开之后的效果是正常的</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix0.png" alt="png 正常效果"></a></p>
+<p>现在我们启动伟大的经常无条件崩溃的 ieTest ，使用 IE6 来加载这个页面</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix1.png" alt="IE6 下 png 文件的出错效果"></a></p>
+<p>成功的显示出了白色的背景，哦也！</p>
+<p><strong>使用 DD_belatedPNG.js 方法：</strong>先引用 JS 文件，然后设置上属性和参数。具体代码如下：</p>
+<p><pre>&lt;!–[if IE 6]&gt;<br>&lt;script src=”DD_belatedPNG_0.0.8a-min.js”&gt;&lt;/script&gt;<br>&lt;script&gt;<br>DD_belatedPNG.fix(‘div,background’);<br>&lt;/script&gt;<br>&lt;![endif]–&gt;</pre><br><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix2.png" alt="DD_belatedPNG 在 IE6 下修正效果"></a></p>
+<p>刷新之后，成功修正！</p>
+<p><strong>使用 unitpngfix.js 方法：</strong>上传并且设置好小图片，然后引用 JS 文件。具体代码如下：</p>
+<p><pre>&lt;script src=”unitpngfix.js”&gt;&lt;/script&gt;</pre><br><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix3.png" alt="Unitpngfix 在 IE6 下的修正效果"></a></p>
+<p>但是刷新之后，背景图片却出不来了。当然这个与 IEtest 的不稳定也有关，在原生IE6下测试应该不会出现这种情况（未测试），在之前的实际使用中，偶尔会出现这种情况。大部分时候，作为背景图片会跑到左上方，因为 unitpngfix 对 background 的属性支持不太好（官方有提到）。</p>
+<h2 id="用户体验对比">用户体验对比</h2>
+<p><strong>DD_belatedPNG.js</strong> 的使用效果比较好，达到了要求，但是使用起来比较繁琐，需要针对性的对要使用的图片添加参数，这样就不便于后期的修改。当然，可以新建一个专用的类，为所有需要处理的图片，添加这个类即可，总体上也是比较方便的。此外体积也稍大。</p>
+<p><strong>unitpngfix.js</strong> 使用起来非常简单，只需要引入这个文件，就可以对页面中所有的 png 图片进行处理。但是对于原图片的 background 属性支持不太好。尤其对 background-position、background-repeat 等属性，容易失效。而且有时不太稳定（未在原生IE6下测试）。体积较小。</p>
+<p>从效果出发，自然是选择 DD_belatedPNG.js ，但 unitpngfix.js 也是有价值的。如果要你为一个包含很多 png 图片的页面做兼容处理，你是选择使用 DD_belatedPNG.js ，为图片一一添加属性或者把选择器一一填上，还是直接引用一个 unitpngfix.js ，忍受一点效果的缺失？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1641.html" data-id="o58kqya6juloxb67" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e8-bf-91-e6-9c-9f-e7-9a-84-e5-86-99-e4-bd-9c-e8-ae-a1-e5-88-92-e5-92-8c-e5-ad-a6-e4-b9-a0-e6-96-b9-e5-90-91" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1740.html" class="article-date">
+  <time datetime="2013-02-18T16:35:37.000Z" itemprop="datePublished">Feb 19 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1740.html">近期的写作计划和学习方向</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转眼又有很长时间没有写文章了，也没有什么进步。手头上有一些任务，太久都没有完成，再加上假期太久，内心有点空虚，精力和注意力也跟不上了。现在要重新振作一下，去做一些之前定下的计划。</p>
+<p>我不得不接受我是一个色弱的事实，此外我的审美观也和大众不同，所以我虽然喜欢设计，但想要从事视觉设计，并不占有什么优势。当初选择这个方向，现在看来可能是个失误，也就意味着前段时间的学习，实际价值并不算高。但是我确实喜欢设计，所以选择与设计相关，但是与视觉设计关系不大的交互设计。</p>
+<p>交互设计主要是指一些人机操作交互，例如点击一个按钮，会怎么处理？是弹出一个对话框？还是使用遮罩效果出来一个菜单？怎么出来？这个设计，主要指流程和产品的功能设计，同时带有淡淡的外表，例如线框、原型等等。同时包含一些心理学方面的知识，也是我比较感兴趣的。</p>
+<p>此外，我放弃了网站建设、运营相关的内容，其实运营或者建设非常简单，根本没有什么好研究的，<strong>只要你的网站是以用户为主，注重用户体验，并且能够提供高质量的服务，自然而然的就变成了名站，有固定的用户。</strong>而这些运营方面的文章，绝大多数，要么是泛泛而谈一些大家都知道的常识，要么就是投机取巧（特别是SEO），没有什么意思。</p>
+<p>主要的方向仍然是前端相关的，现在对 JavaScript 比较感兴趣，之后要着重学习这门语言，此外就是一些新技术，HTML5 CSS3之类的。对 jQuery 也十分有好感，以后要深入学习，做一些插件之类的。但目前的话，主要以翻译学习使用现有的插件，打造比较好的效果为主。</p>
+<p>至于之前的 WordPress 主题制作系列教程的中级篇的写作计划，打算跟初级篇的写作步骤一致，整体以一个成熟的功能齐全的主题制作为主线，从一开始到结束。目前已经酝酿出一个新主题的设计风格，但是制作这套主题需要时间和经历。所以我打算先制作出这套比较完善的主题之后，再继续写出中级篇的教程。</p>
+<p>至于近期的计划，打算认真的学习一下视差滚动网页的设计和实现方法，毕竟这种用户体验是前所未有的爽，随着 CSS3 的发展，这个肯定会流行起来。近期将会写比较多的文章介绍相关的插件和实现方法。</p>
+<p>还想说一下设计，视觉设计也不是不可以，只是做不出颜色复杂、乱七八糟的设计，我是一个崇尚简洁的人，我喜欢简洁的设计，既简单、又实用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1740.html" data-id="st5vqt8r39p3klvu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

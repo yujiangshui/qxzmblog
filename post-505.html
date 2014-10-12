@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何使用FTP维护传输网站程序 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在网站建设过程中，必不可少的就是不断的上传下载网站源码。那我们应该怎样上传下载网站源码呢？那就是使用大家很熟悉的FTP。
+首先先由潜行者m来介绍一下FTP是个什么东西。FTP是一种协议，是文件传输协议。通过名字就可以看出了，这个协议的主要用途就是用来与远程服务器端传输文件用的。而我们所说的FTP，就是具体使用这个文件传输协议，来传输文件与远程服务器交流。
+使用FTP呢，就需要FTP软件。常用的功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用FTP维护传输网站程序">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-505.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="在网站建设过程中，必不可少的就是不断的上传下载网站源码。那我们应该怎样上传下载网站源码呢？那就是使用大家很熟悉的FTP。
+首先先由潜行者m来介绍一下FTP是个什么东西。FTP是一种协议，是文件传输协议。通过名字就可以看出了，这个协议的主要用途就是用来与远程服务器端传输文件用的。而我们所说的FTP，就是具体使用这个文件传输协议，来传输文件与远程服务器交流。
+使用FTP呢，就需要FTP软件。常用的功能">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp1.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp2.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp3.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp4.jpg">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp5.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用FTP维护传输网站程序">
+<meta name="twitter:description" content="在网站建设过程中，必不可少的就是不断的上传下载网站源码。那我们应该怎样上传下载网站源码呢？那就是使用大家很熟悉的FTP。
+首先先由潜行者m来介绍一下FTP是个什么东西。FTP是一种协议，是文件传输协议。通过名字就可以看出了，这个协议的主要用途就是用来与远程服务器端传输文件用的。而我们所说的FTP，就是具体使用这个文件传输协议，来传输文件与远程服务器交流。
+使用FTP呢，就需要FTP软件。常用的功能">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e5-a6-82-e4-bd-95-e4-bd-bf-e7-94-a8ftp-e7-bb-b4-e6-8a-a4-e4-bc-a0-e8-be-93-e7-bd-91-e7-ab-99-e7-a8-8b-e5-ba-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-505.html" class="article-date">
+  <time datetime="2012-02-04T16:28:43.000Z" itemprop="datePublished">Feb 5 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何使用FTP维护传输网站程序
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网站建设过程中，必不可少的就是不断的上传下载网站源码。那我们应该怎样上传下载网站源码呢？那就是使用大家很熟悉的FTP。</p>
+<p>首先先由潜行者m来介绍一下FTP是个什么东西。FTP是一种协议，是文件传输协议。通过名字就可以看出了，这个协议的主要用途就是用来与远程服务器端传输文件用的。而我们所说的FTP，就是具体使用这个文件传输协议，来传输文件与远程服务器交流。</p>
+<p>使用FTP呢，就需要FTP软件。常用的功能强大的FTP软件有这三个：LeapFTP、FlashfXP、Cuteftp。这其中，flashfxp集大成，无论从外表还是功能，都不错，就是需要花钱注册，当然网上有破解版，但是我的电脑装不了破解版。cuteftp确实比较老了，所以潜行者m目前使用的是Leapftp，确实非常好用。本文也以这个为例。</p>
+<p>首先要下载，下载地址：<a href="http://www.onlinedown.net/soft/2099.htm" title="http://www.onlinedown.net/soft/2099.htm" target="_blank" rel="external">http://www.onlinedown.net/soft/2099.htm</a>，百度一下就行。下载下来之后，发现就是一个程序，无需安装运行即可，大赞！运行之后的界面如下：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp1.jpg" alt="ftp1"></a></p>
+<p>之后，就要与服务器链接。点击左上角的“ftp”之后，就打开了FTP配置对话框（也可以直接摁F9）</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp2.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp2.jpg" alt="ftp2"></a></p>
+<p>在上面填上你的服务器域名（或IP地址），添加上你的用户名、密码，点击链接即可。链接之后，就可以发现右边的框框出现了远程服务器上的文件目录等。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp3.jpg" alt="ftp3"></a></p>
+<p>这样，右边的目录是远程服务器目录，左边的目录是本地的目录。想要进入远程服务器的某个目录，双击即可。如果想要上传文件到制定目录，首先要打开这个目录，之后把文件拖到目录列表中，这时你会发现，你的文件出现在了下面的传输信息表。之后，只需要右击，选择传输即可。下载文件同样，在左边打开你要保存文件的文件夹，然后选中远程服务器文件，右击，选择下载即可。至于修改远程服务器上的属性、编辑远程服务器上的文件，都是可以的，只要在相应的文件上右击即可弹出功能菜单。在这里就不多说了。</p>
+<p>这篇文章不能就这么写完了，这样的话，太简单了。下面我再介绍两种FTP登陆使用方式。</p>
+<p>在早期的网络中，最常用的功能就是文档的传输，就是使用ftp传输。所以操作系统通常都内置了FTP传输工具。下面，潜行者m介绍两个windows下的内置的FTP工具，这样可以在没有FTP软件的情况下，很方便的使用FTP。</p>
+<p>第一个就是资源管理器。打开“我的电脑”，在地址栏上面输入“ftp://你的域名或者IP”。敲击回车之后，就OK了。之后会弹出一个菜单，要求你输入这个FTP的用户名和密码。输入之后，就可以登录远程服务器了。这种方法的优点就是，操作远程服务器上的文件就和在本地操作一样。缺点就是功能不怎么强，有些服务器连接不上。关于这种方法，有一种高级用法，就是“添加一个网络位置”。打开“我的电脑”，在空白位置右击，选择“添加一个网络位置”之后，就打开了配置向导。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp4.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp4.jpg" alt="ftp4"></a></p>
+<p>根据这个向导一步一步的，添加上自己的用户名、密码等信息之后，就创建了这个快捷方式。以后如果你想要管理你的网站，只需要打开“我的电脑”，双击这个图标就可以打开，相当于本地硬盘，比较方便。</p>
+<p>第二个就是DOS。这个是比较有技术含量的，而且比较难用。早期的操作系统是DOS，所以它也具有FTP文件传输功能，就是使用FTP命令进行传输。它的缺点很明显，就是需要敲击代码，记住大量参数等。它也是有很多优点的，由于在命令行下没有了那些过多的界面等，所以它的执行速度是最快的。使用方法就是“win+R”运行“cmd”，之后输入ftp即可查看ftp相关命令，登陆管理。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp5.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/ftp5.jpg" alt="ftp5"></a></p>
+<p>至于具体的使用命令和方法，在这里先不说了，如果有兴趣想试一下的朋友，可以百度一下。</p>
+<p>&nbsp;</p>
+<p><strong>补充：</strong>leapftp软件并不是一个好用的FTP软件，在本文发布几天之后，本人找到了一个更好的ftp软件，请看这里：<a href="http://www.qianxingzhem.com/post-564.html" target="_blank" rel="external">http://www.qianxingzhem.com/post-564.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-505.html" data-id="qixjamtwagmr5ute" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-356.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          wordpress模板开发0——前言
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-455.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">本地搭建配置apache+php+mysql环境</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

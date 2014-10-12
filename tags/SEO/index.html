@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: SEO | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/tags/SEO/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e5-9c-a8-e6-90-ac-e5-ae-b6-e7-9a-84-e6-97-b6-e5-80-99-e9-9a-8f-e6-97-b6-e6-b3-a8-e6-84-8f-e5-a5-bd-e4-bd-a0-e7-9a-84robots" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1048.html" class="article-date">
+  <time datetime="2012-08-15T23:21:10.000Z" itemprop="datePublished">Aug 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1048.html">在搬家的时候随时注意好你的robots</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先先来说一下robots这个文件.</p>
+<p>简单的说,这个文件是控制搜索引擎收录网站的.搜索引擎会派出蜘蛛在网络中爬行，但是有的时候，我们的网站或者网站的某个目录并不想被搜索引擎爬行到并且收录。例如一些后台文件，配置文件等等。搜索引擎也思考到了这一点，就弄出了一条规则，爬行一个网站的时候，先读取网站的robots文件，查看哪些被允许爬行，哪些不允许。之后再进行爬行收录。</p>
+<p>在seo中，这是一个很重要的东西，它告诉搜索引擎哪些可以收录等，同时弄的不好，也会对网站收录造成致命伤害。这次就是一次血的教训。</p>
+<p>在上次网站搬家之后，新主机还没有开启rewrite模块，所以博客链接无法伪静态写成以前的样子。之后又发生了一些事情，没有上网管理网站。以前的朋友都知道，我有三个月没有更新博客，也当然没有管理，就把这个事情忘了。</p>
+<p>后来，听了很多站长朋友，在骂百度更新算法，把他的网站K掉了。我也没在意，检测一下我网站的收录，突然发现，以前很多的收录，现在只剩一个6月份的首页快照。坏了，我被百度K了。然后就在百度那里进行投诉。因为潜行者m的博客，文章都是精心构思原创手写的，SEO等方面也稍微做了一些，怎么会直接全K呢？查看了一下网站权重，跟以前没变，怎么收录没了？</p>
+<p>前天，在后台清理的时候，发现服务器的rewrite开启了，然后就填上了以前的伪静态规则。这时，我猛的想起来了一件事，我曾经写的robots规则。</p>
+<p>打开robots文件一看，果然，里面有条规则，把wordpress默认的链接形式屏蔽。此举是为了修改了伪静态规则之后，防止被检测成重复内容。结果那段时间，网站的链接全部都是wordpress的默认链接。我查询了一下谷歌的收录，结果也为0。原来，我的网站并不是被K了，而是被自己编写的robots规则，清掉了搜索引擎的索引。</p>
+<p>修改了之后，搜索引擎又开始重新收录了，可以之前一年的积累，全化为了乌有。以后真的多注意一下。</p>
+<p><img src="data:image/png;base64,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" alt=""></p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1048.html" data-id="lc7ja2b9uh1ci3yr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-8f-8b-e6-83-85-e9-93-be-e6-8e-a5-e5-bb-ba-e7-ab-8b-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-865.html" class="article-date">
+  <time datetime="2012-03-10T16:25:37.000Z" itemprop="datePublished">Mar 11 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-865.html">友情链接建立完全攻略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>友情链接是一个完整的网站必不可少的一部分，而友情链接也不是随便就可以添加建立的，里面有很多需要注意的地方。下面，就由<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a>为大家讲解一下如何建立合理有效的友情链接。</p>
+<h2 id="友情链接的作用">友情链接的作用</h2>
+<p>建立友情链接，可以建立你和对方的友情，这是网站友情链接的社会作用。有了友情链接之后，可以增进双方的友情。建立友情链接，可以增加一些流量。这些流量通常还是比较少的，因为很少有人回去关注网站友情链接，更少人去点击访问。建立友情链接，可以增加网站的相关性、网站权重等，友情链接，往往相当于一个高质量的外链，具有一定的seo的价值。这才是友情链接的重要作用。</p>
+<h2 id="寻找友情链接">寻找友情链接</h2>
+<p>寻找友情链接的方法有很多种，比如说，有很多链接交换平台，上面有很多交换友情链接的信息，你可以选择自己合适的进行交换。同时在站长qq群或者一些其他的地方，都可以发现有交换友情链接的站长。但是我不推荐这种方式。一个好的友情链接，是自己花时间去寻找发现的，我推荐的交换友情链接的方式是这样的：经常关注与自己网站类型相关的网站，看看他们的页面上，是否有没有申请友情链接等字样，看一下对方有没有交换友情链接的意向。如果有的话，就提交申请友情链接。还要观察他们的网站友情链接，因为一个比较好的网站，他的友情链接质量也是很高的，和他网站内容也是相关的，换句话说我们也可以和他交换友情链接。如果遇到好的，可以进行提交申请。潜行者m认为这种方式找到的友情链接的质量是最好的。</p>
+<h2 id="衡量友情链接质量">衡量友情链接质量</h2>
+<p>网站友情链接的方式，通常有三种，一种就是直接在首页下面显示友情链接，另一种就是建立一个专门用于放置友情链接的页面，在首页中链接这个页面，还有就是这两种结合起来的。通常来说，直接放在首页的友情链接质量是最高的，放在内页的要差很多。如果对方是一个大型的权重很大的网站，为了网站版面等，把你的链接放在内页，也有情可原，如果是小网站主动找上门来的还把你放在内页，说明对方根本不重视你，直接无视掉即可。</p>
+<p>此外链接的pr值也是比较重要的，虽然pr值作用已经削减，但是谷歌的判断通常是不会错的，pr值高的网站，说明网站质量要好。需要特别注意的是，要看一下网站的历史，不要被表面的情况迷惑了，看一下这个网站以前曾经做过什么，有没有被搜索引擎k掉。如果这个网站之前被惩罚过，那么和这种网站友情链接是很危险的。如果对方网站是一个充满垃圾的采集网站，那么和这这种网站链接是没有前途的。</p>
+<p>查看对方网站友情链接的数量和质量，我曾经接到过一个网页游戏网站的友情链接申请，他们网站友情链接在下面有上百个，有各种各样的网站。如果对方链接很多的话，每个链接分到的pr值等就会很少得到的利益就会很少，更别提会给你带来点击流量了。相反的，你网站友情链接少，会给他很多的好处。而且对方链接很杂乱，说明这个网站并不是一个质量很好的正规网站，和他们链接是没有任何好处的，所以应当尽量避免此类链接。</p>
+<h2 id="友情链接中的花招">友情链接中的花招</h2>
+<p>有很多素质比较低的站长，会使用一些友情链接的花招，来让他得到的利益最大化。</p>
+<p>1，过段时间悄悄的删掉链接。本来和你说的很好，和你建立友情链接，之后过段时间就偷偷删掉。这种情况很常见，一般来说，清除友情链接，应该要提前和对方站长沟通说一声。应对这种情况，我们就要经常看一下友情链接中的网站，是不是还链接着你的网站，如果没有了，问一下出现了什么问题，如果是人为有意的，那么你就可以毫不客气的撤下链接，与这种人断绝来往。</p>
+<p>2，各种方法阻止链接传递权重。比如加上nofollow属性，使用javascript来输出你的链接。这样可以控制权重不向你的网页还有很多中作弊的花招，在这里就不再赘述了。大家在检查友情链接的时候，不要仅仅看外表，一定要看一下相应的源代码。如果有不是最简单的a标签的话就要注意了。很有可能会动过一些手脚。</p>
+<h2 id="接受别人的友情链接">接受别人的友情链接</h2>
+<p>如果你的网站想要得到友情链接，并且允许申请友情链接的话，请在网站的底部或者其他地方新建<a href="http://www.qianxingzhem.com/friendlink" target="_blank" rel="external">一个友情链接页面</a>。页面的锚文字可以是“申请友链?”之类的文字，让别人一看就知道是一个申请友情链接的页面，从而让别人知道你想要接受友情链接。在这一个页面中，你应该说明你要添加的友情链接的相关要求，比如要求对方pr多少，对方收录多少，对方网站更新频率多少等等。这样做一个要求之后，如果遇到一些不太好的友情链接申请，你就可以有个比较好的理由回绝对方。</p>
+<h2 id="申请友情链接的礼仪">申请友情链接的礼仪</h2>
+<p>在申请友情链接中，有许多需要注意的地方，要礼貌注重礼仪一些，这样得到对方友情链接的几率就会大一些。</p>
+<p>1，在申请对方友情链接的时候，一定要真诚的请求，并且在自己的网站上，提前加上对方的网站链接。这样会让对方感到你是真的很想和他链接。</p>
+<p>2，提前看清对方友情链接的标准，如果自己的网站达不到这个标准，就尽量不要去申请。申请也没有用处，对方一般不会同意的，而且还搞得比较尴尬。</p>
+<p>3，如果对方的网站经常打不开，或者有一些不良的信息等，你不想和他继续交换友情链接了。请提前和对方站长联系一下，说明自己不想做友情链接了，说明对方网站有哪一些地方不符合自己的友情链接的要求，告知对方要撤下链接。不要不通知就私自撤下链接，这是一种非常不礼貌的行为。潜行者m不久前就遇到这种情况，发现后，直接撤下，以后永远不会和这个站长友情链接了。</p>
+<h2 id="申请友情链接的误区">申请友情链接的误区</h2>
+<p>1，有些人认为，友情链接越多越好，从而只要是网站就去申请友情链接。这是错误的，假如一个生物科技论坛和一个游戏论坛做友情链接，这是没有多少用处的。得到高质量的网站友情链接，必须是相关的网站，例如网络营销网站的话，可以与一些网站建设类网站链接，这样的效果和质量都要好很多。同时，友情链接尽量要控制在20个左右，不要太多了。如果太多了，会被搜索引擎当成链接工厂，而且每个链接的权重也会降低。</p>
+<p>2，pr等指标越高，这个友情链接就越好。这又是一个seo的误区，很多人认为，一个网站的pr值越高，与他链接，得到的好处就越多。于是就有很多人卖pr值高的网站链接，有些人就买。对于pr值来说，不要和自己网站差距太大，相仿、低点、高点都可以。举一个简单的例子，一个pr为1的网站，却有一个pr8的网站链接。搜索引擎发现了，会怎么想？一个pr8的网站为什么要去链接一个pr1的网站？会不会是购买的链接？如果搜索引擎真的这样想，就麻烦了，因为搜索引擎是反感购买链接这类活动的。所以，与自己pr相仿或者高点的网站链接是最好的了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-865.html" data-id="4bvsgelw060nmldj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e4-bb-8eseo-e7-9a-84-e8-a7-92-e5-ba-a6-e6-9d-a5-e8-b0-88-e7-bd-91-e7-ab-99-e6-90-ac-e5-ae-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-863.html" class="article-date">
+  <time datetime="2012-03-04T00:45:11.000Z" itemprop="datePublished">Mar 4 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-863.html">从seo的角度来谈网站搬家</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网站搬家，顾名思义就是转移网站更换网站的服务器。在一个网站的运营发展中，必不可少的过程就是转移服务器，可能是由于续费、更换主机服务商或者网站规模增大需要更强配置的服务器等，都需要进行网站搬家。前些天，我看到过一篇不错的关于网站搬家的文章，是潜行者m写的《<a href="http://www.qianxingzhem.com/post-369.html" target="_blank" rel="external">网站搬家的一般流程</a>》，上面介绍了一下网站搬家的原则和实现的具体步骤，并没有涉及太多的关于seo方面的。在这里本人就从seo的角度来谈谈网站搬家。<br>网站搬家，注定是要更换服务器，通常的说，<strong>将一个网站转移到另一个服务器上，是不会对排名造成影响的</strong>。至于有些人发现排名下降了，那可能是由于你搬到了一台之前被搜索引擎惩罚的服务器上，或者是你搬家的方法不当，导致搬家过程中，搜索引擎发现大量的错误等等。如果操作得当，网站搬家对排名是没有影响的。</p>
+<p>第一步：<strong>确定你真的要进行非常有必要的网站搬家。</strong>我周围就有很多朋友，总是不停的购买主机然后不停的把网站放来放去。这样既麻烦，又有可能造成文件数据丢失，导致排名受损。再说，如果搜索引擎检测到你的网站经常的更换服务器，那么它就会疑惑你的网站究竟是一个什么网站，为什么要经常转移网站，对排名很有可能也有一定的影响。</p>
+<p>第二步：<strong>备份网站的所有资源。</strong>网站搬家的原则就是，不能丢失任何的数据和资源。包括你的数据库和图片等资源，都要全部复制下来。</p>
+<p>第三步：<strong>把所有下载下来的网站资源，按照原先的目录结构等上传到新网站空间，保证文件名和目录一致，将数据等导入数据库。</strong>之后，我们就要进行检测和观察。对比原和转移之后的网站结构、数据等，进行适当的修改。比如有个文件缺失了，无法访问，就下载补上；如果有数据丢失文章不见了，再重新添加上。要多打开几个页面，多看一下，搬家之后的网站是不是和原来的网站有什么变化。如果有变化的话，就修改成原来网站的样子。</p>
+<p>第四步：<strong>修改dns设置，使其生效。</strong>经过第三步，如果你发现已经没有什么问题了，那么就可以进行域名转接了。修改dns，将域名指向新网站空间的ip地址，并且修改一下ttl设置，把它设置成最短。ttl表示dns的缓存时间，短了可以即时的让域名转接生效。过几分钟之后，我们可以ping一下自己的网站域名，就可以发现域名已经指向了新的服务器。这时候，要看看网站和以前有没有什么不同，如果不同的话，请抓紧进行修改。</p>
+<p>第五步：<strong>一段时间将原网站文件数据等删除。</strong>搬家过程已经完成，但是我们的旧网站仍然需要再放一会。如果新的网站空间不行的话，我们可以直接修改dns把域名转接回老网站。我们需要在旧网站上面添加一个新的统计代码，看一下还又没有人访问，通常经过几天，搜索引擎对网站进行正常的收录之后，我们就可以把原网站数据删掉。这也是为了安全的需要，防止原网站数据被下载等。</p>
+<p>这样，网站搬家就算是完成了。还需要注意以下几点：<br>1，过段时间，需要把ttl设置调高。在第一时间告诉isp和搜索引擎你网站换服务器之后，就可以把ttl重新设置的高一些。因为网站的地址不会轻易的变化，所以不需要很短的缓存生效时间。调高之后，可以减少对dns服务器的请求，可以提高网站访问速度。<br>2，如果网站是一个更新速度很快的网站，而且主要的更新者是用户（例如论坛），那么出于防止数据丢失的考虑，我们需要在搬家之前，关掉网站相关功能，显示网站正在升级等。搬家之后，立刻开启功能，这样就不会丢失用户发布的新内容了。<br>3，一定要仔细检查网站文件是否丢失，网站结构是否变化。有些网站使用了伪静态功能重写了url，一定要按照之前的格式，重写，如果url发生了变化，就麻烦了。<br>4，在网站搬家的过程中网站一直可以正常访问，所以不会对搜索引擎的爬行、排名等造成影响。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-863.html" data-id="t1qooqiecu1vb3if" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e5-a4-a7-e5-9c-b0seo-e6-95-99-e7-a8-8b-e5-85-a8-e9-9b-86-ef-bc-88-e5-8d-81-e4-b9-9d-e8-af-be-450m-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-789.html" class="article-date">
+  <time datetime="2012-02-25T06:08:21.000Z" itemprop="datePublished">Feb 25 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-789.html">大地SEO教程全集（十九课 450M）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>累死了，忙了一天，终于全都上传完了。有需求的朋友，可以去下载看一下。<a href="http://qxzm.qjwm.com/" target="_blank" rel="external">更多的资料</a>，可以关注本人的网盘：</p>
+<p><a href="http://qxzm.qjwm.com/" target="_blank" rel="external">http://qxzm.qjwm.com/</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028404.html" target="_blank" rel="external">大地SEO视频教程第一课1.zip</a> 15.94 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028404.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028404.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028405.html" target="_blank" rel="external">大地SEO视频教程第一课2.zip</a> 7.06 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028405.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028405.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028850.html" target="_blank" rel="external">大地SEO视频教程第二课1.zip</a> 9.69 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028850.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028850.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028851.html" target="_blank" rel="external">大地SEO视频教程第二课2.zip</a> 42.43 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028851.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028851.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028992.html" target="_blank" rel="external">大地SEO视频教程第三课.zip</a> 27.56 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028992.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028992.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2028993.html" target="_blank" rel="external">大地SEO视频教程第四课.zip</a> 38.8 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2028993.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2028993.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029253.html" target="_blank" rel="external">大地SEO视频教程第五课.zip</a> 45.53 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029253.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029253.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029252.html" target="_blank" rel="external">大地SEO视频教程第六课.zip</a> 39.18M</p>
+<p><a href="http://qxzm.qjwm.com/down_2029252.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029252.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029398.html" target="_blank" rel="external">大地SEO视频教程第七课.zip</a> 29.11 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029398.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029398.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029399.html" target="_blank" rel="external">大地SEO视频教程第八课.zip</a>  30.96 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029399.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029399.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029400.html" target="_blank" rel="external">大地SEO视频教程第九课.zip</a> 16.67 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029400.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029400.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029718.html" target="_blank" rel="external">大地SEO视频教程第十课：相关性的计算.zip</a> 54.69 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029718.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029718.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2029719.html" target="_blank" rel="external">大地SEO视频教程第十一课：链接的讲解.zip</a> 27.58 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2029719.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2029719.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030008.html" target="_blank" rel="external">大地SEO视频教程第十二课：关键词相关.zip</a> 19.37 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030008.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030008.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030009.html" target="_blank" rel="external">大地SEO视频教程第十三课：关键词相关.zip</a> 9.93 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030009.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030009.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030010.html" target="_blank" rel="external">大地SEO视频教程第十四课：关键词分类和类聚.zip </a>15.54 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030010.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030010.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030315.html" target="_blank" rel="external">大地SEO视频教程第十五课：关键词相关性处理.zip</a> 8.67 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030315.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030315.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030316.html" target="_blank" rel="external">大地SEO视频教程第十六课：关键词相关.zip</a> 4.71 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030316.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030316.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030495.html" target="_blank" rel="external">大地SEO视频教程第十七课：页面的布局.zip</a> 13.6 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030495.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030495.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030496.html" target="_blank" rel="external">大地SEO视频教程第十八课：关键词，输入词，检索词.zip</a> 8.7 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030496.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030496.html</a></p>
+<p><a href="http://qxzm.qjwm.com/down_2030498.html" target="_blank" rel="external">大地SEO视频教程第十九课，新页面的收录问题.zip</a> 4.3 MB</p>
+<p><a href="http://qxzm.qjwm.com/down_2030498.html" target="_blank" rel="external">http://qxzm.qjwm.com/down_2030498.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-789.html" data-id="pojz0uonv9evhx6s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源分享/">资源分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-seo-e7-9a-84-e9-87-8d-e7-82-b9-e6-98-af-e7-bd-91-e7-ab-99-e8-b4-a8-e9-87-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-704.html" class="article-date">
+  <time datetime="2012-02-17T15:34:47.000Z" itemprop="datePublished">Feb 17 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-704.html">网站优化的重点是网站质量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很多人把网站优化的重点都放在了外链上面，我个人则认为网站优化的重点是内在的质量上，而不是其他的外因。</p>
+<p>网站优化不可避免的是研究搜索引擎的排名算法等。我们从用户与搜索引擎的关系来简单分析一下：用户为什么要使用某个搜索引擎？原因就是使用这个搜索引擎，可以方便快捷的找到自己需要的信息，这个信息必须是自己需要的并且高质量的信息。如果当一个用户搜索信息，在搜索引擎前几页，全都是乱七八糟的垃圾信息或者自己不想看的无关内容的话，用户便不会再用这个搜索引擎了。所以搜索引擎的工作就是，在网页中筛选出内容相关的网页并且按照网页质量来排序，以便让搜索者首先看到最相关的质量最高的网站，找到自己最需要的信息。所以搜索引擎的算法，就是去识别页面的主要内容是什么，它的质量好不好。其中一个方法就是通过外链进行判断，看它的外链多不多，有什么网站对其外链。</p>
+<p>看到这里，你会说，网站优化的重点这不还是外链吗？你为什么说是网站质量？</p>
+<p>网站优化的最终目的是什么？目的并不是在搜索引擎上排名多少、让多少人访问，而是尽量的把访问的人留住，转化成潜在的价值。这需要的就是高质量的内容。<strong>当一个人来了之后，不会看一眼立刻就关掉，而是继续看这个网站其他内容，把它放在收藏夹里，甚至发给他的朋友自愿的宣传。这才是一个成功的网站优化。</strong></p>
+<p>而实现这一个目的，最简单最原始的方法就是提高网站的质量。当一个网站的质量高了之后，排名自然就上去了。因为搜索引擎知道了这个网站的质量很高，自然愿意把它放在前面，让用户看到。至于外链，在初期可以进行适当宣传，后期基本不用了。由于你的网站质量高，可以让用户受益，用户自然会推荐给自己的朋友，或者在自己的网站上进行共享，大量外链就自然建立了。一个很经典的例子就是W3school.com.cn，它提供免费的权威的教程，有人去看了，发现了这么好的学习资源，自然就会推荐给他的朋友，或许也会像我一样，在写的文章中当做例子宣传它。这样建立的外链，质量最高，也最轻松，不用你去群发大量垃圾信息。</p>
+<p>网站质量高了，他的浏览者转化率也高。假设两个销售某产品的网站，一个仅仅重视外链，产品相关内容都是工具生成的伪原创，还有病句等；另一个则重视网站质量，仔细编写产品相关信息，让浏览者有一个清晰的认识，页面也设计的美观大方。第一个网站，访问量可能会很大，但是大部分人看到设计糟糕的页面，乱七八糟的内容，可能就仅仅访问一次就关闭了。而第二个网站，访问的人不多，但是看到了产品的详细信息，并且觉得这个网站设计不错很正规，极有可能产生消费购买自己需要的产品，并且会推荐给朋友，让朋友也购买。<strong>我们做网站，需要的不是大量的过客，而是大量的回头客。</strong></p>
+<p>所以，潜行者m个人认为，网站优化最重要的是网站自身的质量，至于外链等，都是其次的。关于一个网站的质量，需要从两方面去考虑：第一个方面，要站在用户的角度，合理的设计，合理的布局广告等，让用户觉得你这个网站很美观很正规感觉很好，他才有可能再次访问。记住，没有一个人喜欢一个到处漂浮着乱七八糟广告的网站，除了站长。第二个方面，就是用户所需要的高质量的内容，如果没有用户所需要的内容，再好的设计也是白搭。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-704.html" data-id="iwwn5qrhtidildj8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post--e7-99-be-e5-ba-a6-e8-a2-ab-e5-b1-b1-e4-b8-9c-e4-ba-8c-e6-9c-ac-e5-bc-ba-e5-a5-b8-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-240.html" class="article-date">
+  <time datetime="2011-08-08T04:27:07.000Z" itemprop="datePublished">Aug 8 2011</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-240.html">百度被“山东二本”强奸了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每年高考来的时候，网上就掀起来一整搜索热潮。同时，有些不法卑鄙的人，利用seo就开始谋取利益了。正如本文所说的关键词“山东二本”就被人为的控制了。看来百度的算法还不是很完善。</p>
+<p>不多说了，看图，有图有真相。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2011/08/1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2011/08/1.png" alt="" title="1"></a></p>
+<p>这个关键词，被来自 163博客的文章大量占有了。伪造的很像查询网站。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2011/08/2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2011/08/2.png" alt="" title="2"></a></p>
+<p>实际上，这个页面只是一个中转站，负责接从百度进来的用户，然后到他的网站。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2011/08/3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2011/08/3.png" alt="" title="3"></a></p>
+<p>这T M是个电影网站，却出现这么一篇文章。大家可以看到，已经过来看的有4w多人了。而这个网站采用的是弹窗广告，它只要有流量就可以挣钱。当然，被很多人骂了</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2011/08/5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2011/08/5.png" alt="" title="5"></a></p>
+<p>最后留下点搞笑的。竟然在前面能看到这种内容。百度，你果真被强奸了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2011/08/4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2011/08/4.png" alt="" title="4"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-240.html" data-id="kh9dw4zevusabv0u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-23.html">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
