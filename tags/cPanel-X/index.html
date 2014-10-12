@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: cPanel X | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/tags/cPanel-X/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b4-e6-95-b0-e6-8d-ae-e5-ba-93-e6-93-8d-e4-bd-9c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-693.html" class="article-date">
+  <time datetime="2012-02-16T15:40:43.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-693.html">cPanel X面板使用教程4—数据库操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>面板的主机，通常的配置是<a href="www.qianxingzhem.com/post-455.html">linux+php+mysql+apache</a>（或nginx）。所以，<a href="www.qianxingzhem.com/post-455.html">mysql数据库</a>的功能不容忽视，在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>上，可以新建数据库，也可以管理数据库等。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql0.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql0.jpg" alt="mysql0"></a></p>
+<p><strong>1，mysql数据库：</strong></p>
+<p>在这里，我们可以新建数据库，新建数据库用户和密码，并且绑定用户到数据库当中。</p>
+<p>新建数据库的方法，很简单，按照上面的步骤，输入数据库名称，点击生成，之后新建的数据库就出现在了下面的数据库列表中。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql1.jpg" alt="mysql1"></a></p>
+<p>虽然已经生成了，但是这个数据库目前是无法使用的，因为没有数据库用户名。我们还需要添加一个数据库用户，之后才能用程序使用这个数据库用户连接数据库使用。生成一个用户名也很简单，在下面生成即可。要注意的是，需要在相应数据库中，插入相应的用户，才能正常使用。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql2.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql2.jpg" alt="mysql2"></a></p>
+<p>插入的时候，它还会提示你，你插入的用户的权限</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql3.jpg" alt="mysql3"></a></p>
+<p>这里，我们可以对不同的用户勾选不同的权限配置，来确保数据库的安全。如果不懂的朋友，可以像我一样，勾选全部权限即可。</p>
+<p><strong>2，mysql 数据库向导：</strong></p>
+<p>向导就是把上面的内容，一步步的显示出来而不是一次性都出来，所以在这里就不多说了。建议第一次，先使用向导有一个大体的了解，以后为了方便，就不要用向导了。</p>
+<p><strong>3，phpmy 管理：</strong></p>
+<p>这里，不得不提一下翻译者的水平，一看就不是一个电脑专业的。这里应该是phpmyadmin，一款著名的mysql数据库管理工具。打开看一下，和以往的phpmyadmin有很大的不同。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql4.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/mysql4.jpg" alt="mysql4"></a></p>
+<p>效果华丽多了，我一直不太喜欢用phpmyadmin，就是因为它的实现效果实在是太差劲了，没想到这个主题还不错。在这里面，可以方便的导入导出数据库、修改数据等。具体的使用，不再赘述了。</p>
+<p><strong>4，远程mysql：</strong></p>
+<p>通常来说，数据库和网站都是放在一个服务器上的，这样使用localhost或者127.0.0.1作为数据库地址即可。但是，数据库也是可以远程调用的，这样有一个安全隐患。例如，有人通过程序漏洞等，读取了你的网站的配置文件，得到了你数据库地址和用户名密码等信息，就可以连接你的数据库，导出这些信息。但是<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的默认配置是无法让外部连接的，如果想要外部连接，我们必须在这里添加上域名或者服务器IP。</p>
+<h2 id="相关文章：">相关文章：</h2>
+<p><a href="http://www.qianxingzhem.com/post-589.html" target="_blank" rel="external">1，cPanel X面板使用教程1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html" target="_blank" rel="external">2，cPanel X面板使用教程2—FTP功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html" target="_blank" rel="external">3，cPanel X面板使用教程3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html" target="_blank" rel="external">4，cPanel X面板使用教程4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中，我们最常用的就是 网站备份、FTP相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-693.html" data-id="k45b5qw6mgup1dk4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b1-e5-9f-9f-e5-90-8d-e7-9b-b8-e5-85-b3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-661.html" class="article-date">
+  <time datetime="2012-02-16T04:47:19.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-661.html">cPanel X面板使用教程3—域名相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>的过程中，不得不承认的是，它的域名相关功能非常的强大、方便。首先，先来看看域名相关控制面板：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain5.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain5.jpg" alt="" title="domain"></a></p>
+<p>下面来依次介绍这几个功能。</p>
+<p><strong>1，子域：</strong></p>
+<p>子域就是主域名的二级域名。比如我绑定的主域名是 qianxingzhem.com ，那么我可以设置的子域名就是类似这种的 demo.qianxingzhem.com。使用子域这个功能，还可以设置子域对应的文件目录。之后，我们在DNS配置中，添加一条子域并且指向服务器IP就可以使用该子域。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain11.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain11.jpg" alt="" title="domain1"></a></p>
+<p><strong>2，附加域：</strong></p>
+<p>附加域，就是你另外绑定的域名。比如你的空间不仅仅要做一个网站，还要把另外一个网站也绑定过来。那么就是用附加域功能，添加你的顶级域名，并且配置一下目录。之后，修改域名dns指向服务器IP，就可以了。</p>
+<p><strong>3，暂停的域：</strong></p>
+<p>就是你暂停使用的域名，添加之后，就暂停使用你这个域名。</p>
+<p><strong>4，重新定向：</strong></p>
+<p>这是一个非常实用的功能，使用重定向，在seo上面有比较重要的应用，比如网站换用了新域名等等。</p>
+<p>这个面板功能也是很强大的：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain21.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain21.jpg" alt="" title="domain2"></a></p>
+<p>类型中有永久和临时两种选择，这样可以告诉搜索引擎你的网站是临时转移还是永久转移。在下面，我们可以选择要设置的域名，这里的域名包含绑定的主域名和附加域，还可以配置相应的目录。之后，在下面的重定向至里面，输入你要重定向的域名或者地址。</p>
+<p>而下面的三个单选，第一个“只能使用www重定向”意思就是重定向的域名，都是以www开头的，例如www.qianxingzhem.com。中间的那个，就是不确定是不是使用www开头。最后一个，就是不要重定向www的域名，只定向类似 qianxingzhem.com的域名。</p>
+<p>至于最下面的 “wild card”功能，本人也没有见过，搞不清楚。</p>
+<p><strong>5，简单dns编辑器和高级dns编辑器：</strong></p>
+<p>justhost有他们自己的dns服务器，为了方便，可以将域名直接绑定到justhost自己的dns服务器上面，这样设置子域等直接就可以生效。但是justhost的dns功能不是很强只能实现简单的dns功能，例如：添加A记录，添加CNAME记录等。添加的时候，首先要选择一个域：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain3.jpg" alt="" title="domain3"></a></p>
+<p>关于图中的的“高级dns编辑器”，有些朋友的cPanel X面板可能没有这个功能，我的面板是被服务商修改过的，我之前用的就没有这个功能。“高级dns编辑器”就是把dns功能扩展了一些，可以多添加一个 TXT记录而已。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain4.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/domain4.jpg" alt="" title="domain4"></a></p>
+<p>对于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>的dns功能，不是太强，所以建议把域名指向其他dns服务器，例如国内的dnspod等，之后再指向服务器IP即可。</p>
+<h2 id="相关文章：">相关文章：</h2>
+<p><a href="http://www.qianxingzhem.com/post-589.html" target="_blank" rel="external">1，cPanel X面板使用教程1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html" target="_blank" rel="external">2，cPanel X面板使用教程2—FTP功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html" target="_blank" rel="external">3，cPanel X面板使用教程3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html" target="_blank" rel="external">4，cPanel X面板使用教程4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中，我们最常用的就是 网站备份、FTP相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-661.html" data-id="fvrc79jade81481x" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b2-ftp-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-623.html" class="article-date">
+  <time datetime="2012-02-14T02:48:50.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-623.html">cPanel X面板使用教程2—FTP功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>FTP对于一个强大的空间来说，是一个必不可少的东西。在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中ftp功能就比较强大，但是强大的背后也是难以接触。我第一次使用的时候，真的不会用，新开辟的ftp账号，链接不上。后来看了一些网上的文章之后，才会使用的。</p>
+<p>我们来看一下关于ftp功能的面板：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp5.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp5.jpg" alt="" title="cPanel xftp"></a></p>
+<p><strong>1，ftp账号</strong></p>
+<p>通常来说，使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>的主机，ftp账号是可以开通无限个的。点击“ftp账号”，我们就可以去新建ftp登陆账号。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp1.jpg" alt="" title="cPanel xftp1"></a></p>
+<p>配置的ftp账号，可以设置一个特定的文件夹，并且也有大小的限制，非常方便进行控制。之后，我们点击“生成邮件列表”就可以了，这里是翻译错了 。</p>
+<p>配置好之后，在下面的ftp列表中就可以看到了，并且可以点击右边的按钮进行一些配置。下面说说最关键的链接使用，因为我第一次配置之后，就不会链接。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp2.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp2.jpg" alt="" title="cPanel xftp2"></a></p>
+<p>这样，我们使用ftp软件进行连接的时候，应该在用户名那里输入：账户@域名 而不能仅仅输入账户。这里，就体现出了在一开始设置主域名的用处，就是用来标记你的空间用的。</p>
+<p><strong>2，ftp进程控制</strong></p>
+<p>这是一个比较实用的功能，当我使用ftp软件连接上去的时候，就可以在后台看到连接信息。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp3.jpg" alt="" title="cPanel xftp3"></a></p>
+<p>这样的好处就是，如果你看到了陌生的ftp连接，这有可能是黑客入侵以及其他的行为，你可以人为的控制断掉他的链接，保证网站的安全。</p>
+<p><strong>3，匿名ftp</strong></p>
+<p>匿名ftp就是可以不需要用户名和密码就可以登录的ftp。在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中默认允许匿名访问你空间主域ftp的。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp4.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cPanel-xftp4.jpg" alt="" title="cPanel xftp4"></a></p>
+<p>为了减少不必要的安全隐患，潜行者m在这里提醒大家，如果没有必要的话，请关闭匿名ftp功能。</p>
+<p>但是从这个匿名ftp功能中，我们又可以得到一些启发。如果服务器进行了http网速等的限制，我们可以给出ftp下载地址，让用户可以通过匿名ftp的方式，从服务器上下载文件。这样就能突破某些下载限制了，呵呵，说多了。</p>
+<h2 id="相关文章：">相关文章：</h2>
+<p><a href="http://www.qianxingzhem.com/post-589.html" target="_blank" rel="external">1，cPanel X面板使用教程1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html" target="_blank" rel="external">2，cPanel X面板使用教程2—FTP功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html" target="_blank" rel="external">3，cPanel X面板使用教程3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html" target="_blank" rel="external">4，cPanel X面板使用教程4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中，我们最常用的就是 网站备份、FTP相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-623.html" data-id="kopzhyafqwzyd1o4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b1-e7-bd-91-e7-ab-99-e5-a4-87-e4-bb-bd-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-589.html" class="article-date">
+  <time datetime="2012-02-11T16:40:11.000Z" itemprop="datePublished">Feb 12 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-589.html">cPanel X面板使用教程1—网站备份功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网站运营过程中，备份是一个必不可少的环节，一个网站，需要定期的进行数据和资源的备份，以防出现各种意外情况，这是血的教训！备份功能也是一个网站空间控制面板必不可少的功能。</p>
+<p><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X面板</a>的备份功能，可谓是非常的强大，是<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a>用过的所有的后台备份功能最强大的了。</p>
+<p>我们登陆后，找到“文件”面板，有两个备份，一个是“备份”，另一个是“备份向导”。如果新手第一次使用，可以点击“备份向导”，有文字提示，而直接使用备份也是很方便的。我们打开：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen0.png" alt="" title="cbeifen0"></a></p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen1.png" alt="" title="cbeifen1"></a></p>
+<p>我通常的做法是直接备份全部目录，这样，justhost主机上所有目录的所有文件都会导出，而且数据库里面的数据也会导出，一起压缩成一个压缩包。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen2.png" alt="" title="cbeifen2"></a></p>
+<p>它的备份速度是很快的，用不了几分钟，我的邮箱收到了备份完成的邮件</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen3.png" alt="" title="cbeifen3"></a></p>
+<p>这时候，我们就可以登陆面板，找到备份文件，进行下载，也可以使用ftp登陆远程服务器，备份的内容会在根目录下面显示。这种备份方式的优点很明确，就是体积小，下载等都非常的节约时间，它把网站所有的文件都压缩起来，众所周知，代码、数据库等文件的压缩比是很高的，而且下载一个大文件的速度也比下载多个小文件的速度要快，因为不用ftp软件依次进行连接。</p>
+<p>关于备份的还原，也是很方便的。我们可以</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cbeifen4.png" alt="" title="cbeifen4"></a></p>
+<p>上传相应备份的tar.gz文件包，如果没有经过修改，<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>是会自动识别文件，并且导入数据，非常方便。同样对于网站搬家来说，也是非常方便。如果我从一个使用cPanel X的主机，把网站搬到另一个使用cPanel X的主机，只需要进行一个全目录的备份，之后把这个备份上传到另一台主机上，恢复备份。之后，再把域名转向新主机，修改一些细节就可以了。</p>
+<p>&nbsp;</p>
+<h2 id="相关文章：">相关文章：</h2>
+<p><a href="http://www.qianxingzhem.com/post-589.html" target="_blank" rel="external">1，cPanel X面板使用教程1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html" target="_blank" rel="external">2，cPanel X面板使用教程2—FTP功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html" target="_blank" rel="external">3，cPanel X面板使用教程3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html" target="_blank" rel="external">4，cPanel X面板使用教程4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>中，我们最常用的就是 网站备份、FTP相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x" target="_blank" rel="external">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-589.html" data-id="u45dt1p2cxu0phgq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b0-e4-bf-ae-e6-94-b9-e8-b0-83-e6-95-b4-e9-a1-b5-e9-9d-a2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-546.html" class="article-date">
+  <time datetime="2012-02-10T04:56:12.000Z" itemprop="datePublished">Feb 10 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-546.html">cPanel X面板使用教程0—修改调整页面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先先说一下cPanel X面板是什么东西。它是一款强大的虚拟主机配置系统，被美国很多著名的虚拟主机商使用，例如justhost。由于它支持中文（虽然有些地方翻译的不到位），所以很受国内用户的喜欢。潜行者m也使用了一段时间了，积累了不少的经验，于是就写这系列文章，来总结一下使用经验，帮助新手去学习使用。</p>
+<p>第一篇，我主要说一下调整页面、设置语言、更改模板等。下图是一个新开设的cPanel X面板，是英文版的。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel2.png" alt="" title="cpanel"></a></p>
+<p>从上图中，就可以看出它的功能是非常强大的。包括显示主机信息，一个右侧的很多功能等等。但是英文版有些不方便，我们可以通过点击右边最上面“Change Language”，然后在出现的下拉菜单中，选择“中文”，点击“change”即可：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel1.png" alt="" title="cpanel1"></a></p>
+<p>官方默认的界面，也不是很好看，我们可以更换主题，cPanel X内置了很多主题，我个人比较喜欢的是 X3主题，今后的教程中也会以这个主题为参考：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/02/cpanel3.png" alt="" title="cpanel3"></a></p>
+<p>第一篇教程，就先对这个面板进行一个简单的讲解，从下一篇，开始针对特定功能进行讲解。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-546.html" data-id="i4dfnvcad0nzwcwe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

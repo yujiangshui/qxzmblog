@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2013/2 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/archives/2013/02/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1758.html" class="article-date">
+  <time datetime="2013-02-25T20:07:40.000Z" itemprop="datePublished">Feb 26 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1758.html">用 jQuery 制作一个简单的遮罩弹窗效果教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。</p>
+<p>神说，有代码的文章，应该有个 Demo ，于是就有了 <a href="http://www.qianxingzhem.com/demo/1758/" target="_blank" rel="external">Demo</a>。</p>
+<h2 id="HTML_结构">HTML 结构</h2>
+<p>首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。</p>
+<pre> &lt;div class="click"&gt;点击这里&lt;/div&gt;
+ &lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
+ &lt;div class="bg"&gt;&lt;/div&gt;
+ &lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
+
+<h2 id="CSS_代码">CSS 代码</h2>
+<p>对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。</p>
+<p><pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}<br>.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre><br>简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。</p>
+<p>特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。</p>
+<h2 id="jQuery_代码">jQuery 代码</h2>
+<p>分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。</p>
+<p><pre>   $(function(){<br>        $(‘.click’).click(function(){<br>            $(‘.bg’).css({‘display’:’block’});<br>            $(‘.content’).css({‘display’:’block’});<br>        });<br>        $(‘.bg’).click(function(){<br>            $(‘.bg’).css({‘display’:’none’});<br>            $(‘.content’).css({‘display’:’none’});<br>        });<br>    });</pre><br>这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。</p>
+<h2 id="更多技巧和方法">更多技巧和方法</h2>
+<h3 id="更平缓的显示">更平缓的显示</h3>
+<p>点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。</p>
+<p><pre> $(‘.click1’).click(function(){<br>    $(‘.bg’).fadeIn(200);<br>    $(‘.content’).fadeIn(400);<br> });<br> $(‘.bg’).click(function(){<br>    $(‘.bg’).fadeOut(800);<br>    $(‘.content’).fadeOut(800);<br> });</pre><br>这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。</p>
+<h3 id="其他的实现方法">其他的实现方法</h3>
+<p>现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：<a href="http://www.54173.cn/blog/?p=701" target="_blank" rel="external">简单的jQuery弹出遮罩层</a>。</p>
+<p>差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1758.html" data-id="rme6guiuxyi5ubdo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-10-e4-b8-aa-e5-89-8d-e7-ab-af-e5-bc-80-e5-8f-91-e5-bf-85-e5-a4-87-e7-9a-84-e5-b7-a5-e5-85-b7-e6-88-96-e4-bd-bf-e7-94-a8-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1746.html" class="article-date">
+  <time datetime="2013-02-20T17:04:52.000Z" itemprop="datePublished">Feb 21 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1746.html">10个前端开发必备的工具或使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>工欲善其事必先利其器，有了本文介绍的工具和一些功能，你就可以高效的处理任务和信息。下面的这些工具都是本人平时经常用到的，如果你有更好的更有效率的工具，请告知一声，补充一下！</p>
+<h2 id="火狐浏览器">火狐浏览器</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool0.png" alt="使用火狐浏览器"></a></p>
+<p>前端要看网页，浏览器是必备的，但为什么要选择火狐浏览器而不是谷歌、IE、opera、360？首先，IE就不要谈了，360那些国产的也不要提了，opera 国内使用率并不高。使用谷歌浏览器也是一个好的选择，但是我本人倾向于使用火狐。因为在之前的使用过程中，感觉 chrome 是拿来上网用的，而 Firefox 才是拿来开发用的，特别是下面介绍的一些功能插件都是基于火狐浏览器的。当然谷歌浏览器上面也有一套不错的开发工具。</p>
+<h2 id="Firebug">Firebug</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool1.png" alt="FireBug"></a></p>
+<p>这个插件具有非常强大的功能，它把网页的 HTML 结构进行了整理，查看和修改 CSS 也非常方便。这只是基础的功能，还有控制台等可以调试 JavaScript 等，是前端不可缺少的工具。具体使用方法不再赘述。</p>
+<h2 id="查看选中部分源代码">查看选中部分源代码</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool2.png" alt="查看选中部分源代码"></a></p>
+<p>这是火狐浏览器中内置的一个功能，通过选取网页上的一快内容，然后右击查看选中部分源代码，可以快速查看到你选中部分的源代码内容。这样就可以非常快速的了解到某个区域的 HTML 结构，从而避免从海量文件中寻找对应代码。</p>
+<h2 id="Yslow">Yslow</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool3.png" alt="使用 Yslow"></a></p>
+<p>网站性能优化也是前端的一个重要任务，而雅虎出品的 Yslow 插件，就是进行网站性能测试的工具。使用它进行测试之后，会给出一个等级以及存在哪些问题以及如何进行修正。官方地址：<a href="http://yslow.org/" target="_blank" rel="external">点击这里</a></p>
+<h2 id="查看元素（三维视图）">查看元素（三维视图）</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool4.png" alt="查看元素 三维视图"></a></p>
+<p>火狐浏览器自带的查看源代码功能还是比较弱的，于是有 查看元素 这个功能。使用鼠标放在某个元素上，右击 查看元素 ，即可看到这个元素的 HTML 结构和对应的 CSS 样式，也可以很方便的修改。但是通常使用 FireBUG 来完成这个任务，因为自带的功能不是特别强。这里主要介绍的是 查看元素 功能中的 三维视图 功能。这个功能可以把你的网页变成三维视图，从而可以非常方便的查看到网站的结构是否合理、是否正确闭合、是否嵌套层数太多。</p>
+<h2 id="自适应设计视图">自适应设计视图</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool5.png" alt="自适应设计视图"></a></p>
+<p>目前响应式设计越来越流行，这个功能就是来测试网页的响应式布局效果。同样也是火狐浏览器中内置的功能，在 菜单 中 Web开发者 选项中可以找到。虽然网上也有一些网页版的响应式测试工具，但是我个人觉得还是浏览器自带的比较方便实用，速度也比较快。此外，据说 chrome 上面也有类似的工具。</p>
+<h2 id="IE9">IE9</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool6.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool6.png" alt="IE9"></a></p>
+<p>IE9 是用来做兼容性测试用的。如何做 IE 兼容性测试呢？IE9 已经像 firefox chrome 一样，内置了非常简陋、难用的页面调试功能，但是其中有一个非常重要的功能，就是设置浏览器和文档解析模式。它可以方便的切换到 IE7 、IE8 文档渲染模式，此外还有怪异模式等等。这样，用IE9就可以同时做IE7和IE8的兼容性测试。对了，IE6呢，IE6怎么办。原来你还在费力的做IE6的兼容？</p>
+<h2 id="有道云笔记">有道云笔记</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool7.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool7.png" alt="有道云笔记"></a></p>
+<p>前端也是需要不断学习的，包括一些总结或者网上的资料。以及一些优秀作品的网页截图、图片资源等等，都是需要分类整理的。面多这么多的信息，你如果用文件夹和 Word文档或者浏览器的收藏夹来整理，那简直是弱爆了。有道云笔记是我用过最好的比较，容量大，使用方便。可以直接使用网易邮箱登陆开通，如果你还没有账号，可以通过<a href="http://note.youdao.com/?invitation=9014799" target="_blank" rel="external">我的邀请链接</a>注册。</p>
+<h2 id="火狐剪报">火狐剪报</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool8.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool8.png" alt="火狐剪报"></a></p>
+<p>快速对当前网页进行截图，并且可以进行简单编辑。搭配有道云笔记，可以记录优秀的设计，提供一些灵感。此外有很多类似的网页截图工具。</p>
+<h2 id="notepad++">notepad++</h2>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool9.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1746/qdtool9.png" alt="NotePad ++"></a></p>
+<p>非常小巧好用的文本编辑器。用来快速高效的搜索修改代码。如果你想修改一点小代码的时候，却要忍受几秒的编辑软件启动时间，那么就用这个吧。无论是写代码还是修改代码，个人觉得都比那些功能齐全的编辑软件好很多。当然文本编辑器也有很多，但是用了一遍我个人觉得这是最好的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1746.html" data-id="ib3j6eyv86vdg4rs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-dd-belatedpng-e4-b8-8e-unitpngfix-e4-b8-a4-e7-a7-8d-e8-a7-a3-e5-86-b3ie6-e4-b8-adpng-e6-96-87-e4-bb-b6-e9-80-8f-e6-98-8e-e9-97-ae-e9-a2-98-e6-96-b9-e6-a1-88-e6-a8-aa-e5-90-91-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1641.html" class="article-date">
+  <time datetime="2013-02-18T20:45:08.000Z" itemprop="datePublished">Feb 19 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1641.html">DD_belatedPNG 与 unitpngfix 两种解决IE6中PNG文件透明问题方案横向对比</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然 IE6 骂声不断，但是仍然还有不少的市场份额。而在网页中，png 文件体积小、无锯齿、透明度好而被广泛使用。当这两件事情碰在一起，问题就来了，IE6 不支持 png 的透明，它会把透明的部分显示成白色的。</p>
+<p>有问题就会有解决方法，可以使用早期IE6支持的滤镜来实现透明效果，有些牛人就根据这个原理进行了封装，做成了 JS 来使用。所以，我们只需要调用他们编写 JS 文件即可。在网上有众多解决这种问题的方法和插件，但是实际上目前有这两种方式比较有效，那就是DD_belatedPNG.js 和 unitpngfix.js 这两种方法。本文就是简单介绍一下使用方法和特点，然后将其进行一个对比。</p>
+<h2 id="DD_belatedPNG-js_方法">DD_belatedPNG.js 方法</h2>
+<p>DD_belatedPNG.js 这个插件功能非常强大，强大的背后就是复杂的使用方法和体积大小。首先要下载这个 JS 文件，然后引用到页面中，之后就要为其填写配置一些参数。通常要用两个参数，一个是 CSS 选择器，使用这个选择需要处理的层或者图片，另一个是类型，就是这个图片是作为 img 图片还是 background 背景图片来使用的。插件体积的话，压缩版也有7KB。</p>
+<p>知更鸟已经写了一篇比较简单的使用方法：<a href="http://zmingcx.com/dd_belatedpng-solve-png-images-under-ie6-transparent-application-tutorial.html" target="_blank" rel="external">使用DD_belatedPNG让IE6支持PNG透明图片</a></p>
+<p>官方的英文版提供了更加详细的教程：<a href="http://www.dillerdesign.com/experiment/DD_belatedPNG/" target="_blank" rel="external">点击这里</a></p>
+<h2 id="unitpngfix-js_方法">unitpngfix.js 方法</h2>
+<p>unitpngfix.js 这个插件使用起来非常简单，不需要配置什么参数，只需要引入JS插件即可。而且非常小巧，只有2KB，不需要进行任何配置。但是要注意，JS 文件里面还要配置一个小图片地址，这个图片就是一个1像素的透明图片，是这个插件必须的素材。所以你需要上传或者在网上找个，然后填写进去。</p>
+<p>更加详细的使用方法请看官方页面：<a href="http://labs.unitinteractive.com/unitpngfix.php" target="_blank" rel="external">点击这里</a></p>
+<p>上面介绍两种方法的两种方法的使用方法，下面我们从实际应用来对比一下。</p>
+<h2 id="实践对比测试">实践对比测试</h2>
+<p>介绍的再怎么好，也要通过实践检验。下面就来动手做个 Demo 亲自测试一下使用过程和效果。Demo 页面非常简单，就是一个带有透明 png 背景图片的 div ，并且把背景图片放在了右下角，关键代码：</p>
+<p><pre>div{width:400px;height:400px;margin:20px;background:url(222.png) bottom right no-repeat;border:1px solid #000;}</pre><br>打开之后的效果是正常的</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix0.png" alt="png 正常效果"></a></p>
+<p>现在我们启动伟大的经常无条件崩溃的 ieTest ，使用 IE6 来加载这个页面</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix1.png" alt="IE6 下 png 文件的出错效果"></a></p>
+<p>成功的显示出了白色的背景，哦也！</p>
+<p><strong>使用 DD_belatedPNG.js 方法：</strong>先引用 JS 文件，然后设置上属性和参数。具体代码如下：</p>
+<p><pre>&lt;!–[if IE 6]&gt;<br>&lt;script src=”DD_belatedPNG_0.0.8a-min.js”&gt;&lt;/script&gt;<br>&lt;script&gt;<br>DD_belatedPNG.fix(‘div,background’);<br>&lt;/script&gt;<br>&lt;![endif]–&gt;</pre><br><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix2.png" alt="DD_belatedPNG 在 IE6 下修正效果"></a></p>
+<p>刷新之后，成功修正！</p>
+<p><strong>使用 unitpngfix.js 方法：</strong>上传并且设置好小图片，然后引用 JS 文件。具体代码如下：</p>
+<p><pre>&lt;script src=”unitpngfix.js”&gt;&lt;/script&gt;</pre><br><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1641/pngfix3.png" alt="Unitpngfix 在 IE6 下的修正效果"></a></p>
+<p>但是刷新之后，背景图片却出不来了。当然这个与 IEtest 的不稳定也有关，在原生IE6下测试应该不会出现这种情况（未测试），在之前的实际使用中，偶尔会出现这种情况。大部分时候，作为背景图片会跑到左上方，因为 unitpngfix 对 background 的属性支持不太好（官方有提到）。</p>
+<h2 id="用户体验对比">用户体验对比</h2>
+<p><strong>DD_belatedPNG.js</strong> 的使用效果比较好，达到了要求，但是使用起来比较繁琐，需要针对性的对要使用的图片添加参数，这样就不便于后期的修改。当然，可以新建一个专用的类，为所有需要处理的图片，添加这个类即可，总体上也是比较方便的。此外体积也稍大。</p>
+<p><strong>unitpngfix.js</strong> 使用起来非常简单，只需要引入这个文件，就可以对页面中所有的 png 图片进行处理。但是对于原图片的 background 属性支持不太好。尤其对 background-position、background-repeat 等属性，容易失效。而且有时不太稳定（未在原生IE6下测试）。体积较小。</p>
+<p>从效果出发，自然是选择 DD_belatedPNG.js ，但 unitpngfix.js 也是有价值的。如果要你为一个包含很多 png 图片的页面做兼容处理，你是选择使用 DD_belatedPNG.js ，为图片一一添加属性或者把选择器一一填上，还是直接引用一个 unitpngfix.js ，忍受一点效果的缺失？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1641.html" data-id="o58kqya6juloxb67" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e8-bf-91-e6-9c-9f-e7-9a-84-e5-86-99-e4-bd-9c-e8-ae-a1-e5-88-92-e5-92-8c-e5-ad-a6-e4-b9-a0-e6-96-b9-e5-90-91" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1740.html" class="article-date">
+  <time datetime="2013-02-18T16:35:37.000Z" itemprop="datePublished">Feb 19 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1740.html">近期的写作计划和学习方向</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转眼又有很长时间没有写文章了，也没有什么进步。手头上有一些任务，太久都没有完成，再加上假期太久，内心有点空虚，精力和注意力也跟不上了。现在要重新振作一下，去做一些之前定下的计划。</p>
+<p>我不得不接受我是一个色弱的事实，此外我的审美观也和大众不同，所以我虽然喜欢设计，但想要从事视觉设计，并不占有什么优势。当初选择这个方向，现在看来可能是个失误，也就意味着前段时间的学习，实际价值并不算高。但是我确实喜欢设计，所以选择与设计相关，但是与视觉设计关系不大的交互设计。</p>
+<p>交互设计主要是指一些人机操作交互，例如点击一个按钮，会怎么处理？是弹出一个对话框？还是使用遮罩效果出来一个菜单？怎么出来？这个设计，主要指流程和产品的功能设计，同时带有淡淡的外表，例如线框、原型等等。同时包含一些心理学方面的知识，也是我比较感兴趣的。</p>
+<p>此外，我放弃了网站建设、运营相关的内容，其实运营或者建设非常简单，根本没有什么好研究的，<strong>只要你的网站是以用户为主，注重用户体验，并且能够提供高质量的服务，自然而然的就变成了名站，有固定的用户。</strong>而这些运营方面的文章，绝大多数，要么是泛泛而谈一些大家都知道的常识，要么就是投机取巧（特别是SEO），没有什么意思。</p>
+<p>主要的方向仍然是前端相关的，现在对 JavaScript 比较感兴趣，之后要着重学习这门语言，此外就是一些新技术，HTML5 CSS3之类的。对 jQuery 也十分有好感，以后要深入学习，做一些插件之类的。但目前的话，主要以翻译学习使用现有的插件，打造比较好的效果为主。</p>
+<p>至于之前的 WordPress 主题制作系列教程的中级篇的写作计划，打算跟初级篇的写作步骤一致，整体以一个成熟的功能齐全的主题制作为主线，从一开始到结束。目前已经酝酿出一个新主题的设计风格，但是制作这套主题需要时间和经历。所以我打算先制作出这套比较完善的主题之后，再继续写出中级篇的教程。</p>
+<p>至于近期的计划，打算认真的学习一下视差滚动网页的设计和实现方法，毕竟这种用户体验是前所未有的爽，随着 CSS3 的发展，这个肯定会流行起来。近期将会写比较多的文章介绍相关的插件和实现方法。</p>
+<p>还想说一下设计，视觉设计也不是不可以，只是做不出颜色复杂、乱七八糟的设计，我是一个崇尚简洁的人，我喜欢简洁的设计，既简单、又实用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1740.html" data-id="st5vqt8r39p3klvu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e6-9c-ac-e7-ab-99-e5-8e-9f-e5-88-9b-e4-b8-bb-e9-a2-98-qetro-e7-8e-b0-e5-af-b9-e5-a4-96-e5-85-ac-e5-bc-80-e5-8f-91-e5-b8-83" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1730.html" class="article-date">
+  <time datetime="2013-02-07T08:57:06.000Z" itemprop="datePublished">Feb 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/作品/">作品</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1730.html">本站原创主题 Qetro 现对外公开发布</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>早在去年的8月份，本人就开始制作这套主题，期间收集了不少网友提供的建议。今年二月份以来，经过近一周的工作，对大部分代码进行了重写，推出了公开版本。</p>
+<p>早在去年10月份的 1.2 版本，就打算对外公开，但是由于当时的水平有限，所以一直没有怎么处理主题，让很多网友久等了！！没有这些网友的敦促，相信也不会有公开版本。</p>
+<p>这套主题功能和结构都比较简单，比较适合初学者研究、折腾、二次改造使用，在今后的升级，将会不断的增加新的功能，如果你有什么建议和功能需求，请邮：qianxingzhem#126.com（#换@）</p>
+<p>关于主题更详细的介绍和下载地址，请看这里：<a href="http://www.qianxingzhem.com/theme/qetro" target="_blank" rel="external">Theme Qetro</a></p>
+<p>同时，祝大家新年快乐，万事如意！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1730.html" data-id="rc7gz6zdlmseogz2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress主题/">WordPress主题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

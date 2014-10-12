@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2012/1 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/archives/2012/01/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-gb2312-e3-80-81gbk-e4-b8-8eutf-8-e7-9a-84-e5-8c-ba-e5-88-ab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-464.html" class="article-date">
+  <time datetime="2012-01-31T13:38:38.000Z" itemprop="datePublished">Jan 31 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-464.html">GB2312、GBK与UTF-8的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个异常经典的问题，有无数的新手站长每天都在百度这个问题，而我，作为一个“伪老手”站长，在明白这个这个问题的基础上，有必要详细的解答一下。</p>
+<p>首先，我们要明白，GB2312、GBK和UTF-8都是一种字符编码，除此之外，还有好多字符编码。只是对于我们中国人的网站来说，用这三种编码比较多。简单的说一下，为什么要用编码，在计算机内，储存文本信息用ASC II码，每一个字符对应着唯一的ASCII码。最初计算机是由美国发明的，他们也用的是键盘和上面的字母，所以他们的字符ASCII好解决。但是我们中国的就不同了，每个汉字要对应唯一的ASCII码。这样，就出来了国家制定的字符编码标准：GB2312、GBK等。其他国家，其他语言也有他们对应的编码标准。</p>
+<p>GB 就是国标的意思，GB2312和GBK主要用于汉字的编码，而UTF-8是全世界通用的。意思就是说，如果你的网页主要面对使用汉语的中国人的话，使用GB2312和GBK非常好，文字储存体积要小，有一些优点。如果你的网页要面向世界的话，你再用GB2312和GBK作为网页编码的话，有些电脑上的浏览器没有这种编码，你的网页汉字内容就会变成无法识别的乱码。</p>
+<p>它们通常用在网页的meta标签内，例如：&lt;meta http-equiv=”Content-Type” content=”text/html; charset=gb2312” /&gt;，表示这个页面使用的是GB2312编码。这个信息是给浏览器看的，浏览器会优先考虑使用从网页头部提取出来的编码信息对网页进行解码。当然，我们也可以强制浏览器使用某种编码解释网页，这样我们就看到了传说中的乱码。请看下图IE浏览器：</p>
+<p><a href="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/gb23121.jpg" target="_blank" rel="external"><img src="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/gb23121-300x227.jpg" alt="" title="gb2312"></a></p>
+<p>百度首页使用的是GB2312编码，我们可以看到现在是正常的。我们右击页面，选择“编码”-&gt;“其他”-&gt;“Unicode（UTF-8)”，意思就是强制浏览器使用UTF-8的编码方式解析页面，我们可以看到奇迹发生了：</p>
+<p><a href="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/utf-81.jpg" target="_blank" rel="external"><img src="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/utf-81-300x195.jpg" alt="" title="utf-8"></a></p>
+<p>百度页面上所有的汉字都变成了乱码。如果你的网页使用了GB2312编码，却被一台没有GB2312编码的电脑访问了，里面所有的汉字都成了乱码。如果你使用UTF-8编码，在没有汉字的电脑里，仍然可以正常显示，因为UTF-8是通用的编码，所有电脑都有。</p>
+<p>所以，在编写网页时，尽量使用UTF-8编码。</p>
+<p>小小的声明一下，以上就是潜行者M个人的理解，如果有什么不对，请高手指正！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-464.html" data-id="v042vkd08nv9uido" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e8-b4-ad-e4-b9-b0-e9-a6-99-e6-b8-af-e7-a9-ba-e9-97-b4-e9-9c-80-e8-a6-81-e6-85-8e-e9-87-8d-e8-80-83-e8-99-91" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-462.html" class="article-date">
+  <time datetime="2012-01-31T12:54:56.000Z" itemprop="datePublished">Jan 31 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-462.html">购买香港空间需要慎重考虑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写这篇文章，是因为前些天买的香港虚拟主机。</p>
+<p>可以说，这是我不太满意的一次购物，我第一次在淘宝上退款。原因很简单，这个香港空间实在是太烂了。</p>
+<p>至于是哪家IDC，为了防止被误认为枪手，我就不说了。反正60块钱一年，1G大小，100M mysql数据库，支持各种脚本，IIS限制200 ，绑定5个域名，可以多个子目录。而且后台管理使用Free system管理系统，这个系统我以前用过很好用。这样的配置，仅仅60块钱，性价比真的非常高。所以我想都没想，就买下了。</p>
+<p>之后登陆后台，查看空间的信息，发现管理系统被修改的千疮百孔。绑定域名的时候，怎么也绑定不上。上面写着“如果绑定不上域名，请联系客服解决”，这样我就联系了一下他们的客服，等了半天之后，他回话问我要绑定什么域名。原来，他们绑定域名是人工绑定的，问他们为什么，原来是因为这样人工审核可以防止垃圾站。想在上面建设一个discuz！论坛，之后就传上去了源码。访问速度很不稳定。ping它的时候，速度都在70ms左右，但是打开的时候，要等一大会，还不如我的justhost空间打开速度快。这可能是由于服务器用户太多，宽带不够用，导致下载速度不行。</p>
+<p>还有更致命的一点，discuz！论坛的头像显示不出来，帖子内的discuz！标签无法解析。意思就是说，php程序运行有问题，更进一步说，他们的php运行环境有问题。这样的话，这个空间就没法用了。</p>
+<p>还好，他们最好的就是退款了。用了几天后，联系他们客服退款，一会退回来了57块钱。</p>
+<p>回想一下，其实我也有错，这么好的配置，60块钱能买到吗？一分钱一分货！</p>
+<p>通过这次经历，我终于明白了为什么大家搜索的都是“香港空间 月付”了，因为月付相当于试用，如果哪个月觉得不好用了，可以及时的退出不再续费，而月付，就是几块钱而已，即便是受骗也不至于损失太大。而对于空间商来说，如果他提供月付，说明他对自己的主机非常有信心。因为如果主机质量不好的话，买家就不会续费了，他也没有钱赚了。</p>
+<p>所以，我总结出的购买香港空间的经验就是：1，不要图便宜，要仔细看清评论，特别是后来补充上的。在淘宝评论上，可以查看后续补充的。他们补充的评论可信度非常高，因为这是他们亲身使用过的。2，尽量选择月付空间，这样可以试用，如果不行可以及时换掉，以免损失太大。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-462.html" data-id="2sl1orst972pbhk5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-8f-88-e6-98-af-e4-b8-80-e5-b9-b4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-452.html" class="article-date">
+  <time datetime="2012-01-30T01:43:04.000Z" itemprop="datePublished">Jan 30 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-452.html">又是一年</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转眼间，又是一年，而这一年发生了巨大的变化。</p>
+<p>每年过年的形式都是差不多的，总是在大年初一回爷爷家。大年初一的时候，会有很多人来拜访，而我们这些小孩就在旁边闲着，看着来来往往陌生的人。 但是有个人我记得很清楚。他比我大一岁，去年来的时候和我一样是高三下学期。当年的时候，大家都还在议论考什么大学。而高考过去了，他考了480分，现在复读去了。而我却考上了大学。</p>
+<p>现在回想看看，其实高考真没什么。其实大学也没什么。</p>
+<p>写这篇文章的时候，已经是初八了。昨天在高中搞了一个同学聚会，女生基本上都不认识了，都变得年轻了。没有了高考的压力，再加上打扮，都变得时尚靓丽了。我们才仅仅半年而已，就发生了如此的变化。中午时分，门口站满了家长，当放学了大门开了，家长们都蜂拥而进。一问才知道，高中他们初四就已经开学了。出来的学生满身的校服，一张疲惫的脸上写满了回家吃饭的渴望。有点怀念当年的高中。</p>
+<p>今天早上，我被鞭炮声吵醒，窗外下起了大雪。多么像去年的这个时候啊。</p>
+<p>去年，我走了艺考的道路，在高三上学期末开始着手摄影艺考，看看能不能走个捷径。需要到济南去学习、考试，这样，就自己坐车去济南了。自己找地方住，自己去找补习班，自己解决吃饭问题。</p>
+<p>去年的那些天和今年的这几天多么像啊。都是初八，地上都是雪，清晨到处都是放鞭炮的声音。唯一不同的是，去年我行走在大街上去看各个学校的招生简章和考试内容，看完就回到地下的一个小旅馆吃完方便面；而今年我坐在温暖的家里，看着窗外的学听着窗外的鞭炮声，吃着吃不完的鸡鸭鱼肉、水果饮料，用电脑上网写这篇文章。</p>
+<p>当然，最终的结果是，济大、山轻工、山师三所学校都没有考上。毕竟考的人太多，而且又不是专门去学这个东西，仅仅学了不到两个月而已，怎么和他们学了两年的艺术生比？但这些都已经不重要了。</p>
+<p>又是一年。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-452.html" data-id="cwr3mam1hksqygw5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8wubi-e5-bf-ab-e9-80-9f-e5-ae-89-e8-a3-85ubuntu-e7-b3-bb-e7-bb-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-447.html" class="article-date">
+  <time datetime="2012-01-29T00:00:37.000Z" itemprop="datePublished">Jan 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-447.html">使用wubi快速安装ubuntu系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传统的安装linux操作系统和windows双系统是非常麻烦的，需要光盘、u盘之类的安装，之后还要改一些东西来设置引导。一般的做法是使用虚拟机软件，在windows系统上使用虚拟机（例如：VMware）安装一个linux系统。这样做虽然方便，但是会严重影响linux的性能，其他的功能也有损伤。这样，就出现了wubi.exe这个程序。</p>
+<p>这个程序默认是包含在ubuntu系统镜像文件里的，使用时，只需把这个镜像文件用压缩软件打开，把程序拖出来即可。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/01/ubuntu1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/01/ubuntu1.jpg" alt="" title="ubuntu1"></a></p>
+<p>双击程序之后，就出来一个很简洁的配置界面，包括你要安装到哪个硬盘里、安装后的大小是多少、设置账号密码等，配置完之后，点击开始就可以了。由于本文是在安装完之后写的，所以截不到安装之前的图了。</p>
+<p>当wubi程序把镜像文件解压配置好之后，会要求重启。这时候重启电脑就自动开始安装ubuntu系统了。它的安装比windows安装简单太多了，完全是自动的，不用你去配置任何文件，而且图画、效果非常美观。等大约一个小时左右，系统就安装完成了，电脑自动重启。</p>
+<p>之后，就可以在开机界面选择登陆什么系统了。</p>
+<p>使用wubi安装ubuntu系统非常的简单方便，但是有很多人觉得，使用这种方法安装ubuntu系统，会影响ubuntu系统的性能。我也寻找过相关资料，其实wubi的原理很简单，就是把ubuntu镜像文件解压出来，然后配置一下安装信息，添加一下引导信息。重启之后，自动开始进行ubuntu的安装，由于安装系统的一些信息都使用wubi配置进去了，所以全过程自动安装了。</p>
+<p>因此，我个人觉得wubi不会影响ubuntu的性能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-447.html" data-id="7c0hoh3f17ubq9vj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-88-9b-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84u-e7-9b-98ubuntu-e7-b3-bb-e7-bb-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-438.html" class="article-date">
+  <time datetime="2012-01-28T23:40:26.000Z" itemprop="datePublished">Jan 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-438.html">创建自己的U盘ubuntu系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这些天终于把vista系统整理的差不多了，为了学习的考虑，打算再装上个linux系统。最终还是选择了ubuntu，确实不错的系统。</p>
+<p>下面，安装就成了一个问题。我的笔记本电脑光驱已经用了四年了，基本上报废了，盗版光盘和自己刻录的光盘读不出来了。以前刻录的那个ubuntu安装光盘也已经不行了。那么就用U盘吧。自己在网上找了找，官方就有这个教程，是英文的，我现在用中文写一遍。</p>
+<p>首先，你需要的东西是<strong>ubuntu操作系统的镜像文件</strong>、<strong>一个4G以上的U盘</strong>和<strong>Universal-USB-Installer</strong>这个程序。这个程序是主角，下载地址是<a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/。本文重点讲的也是如何使用这个程序来把linux系统装到u盘上。" target="_blank" rel="external">http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/。本文重点讲的也是如何使用这个程序来把linux系统装到u盘上。</a></p>
+<p>以上三个东西都准备好了之后，运行这个程序，点击“I agree”之后，就进入了程序配置页面，请看下面说明：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux1.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux1.jpg" alt="" title="linux1"></a></p>
+<p>之后，点击“create”就开始格式化你的u盘、解压缩系统、安装系统了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux2.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux2.jpg" alt="" title="linux2"></a></p>
+<p>接着等待即可，大约半个多小时之后，linux操作系统就已经安装到了u盘上。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux3.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/01/linux3.jpg" alt="" title="linux3"></a></p>
+<p>这样，我们只要插着u盘重启电脑就可以进入u盘linux了，就和光盘版的一样。如果有同学重启之后，还是自动进入了windows系统，说明你的电脑默认从硬盘加载系统，在开机界面的时候，按下F8（通常是F8，有的电脑可能不同），选择USB那一项就可以了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-438.html" data-id="rkyyqi5ozco6t39u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-ba-ba-e7-b1-bb-e4-b8-8d-e5-ba-94-e8-af-a5-e7-a0-94-e5-88-b6-e6-97-b6-e5-85-89-e6-9c-ba" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-435.html" class="article-date">
+  <time datetime="2012-01-28T17:46:00.000Z" itemprop="datePublished">Jan 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-435.html">人类不应该研制时光机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>那天晚上，我做了一个梦。</p>
+<p>梦见我回到了过去。看见了很多过去做过的有些遗憾的事情，当然也看到了一些高兴的事情，也有一些虚无虚构出来的事情。</p>
+<p>第二天早上在睡梦与清醒之间，我开始思索这件事情。人究竟应该回到过去或者预见未来吗？</p>
+<p>答案当然是，不！</p>
+<p>对于过去，已经是过去了的，无论过去是什么样，现在都是过去造成的结果。 过去会有欢笑，会有遗憾，正式这些早就了现在。如果人们能够回到过去，那么就会有很多种情况。既然回到过去了，肯定会想办法解决过去做过的遗憾的事情，那么究竟能不能改变？科学家们告诉我们可能发生的两种情况：1，可以改变，蝴蝶效应，你的一点点过去的改变，改变了后来整个世界，导致意想不到的后果。2，无法改变，过去到现在可以有很多条路过来，你改变了，只是走了另一条路而已，仍然无法改变结果。</p>
+<p>既然这样，你为什么要回到过去？</p>
+<p>时间是可以磨灭痛苦感的，现在回想你的过去，你是记得欢笑多呢，还是痛苦多？你的大脑会渐渐过滤掉你伤心的事情。而你回到过去，正好看到了当时的情节，回忆起了当时的痛苦感，激发了你强烈的遗憾感。这就是我在梦中体验的感觉。</p>
+<p>对于过去是这样，那么对于未来呢？ 人们是不是应该预见未来呢？</p>
+<p>人们活在现在，正在不断创造未来。因为未来是未知的，所以我们才会不断的创造、探索未来。 很多人都想知道自己的未来，主要是想看看未来有什么困难、问题等，好现在准备解决。但是当你知道了未来，未来对你来说就不是未知的了，你还会创造、探索未来吗？</p>
+<p>做一个最简单的假设，假设你看到了未来你得了病，明年就死了。那这一年你还会好好过吗？如果你不知道呢？你还会正常的好好的过这一年，说不定还能治好了病。因为未来就是这样，是要你现在去创造的，而不是固定的。如果你能看到未来，那么未来在你心中就已经固定下来了。人活着也就没什么意思了。</p>
+<p>所以，我觉得人活在现在就行，没有必要去研究什么时光机回到过去或者去未来。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-435.html" data-id="rtjluvlalql6wvxh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e3-80-8acomes-and-goes-in-waves-e3-80-8b-e6-b0-b8-e6-81-92-e7-9a-84-e6-9c-80-e7-88-b1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-389.html" class="article-date">
+  <time datetime="2012-01-28T06:54:44.000Z" itemprop="datePublished">Jan 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-389.html">《Comes And Goes (In Waves)》永恒的最爱</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>歌名：Comes And Goes (In Waves)</p>
+<p>作者：Greg Laswell</p>
+<p>所属专辑：《Three Flights From Alto Nido》</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/0_2119093/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/0_2119093/singlePlayer.swf" wmode="transparent"></object>
+
+<p>当我第一次听到这首歌的时候，我就决定一辈子喜欢这首歌了</p>
+<p>抒情的旋律，加上  Greg Laswell 浓厚的重低音，再加上内涵的歌词</p>
+<p>透人心脾，响彻心扉，让人放下了一切</p>
+<p>放下一切来欣赏这首歌</p>
+<p>歌词：</p>
+<p>This one’s for the lonely<br>The ones that seek and find<br>Only to be let down<br>Time after time</p>
+<p>This one’s for the torn down<br>The experts at the fall<br>Come on friends get up now<br>You’re not alone at all</p>
+<p>And this part was for her<br>This part was for her<br>This part was for her<br>Does she remember?</p>
+<p>It comes and goes in waves, i….</p>
+<p>This one’s for the faithless<br>The ones that are surprised<br>They are only where they are now<br>Regardless of their fight</p>
+<p>This one’s for believing<br>If only for it’s sake<br>Come on friends get up now<br>Love is to be made</p>
+<p>And this part was for her<br>This part was for her<br>This part was for her<br>Does she remember?</p>
+<p>It comes and goes in waves,<br>I am only led to wonder why<br>It comes and goes in waves<br>I am only led to wonder why<br>Why I try</p>
+<p>This is for the ones who stand<br>For the ones who try again<br>For the ones who need a hand<br>For the ones who think they can</p>
+<p>It comes and goes in waves,<br>I am only led to wonder why<br>It comes and goes in waves<br>I am only led to wonder why<br>Why I try</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-389.html" data-id="dsey0j46r56ip5zc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐推荐/">音乐推荐</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e8-b4-ad-e4-b9-b0-e4-b8-80-e4-b8-aa-e7-bd-91-e7-ab-99-e7-a9-ba-e9-97-b4-e4-bd-a0-e9-9c-80-e8-a6-81-e6-b3-a8-e6-84-8f-e4-bb-80-e4-b9-88" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-382.html" class="article-date">
+  <time datetime="2012-01-28T06:40:04.000Z" itemprop="datePublished">Jan 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-382.html">购买一个虚拟主机你需要注意什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又申请了一个域名，想再做几个网站，于是又进入鱼目混杂的虚拟主机大海里，寻找合适的网站空间。顺便写篇文章，总结一下如何选购虚拟主机以及虚拟主机的各个参数，以供新站长参考防止上当受骗。</p>
+<p>一个虚拟主机，主要有以下参数：<strong>空间大小</strong>、<strong>IIS连接数</strong>、<strong>流量限制</strong>、<strong>数据库类型与大小</strong>、<strong>可绑定域名数</strong>、<strong>可划分子目录数</strong>、<strong>支持脚本类型</strong>、<strong>宽带大小</strong>、<strong>CPU资源</strong>、<strong>操作系统</strong>等，这些是主要的，在购买空间时重点需要参考的，此外还有其他一些各个服务商不同的参数。比如：支持wap访问、支持伪静态等，这些要有你自己来决断，比如你的网站需要伪静态功能，那么你就要买个支持伪静态的主机。下面我来对主要参数一一分析：</p>
+<p><strong>空间大小</strong>：就是网站空间所能存放文件的大小。在国内来说，一般有100M、200M、1G、3G等等。在国外来说，一般无限大，例如我的潜行者M博客用的justhost的虚拟主机，空间大小是750G，不过有文件限制，文件数不能超过5万个。所以，空间大小不是衡量虚拟主机的标准。一般选用和自己网站程序大小的空间就行，比如一个博客网站需要100M就行，论坛的话一般500M就行，资源型的网站1G的空间就够了。如果需要很多空间的下载资源型网站，一般不能用虚拟主机，因为虚拟主机承受不住那么大的压力，服务商可能会关掉你的网站。 所以，通常来说，虚拟主机最多用1G空间就行，而且空间大小不能作为价格衡量的标准，现在的硬盘都是很便宜的，注意这一点。</p>
+<p><strong>IIS连接数</strong>：这才是一个重要的参数，它决定了你网站的访问数量的限制。在你选购虚拟主机的时候，通常会见到IIS连接数100等，它的意思是只能支持同时有100个人访问你的网站，第101个人就无法访问你的网站了。如果你的网站每日的访问量在1000IP左右，那么你就得选择IIS连接数300以上的，如果不这样的话，会经常出现网站无法访问的情况。特别要注意的一点，虚拟主机肯定会有IIS连接数限制的，有些虚拟主机介绍中会说IIS连接数不限，这是不现实的。如果虚拟主机真的不限制IIS连接数的话， 那么这台服务器会很不稳定的，访问量过大的网站会占用大量服务器资源，导致其他网站不稳定等。</p>
+<p><strong>流量限制</strong>：这也是一个非常重要的参数。可以这样说，如果你的网页大小是10KB，你虚拟主机的月流量限制是1MB（实际上肯定不会这么小），那么当你的这个网页被浏览100次之后，你的这个虚拟主机就会因超流量暂时关闭。限制流量可以提高服务器的稳定性，像万网这些大公司通常都限制流量，这样可以防止服务器上的网站提供大量下载服务导致严重占用服务器资源。不过大部分都是不限制流量的。就像潜行者m这个博客用的就是不限流量的主机。</p>
+<p><strong>数据库类型与大小</strong>：你的网站如果是动态网站的话，就得需要数据库的支持，通常来说网站的搭配有asp+access数据库、php+mysql数据库和aspx+mssql数据库等。access数据库，是一个文件，在支持asp的虚拟空间，直接放在网站空间中即可，而mysql和mssql数据库是需要额外支持的。通常虚拟主机附赠数据库，一般是几十M的mysql，mssql一般要比mysql贵。购买时一定要注意你的空间是否支持数据库、数据库的大小和数据库的类型。如果你做一个 aspx+mssql数据库的网站，却买了一个支持mysql数据库的虚拟主机，那就无法安装上去了。当然，数据库是可以单独购买的。</p>
+<p><strong>可绑定域名数</strong>： 一个网站需要用一个域名访问，虚拟主机只是存放文件，我们要绑定上域名，才能用域名访问到虚拟主机上的网页文件。假设可绑定的域名数是10，意思就是可以支持10个域名绑定这个空间，如果配合子目录的话，就可以建设多个网站。</p>
+<p><strong>可划分子目录数</strong>：子目录就是主目录下面的一个文件夹，划分出来之后，就可以单独绑定域名制作独立的网站。比如我在虚拟主机上划分出一个名字为xx的子目录，同时使用自己的另一个域名：www.xyyx.com绑定带着个子目录上，就相当于建设了一个独立的网站。可悲的是，现在的虚拟主机往往很少支持划分子目录了，最多也就划分3个左右，这个也是为了服务器的稳定。</p>
+<p><strong>支持脚本类型</strong>：这个非常重要。在国内来说，通常都支持asp、php，部分高级点的套餐支持asp.net脚本，而国外往往分别支持asp/.net(windows环境)和php(linux环境)。购买虚拟主机要根据自己网站的类型来选择，如果你的网站是一个基于php技术设计制作的，就无法安装在仅仅支持asp的空间上。同时还要注意，主机是否配有相应的数据库。</p>
+<p><strong>宽带大小</strong>：这个大家都知道，虚拟主机一般是共享宽带，一般是100M的。宽带越大，速度越快。共享的用户越多，速度越慢。</p>
+<p><strong>CPU资源</strong>：这个也是为了防止过多占用系统资源设置的。一般来说，使用asp、php等脚本的网站，访问执行脚本的时候，都会使用cpu运算。假设cpu资源限制在3%，如果你的网站经常占用CPU资源超过3%的话，就会暂时关掉你的网站。</p>
+<p><strong>操作系统</strong>：就是服务器使用的操作系统。在国内的话，通常使用盗版的windows，安装上各个组件，支持asp/.net、php等等。而国外的不同。国外重视版权，分为windows系统和linux系统，在windows系统中支持asp/.net（微软自家的东西），在linux系统中支持php。windows系统的服务器由于需要支付版权费，所以要比linux系统下的虚拟主机贵一些。</p>
+<p>在购买虚拟主机的时候，最主要看的参数就是这几个，决定价格的参数也是这几个。至于其他的，就要根据自己的需求决定。此外，寻找一个好的虚拟主机需要耐心，仔细分辨虚假信息，辨别虚假评论，这样才能找到合适的性价比高的虚拟主机。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-382.html" data-id="bujrwvxzp5v27byc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post-are-you-there-e4-b8-80-e9-a6-96-e5-85-b3-e4-ba-8e-e4-bd-a0-e7-9a-84-e9-9f-b3-e4-b9-90" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-380.html" class="article-date">
+  <time datetime="2012-01-23T03:14:46.000Z" itemprop="datePublished">Jan 23 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-380.html">《Are You There》 一首关于你的音乐</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>歌名：Are You There</p>
+<p>歌手：Mono</p>
+<p>专辑： 《Are You There 》</p>
+<object width="257" height="33" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="src" value="http://www.xiami.com/widget/5253049_3442312/singlePlayer.swf"><param name="wmode" value="transparent"><embed width="257" height="33" type="application/x-shockwave-flash" src="http://www.xiami.com/widget/5253049_3442312/singlePlayer.swf" wmode="transparent"></object>
+
+<p>慢慢的、慢慢的，她就在我前面，朝我慢慢的走来。</p>
+<p>静静的、静静的，装作没看见她，我慢慢向前行走。</p>
+<p>我们越来越近，我的心跳越来越快，我的脚步越来越慢。</p>
+<p>终于我们相遇了，时间停住了。</p>
+<p>当时间化解的时候，她也已经擦肩而过。远远离去。</p>
+<p>原来，一切都是幻想。</p>
+<p>在前行的路上，我曾问  Are You There？</p>
+<p>当擦肩而过之后，我回答 No，you are not there！</p>
+<p>&nbsp;</p>
+<p>MV：<a href="http://www.yinyuetai.com/video/146440" target="_blank" rel="external">http://www.yinyuetai.com/video/146440</a></p>
+<p>另外送上另一个Mono伤感风格诡异的MV：<a href="http://www.yinyuetai.com/video/33245" target="_blank" rel="external">http://www.yinyuetai.com/video/33245</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-380.html" data-id="7tm7nmb18vfnm3dt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音乐推荐/">音乐推荐</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-88-9a-e5-88-9ajusthost-e7-a9-ba-e9-97-b4-e5-8f-88-e5-87-ba-e9-97-ae-e9-a2-98-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-378.html" class="article-date">
+  <time datetime="2012-01-21T19:51:01.000Z" itemprop="datePublished">Jan 22 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-378.html">刚刚justhost空间又出问题了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚刚我登陆博客的时候，发现数据库连接出错。记得几天前，也是相同的问题。这不得不让我怀疑justhost的稳定性。</p>
+<p>justhost的官方介绍中，提到 uptime 99.9%。uptime是什么意思呢？就是指运行时间，就是说在你使用的期间，他们会保证百分之99.9%你的网站是可以访问的，如果一个月内达不到这个标准，他们会退这个月的钱。</p>
+<p>这里就有一个歧义。就像刚才，我的网站是可以访问的，但是不正常数据库连接出错。这算不算？因为可以访问，所以他们的服务器运行正常，但是数据库服务出现异常，那么我的网站究竟算是正常还是不正常？</p>
+<p>如果有人说，知足吧，你的网站隔着一个太平洋，难免会出现错误。不对，这和网络、线路无关。数据库都是在他们自己主机上的，出错的话，原因只能是他们内部服务器出现问题，或者数据库服务出了问题。对于这点，我们也应该理解，因为justhost是虚拟主机，一台主机上有很多个用户，而且他们的功能配置都是无限的，难免会有占用大量资源的用户。此外，价格便宜面向全世界。特别是中国的购买者，很大一部分是用来做垃圾网站和仿牌网站之类的，及其容易遭受黑客入侵。所以造成他们主机的不稳定以及不安全。</p>
+<p>我犯了一个错误。以前一直以为justhost空间不错，很稳定。原因是我很少的登陆自己的网站，而现在比以前稍微多了点，就发现了好几次的错误。我决定使用网络上的宕机监测服务，来对我的justhost进行监测，看看justhost具体是不是很稳定。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-378.html" data-id="uqiboxbhcd6auwm5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustHost/">JustHost</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2012/01/page/2/">2</a><a class="extend next" rel="next" href="/archives/2012/01/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

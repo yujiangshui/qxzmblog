@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WordPress 迁移 SAE 完全操作攻略 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。
+SAE 是什么
+在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WordPress 迁移 SAE 完全操作攻略">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1387.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。
+SAE 是什么
+在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png">
+<meta property="og:image" content="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WordPress 迁移 SAE 完全操作攻略">
+<meta name="twitter:description" content="最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。
+SAE 是什么
+在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wordpress-e8-bf-81-e7-a7-bb-sae-e5-ae-8c-e5-85-a8-e6-93-8d-e4-bd-9c-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1387.html" class="article-date">
+  <time datetime="2012-10-19T23:24:52.000Z" itemprop="datePublished">Oct 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WordPress 迁移 SAE 完全操作攻略
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。</p>
+<h2 id="SAE_是什么">SAE 是什么</h2>
+<p>在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件、优质高速的硬件等，方便开发者进行应用的开发。狭义的讲，就是一个网站空间，可以把网站放上去，但是和普通的虚拟主机、VPS等又有很多不同的地方。在后面你会了解到。它的地址：<a href="http://sae.sina.com.cn" target="_blank" rel="external">http://sae.sina.com.cn</a></p>
+<h3 id="为什么要迁移_SAE">为什么要迁移 SAE</h3>
+<p>之所以迁移到 SAE 上，是因为 SAE 有以下几个优点。</p>
+<ol>
+<li>硬件质量高，网站访问速度快。</li>
+<li>专业，不用怕数据丢失或者服务商跑路。</li>
+<li>按照你使用的资源进行收费，收费合理，性价比高。<br>最看重的是 SAE 平台的<strong>稳定、高速和性价比</strong>，与原来的美国空间、香港空间相比，低价高质量。</li>
+</ol>
+<h3 id="开通_SAE">开通 SAE</h3>
+<p>开通 SAE 只需要打开 SAE ，然后点击右上方的注册即可，它使用新浪微博作为账号。其中还要区分几个概念，包括安全邮箱、安全密码等等。此外，SAE 平台使用 SVN 的方式上传文件，它的使用要比传统的 FTP 上传方便简单，但是需要学习和适应，这点官方文档写的非常详细。你需要花费一点时间，查看一下他们的帮助文档，这些很简单，也不是本文要说的重点。帮助文档：<a href="http://sae.sina.com.cn/?m=devcenter" target="_blank" rel="external">http://sae.sina.com.cn/?m=devcenter</a></p>
+<h2 id="迁移_WordPress">迁移 WordPress</h2>
+<p>本文的重点不是 SAE 的注册和开通，而是在于如何合理正确高效的把 WordPress 博客，从之前的主机中迁移到 SAE 中。</p>
+<h3 id="安装_WordPress_应用">安装 WordPress 应用</h3>
+<p>SAE 之所以高速、稳定，是因为它限制了部分功能。例如：出于完全考虑，SAE 禁止了 I/O 读写操作，这样，就无法使用传统的函数，进行生成或者读取操作等。</p>
+<p>所以，官方原版的 WordPress 是不能直接安装上去的，因为里面的一些功能（例如：在线安装主题）是 SAE 平台所不支持的。但是 WordPress 这么流行的系统，当然有团队修改里面的代码，把不支持的功能，进行改写做成了 WordPress for SAE 版本，同时还上架到 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，这样只需要点几下鼠标，就可以在你的应用空间中，安装上 WordPress 。</p>
+<p>1，创建一个应用。登陆之后，在 <a href="http://sae.sina.com.cn/?m=myapp" target="_blank" rel="external">我的应用</a> 页面中，找到右上方的 “安装应用” 。会出现如下的配置窗口。SAE 的应用安装，基于安装包（zip格式）安装，可以直接填写网上的安装包，也可以本地上传。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/1.png" alt="" title="创建应用"></a></p>
+<p>2，在 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="external">应用仓库</a> 中，找到 <a href="http://sae.sina.com.cn/?m=apps&amp;a=detail&amp;aid=1" target="_blank" rel="external">WordPress for SAE</a> 的安装包地址，可以把地址填写到上面的 安装应用 表单中。其实，也可以点击右上方的 “安装应用”，直接进行安装。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/2.png" alt="" title="从应用仓库中安装"></a></p>
+<p>3，输入一个 二级域名 和 验证码 之后，点击创建，就会告诉你已经创建成功了。现在你就可以管理这个应用了。根据提示，进行应用的初始化，就是安装 WordPress 时配置安装信息。</p>
+<p>配置完成之后，系统会提示你安装完成。WordPress 系统就算安装完成了。你可以进入后台看一下相关配置，这个版本的 WordPress 是比较老的 ，截止到本文写作时，版本为 3.2.1。所以在安装插件的时候，需要注意插件是否支持这个版本。其中内置了几个比较常用的插件以及三个主题。下面就要进行博客数据的迁移。</p>
+<h3 id="转移文章等数据">转移文章等数据</h3>
+<p>文章等数据的迁移是整个迁移工作中，最简单的一个步骤。很多文章写道需要把数据库里的数据导入等等，其实不用这么麻烦，使用 WordPress 内置的工具（导入、导出）即可完成。</p>
+<ol>
+<li>首先在原先的博客中，点击 “工具” -》 “导出” ，选择 “全部内容” ，点击导出。会弹出一个 xml 文件的下载。这个文件就记录了你博客上面的文章、评论、页面等等数据。</li>
+<li>在 SAE 的博客上面，点击 “工具” -》 “导入” ，选择列表中的 “WordPress”。然后上传这个 xml 文件，将作者名等修改一下即可。注意，不要勾选 “下载远程附件” 这个项目，因为 SAE 不支持 读写操作，所以选择这个会报错。<br>这个时候，文章等数据迁移完毕，打开应用首页，你已经可以看到你的文章数据了。</li>
+</ol>
+<h3 id="配置后台网站信息与之前网站完全一致">配置后台网站信息与之前网站完全一致</h3>
+<p>采用上面这种方法，只能迁移文章、页面、评论等数据，而无法迁移原有 WordPress 的后台设置。所以我们要打开 SAE 上的 WordPress 后台中的 “设置” 标签，把下面的内容依次重新设置一下，把它们设置的和原先博客中设置的一样。</p>
+<h3 id="对于图片/网站附件的处理">对于图片/网站附件的处理</h3>
+<p>数据迁移通常分为两种：<strong>内容迁移</strong>和<strong>资源迁移</strong>。内容迁移很简单，上面已经完成。令人头痛的是资源迁移，即 图片资源、附件资源等。<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 搜寻了很多资料来解决这个资源迁移的问题。</p>
+<p><strong>1，直接使用 SVN 的方式，上传到原有博客的 upload 目录中。</strong></p>
+<p>这是最简单的一种方式，但是有很多问题。首先，SAE 的应用代码空间，只有100M大小。上面通常存放代码、基础的图片等资源，不适合存储附件等。潜行者m 博客光图片资源以及超过100M大小，肯定无法使用 SVN 的方式上传到 代码空间。但是对于图片附件比较少的博客来说，可以直接使用这种方法。</p>
+<p><strong>2，使用 SAE 的 Storage 服务</strong></p>
+<p>Storage 服务，是 SAE 为应用提供的专门用于存储文件的空间。容量大，下载速度快。当你使用 WordPress for SAE 写文章上传附件的时候，会自动上传到这个空间中，然后进行调用。这就相当于外链的空间了。</p>
+<p>所以我们首先要把 资源文件 上传到这个应用的 Storage 空间中，然后修改文章中对于资源的引用，把外链修改上。上传有两种方法：</p>
+<p>第一种手动创建目录，然后依次上传。打开应用页面，在左下方找到 “Storage”，打开之后，点击 “管理” ，然后就可以创建目录、上传文件等操作。然后，将原来文章中的资源外链修改一下，Storage 空间的外链通常为 XXX-wordpress.stor.sinaapp.com 加上目录。其中 XXX 为你的应用名称。</p>
+<p>第二种是使用工具上传。如果附件很多，上传的工作量可想而知。所以有人就写出了上传的程序。经过搜索，找到了一个工具 <a href="http://www.shootsoft.net/149" target="_blank" rel="external">SAE Mutiple Uploads 0.2</a> 。具体的介绍和使用说明，打开他们的官方教程好了，上面说的很详细了。但是我在操作的时候，不知道为什么，没有成功。工具显示上传成功，但是我在 Storage 空间中，并没有发现我上传的资源。提供一个思路，你可以尝试一下，说不定是我的人品问题。</p>
+<p><strong>补充(2012.10.22)</strong>：<a href="http://sypopo.com/" target="_blank" rel="external">信仰飘扬</a> 提醒，可以使用 Cyberduck 这个软件方便进行 storage 空间的管理。<strong>
+</strong></p>
+<p><strong>3，使用第三方外链服务(又拍云/华为网盘等)</strong></p>
+<p>只有在迁移的时候，才感觉出来外链的重要性，因为无论怎么迁移，外链是不会变的。因此，我考虑将所有资源放在外链上，然后以后就用外链链接资源。据了解，免费的网盘有部分支持图片外链，例如华为等。收费的比较好的有又拍云。最后我选择了又拍云，购买了又拍云的服务。</p>
+<p>又拍云具体的操作流程我就不多说了，速度非常快。上传资源之后，在网上偶然发现了 <a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">荒野无灯</a> 写的又拍云上传插件：<a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="external">Hacklog Remote Attachment Upyun(又拍云版)</a>。果断激动了一下，因为这个插件，可以让你上传文件的时候，自动上传到远程的又拍云服务器上，同时还有一个非常重要的功能，可以修改数据库，将数据库里面的原有的失效资源连接，自动修正成又拍云的外链。</p>
+<p>但是安装用了一下，还是出错，问了一下灯哥，原来是这个版本太低了，出现了这个错误。所以这个方法就留给以后的人看了，等 SAE 上的 WordPress for SAE 升级之后，就能用了。</p>
+<p>如果想要批量修改原有失效的资源连接，可能只有像荒野无灯写的插件那样，对数据库进行修改。否则只能一篇文章一篇文章的进行修改。如果你有更好的办法，希望能回复交流！</p>
+<p><strong>补充（2012.10.21）</strong>：Denis 提供了一个解决这类问题的好方法，即使用插件 <a href="http://fairyfish.net/2010/05/31/search-and-replace/" target="_blank" rel="external">Search &amp; Replace </a> 批量对数据库里面的图片链接进行修改。</p>
+<h3 id="在_WordPress_for_SAE_中安装主题和插件">在 WordPress for SAE 中安装主题和插件</h3>
+<p>由于 SAE 禁止了读写操作，所以安装主题和插件，无法向以前那样，直接在后台进行上传或者远程安装。必须要通过 SVN 的方式上传。默认的安装了 WordPress for SAE 之后，并没有开启 SVN 服务，因为开启 SVN 服务，需要花费一些资源，所以要消耗一些云豆。我们在后台左侧找到 “代码管理” 然后点击 “创建 SVN 库” 就开启了 SVN 服务，之后根据 SAE 的<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=212" target="_blank" rel="external">说明文档</a>使用即可。安装主题和插件，只需要把主题和插件复制到相应的目录，然后 SVN 上传一下即可，和使用 FTP 一样。但是要注意，主题和插件中的功能不能有 读写操作 等 SAE 不支持的功能，否则可能出现意外情况。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1387/3.png" alt="" title="SAE 安装 wordpress 插件主题"></a></p>
+<h3 id="将域名解析到_SAE">将域名解析到 SAE</h3>
+<p>现在文章等内容、图片等资源都已经迁移过来了。现在要检查一下迁移之后的网站和原先的网站还有什么地方不同。所有的地方都必须丝毫不差才可以。特别是 “固定链接” 等等，如果有不同，会导致收录等问题。</p>
+<p>当你觉得完全相同，在迁移之后，就要把域名解析到 SAE 中。在管理后台找到左侧的 <strong>“应用管理”</strong> 打开之后，在下面会有独立域名设置。由于 SAE 比较特殊，所以它暂时不支持备案，如果你的域名是备案过的，那么需要填写备案表格，向 SAE 提交申请。如果你的域名没有备案，SAE 支持绑定到国外的合作伙伴那里，然后做一个跳转。比较简单，所以不再多说。</p>
+<p>这两种方案区别很大，备案域名直接接入服务器，ping 值只有 50MS 左右，响应速度和 百度 差不多，下载速度也非常快。绑定到国外的未备案域名，通过香港节点访问，ping 值有 160 MS左右，下载速度略慢，相当于高质量的香港空间，但是要消耗两倍的流量，也就是交两倍的钱。</p>
+<h3 id="转移之后的SAE优化">转移之后的SAE优化</h3>
+<p>鉴于大部分的同学的网站都是没有备案的，但是要花两倍的钱，所以我们就要进行优化。优化的重点就是减少 SAE 流量的损耗。一般通过三个方法进行优化：</p>
+<ol>
+<li>开启 gzip。开启 SAE 的 gzip 教程，请看这里：<a href="http://www.hiadmin.org/blog-seo/wordpress-sae-gzip" target="_blank" rel="external">开启SAE的Gzip压缩为WordPress提速</a></li>
+<li>压缩图片、CSS、JavaScript等文件，尽量使用外链。<br>完成这些步骤之后，可以尽量的避免系统资源的消耗，这样就可以节省云豆。同时，你还可以开发应用，进行开发者认证，这样每月都会送你一些云豆。如果你流量不大的话，这样几乎都成了免费的了。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1387.html" data-id="bndotivog1db9byd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1499.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          网页编码就是那点事
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1324.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于我的有缺陷的单核处理大脑的解决方案思考</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1387" data-title="WordPress 迁移 SAE 完全操作攻略" data-url="http://www.qianxingzhem.com/post-1387.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

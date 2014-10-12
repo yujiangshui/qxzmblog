@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: CSS | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/tags/CSS/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e4-bd-bf-e7-94-a8-css-e5-b0-86-e5-bd-a9-e8-89-b2-e5-9b-be-e7-89-87-e8-bd-ac-e6-8d-a2-e6-88-90-e9-bb-91-e7-99-bd-e5-9b-be-e7-89-87" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1931.html" class="article-date">
+  <time datetime="2013-05-01T20:35:44.000Z" itemprop="datePublished">May 2 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>►<a class="article-category-link" href="/post-category/CSS/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1931.html">使用 CSS 将彩色图片转换成黑白图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>原文：<a href="http://demosthenes.info/blog/532/Convert-Images-To-Black-And-White-With-CSS" target="_blank" rel="external">Convert Images To Black And White With CSS</a></li>
+<li>原作者：<a href="http://demosthenes.info/users.php?usernum=1" target="_blank" rel="external">Dudley Storey</a>  译者：<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a></li>
+<li>版权声明：版权归原作者所有，翻译仅作学习参考交流使用。<br>PS：最近翻译不少国外的优秀文章，不是没有写作灵感，是马上就要四级考试了 T _ T，哥现在还没开始正式复习。为了锻炼一下英语，所以选择翻译一些优秀的国外文章。</li>
+</ul>
+<p>CSS3 中的滤镜（filter）功能让我们轻松方便简单的处理图片，而不需要使用 PhotoShop 或者使用很多 JavaScript、PHP 代码。这个属性已经得到比较新的 Firefox、Safari、Chrome 浏览器支持，而且我们可以通过综合的可替代的技术来模拟实现这个效果——甚至是 IE 浏览器。</p>
+<p>本文中，我们将使用标准测试图片 <a href="http://en.wikipedia.org/wiki/Lenna" target="_blank" rel="external">Lena Söderberg</a> （译者注：Lena 这张裸体美女照片，被作为图片压缩的标准测试用图片）作为演示，使用 CSS 将其转换成黑白图片。在下面我将讲解如何使用 CSS 的这个功能实现调整色调、模糊、亮度、对比度和一些其他的效果。效果图：</p>
+<p><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/05/1931/lena.jpg" alt="lena"></p>
+<h2 id="CSS3_的灰阶滤镜">CSS3 的灰阶滤镜</h2>
+<p>使用 CSS3 来稀释一个图片的颜色，再简单不过了。我们可以把这个 CSS 语句写成一个类，这样遇到想要效果的图片，直接加上个类就可以了。</p>
+<pre>img.desaturate { filter: grayscale(100%); }</pre>
+当然，当前的浏览器在使用 CSS3 的时候，要加上他们自己的浏览器功能实验性前缀，所以，我们首先要做的，就是写上浏览器的前缀：
+<pre>img.desaturate { filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+}</pre>
+想要用在某个图片上很简单，加上一个类：
+<pre>&lt;img src=lena-söderberg.png alt="Lena Söderberg" style=width:512px;height:512px class=desaturate&gt;</pre>
+这就可以了。
+
+## 增加一个 SVG 的滤镜效果
+
+这个功能目前只在 Chrome 18+ 有效，其他浏览器马上就会增加支持。为了在 Firefox 4+ 中得到相同的效果，我们可以需要使用 SVG 滤镜。我把新建了一个单独的文件 的 saturate.svg ，代码如下：
+<pre>&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;filter id="greyscale"&gt;
+&lt;feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
+0.3333 0.3333 0.3333 0 0
+0.3333 0.3333 0.3333 0 0
+0  0  0  1 0"/&gt;
+&lt;/filter&gt;
+&lt;/svg&gt;</pre>
+不要被这段 SVG 代码吓住了——虽然上面的矩阵数列有点复杂。这段代码我推荐你直接复制粘贴成一个通用的“小文件”。我会再写一篇文章详细介绍一下上面矩阵变化，在这里不再赘述。
+
+加上上面的 SVG 文件引用，我们要插入 HTML 页面的 CSS 代码如下：
+<pre>img.desaturate{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%); -o-filter: grayscale(100%);
+filter: url(desaturate.svg#greyscale);
+}</pre>
+
+<h2 id="为_IE_做兼容">为 IE 做兼容</h2>
+<p>到现在我们的代码可以兼容未来的浏览器，和最新版的 Chrome 、 Firefox 4+。为了让 IE 6-9 加入兼容列表，我们需要使用微软的笨拙但是有效的 filter 滤镜：</p>
+<p><pre>img.desaturate{<br>filter: grayscale(100%);<br>-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);<br>-ms-filter: grayscale(100%); -o-filter: grayscale(100%);<br>filter: url(desaturate.svg#greyscale);<br>filter: gray;<br>}</pre><br>如果你还想做老版本的 Webkit 内核浏览器的兼容：</p>
+<p><pre>img.desaturate{<br>filter: grayscale(100%);<br>-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);<br>-ms-filter: grayscale(100%); -o-filter: grayscale(100%);<br>filter: url(desaturate.svg#greyscale);<br>filter: gray;<br>-webkit-filter: grayscale(1);<br>}</pre><br>不幸的是，Safari 和 Opera 仍然不支持，但是 Safari 5.2 ——很快就会发布——应该会支持 webkit CSS3 滤镜功能，同时 Opera 对 CSS3 的支持正在不断提升。</p>
+<h2 id="注意">注意</h2>
+<p>如果你想要在所有的浏览器中实现这个视觉效果（假设你的访问者都支持 JavaScript）你可以使用 jQuery 或者 <a href="http://james.padolsey.com/demos/grayscale" target="_blank" rel="external">Greyscale.js</a> 来修改你的图片，使其去色。</p>
+<p>上面咱们写的 CSS 代码可以让我们不需要使用 PhotoShop 就可以把图片变成黑白的。使用 CSS 来实现这个功能，可以非常容易修改：例如，你可以看到当我们把去色程度参数从 100% 变成 50% 的时候图片会是原色和黑白融合在一起的效果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1931.html" data-id="6gu0jyeavwhboe1i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1801.html" class="article-date">
+  <time datetime="2013-03-23T17:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
+<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
+<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
+<h2 id="id_和_class_的区别">id 和 class 的区别</h2>
+<p>有经验的朋友可以略过这一部分。</p>
+<h3 id="唯一性和重复可用性">唯一性和重复可用性</h3>
+<p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
+<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
+<h3 id="CSS_中优先级不同">CSS 中优先级不同</h3>
+<p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
+<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
+<h3 id="跳转功能">跳转功能</h3>
+<p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
+<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="external">http://baike.baidu.com/view/371.htm#8</a></p>
+<h2 id="为什么使用_class_而不是_id">为什么使用 class 而不是 id</h2>
+<p>使用 class 究竟有什么好处？</p>
+<h3 id="减少命名">减少命名</h3>
+<p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
+<h3 id="高度重复使用">高度重复使用</h3>
+<p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
+<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
+<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
+<h3 id="优先级低">优先级低</h3>
+<p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
+<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
+<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
+<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
+<h2 id="id_也是必须有的">id 也是必须有的</h2>
+<p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
+<h3 id="锚标记跳转">锚标记跳转</h3>
+<p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
+<h3 id="用在_input_中">用在 input 中</h3>
+<p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
+<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
+<h2 id="最佳的使用组合">最佳的使用组合</h2>
+<p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
+<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
+<p>欢迎讨论交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ws87j4yk8zhifdmu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e7-94-b1opacity-e5-b1-9e-e6-80-a7-e5-bc-95-e5-8f-91-e7-9a-84-e5-b1-82-e5-8f-a0-e9-97-ae-e9-a2-98-e6-80-9d-e8-80-83-e4-b8-8e-e8-a7-a3-e5-86-b3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1667.html" class="article-date">
+  <time datetime="2013-01-31T12:25:54.000Z" itemprop="datePublished">Jan 31 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>►<a class="article-category-link" href="/post-category/CSS/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1667.html">由opacity属性引发的层叠问题思考与解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最近的一个作品中，在使用 opacity 属性来实现页面整体透明的时候，发现了一个问题。如果两个层发生了重叠，使用了 opacity 属性并且属性值小于1的层，会覆盖掉后面的层。于是动手做了个实验，来验证 opacity 的层次。</p>
+<p>网页中的层叠规律是这样的：如果两个层都没有定义 position 属性为 absolute 或者 relative 属性，哪个层的HTML代码放在后面，哪个层就显示在上面。如果指定了 position 属性，并且设置了 z-index 属性，谁的值大，谁就在上面。</p>
+<h2 id="发现问题">发现问题</h2>
+<p>而对于没有激活 z-index 的普通层来说，如果那个层使用了属性值小于1的 opacity 属性，哪个层就会显示在上面。我们做一个Demo。代码如下：</p>
+<p><pre> &lt;!DOCTYPE html&gt;<br> &lt;html&gt;<br> &lt;head&gt;<br> &lt;title&gt;带有 opacity 的层叠问题&lt;/title&gt;<br> &lt;style&gt;<br> html{padding:40px;}<br> .dd{width:100px;height:100px;}</pre></p>
+<h1 id="a{background:red;}">a{background:red;}</h1>
+<h1 id="b{background:blue;margin-left:20px;margin-top:-80px;}">b{background:blue;margin-left:20px;margin-top:-80px;}</h1>
+<h1 id="c{background:green;margin-left:40px;margin-top:-80px;}">c{background:green;margin-left:40px;margin-top:-80px;}</h1>
+<p> &lt;/style&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br> &lt;div id=”a”&gt;&lt;/div&gt;<br> &lt;div id=”b”&gt;&lt;/div&gt;<br> &lt;div id=”c”&gt;&lt;/div&gt;<br> &lt;/body&gt;<br> &lt;/html&gt;<br>保存为 html 文件打开之后，可以看到正常的次序</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity0.png" alt="正常的层叠"></a></p>
+<p>这时候，我们为 #a 加上属性 opacity：0.9 神奇的事情发生了，它覆盖了另外两个层</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity1.png" alt="加上小于1的 opacity 之后的层叠"></a></p>
+<p>只有当为另一个层（例如：#c）也设置一个小于1的opacity值（例如：0.8）之后，后面的 #c 才能安装正常的规则覆盖在 #a 上面。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity2.png" alt="同时为另一个层赋值 opacity"></a></p>
+<p>这样，增加了小于1的 opacity 属性的层，升高了一个层次。至于里面的科学原理，我没有想明白，或许也可能是一个小BUG。但是有时候这种情况是我们不希望发生的。</p>
+<h2 id="解决问题">解决问题</h2>
+<p>那么如何来解决这个问题呢？前面也说过了，正常的情况下，指定了 position 并且指定了 z-index 值的层，拥有比普通层更高的层次，那么指定 opacity 的层和指定了 position 的层相比呢？我们对 #b 加上 position：relative 看看。这时候的样式代码如下：</p>
+<p><pre> #a{background:red;opacity:0.9;}</pre></p>
+<h1 id="b{background:blue;margin-left:20px;margin-top:-80px;position:relative;}">b{background:blue;margin-left:20px;margin-top:-80px;position:relative;}</h1>
+<h1 id="c{background:green;margin-left:40px;margin-top:-80px;opacity:0-8;}">c{background:green;margin-left:40px;margin-top:-80px;opacity:0.8;}</h1>
+<p>保存刷新后，看到效果是这样的：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity3.png" alt="对层使用了 position 属性之后的层叠效果"></a></p>
+<p>也就是说，对层使用 position 属性的 relative 之后，可以使其层次和 opacity 相同，这样之后，按照正常的排序进行层叠显示（在后面的实验中，我对 absolute 属性值也做了测试，结果和 relative 属性值表现的相同）。当我们取消了 #c 的 opacity 属性之后，我们可以看到，#c 被排在了最下面。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity4.png" alt="对底层取消 opacity 属性之后的效果"></a></p>
+<p>还没有完，之前只是对 #b 激活了position：relative 属性，还没有使用 z-index。我们对 #b 进行了 z-index 的设置（例如：100），很显然的，#b 成为了最顶层。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity5.png" alt="对中间层设置 z-index 的效果"></a></p>
+<h2 id="得出结论：">得出结论：</h2>
+<p>使用了position属性值为 absolute、relative 的层，将会比普通层更高层次。使用了小于1的opacity属性的层，也比普通层更高层次并且和指定 position 的层同层，但是不支持 z-index 属性，所以指定 position 的层，可以使用 z-index 属性，来覆盖带有小于1的 opacity 属性的层。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1667.html" data-id="ic0qtv45q9ak2uov" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-b8-80-e7-a7-8d-e6-96-b0-e5-9e-8b-e8-b6-85-e9-93-be-e6-8e-a5-e4-ba-a4-e4-ba-92-e6-a0-b7-e5-bc-8f-e8-ae-be-e8-ae-a1-e4-b8-8e-e5-ae-9e-e7-8e-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1649.html" class="article-date">
+  <time datetime="2013-01-16T16:48:56.000Z" itemprop="datePublished">Jan 17 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1649.html">一种新型超链接交互样式设计与实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>超链接是网页中，必不可少的内容。超链接的交互设计，也是一个网页中最重要的细节。CSS 也为链接准备了几个伪类选择器，用来设置超链接的交互操作。但是在绝大多数网站中，我们看到的超链接交互样式，通常是：改变一下链接的颜色、取消或者增加下划线、点击链接文本变色或者下划线消失等等。但实际上，超链接的交互设计，并非只能这么简单。</p>
+<p>很久没有登录 W3C 的官方网站，今天上去看了一下，从第一眼就看到了他们的超练级的与众不同。把鼠标放上，点击，测试了一下他们的超链接交互设计，感觉非常不错，就稍微思考了一下这个设计是如何实现的。稍微思考一下之后，才发现实现这个效果非常的容易，而且兼容性较好。下面就来介绍一下。</p>
+<p>先来看一下他们的效果图片，当然，我更推荐直接去 <a href="http://www.w3.org/" target="_blank" rel="external">W3C 官方网站</a>看效果。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link0.png" alt="w3c 的超链接交互性演示" title="w3c 的超链接交互性演示"></a></p>
+<h2 id="实现原理和分析">实现原理和分析</h2>
+<p>首先，仍然是常规的超链接样式，带一条下划线，但是与普通的超链接样式不同的是，这条下划线要粗（2px 普通的 1px），同时这个下划线和文字颜色不同（用 color 和 text-decoration 定义的超链接下划线颜色是和文本相同的）。所以可以肯定，这个下划线是使用 border-bottom 属性定义的，并且 padding-bottom 了几个像素，空开一定距离。然后交互性操作就很简单了，只需要改变一下底边框的颜色就可以了。当点击事件发生的时候，超链接不是简单的改变了颜色，而是向下移动了几个像素，这样给人的错觉就是按下去了一样，这种用户体验是传统超链接仅仅变换颜色所体验不到的。关于这个的实现，需要使用 position 的 relative 属性，激活 top 属性，即可让超链接脱离原来位置向下偏移一定距离。</p>
+<p>既然原理分析完毕，那么我们就开始写出相应代码吧。</p>
+<h2 id="HTML_结构">HTML 结构</h2>
+<p>随便输入一些字，加上个链接就OK了。</p>
+<pre>&lt;div&gt;
+ 这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。
+ &lt;/div&gt;</pre>
+
+<h2 id="CSS_样式">CSS 样式</h2>
+<p><pre>div{width:300px;margin:20px auto;line-height:24px;}<br> div a{text-decoration:none;color:#000;padding-bottom:1px;}<br> div a:link,div a:visited{border-bottom:2px solid #f00;}<br> div a:hover{border-bottom:2px solid #00f;}<br> div a:active{border-bottom:2px solid #00f;outline:0 none;position:relative;top:1px;}</pre><br>对 div 的宽度定义只是为了好看而已，对行高的定义，是为了不让下划线影响到下一行文字，这个可以自己决定。然后先对 a 标签取消默认的下划线和颜色，再就是交互性的操作。注意，对 :active 使用了 outline 属性，防止有些浏览器在点击超链接的时候，超链接会出现边框。</p>
+<h2 id="发散思维">发散思维</h2>
+<p>既然是用了边框的方式模拟下划线，那么可不可以通过调整超链接的高度让这条线变成一条可以交互操作的 “删除线” 呢？当然是可以的，我们只需要把 height 属性调小一点同时还需要让 a 的 display 属性变成 inline-block，就可以让边框穿过文字，由于 overflow 的默认属性是 visible 所以文本仍然是可见的。</p>
+<p><pre>div a{text-decoration:none;color:#000;padding-bottom:1px;height:6px;display:inline-block;}</pre><br>这样就实现了下图效果</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link1.png" alt="具有交互性的边框模拟删除线样式"></a></p>
+<p>需要注意的是 a 元素是行间元素，直接对其使用 height 是没有作用的，但是对其加上 display：block 变成块元素，则会脱离文本，所以需要添加 inline-block 属性。但是这样，对于早期的 IE 浏览器兼容性不太好。</p>
+<p>制作这样一个超链接的交互样式非常简单，而且交互效果很不错，平时我们应该多一点细心和发散思维，才能不断提高用户体验。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<p><a href="http://www.neoease.com/a-tag-css-design/" target="_blank" rel="external">a 标签的样式规划</a></p>
+<p><a href="http://ued.taobao.com/blog/2012/08/inline-block/" target="_blank" rel="external">inline-block 前世今生</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1649.html" data-id="9kljhcdw9q53oh39" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-ad-97-e4-bd-93-e6-98-af-e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ad-e6-9c-80-e9-87-8d-e8-a6-81-e7-9a-84-e7-bb-86-e8-8a-82" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1588.html" class="article-date">
+  <time datetime="2012-12-12T19:27:59.000Z" itemprop="datePublished">Dec 13 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1588.html">字体是网页设计中最重要的细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个非创意性质的网页，最重要的内容，就是文字。出现了文字，就会出现文字排版、字体选择、字体颜色大小粗细等细节。而这些细节，往往是非常重要的细节。</p>
+<p>好的字体排版，可以让人耐心的看完那些文字，然后得到其中的重要信息，还可以影响到浏览者阅读的心情。同时，字体的选择、大小等，还应该配合企业的VI识别系统，还需要配合你作品需要表达的思想感情来确定（例如古典风格，应该选择哥特式字体等）。</p>
+<p>好了，关于字体的重要性，我就说这么多，再多说也是废话，只要大家知道很重要，要好好选择调整就好了。</p>
+<h2 id="字体的分类和格式">字体的分类和格式</h2>
+<h3 id="衬线和无衬线">衬线和无衬线</h3>
+<p>衬线算是一种辅助性的小细节，笼统的谈，太过于抽象，我们来看两个例子：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font0.png" alt="" title="font0"></a></p>
+<p>这两个字体，是有衬线字体，大家可以看到在边角的位置，会多出一些修饰。这样的好处就是，可以清晰的分辨出字母和文字，分辨笔划的起始和终止。但是，这种字体如果设置字体大小太小的话、或者你里文字较远，则会受到衬线影响，分辨不清晰。同时，由于中文系统，默认的字体为宋体，见的太多导致审美疲劳，所以衬线字体比较适合打印文字以及正规文档中使用，通常不太适合使用在网页中。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font1.png" alt="" title="font1"></a></p>
+<p>这两个字体，就是无衬线字体，没有边角的修饰，令人看起来很整齐光滑，没有毛刺。比较适合用在网页中，让浏览者获取大量的文字信息而不会疲劳。</p>
+<h3 id="字体系列">字体系列</h3>
+<p>字体之间最大的差异并不在于有无衬线，而在于字体与字体之间，形体的差异。但是很多字体（特别是英文字体）之间，差异不大，有些新字体甚至是对已有字体进行了细微的改造后产生的。</p>
+<p>于是，就把字体分成了几个大的系列，同一个系列中的字体，大体相同，称作通用字体系列。其中包括以下五个系列：</p>
+<p><strong>serif</strong>：带衬线字体。Times New Roman 是默认的 serif 字体，中文字体的话，是宋体、仿宋之类的字体。</p>
+<p><strong>sans serif</strong>：无衬线字体。Arial 是默认的 sans-serif 字体，中文字体中，微软雅黑、黑体等都是这类字体。</p>
+<p><strong>monospace</strong>：等宽字体。这个字体里面的每个字母都有相同的宽度。通常用于显示程序代码等，Courier 是默认的 monospace 字体。而对于中文，每个汉字都是等宽的。</p>
+<p><strong>cursive</strong>：模仿手写字体。手写体，比较个性，通常用于标题、logo等等。这个字体系列没有默认字体，英文来说，通常用 Comic Sans，中文的话，行书系列、草书系列的字体等，都可以算作手写字体。</p>
+<p><strong>fantasy</strong>：装饰用字体。多数用于标题，极具个性，字体繁多，艺术字体。无法对其的大小、形状下一个统一的定论，所以没有默认字体，在网页中，也通常很少用到，除非你有特殊的用处创意性的设计。</p>
+<p>关于通用字体系列的更多解释、描述和字体举例，推荐大家查看在 <a href="http://www.w3school.com.cn/css/css_font-family.asp" target="_blank" rel="external">W3school 上的资料。</a></p>
+<h2 id="字体的格式">字体的格式</h2>
+<p>格式就是指字体表现出来的粗细、宽度和姿态等等特征。看下面的这张图片：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font2.png" alt="" title="font2"></a></p>
+<p>里面的字，是相同大小的，同时排放在一条竖线上。为其应用了四种不同的字体后，体现出来了不同的形态和粗细大小。在中文字体中，不同的字体，在字间距中通常没有很大的变化。而在英文字体中，不同的字体会改变字母的大小，导致整体的尺寸布局不同，进而导致整个排版混乱。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font3.png" alt="" title="font3"></a></p>
+<p>相同的字体大小，在不同的字体下面，显示的效果几乎完全不同。这是英文字体选择中，比较麻烦和头疼的问题。</p>
+<h2 id="字体的选择">字体的选择</h2>
+<p>上面的这些理论，从某些角度和意义上来说，都是废话。如何选择合适的字体，才真正切合实际。那么我们应该如何选择在网页中使用的字体呢？</p>
+<p>解决这个问题，我们先应该知道为什么要纠结于选择字体这个问题。我个人认为应该存在 <strong>实用性</strong> 和 <strong>创意性</strong> 这两个方面的因素。创意性很好理解，就是想突破常规，配合自己的网页中的设计思想而选择相应的字体，例如表达程序员的思维，就对代码使用等宽字体，表达恐怖、古典，使用哥特式字体等等。这点自己去找字体好了，不再赘述。最主要的问题是在于 实用性 的方面。</p>
+<p>实用性问题，即不需要太过于华丽的字体，只需要大家看的都舒服、稍微带点自己的特色即可。你会说，很容易啊，直接  CSS 定义一条，填上个字体就好了。如果真这样，那就太好了。浏览器解析字体的过程实际上是这样的，当浏览器加载 CSS 后，解析到有关字体的样式，它会在你的系统中查找这个字体，只有找到了相应的字体文件，才会根据那个字体文件对网页中的文字进行渲染，显示出你想要的效果。</p>
+<p>既然这样，如果你的操作系统中，并没有安装网页中定义的那种字体，就无法渲染出那种字体的效果，而通常使用当前系统的默认字体来渲染。那么你原有的设计，就不行了，你设计时觉得挺好，字体、位置、大小合适，但在别人的电脑上，清一色的宋体。所以这个问题，才是选择字体的难处所在。当然，有问题就有解决方式：</p>
+<h3 id="使用经典通用字体">使用经典通用字体</h3>
+<p>不同操作系统都有不同的字体系统，但既然是字体，总有一些比较经典老牌的字体共同存在于各个系统中。例如无衬线的 Arial 字体，它产生的时间比较早，同时价格低廉，所以从早期就被 windows 操作系统使用，在其他的操作系统中，也会有较好的不同于默认字体的显示效果。所以 <a href="http://fairyfish.net/" target="_blank" rel="external">我爱水煮鱼</a>、<a href="http://www.qianxingzhem.com" target="_blank" rel="external">潜行者m博客</a> 这些网站，直接在 CSS 中声明使用一个字体：Arial。</p>
+<h3 id="使用多个字体属性">使用多个字体属性</h3>
+<p>上面的方法很简单，但是不灵活，注重简单而不注重细节。CSS 做的很好，它可以在一个网页中，声明指定多个字体，这样当写在前面的字体，在当前操作系统中没有的话，就会使用后面字体顶替。所以当你看一些网页作品的时候，会发现它的 CSS 中的 font-family 属性，指定了一大堆的 字体 名称。但这个也不是可以随便指定的，也有一些注意事项。</p>
+<p>你应该这样做，先确定你网页中需要用到的字体，然后确定属于哪个字体系列有无其他的相近字体以及衍生字体，然后编写字体属性。顺序如下：<strong>最想用的字体</strong>》》<strong>可以代替的相近字体</strong>》》<strong>相近通用字体</strong>。例如如下写法：</p>
+<p><pre>font-family: Times, TimesNR, ‘New Century Schoolbook’,Georgia, ‘New York’, serif;</pre><br>这样的意思就是，优先使用 Times 字体，然后系统没有的话，查找同型异名的 TimesNR 字体，如果没有，寻找系统中的相近字体 New Century Schoolbook 等其他字体，最后如果都无法找到，就使用通用字体 serif ，这样浏览器就会寻找系统中的 无衬线 的默认字体，来代替。</p>
+<h2 id="字体的大小选择">字体的大小选择</h2>
+<h3 id="形容字体大小的单位">形容字体大小的单位</h3>
+<p>在 CSS 中，最常用的描述字体大小的单位有两个：<strong>em</strong>、<strong>px</strong>。通常认为 em 为相对大小单位，px 为绝对大小单位。但从实际应用中来讲，px 像素其实也是一种相对大小单位。例如，在一块15寸分辨率为 800x600 像素的屏幕上，10px 大小的文字，要比一块10寸分辨率 1024x768 像素的屏幕上的 10px 大小的文字显得更大一些。下面来说一下它们的区别和用法等。</p>
+<p><strong>px</strong>：像素单位，10px 表示10个像素大小，在现在的网页设计中，常被用来表示字体大小。很方便很直观，但是有一些弊端。对于可用性不太友好，因为是“绝对”单位，所以有些浏览器（早期）的字体放大缩小功能失效。浏览器的默认字体大小为 16px ，早期的网页，由于屏幕分辨率比较低，通常采用12px作为网页正文的标准字体大小。但是在现在，感觉有点偏小，比较长的文章来说，浏览者看起来费劲。现在我更主张使用 14px 作为标准字体，16px 作为中等字体，18px 作为较大字体，12px 作为偏小字体比较合适。</p>
+<p><strong>em</strong>：相对大小，它表示的字体大小不固定，根据基础字体大小进行相对大小的处理。浏览器默认的字体大小为 16px，如果你对一段文字指定 1em，那么表现出来的就是 16px大小，2em 就是 32px 大小。相对大小单位有很广泛的用途，由于它的相对性，所以对跨平台跨设备的字体大小处理上有得天独厚的优势，同时对于响应式的布局设计也有很大的帮助。但是缺点很明显，你无法直观的看到大小，而且对于不同的大小，你需要精确的计算。</p>
+<h3 id="字体实际表现出来的大小">字体实际表现出来的大小</h3>
+<p>上面只是说了两种形容字体大小的单位，但实际上表现出来的字体大小，并非简单的单位前面的数值。除了数值之外，潜行者m 个人认为还跟 <strong>设备</strong> 和 <strong>视距</strong> 有关。</p>
+<p>设备就是指显示设备的分辨率及屏幕大小，跟前面解释 px 单位的相对性相同，如果在一块非常大的分辨率非常低的屏幕（像广场电子屏），即使很小的像素，也会展示出很大的字。这也就是为什么早期的 800x600 像素横行的时候，大家都是用12px大小的原因。因为显示的文字已经够大了。</p>
+<p>视距就是指浏览者看文字的距离。很明显的道理，眼睛距离屏幕越远，看起来上面的文字就变小了。</p>
+<p>所以在选择网页中字体大小的时候，还需要考虑你的用户的实际使用习惯。同一个网页，在笔记本上和在手机上使用的时候，字体大小就不应该相同，因为电脑屏幕大分辨率高，而且视距通常比较近而且固定，手机等屏幕小分辨率较低，视距更近（大家都喜欢躺着或者趴着玩手机啦），所以这些都要考虑，才能得到一个合理的大小。</p>
+<h3 id="为什么是偶数字体大小">为什么是偶数字体大小</h3>
+<p>通过上面的单位介绍，对于 px 单位中，我举得例子都是 12px、14px、16px、18px等等，为啥不是11px、15px？这涉及到一个锯齿的问题，特别是在早期的显示器中，往往不能很好的处理文字的锯齿问题，而使用单数的像素，极有可能造成锯齿，所以默认的通常使用偶数大小。</p>
+<h2 id="字体的颜色选择">字体的颜色选择</h2>
+<p>字体的颜色选择同样是一个重要的细节，但是涉及到配色了，已经超出本文要讨论的范围，所以在这里，我只好简单的说一下有关网页中字体颜色的禁忌。</p>
+<h3 id="字体的颜色要朴素、正常">字体的颜色要朴素、正常</h3>
+<p>什么叫朴素正常？通常来说，文章都是白底黑字，黑色的。所以网页中的文字，通常使用黑色，或者浅灰色，这样更加符合大众的口味。如果不是一些很有创意的设计，请不要随便的使用颜色。就像 我爱水煮鱼 博客里面的一篇文章</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font5.png" alt="" title="font5"></a></p>
+<p>如果我为它加上蓝色，你会怎么想？</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font4.png" alt="" title="font4"></a></p>
+<h3 id="颜色要与背景有一定的对比度">颜色要与背景有一定的对比度</h3>
+<p>低对比度，容易导致字体看不清楚。所以要用高对比度的颜色，例如白底黑字，黑底白字等。不信看下图：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font6.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font6.png" alt="" title="font6"></a></p>
+<p>如果你在看一篇文章，字体的颜色是上图中，最下面的那个，你还会再看下去吗？</p>
+<h3 id="避免特殊颜色">避免特殊颜色</h3>
+<p>这里要避免的一些特殊颜色，是指网页中的一些默认颜色。特别是蓝色，因为蓝色代表着网页中的超链接，如果网页中有一段蓝色的文字，会让人误以为是可以点击的超链接。所以这种颜色要尽量避免。但是有些时候在设计中，必须要用到这种颜色的设计，所以也有一些其他的方法来解决这个问题。</p>
+<p>例如潜行者m博客的 Qetro 主题，采用了蓝色调，在正文排版布局的时候思考过关于加粗文字的样式。如果使用常规的粗体黑色来说，较多的加粗内容，会导致页面文字的混乱。加粗的目的是为了醒目，告诉浏览者这是段重要的文字。所以我对文字添加蓝色处理。但是这个蓝色恰巧就跟超链接的默认样式颜色相同。非常容易让人迷惑，于是我将超链接的样式带有默认的下划线。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font7.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/12/1588/font7.png" alt="" title="font7"></a></p>
+<p>当用户看到蓝色的时候，可能会试图放在上面看一下，结果无法点击也没有变成手指。再往下拉，看到超链接的时候，一眼就可以看出下划线是可以点击的超链接。这也是一种还不错的折中方法。</p>
+<h2 id="与字体有关的_CSS_属性">与字体有关的 CSS 属性</h2>
+<p>与字体有关的 CSS 属性，通常有以下几个：font-family、font-style、font-weight、font-size、line-height、letter-spacing、word-spacing、text-align、text-decoration。</p>
+<p><strong>font-family</strong>：用于定义字体，上面有演示不多说。更详细的资料请看：<a href="http://www.w3school.com.cn/css/pr_font_font-family.asp" title="CSS font-family 属性" target="_blank" rel="external">font-family</a>。</p>
+<p><strong>font-style</strong>：用于定义字体的样式，包括正常、斜体、倾斜等，对应的属性值为：normal - 文本正常显示、italic - 文本斜体显示、oblique - 文本倾斜显示。</p>
+<p><strong>font-weight</strong>：用于定义文字的粗细，详细的属性值请看：<a href="http://www.w3school.com.cn/css/pr_font_weight.asp" title="CSS font-weight 属性" target="_blank" rel="external">font-weight。</a></p>
+<p><strong>font-size</strong>：设置字体大小，不再赘述。</p>
+<p><strong>line-height</strong>：用于设置文字中的行间距，合适的行间距对用户阅读带来良好体验。同时还可以用于垂直布局单行文字。</p>
+<p><strong>letter-spacing</strong>：设置文字之间的字间距，使文字之间的距离增大或者减小。</p>
+<p><strong>word-spacing</strong>：用于调整单词的间距。</p>
+<p><strong>text-align</strong>：用来对齐文字，例如左对齐、右对齐、居中对齐等。</p>
+<p><strong>text-decoration</strong>：用来修饰一段文本，例如添加下划线等。常对 a 标签使用这个属性消除其默认的下划线。</p>
+<p>上面是与字体相关，比较常用的 CSS 属性，还有其他更加具体的，可以参考网上的资料，推荐 W3school 上面的有关字体的资料。</p>
+<h2 id="使用在线字体">使用在线字体</h2>
+<p>在 CSS3 中，引入了一个非常强大而且实用的功能来面对上面的字体选择问题。传统的字体选择，要你的操作系统中安装相应字体才可以显示。如果你在网页作品中，使用了其他的创意字体，那么你需要生成相应的文字图片来替换，否则不会显示。CSS3 中的这个功能，就是<strong> Web Fonts</strong>，网页中可以使用安装在服务器端的字体。你可以将选择好的字体，上传到服务器中，然后使用 CSS3  新增的 <strong>@font-face</strong> 属性，来调用服务器上的字体，然后来渲染网页。</p>
+<p>支持 CSS3 这一功能的浏览器，会首先找到服务器上的字体，然后下载下来进行渲染。这样就彻底解决了本地操作系统中，没有对应字体的问题。关于 @font-face 的具体使用方法，由于比较多，在本文不再赘述，请大家自行百度之：<a href="http://www.baidu.com/baidu?wd=font-face" target="_blank" rel="external">@font-face的使用方法</a>。</p>
+<p>既然如此，那么选择的余地就很大了，只需要有字体文件就可以。于是一些人就开始想，我可不可以提供一个在线字体的服务，大家可以直接看到字体的效果，然后获取代码引用这个字体？于是就出现了在线字体，比较有名的有<a href="http://fairyfish.net/2010/05/27/google-web-font/" target="_blank" rel="external"> Google 在线字体</a>。</p>
+<p>不要高兴的太早了，自定义字体，目前只能应用在英文中。为什么呢？你下载个字体看一下就知道了，通常英文字体只有几百KB，因为它只需要包含数字、标点、英文字母即可。而中文字体通常十几M，最小的也要好几M。因为汉字实在是太多，而且还需要对每个汉字进行设计制作。这样的话，汉字就没法应用了，因为你要打开一个网页，还需要先下载个几M的汉字字体，在目前国内的网速是不现实的。</p>
+<h2 id="参考和推荐文献">参考和推荐文献</h2>
+<p>本文部分参考并引用了以下网络资料，同时也推荐以下资料：</p>
+<ul>
+<li>禅意花园（修订版）</li>
+<li><a href="http://www.w3school.com.cn/css/css_font.asp" target="_blank" rel="external">W3school  CSS 字体</a></li>
+<li><a href="http://icojump.in/?p=2200" target="_blank" rel="external">Mac Ｗin 网页字体显示方案</a><br>引用部分，版权归原作者所有。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1588.html" data-id="whgk1oj063epi63p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e4-b8-ad-e4-bb-a3-e7-a0-81-e7-9a-84-e9-a1-ba-e5-ba-8f-e6-98-af-e4-b8-8d-e5-8f-af-e5-bf-bd-e7-95-a5-e7-9a-84-e7-bb-86-e8-8a-82" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1539.html" class="article-date">
+  <time datetime="2012-11-14T13:40:48.000Z" itemprop="datePublished">Nov 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1539.html">网页中代码的顺序是不可忽略的细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>仿佛奇怪的问题总是喜欢找上那些初学者。当我在学习制作网页的时候，经常遇到一些很特别的问题。例如：刚刚添加的样式不起作用、jQuery的代码老是不起作用等等。这往往是不关注细节导致的。而今天我要谈的这个细节，就是关于网页中代码的顺序。没错，代码也是有顺序的，顺序不对有可能会出现一些意外的情况。</p>
+<h2 id="HTML_相关的代码顺序">HTML 相关的代码顺序</h2>
+<p>下面先来介绍 HTML 中的代码顺序。</p>
+<h3 id="HTML_代码的排序原理">HTML 代码的排序原理</h3>
+<p>排序原理很简单，因为当浏览器访问一个网页的时候，要下载这个网页。现在的网速，对于一个几百K的网页来说，很快就能下载完。但是如果网页比较大或者网速比较卡，网页下载就会需要一定的时间。这样的话，浏览器显示网页的过程就很明显了。从 HTML 代码的上到下，依次下载。<strong>重要的内容要优先加载</strong>，所以就产生了 HTML 代码排序的问题。</p>
+<h3 id="head_里面的元素排序">head 里面的元素排序</h3>
+<p>HTML 中的 head 元素里面，通常放置着文档的描述信息。一般有：网页编码、title标题、meta 描述网页关键字、link 引入 CSS 文件、script 引入 Javascript 文件等等。下面就这几个内容进行一个讨论（以 HTML5 为例）：</p>
+<p>首先，先是标准的 DOCTYPE 声明、HTML 结构那一套。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+其次，编写网页编码，我个人认为编码是网页中最重要的，因为它决定浏览器采用什么编码来解析你的网页，如果编码没有设置好的话，网页显示出来就是一整个乱码。关于网页编码的更详细的文章，可以看一下 [潜行者m](http://www.qianxingzhem.com) 写的 [网页编码就是那点事](http://www.qianxingzhem.com/post-1499.html) 。编码写完之后，应该让浏览器立刻显示出网页的标题，这时候就应该写出 title 标题了。
+<pre>&lt;meta charset="utf-8" /&gt;
+&lt;title&gt;标题&lt;/title&gt;</pre>
+接下来，就应该是声明文档的各种信息，例如 关键词、描述、作者等等信息。之后就要加载 CSS 样式表。让浏览器先下载好 CSS 样式表，之后下载的网页内容，就会立刻加上 CSS 的样式效果，谁也不希望打开网页的时候，是没有样式的，然后加载完内容之后才出现正常的页面。这也就是为什么 CSS 引用要写在 head 里面。
+<pre id="line1">&lt;meta name="<a>keywords</a>" content="<a>潜行者m,网站建设,前端设计,Web开发</a>" /&gt;
+&lt;meta name="<a>description</a>" content="<a>潜行者m 博客，是由 潜行者m 个人设计制作，完全原创写作，关注网站建设/前端设计/Web开发相关的独立博客。欢迎各位观看学习，并且与本人交流！！</a>" /&gt;
+
+&lt;link rel="<a>stylesheet</a>" type="<a>text/css</a>" media="<a>screen</a>" href="http://www.qianxingzhem.com/wp-content/themes/qetro/style.css"/&gt;</pre>
+关于 JavaScript 的位置一直比较有争议。因为 JavaScript 比较灵活，可以添加在页面的任何位置。通常推荐的是加在页面的最底部。因为JavaScript 文件通常比较大，浏览器下载比较费时间，由于 JavaScript 可能会影响到当前页面的结构内容，所以浏览器通常会先下载完JavaScript 代码，“运行” 之后，再下载网页的正文内容。这就导致了加载速度比较慢，因为要先加载  JavaScript 代码才会显示网页内容。所以要放在页面底部。这样浏览器会先下载网页的内容显示出来，然后再下载 JavaScript 对当前的网页进行处理。
+
+### body 主体内容的排序
+
+前面说过浏览器先依次下载网页然后显示，那么网页主体内容的排版布局就很明显了：**重要的内容排在前面**。
+
+例如一个博客类型的网页，最重要的内容肯定是 文章 。所以文章的内容要尽量放在网页的顶部。虽然它可能要显示在下面，但是也要放在代码的上面，然后通过 CSS 布局等放在下面。当网速很卡的时候，排版合理的博客很明显就可以看到，先显示出来头部、文章主体内容，之后再显示 边栏、底部 内容。这就是为了让用户最快的看到他们想要看的内容，即使网速很卡下载很慢，内容出来了边栏等都下载不下来，用户也会得到他需要的内容。这就是 body 元素里面的代码排序原则。
+
+## CSS 代码的排序
+
+CSS中有很多排序的小细节需要注意，不注意的话很有可能就出现一些意外情况。
+
+### 顺序解决样式冲突问题
+
+当你对一个元素赋予了 background-color 属性，你在其他地方，忘了之前的设置，又对这个元素赋予了一个属性值与之前不同的 background-color 属性。那么浏览器究竟会对这个元素渲染哪一个背景颜色呢？答案是代码排在后面的属性值。冲突的内容，后面的属性值就会覆盖前面的属性值。因此要注意，一些 [CSS reset](http://www.qianxingzhem.com/post-610.html) 等要先加载，然后在后面加载自己写的属性值。例如：CSS reset 通常会取消 strong 的加粗，但有时我们的网页作品中，要 strong 显示成加粗效果，所以我们要设置 strong{font-weight：bold；} 这样的样式。但如果 CSS reset 代码放在后面，它之前对 strong 的取消加粗属性就会覆盖掉你的 加粗效果。所以无论刷新网页多少遍，你的 strong 标签里面的内容，还没有加粗。
+
+如果有时候，你真的无法修改加载文件的顺序，那么面对这种情况，你可以使用 CSS 中的 ！important 语法，告诉浏览器要使用这个属性解决冲突。
+
+### 链接的交互排序
+
+一个超链接，默认是蓝色的，当我们把鼠标移动上去，会变色，点击的过程也会变色，访问过后回来一看，通常也不会是原来的蓝色了。控制这些颜色的，分别是 CSS 中的 ：link 、：visited 、：hover、：active 这四个伪类选择器，从名称就可以看出，控制的状态分别是：默认显示、访问过后、鼠标移动上去、点击激活。有时候会出现一些意外情况，例如：同时设置了 ：visited 和 ：hover 的样式，但一旦超链接访问后，hover 的样式就不出现了等。这是因为，这四个伪类选择器对 a 元素定义的时候，是有一个顺序的。如果不按照这个顺序，就会出现一些意外情况。
+
+这个顺序有一个很好记的方法，那就是：love hate，即 l（link）ov（visited）e  h（hover ）a（active）te。
+<pre>a:link{color:#666666; text-decoration:none;}
+a:visited{color:#666666; text-decoration:none;}
+a:hover{color:#666666; text-decoration:underline;}
+a:active{color:#666666; text-decoration:none;}</pre>
+
+<h3 id="属性值的顺序">属性值的顺序</h3>
+<p>CSS 中，有的属性既可以分开写，也可以合并起来写。例如 margin 属性，你可以分别制定 margin-left 、margin-right、margin-top、margin-bottom 的值，也可以直接写成 margin：top right bottom left； 也可以写两个参数，分别代表上下和左右的外边距。这样的写法简练而且灵活，但是对不熟练的新手来说，比较容易搞混。当类似 margin 、 padding 这样的属性，写四个参数的时候，以 top 开始，顺时针旋转。</p>
+<p>除此之外，还有类似 font、background 这样的属性，它的属性值也要有顺序（虽然对顺序要求不严格），它们的参数有缺省值，所以不需要全部定义，只需要定义自己需要的样式即可。但是 border 这样的属性，就必须严格的按照语法编写属性值的顺序。例如：border ：1px solid #ccc；如果 1px solid #ccc 这三个值的顺序出问题了，那么浏览器就可能无法解读这段 CSS 的样式。</p>
+<h2 id="JavaScript_代码的顺序">JavaScript 代码的顺序</h2>
+<h3 id="JavaScript_文件加载顺序">JavaScript 文件加载顺序</h3>
+<p>jQuery 是一个比较常用的 JavaScript 库，通常我们还要配合它强大的插件使用。对于新手来说，经常会遇到没有产生相应效果的问题。就是说，代码没有检查出问题，但就是没有执行显示应有的效果。原因就出在加载顺序上面。你编写的 JavaScript 代码以及调用的 jQuery 插件，都需要基于 jQuery 库，所以应该在所有 JavaScript 代码之前，先引入 jQuery 库。浏览器先把库下载完了，才会识别后面的依赖这个库的代码实现相应的功能。同样的，激活使用某个插件的代码，也需要放在插件的后面才会有效。</p>
+<pre id="line1">&lt;script type="<a>text/javascript</a>" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/jquery.lazyload.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/插件.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="自己编写的js/js.js"&gt;&lt;/script&gt;</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="qa4nz301l6sku9h0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-85-a8-e4-bb-a3-e7-a0-81-e6-89-93-e9-80-a0-e7-ae-80-e6-b4-81-e7-be-8e-e8-a7-82-e5-9b-9e-e5-88-b0-e9-a1-b6-e9-83-a8-e6-8c-89-e9-92-ae" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1220.html" class="article-date">
+  <time datetime="2012-08-28T10:46:29.000Z" itemprop="datePublished">Aug 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1220.html">全代码打造简洁美观回到顶部按钮</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这次，潜行者m带来一个jquery的比较实用的教程，就是为你的网站添加一个纯代码画出来的、简洁美观的回到顶部按钮。这个按钮的效果就是，当页面滑动一段距离之后，就会浮现出来这个按钮，点击这个按钮之后，就自动滚动到顶部。具体效果如下：</p>
+<p><a href="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg" target="_blank" rel="external"><img src="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg" alt="" title="2-2"></a></p>
+<p>点击之后就会跳转到顶部，然后这个按钮平滑消失。与网上的相比，潜行者m版的是纯代码，加载速度更快，效果色彩控制好；代码精简，只有数条而已，拒绝大坨大坨的代码。废话不多说，下面就开始制作。</p>
+<h2 id="html结构">html结构</h2>
+<p>我使用了a标签作为这个结构，可能不太标准，但是比较方便。在a标签中，内置了一个span标签，用来显示三角号。具体代码如下：</p>
+<p><pre>&lt;a id=”gotop” href=”#”&gt;<br>    &lt;span class=”gotop-shang”&gt;▲&lt;/span&gt;<br>&lt;/a&gt;</pre><br>对，你没看错，就这么简单的一句代码，直接在a标签中，填写一个三角号。剩下的就是使用css进行样式控制。</p>
+<h2 id="css代码">css代码</h2>
+<p><pre>a[id=”gotop”]{<br>    display:block;<br>    width:60px;<br>    height:60px;<br>    position:fixed;<br>    bottom:50px;<br>    right:40px;<br>    border-radius:10px 10px 10px 10px;<br>    text-decoration:none;<br>    display:none;<br>    background-color:#999999;<br>    }</pre><br>上面这段代码，定义了a标签的外观样式，定义display为block，这样，我们才能指定它的width和height。定义position为fixed，让它固定在右下角。同时为它指定圆角，就是使用border-radius属性，定于半径为10px的圆角。</p>
+<p><pre>span{<br>    display:block;<br>    width:60px;<br>    color:#dddddd;<br>    }<br>span:hover{<br>    color:#cccccc;<br>    }<br>span[class=”gotop-shang”]{<br>    font-size:40px;<br>    text-align:center;<br>    margin-top:4px;<br>    }</pre><br>上面这一段，就是定义了span标签里面的三角号，如果你不会打三角号，可以看本人的这篇文章：<a href="http://www.qianxingzhem.com/post-1196.html" target="_blank" rel="external">亲自打造属于自己网站风格的工具边栏</a>，里面有提到这个。这几句代码意思很简单，就是定义了三角号的外观样式，同时制定了颜色变化，这是为了用户体验。最下面的margin-top：4px，则是用来准确定位三角号，让它居中显示。</p>
+<h2 id="jquery代码">jquery代码</h2>
+<p>具体的javascript代码如下，解析已经写在注释里面了：</p>
+<p><pre>$(function(){</pre></p>
+<pre><code>$(<span class="built_in">window</span>).scroll(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{  <span class="comment">//只要窗口滚动,就触发下面代码</span>
+    <span class="keyword">var</span> scrollt = <span class="built_in">document</span>.documentElement.scrollTop + <span class="built_in">document</span>.body.scrollTop; <span class="comment">//获取滚动后的高度</span>
+    <span class="keyword">if</span>( scrollt &amp;gt;<span class="number">200</span> ){  <span class="comment">//判断滚动后高度超过200px,就显示</span>
+        $(<span class="string">"#gotop"</span>).fadeIn(<span class="number">400</span>); <span class="comment">//淡出</span>
+    }<span class="keyword">else</span>{
+            $(<span class="string">"#gotop"</span>).stop().fadeOut(<span class="number">400</span>); <span class="comment">//如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动</span>
+    }
+});<span class="xml"><span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span>
+</code></pre><p><pre><br>    $(“#gotop”).click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部<br>        $(“html,body”).animate({scrollTop:”0px”},200);<br>    });<br>});</pre><br>怎么样，简单吧？就用这几句代码而已，就可以出现这个功能，而且可以方便的修改颜色、形状、大小等。当然缺点也是有的，就是在IE6等过时的浏览器中，可能不会兼容，无法实现。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1220.html" data-id="xfhtvhp2tjcscdg1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e9-ab-98-e5-ba-a6-e8-87-aa-e5-ae-9a-e4-b9-89qq-e9-82-ae-e4-bb-b6-e5-88-97-e8-a1-a8-e5-a4-96-e8-a7-82-e6-a0-b7-e5-bc-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1093.html" class="article-date">
+  <time datetime="2012-08-24T06:49:08.000Z" itemprop="datePublished">Aug 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1093.html">如何高度自定义QQ邮件列表外观样式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。</p>
+<p>首先先来了解一下QQ邮件列表是什么。</p>
+<blockquote>
+<p><strong>QQ**</strong>邮件列表<strong>是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你</strong>写博客<strong>，它能自动将最新的博客文章发给读者。如果你</strong>开网店<strong>，可以用它批量通知顾客店铺的最新优惠。 如果你正</strong>管理一个组织**，通过它，能快速向组织成员发布公告。使用QQ邮件列表，让您的邮件发得更多、更快、更准！<br>总之，这是一个让帅哥更帅，让美女更美，让垃圾邮件正常群发的腾讯唯一几个免费的服务。很多网站上，都有QQ列表，你可以输入邮箱来订阅网站内容，站长就可以发一些资讯到你的邮箱里。</p>
+</blockquote>
+<p>我们知道，添加这个服务，就需要申请代码，然后把代码放到网站上。但是，它生成的外观样式，并不一定符合我们网站的风格样式，本文潜行者m就要跟大家一起分析一下他们的代码，然后进行自定义修改，来符合自己网站的风格。获取代码有两种形式，一种是图片的形式，另一种是一个文本输入框，直接填写上邮箱提交。下面潜行者m一一分析。</p>
+<h2 id="图片形式：">图片形式：</h2>
+<p>图片形式，他们允许定义一些简单的参数：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/08/111.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/08/111.jpg" alt="" title="111"></a></p>
+<p>我们看一下生成的代码</p>
+<p><pre>&lt;!—QQ邮件列表订阅嵌入代码—&gt;&lt;a target=”_blank” href=”<a href="http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74&quot;&amp;gt" target="_blank" rel="external">http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74&quot;&amp;gt</a>;<br>&lt;img alt=”填写您的邮件地址，订阅我们的精彩内容：” border=”0” src=”<a href="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png&quot;/&gt;&lt;/a&amp;gt" target="_blank" rel="external">http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png&quot;/&gt;&lt;/a&amp;gt</a>;</pre><br>从代码中，就可以看出，很简单的两个标签。使用了一个a标签，包裹了一个img。而这个img指向的图片地址就是<a href="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。" target="_blank" rel="external">http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。</a></p>
+<h2 id="代码方式：">代码方式：</h2>
+<p>代码方式要稍微麻烦一点，但是省下很多功夫，因为用户不用再打开一个页面去填写邮箱了。<a href="http://qxzm-img.b0.upaiyun.com/blog/2012/08/222.jpg" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/08/222.jpg" alt="" title="222"></a></p>
+<p>我们再来看看代码：</p>
+<p><pre>&lt;!—QQ邮件列表订阅嵌入代码—&gt;<br>&lt;script &gt;<br>var nId = “3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435”,nWidth=”auto”,sColor=”light”,sText=”填写您的邮件地址，订阅我们的精彩内容：” ;;<br>&lt;/script&gt;<br>&lt;script src=”<a href="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js" target="_blank" rel="external">http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js</a>“ charset=”gb18030”&gt;&lt;/script&gt;</pre><br>这段代码里，上面那一句是定义了几个参数，其中nID参数，是你这个订阅频道独有的，要传输到下面的qfcode.js使用。那这个qfcode.js文件的内容是什么呢？直接打开<a href="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：" target="_blank" rel="external">http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：</a></p>
+<p><pre>“&lt;div class=”rssbook “,sColor,<br>“ “ style=”width:”,nWidth,” “&gt;&lt;p class=”info”&gt;”,sText,”&lt;/p&gt;”,<br>“&lt;div class=”mailInput”&gt;”,<br>“&lt;form action=”<a href="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" rel="external">http://list.qq.com/cgi-bin/qf_compose_send</a>“ target=’_blank’ method=’post’&gt;”,<br>“&lt;input type=”hidden” name=”t” value=”qf_booked_feedback”&gt;”,<br>“&lt;input type=”hidden” name=”id” value=””,nId,””&gt;”,<br>“&lt;input  id=”to” name=”to” type=”text” class=”rsstxt” value=””/&gt;”,<br>“&lt;div class=”rssbutton”&gt;&lt;input type=”submit” value=”订阅”&gt;&lt;/div&gt;”,<br>“&lt;/form&gt;”,<br>“&lt;/div&gt;&lt;/div&gt;”].join(“”));</pre><br>这些代码的意思，就是说，在页面中输出了一个表单（form），它提交的地址就是<a href="http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。" target="_blank" rel="external">http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。</a></p>
+<p>好，弄清楚了这个，我们就按照自己的风格，动手做一个表单，然后根据它的这个表单，填写上参数，进行提交就可以了。目前，从这个代码中，潜行者m提取出以下几个信息：nID 3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435 、 POST <a href="http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。" target="_blank" rel="external">http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。</a></p>
+<p><pre>&lt;form action=”<a href="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" rel="external">http://list.qq.com/cgi-bin/qf_compose_send</a>“ target=”_blank” method=”post”&gt;<br>&lt;input type=”hidden” name=”t” value=”qf_booked_feedback” /&gt;<br>&lt;input type=”hidden” name=”id” value=”3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435” /&gt;<br>&lt;input type=”text” id=”to” name=”to” value=”” placeholder=”输入你的邮箱” /&gt;<br>&lt;input type=”submit” value=”订阅” /&gt;&lt;/form&gt;</pre><br>这样就可以了,我们只要填写上,点击订阅,就会订阅了。我们自己写出了这个表单，然后再对其应用css修改它的样式，来符合我们网站的风格，这样就大功告成了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1093.html" data-id="h7khuon0aquo3apk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-ba-8c-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1005.html" class="article-date">
+  <time datetime="2012-05-18T06:24:46.000Z" itemprop="datePublished">May 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1005.html">潜行者m的CSS2笔记（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接上面的文章，<a href="http://www.qianxingzhem.com/post-994.html" target="_blank" rel="external">潜行者m的CSS2笔记（一）</a>。</p>
+<p>21，使用line-height属性来控制行高，使文字居中，控制文字排版。</p>
+<p>22，使用&lt;label&gt;标签，可以让人点击文本选中相应单选复选，提高网站交互性。例子&lt;label for=”c1”&gt;点击此文本&lt;/label&gt;&lt;input type=”checkbox” name=”c1” id=”c1” value=”ckbox”/&gt;</p>
+<p>23，对于文本下划线，可以使用border-bottom来实现丰富的定义。</p>
+<p>24，li{width:120px;text-overflow:ellipsis;}当内容超出对象宽度时，显示为省略号。clip将不显示。必须使用word-break:keep-all;使其被强制不能换行。</p>
+<p>25，em是一种相对弹丸。text-indent:2em;表示空出两个字符的距离，em长度相当于本行中字符的倍数，这个单位非常实用。</p>
+<p>26，首字下沉使用css伪类。p:first-letter{font-size:2em;float:left;}。first-line伪类对第一行进行设置。</p>
+<p>27，在布局中，出现布局的错位等，可以使用相对定位。尽量避免绝对定位。</p>
+<p>28，剪切图像可以使用clip。使用div overflow属性进行剪切图像，用img margin移动剪切区域。</p>
+<p>29，图片代替文本，内含不显示文本，表明图像的内容，非alt属性。两种实现方法：display:none;text-indent:-99999px;</p>
+<p>30，a:link只会对拥有href=“”的a发生作用。</p>
+<p>31，使用图片代替文本，对搜索引擎有利，有利seo。</p>
+<p>32，使用导航等，显示边框的时候，最好加上一个背景边框，防止错位。</p>
+<p>33，pimg{float:left;padding:10px;}设置图片浮动方式，可以将图片嵌入文字流。</p>
+<p>34，如果想要添加图片说明，将文字与img放在一个div中，之后对文字等进行设置。</p>
+<p>35，表格布局对table、tr、td进行定位，border-collapse：collapse;属性表示将表格中单元格之间线条合并。border-collapse：separate:则将使各单元格的边框独立存在。</p>
+<p>36，@import导入命令是将目的文件包含进来。例如：@import url(“home.css”);<br>还可以指定一个设备类型，指明当前的样式表用于什么操作，例如：<br>@import url(“pageprint.css”) print;表示在打印文件的时候，使用pageprint.css这个样式表。</p>
+<p>37，提高css效率的方法：<br>1，按照功能划分css文件。<br>2，在需要这方面功能的页面，引用相应的样式表文件。引用用上面的import</p>
+<p>38，用css制造进度条等，使用行间样式。</p>
+<p>整本书大部分的内容，都已经吸收同化进潜行者m的身体中，对于这38条笔记的内容，掌握的还不是很熟悉，所以做成笔记，以便在日后进行翻阅。</p>
+<p>在随后的一段时间内，我将继续公布潜行者m的个人笔记，包括seo、html5、css3、php、javascript等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1005.html" data-id="bprdnyn14kikw7bc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-b8-80-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-994.html" class="article-date">
+  <time datetime="2012-05-14T09:03:11.000Z" itemprop="datePublished">May 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-994.html">潜行者m的CSS2笔记（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。</p>
+<p><strong>注意，这份笔记不适合新手，这里面的知识点，不是系统的基础的，而是经常不小心忽略掉但是又常用的。</strong>有经验的朋友，可以看一下，里面的知识点你忽略了多少。</p>
+<p>1，相同类型的css定义，默认执行后面的一个，可以用！important语法修改优先性。例如：background-color:red;!important</p>
+<p>2，标注某些css hack的地方，使用hack；没完成的地方使用todo。（在大型的工程中，用注释标注一下，方便查询修改）</p>
+<p>3，block块状对象占据整行，其他的都移到下一行；in-line行间（内联）允许与下一对象共享一行。</p>
+<p>4，尽量减少div的嵌套，会增加浏览器解析的难度。</p>
+<p>5，最终宽度=左外边距+左边框+左内边距+宽度+右内边距+右边框+右外边距，最终高度也是如此，需要精确计算，放置错位。</p>
+<p>6，重叠的margin会叠加显示，以大值为准。当两个div设定float之后，就不会叠加了。</p>
+<p>7，浮动的清理（clear）。使用clear属性来拒绝某个方向上的浮动，这样就不会浮动到上一层了。（这个最好实践一下）</p>
+<p>8，父position:relative;子position:absolute。子在父中绝对定位，将以父位置为基准。</p>
+<p>9，div应当重点放在大面积区域上，对于简单的导航等，用ul解决。</p>
+<p>10，下拉菜单等，可以通过伪类选择器以及display属性来控制。display:none;表示隐藏当前元素。（通常使用javascript来实现下拉菜单，但是现在用纯css也可以实现的很好）</p>
+<p>11，css hack:*html—这种方式仅被IE浏览器支持解析，是最常用的css hack之一。</p>
+<p>12，div是一个块，用来整体布局设计——block<br>span是一个范围，用来区别内容——in-line</p>
+<p>13，background-attachment:scroll/fixed;设置背景图片的滚动方式。</p>
+<p>14，background-color:transparent;透明模式，显示背景。</p>
+<p>15，background-position:左对齐方式 上对齐方式 ;用它可以对图像进行精确的定位，同时实现css sprites功能。例如：background-position:0px -27px;</p>
+<p>16，ul/ol属性：<br>list-style-image:none/url;设置图片作为列表中的项目。<br>list-style-position:inside/outside;设置项目符号的放置位置。<br>list-style-type:none/disc/……;设置li的表现形式（没有/点状/圆圈/方块等等）</p>
+<p>17，display属性：<br>block：将对象显示成盒状，后一个对象换行显示。<br>none：隐藏/不显示对象。<br>inline：行间内联样式，将对象排列成一行。<br>inline-block：对象显示成块状，但呈现内联样式。<br>list-item：将对象作为列表项显示</p>
+<p>18，float:left;更适合对象布局，但是浮动多了，容易造成浏览器解析混乱。希望让信息显示为段落，最好使用display:inline;（通常设置一个原子类fl{float:left;display:inline;}，元素浮动的时候，加上class=”fl”)</p>
+<p>19，text-indent:value;用于控制段落文本的首行缩进想过。text-indent:20px;表示对象首行缩进20px。如果想要比其他提前一些，可以使用负数值来实现。text-indent:-88888px;设置超大的数值，还可以起到隐藏文本的效果。</p>
+<p>20，对于表单样式的控制最基本的方法就是使用border以及background-color。即对表单元素的背景、边框进行设置优化，消除默认难看的样式。</p>
+<p>先打这么多，剩下的留在<strong>潜行者m的CSS2笔记（二）</strong>中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-994.html" data-id="qy6lquv1pg90pm63" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/tags/CSS/page/2/">2</a><a class="extend next" rel="next" href="/tags/CSS/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2013 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/archives/2013/page/5/">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+<meta name="twitter:description">
+
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e7-94-b1opacity-e5-b1-9e-e6-80-a7-e5-bc-95-e5-8f-91-e7-9a-84-e5-b1-82-e5-8f-a0-e9-97-ae-e9-a2-98-e6-80-9d-e8-80-83-e4-b8-8e-e8-a7-a3-e5-86-b3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1667.html" class="article-date">
+  <time datetime="2013-01-31T12:25:54.000Z" itemprop="datePublished">Jan 31 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>►<a class="article-category-link" href="/post-category/CSS/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1667.html">由opacity属性引发的层叠问题思考与解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最近的一个作品中，在使用 opacity 属性来实现页面整体透明的时候，发现了一个问题。如果两个层发生了重叠，使用了 opacity 属性并且属性值小于1的层，会覆盖掉后面的层。于是动手做了个实验，来验证 opacity 的层次。</p>
+<p>网页中的层叠规律是这样的：如果两个层都没有定义 position 属性为 absolute 或者 relative 属性，哪个层的HTML代码放在后面，哪个层就显示在上面。如果指定了 position 属性，并且设置了 z-index 属性，谁的值大，谁就在上面。</p>
+<h2 id="发现问题">发现问题</h2>
+<p>而对于没有激活 z-index 的普通层来说，如果那个层使用了属性值小于1的 opacity 属性，哪个层就会显示在上面。我们做一个Demo。代码如下：</p>
+<p><pre> &lt;!DOCTYPE html&gt;<br> &lt;html&gt;<br> &lt;head&gt;<br> &lt;title&gt;带有 opacity 的层叠问题&lt;/title&gt;<br> &lt;style&gt;<br> html{padding:40px;}<br> .dd{width:100px;height:100px;}</pre></p>
+<h1 id="a{background:red;}">a{background:red;}</h1>
+<h1 id="b{background:blue;margin-left:20px;margin-top:-80px;}">b{background:blue;margin-left:20px;margin-top:-80px;}</h1>
+<h1 id="c{background:green;margin-left:40px;margin-top:-80px;}">c{background:green;margin-left:40px;margin-top:-80px;}</h1>
+<p> &lt;/style&gt;<br> &lt;/head&gt;<br> &lt;body&gt;<br> &lt;div id=”a”&gt;&lt;/div&gt;<br> &lt;div id=”b”&gt;&lt;/div&gt;<br> &lt;div id=”c”&gt;&lt;/div&gt;<br> &lt;/body&gt;<br> &lt;/html&gt;<br>保存为 html 文件打开之后，可以看到正常的次序</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity0.png" alt="正常的层叠"></a></p>
+<p>这时候，我们为 #a 加上属性 opacity：0.9 神奇的事情发生了，它覆盖了另外两个层</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity1.png" alt="加上小于1的 opacity 之后的层叠"></a></p>
+<p>只有当为另一个层（例如：#c）也设置一个小于1的opacity值（例如：0.8）之后，后面的 #c 才能安装正常的规则覆盖在 #a 上面。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity2.png" alt="同时为另一个层赋值 opacity"></a></p>
+<p>这样，增加了小于1的 opacity 属性的层，升高了一个层次。至于里面的科学原理，我没有想明白，或许也可能是一个小BUG。但是有时候这种情况是我们不希望发生的。</p>
+<h2 id="解决问题">解决问题</h2>
+<p>那么如何来解决这个问题呢？前面也说过了，正常的情况下，指定了 position 并且指定了 z-index 值的层，拥有比普通层更高的层次，那么指定 opacity 的层和指定了 position 的层相比呢？我们对 #b 加上 position：relative 看看。这时候的样式代码如下：</p>
+<p><pre> #a{background:red;opacity:0.9;}</pre></p>
+<h1 id="b{background:blue;margin-left:20px;margin-top:-80px;position:relative;}">b{background:blue;margin-left:20px;margin-top:-80px;position:relative;}</h1>
+<h1 id="c{background:green;margin-left:40px;margin-top:-80px;opacity:0-8;}">c{background:green;margin-left:40px;margin-top:-80px;opacity:0.8;}</h1>
+<p>保存刷新后，看到效果是这样的：</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity3.png" alt="对层使用了 position 属性之后的层叠效果"></a></p>
+<p>也就是说，对层使用 position 属性的 relative 之后，可以使其层次和 opacity 相同，这样之后，按照正常的排序进行层叠显示（在后面的实验中，我对 absolute 属性值也做了测试，结果和 relative 属性值表现的相同）。当我们取消了 #c 的 opacity 属性之后，我们可以看到，#c 被排在了最下面。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity4.png" alt="对底层取消 opacity 属性之后的效果"></a></p>
+<p>还没有完，之前只是对 #b 激活了position：relative 属性，还没有使用 z-index。我们对 #b 进行了 z-index 的设置（例如：100），很显然的，#b 成为了最顶层。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/02/1667/opacity5.png" alt="对中间层设置 z-index 的效果"></a></p>
+<h2 id="得出结论：">得出结论：</h2>
+<p>使用了position属性值为 absolute、relative 的层，将会比普通层更高层次。使用了小于1的opacity属性的层，也比普通层更高层次并且和指定 position 的层同层，但是不支持 z-index 属性，所以指定 position 的层，可以使用 z-index 属性，来覆盖带有小于1的 opacity 属性的层。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1667.html" data-id="ic0qtv45q9ak2uov" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9113-ef-bc-8c-e8-a1-a5-e5-85-85-e4-b9-8b-e5-89-8d-e6-95-99-e7-a8-8b-e4-b8-ad-e7-9a-84-e4-b8-80-e4-ba-9b-e7-9f-a5-e8-af-86-e8-a6-81-e7-82-b9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1658.html" class="article-date">
+  <time datetime="2013-01-26T15:58:08.000Z" itemprop="datePublished">Jan 26 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1658.html">【基础篇】13，补充之前教程中的一些知识要点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在之前的教程中，我通过做一套非常简单的 WordPress 主题，介绍了一系列关于 WordPress 主题制作的方法和函数。对于基础篇，有一些细节略过了，有一些功能没有提到，因为这些对于基础比较差的朋友有点难度，所以放在了 中级篇 教程中。回顾整个初级篇教程，有几个知识点需要介绍但是没有介绍到，还有一个小错误，于是就在本文中总结一下。</p>
+<h2 id="显示更多的文章列表">显示更多的文章列表</h2>
+<p>在目前的主题中，在首页中，只能显示有限的文章列表内容，并没有前后翻页的功能。这样，时间比较早的文章就看不到了，现在就要加上。需要用到的代码如下：</p>
+<p><pre>&lt;div id=”pagination” class=”mt10”&gt;<br>     &lt;?php posts_nav_link(); ?&gt;<br>&lt;/div&gt;</pre><br>其中 <strong>posts_nav_link();</strong> 这个函数就是用于生成列表翻页的函数。这段代码通常要放在文章列表的最下面</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more0.png" alt="页面翻页导航"></a></p>
+<p>保存一下，刷新页面，我们就可以看到了多了一个“下一页”链接，点击之后，还会出现 “上一页”</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more1.png" alt="看到上一页"></a></p>
+<p>这种方式非常简单，但是效果有限。在实际的应用中不大，因为现在网站大都用“页码数字”的形式来翻页。但是 WordPress 并没有提供与之相关的函数，有很多插件是用于实现这个功能的，但实际上用代码也能很方便的实现。下面就是我在网上找到的一段比较好的实现代码，作者不详：</p>
+<p><pre>function qxzm_pagination($query_string){<br>    global $posts_per_page, $paged;<br>    $my_query = new WP_Query($query_string .”&amp;posts_per_page=-1”);<br>    $total_posts = $my_query-&gt;post_count;<br>    if(empty($paged))$paged = 1;<br>    $prev = $paged - 1;<br>    $next = $paged + 1;<br>    $range = 5; // only edit this if you want to show more page-links<br>    $showitems = ($range * 2)+1;</pre></p>
+<pre><code><span class="variable">$pages</span> = ceil(<span class="variable">$total_posts</span>/<span class="variable">$posts_per_page</span>);
+<span class="keyword">if</span>(<span class="number">1</span> != <span class="variable">$pages</span>){
+echo <span class="string">"&amp;lt;div class='pagination'&amp;gt;"</span>;
+echo (<span class="variable">$paged</span> &amp;<span class="keyword">gt</span>; <span class="number">2</span> &amp;amp;&amp;amp; <span class="variable">$paged</span>+<span class="variable">$range</span>+<span class="number">1</span> &amp;<span class="keyword">gt</span>; <span class="variable">$pages</span> &amp;amp;&amp;amp; <span class="variable">$showitems</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span>)? <span class="string">"&amp;lt;a  href='"</span>.get_pagenum_link(<span class="number">1</span>).<span class="string">"' class='inactive'&amp;gt;|&amp;lt;&amp;lt;/a&amp;gt;"</span>:<span class="string">""</span>;
+echo (<span class="variable">$paged</span> &amp;<span class="keyword">gt</span>; <span class="number">1</span> &amp;amp;&amp;amp; <span class="variable">$showitems</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span>)? <span class="string">"&amp;lt;a href='"</span>.get_pagenum_link(<span class="variable">$prev</span>).<span class="string">"' class='inactive'&amp;gt;&amp;lt;&amp;lt;&amp;lt;/a&amp;gt;"</span>:<span class="string">""</span>;
+
+<span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">1</span>; <span class="variable">$i</span> &amp;<span class="keyword">lt</span>;= <span class="variable">$pages</span>; <span class="variable">$i</span>++){
+<span class="keyword">if</span> (<span class="number">1</span> != <span class="variable">$pages</span> &amp;amp;&amp;amp;( !(<span class="variable">$i</span> &amp;<span class="keyword">gt</span>;= <span class="variable">$paged</span>+<span class="variable">$range</span>+<span class="number">1</span> || <span class="variable">$i</span> &amp;<span class="keyword">lt</span>;= <span class="variable">$paged</span>-<span class="variable">$range</span>-<span class="number">1</span>) || <span class="variable">$pages</span> &amp;<span class="keyword">lt</span>;= <span class="variable">$showitems</span> )){
+echo (<span class="variable">$paged</span> == <span class="variable">$i</span>)? <span class="string">"&amp;lt;span class='current'&amp;gt;"</span>.<span class="variable">$i</span>.<span class="string">"&amp;lt;/span&amp;gt;"</span>:<span class="string">"&amp;lt;a  href='"</span>.get_pagenum_link(<span class="variable">$i</span>).<span class="string">"' class='inactive' &amp;gt;"</span>.<span class="variable">$i</span>.<span class="string">"&amp;lt;/a&amp;gt;"</span>;
+}
+}
+
+echo (<span class="variable">$paged</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span> &amp;amp;&amp;amp; <span class="variable">$showitems</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span>) ? <span class="string">"&amp;lt;a href='"</span>.get_pagenum_link(<span class="variable">$next</span>).<span class="string">"' class='inactive'&amp;gt;&amp;gt;&amp;gt;&amp;lt;/a&amp;gt;"</span> :<span class="string">""</span>;
+echo (<span class="variable">$paged</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span>-<span class="number">1</span> &amp;amp;&amp;amp; <span class="variable">$paged</span>+<span class="variable">$range</span>-<span class="number">1</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span> &amp;amp;&amp;amp; <span class="variable">$showitems</span> &amp;<span class="keyword">lt</span>; <span class="variable">$pages</span>) ? <span class="string">"&amp;lt;a href='"</span>.get_pagenum_link(<span class="variable">$pages</span>).<span class="string">"' class='inactive'&amp;gt;&amp;gt;|&amp;lt;/a&amp;gt;"</span>:<span class="string">""</span>;
+echo <span class="string">"&amp;lt;/div&amp;gt;"</span>;
+}
+</code></pre><p>}<br>把这段代码复制到主题下面的 <strong>functions.php</strong> 中，然后在需要这个功能的地方，写上定义的这个函数，就可以实现了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more2.png" alt="实现翻页的函数"></a></p>
+<p>这段代码其实也是比较好理解的，如果你有一定的 php 基础，很容就可以看出代码的实现过程。此外，这段代码还输出 html 结构，这样你就可以方便的用 CSS 定义样式了。在中级篇会详细讲解这个地方，默认的情况下效果如下。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more3.png" alt="实现翻页的效果"></a></p>
+<p>因为之前的 archieve.php 文件是使用 index.php 文件生成的，同时这个文件的用途也是显示文章列表，所以我们也要在这个文件的相应位置，放上这些代码。</p>
+<h2 id="在文章页面中显示上一篇、下一篇文章">在文章页面中显示上一篇、下一篇文章</h2>
+<p>在一个文章或者页面中，显示相邻的上下篇文章这个功能，也比较常见。我们可以使用下面的代码来实现：</p>
+<p><pre>&lt;div id=”prevnext” class=”mt10 ofh”&gt;<br>   &lt;div class=”fl”&gt;&lt;?php previous_post_link(‘%link’); ?&gt;&lt;/div&gt;<br>    &lt;div class=”fr”&gt;&lt;?php next_post_link(‘%link’); ?&gt;&lt;/div&gt;<br>&lt;/div&gt;</pre><br>首先定义了一个结构，然后里面有两个函数：<strong>previous_post_link(‘%link’);</strong>、<strong>next_post_link(‘%link’);</strong>，这两个函数从字面意义上就可以指定，分别用来生成 上一篇、下一篇文章 链接用的。添加的位置一般在文章的底部，当然也可以在顶部添加。保存一下，我们就可以看到效果了。如果一篇文章有上一篇和下一篇文章的话，就会出现这个链接，如果没有，就不会出现。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more4.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more4.png" alt="上一篇下一篇文章的效果"></a></p>
+<p>由于 page.php 文件是由 single.php 文件生成的，如果我们想在页面中也有这个功能，那么我们需要在 page.php 中也加上这些函数。</p>
+<h2 id="当管理员登陆后显示管理工具条（AdminBar）">当管理员登陆后显示管理工具条（AdminBar）</h2>
+<p>现有的演示主题中，当我们登陆之后，返回首页，上面什么都没有。在使用其他的主题时，登陆后台之后，应该会在页面上显示一个快捷管理条。这个管理条可以让你快速的发表文章或者修改这篇文章等等。</p>
+<p>至于如何为这个主题添加 AdminBar ，之前写过文章：<a href="http://www.qianxingzhem.com/post-1297.html" target="_blank" rel="external">在主题中添加 AdminBar 功能</a> ，在这里就不再赘述了。</p>
+<h2 id="不同页面显示对应的标题（title)">不同页面显示对应的标题（title)</h2>
+<p>在之前的第五节教程<a href="http://www.qianxingzhem.com/post-1304.html" target="_blank" rel="external">制作主题的头部区域</a>中，我提到使用下面这段代码来显示标题：</p>
+<p><pre>&lt;title&gt;&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;&lt;/title&gt;</pre><br>这的确显示出来了标题，但是在其他页面中，标题也显示这一种形式。因为其他的页面（例如 single.php），引用了 header.php 文件，所以当你访问一篇文章的时候，浏览器标题显示的都是一样的内容，这显然是不行的。那么我们如何进行修改呢？</p>
+<p>这里可以选择让 single.php 不引用 header.php 文件，而是把 header.php 的内容复制到 single.php 的头部，然后在 title 标签内，编写上调用当篇文章的标题。这样的做法可以解决问题，但是后期的修改不方便，也违背了 WordPress 分块机制的目的。其实我们可以使用下面这段很简单的代码解决这个问题：</p>
+<p><pre>&lt;?php if(is_home()): ?&gt;<br>&lt;title&gt;&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;&lt;/title&gt;<br>&lt;?php else: ?&gt;<br>&lt;title&gt;&lt;?php wp_title(‘&amp;laquo;’, true, ‘right’); ?&gt;&lt;?php bloginfo(‘name’); ?&gt; &lt;/title&gt;<br>&lt;?php endif ?&gt;</pre><br>这几条语句，使用了一个 if 语句，同时使用了 is_home() 这个判断函数，判断当前页面是否为首页。如果是，则显示现有的标题结构，如果不是，就调用 <strong>wp_title(‘&amp;laquo;’, true, ‘right’);</strong> 及其参数来显示标题。这样，当访问文章或者页面等页面的时候，显示的标题就是文章标题和网站名称了，而不是原来的网站名称和网站描述了。我们把它替换到 header.php 文件中，之后就完成了</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more5.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1658/more5.png" alt="显示对应标题的代码"></a></p>
+<p>至此，初级篇教程就结束了，敬请期待更高级的中级篇教程，它将会以一个更加复杂的主题制作过程为主线，深入的介绍更多常用的函数，以及之前基础篇略过的细节。</p>
+<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
+<p><a href="http://pan.baidu.com/share/link?shareid=197077&amp;uk=706095745" target="_blank" rel="external">myTheme(基础篇-13) 本节课主题下载</a></p>
+<h2 id="本系列文章">本系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html" target="_blank" rel="external">【基础篇】3、设计制作你的HTML主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html" target="_blank" rel="external">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html" target="_blank" rel="external">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html" target="_blank" rel="external">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html" target="_blank" rel="external">【基础篇】7，制作博客的搜索模块</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1556.html" target="_blank" rel="external">【基础篇】8，添加博客边栏功能</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1564.html" target="_blank" rel="external">【基础篇】9，制作底部区域 footer</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1566.html" target="_blank" rel="external">【基础篇】10，将现有 index.php 文件分块处理</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1568.html" target="_blank" rel="external">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1570.html" target="_blank" rel="external">【基础篇】12，通过当前的文件，生成主题其他必要文件</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1658.html" data-id="gl1xmzysjcukzfvm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9112-ef-bc-8c-e9-80-9a-e8-bf-87-e5-bd-93-e5-89-8d-e7-9a-84-e6-96-87-e4-bb-b6-ef-bc-8c-e7-94-9f-e6-88-90-e4-b8-bb-e9-a2-98-e5-85-b6-e4-bb-96-e5-bf-85-e8-a6-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1570.html" class="article-date">
+  <time datetime="2013-01-25T15:55:59.000Z" itemprop="datePublished">Jan 25 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1570.html">【基础篇】12，通过当前的文件，生成主题其他必要文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>就基础篇来讲，主题的大部分文件已经生成了，现在还剩下几个比较次要的文件：page.php、archive.php。用到的手段和技术和之前都是一样的，借此，我们再来复习一下分割生成文件的过程。</p>
+<h2 id="生成_page-php_文件">生成 page.php 文件</h2>
+<p>页面（page）和文章（single）的样式大体是相同的。很显然，我们要用已经生成的 single.php 文件来生成 page.php 文件。我们先打开一个页面看一下现在的效果。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth0.png" alt="页面的初始效果"></a></p>
+<p>因为目前主题中，没有 page.php 这个模板文件，所以根据前面介绍的 <a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">WordPress 主题机制</a> 中的<strong>缺失文件替换机制</strong>，它使用的是 index.php 文件，所以只能显示出摘要。下面我们来生成 page.php 页面：</p>
+<ol>
+<li>复制 single.php 文件，命名为 page.php</li>
+<li>打开文件修改一下<br>对于页面来说，通常不需要底部文章版权和作者介绍信息，因为页面使用来展示内容的，一般是一些公告之类的。此外，如果想做一个留言板这类的东西，也可以使用页面来实现，当然这个页面要带有评论模块。那么，我们只需要把原来 single.php 文件中的底部文章版权和作者介绍信息模块删掉就可以了。</li>
+</ol>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth1.png" alt="修改完成后的 页面 page.php"></a></p>
+<p>修改完成之后，我们再打开随便一个页面，就可以看到里面的内容了。需要注意的是，这里没有显示评论模块，因为我在本地没有安装<a href="http://www.qianxingzhem.com/post-1568.html" target="_blank" rel="external">“多说”插件</a>，所以暂时看不到评论框之类的东西。如果你在本地安装了，就会看到的。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth2.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth2.png" alt="page.php 页面效果"></a></p>
+<h2 id="生成_archive-php_文件">生成 archive.php 文件</h2>
+<p>archive.php 这个文件主要用于按照日期显示文章列表。很多博客通常在边栏增加一个类似“按月归档”的功能。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth3.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1570/oth3.png" alt="archieve 页面"></a></p>
+<p>当点击这些日期的时候，系统就会优先查找 archive.php 这个模板文件来显示列表。既然是文章摘要列表，那么我们应该使用 index.php 文件来生成这个文件了。过程和之前的完全相同，复制一遍，改一下名字就可以了。如果你想让它变的与众不同一点，还可以加上一些修饰之类的。例如在文章列表的最顶端加上“按月查看文章”之类的说明字样。</p>
+<p>在本系列教程的中级篇中，还会详细讲解怎么进一步的设计这个页面，但是在初级篇，就直接复制一遍好了。这样，主题的其他必要文件就完全生成了，我们的初级篇示例主题就做好了。</p>
+<h2 id="本节课相关资源下载">本节课相关资源下载</h2>
+<p><a href="http://pan.baidu.com/share/link?shareid=196700&amp;uk=706095745" target="_blank" rel="external">myTheme(基础篇-12) 本节课主题下载</a></p>
+<h2 id="本系列文章">本系列文章</h2>
+<ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html" target="_blank" rel="external">开始执行的wordpress主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html" target="_blank" rel="external">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html" target="_blank" rel="external">【基础篇】2、WordPress的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html" target="_blank" rel="external">【基础篇】3、设计制作你的HTML主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html" target="_blank" rel="external">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html" target="_blank" rel="external">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html" target="_blank" rel="external">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html" target="_blank" rel="external">【基础篇】7，制作博客的搜索模块</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1556.html" target="_blank" rel="external">【基础篇】8，添加博客边栏功能</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1564.html" target="_blank" rel="external">【基础篇】9，制作底部区域 footer</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1566.html" target="_blank" rel="external">【基础篇】10，将现有 index.php 文件分块处理</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1568.html" target="_blank" rel="external">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1570.html" data-id="eoadb0x9awyx6hf8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e8-bf-99-e4-b8-aa-e5-bf-ab-e9-80-92-e5-91-98-e4-b8-ba-e4-bb-80-e4-b9-88-e5-be-88-e5-a4-b1-e8-b4-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1653.html" class="article-date">
+  <time datetime="2013-01-20T13:03:02.000Z" itemprop="datePublished">Jan 20 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1653.html">这个快递员为什么很失败</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在京东买了几批东西准备过年，快递发过来不少，就遇到了同一个快递公司的两个不同的快递员。然后他们俩个给我的体验是完全不同的，从做事的角度上来说，很显然，其中一个会变成主管或者高层，另一个会被辞退，如果他们继续这样下去。</p>
+<p>先说不好的一个，他姓王，他是这样送快递的。第一天，我在京东上查询到了我的快递正在送货，在上午。从前两天的送货来看，这家快递公司一般在中午之后的下午左右到我家附近送货，所以我就一直在等着。果然下午的时候，来了一个电话，是我妈接的。他在那头问，我家在哪里。我妈细心的跟他说了半天，走那条街到什么路口之类的。然后他说他现在在一个离那里比较远的地方，可不可以晚点过去送。我妈比较和善，就说可以，说一直都有人最晚来送也可以。然后我等到睡觉，也没来送货的。甚至，我连是哪个货都不知道。</p>
+<p>第二天早上，虽然已经九点了，但是我还在睡觉。这时候，电话响了，是他来送快递，说还有两分钟到我们家附近的街道，让我出来拿快递。有没有搞错？！送快递的，让我从家出去到外面的大街上拿快递。没办法，我也是个好人，就急忙起来随便穿了几件衣服，然后就跑出去了。临出去之前，我突然想到一个事情，这个是不是那个货到付款的货？为了保险，我特意带上了钱包。这时候外面下着小雨，气温很低，我穿的比较单薄，而且从我家下楼到外面的大街，需要走几百米的路。我就这样哆哆嗦嗦的出去了，然后他又打电话给我，问我在哪。然后我就看见他了，在一个封闭的三轮车上。我走过去，他拿出快递，然后撕开说货到付款。幸亏我提前拿了钱，因为我还订了其他不是货到付款的快递。</p>
+<p>然后他找了一会钱，这时候，我看到了三轮车后面坐着两个女的。男的还回头说了一声，稍微等一下。之后找完了钱，头也不抬的说，没有两毛钱。然后我就直接说不要了，就回来了。很明白了，他在利用快递的途中，顺便拉客，多赚一些钱。然后根据拉客的需求，顺便送一下附近的快递。他也解释了昨晚为什么没来送了，说昨晚已经到了六点半了，然后就没来送。也没有道歉，也没有诚意。所以我扭头就走。</p>
+<p>下午，同一个公司的另一个快递员也来送货了，也是货到付款的快递。她是一个女的，姓马，前两次都是她来送的。下午接到了一个电话，问我在家吗？我说在，然后她说现在可以下楼来拿快递了，货到付款，准备好钱。然后我就穿衣服，拿好钱，用了大约两分钟，然后下楼。她已经在我家楼梯口那里等着，同样也是坐在封闭的三轮车，但是里面都是一些快递。我递上钱，然后她给我货，确认无误之后，就完成了。</p>
+<p>对于马来说，实在是有点笨啊。因为从大街上拐进来小区，然后到我楼底下，需要一点点时间和精力，而且要在下面等我一会，然后在出去。真是好浪费时间啊！但是，难道快递不是应该这样的吗？难道快递，要让你自己打车去他们公司拿货吗？！这位姓马的，是我见过的最好的快递员，服务那一切都是那么完美可亲，每次她走，我都要说个谢谢。而那个王快递员，我连骂都不愿意浪费口水。冷静下来，我们透过表面来看一下工作成功的本质因素是什么。</p>
+<p><strong>专业技能。</strong>对于快递行业来说，认识每个地点在哪里，这是必要也是必备的专业知识。你如果连个地方都不知道在哪里，你怎么去送快递？马快递员，不仅知道我家的小区，还根据上面的楼和门牌号，确定我在哪个楼栋。而王快递员，解释了半天，最终还是在大街上。</p>
+<p><strong>诚信。</strong>既然你已经说过要晚点来送，那么就是下了下班时间，也应该送过来。因为知道要有快递来，我都没敢出门，一直在家里等。结果最后也没来。即便是有些意外情况，实在是来不了，也应该打个电话来介绍一下，道个歉。连一点诚信都没有，礼貌也没有，知道自己做的不对，连个对不起都不说，理直气壮的说一句“昨晚到了六点半了，就没来送”。</p>
+<p><strong>负责。</strong>快递讲究什么？当然就是速度。王快递员非常聪明，为了增加自己的收入，利用工作的条件（有车、到处跑），顺便拉人接私活。这样是很聪明，但是你的工作是送快递。用最快的速度把货送到收货人那里。现在则是先拉人，然后到目的地看看有没有货，然后再送。这就是对工作的不负责和不认真。而马快递员全心全意的送快递，而且宁愿自己累点等待，也要让客户得到良好的体验。这就是对工作的认真负责。</p>
+<p>这两个不同的快递员，给我的间接印象会造成后面的什么影响？如果他们俩是不同的快递公司，那么我对王快递员所在公司已经失望，以后收发快递都不会使用这家公司，即使他们承诺很快也很便宜。但是他们俩是同一家快递，当王快递员送货之后，我对这家快递也有了很坏的影响，虽然之前感觉他们不错。这种感觉一直到马快递员送完货之后，才得到调整。</p>
+<p>对，没错，就是这样。当一个航空公司，一直没有出现失误的时候，突然有一架飞机失事，机毁人亡。那么这家公司虽然一直都很好，但是也很快倒闭了。你可以保证一直提供和以前一样的服务，或者更好一点的服务。但是哪怕有一次，你提供给了客户一次不好的服务，哪怕是稍差一点的，那么这个客户就可能留下很坏的印象，下次不会在合作。正如在很久以前（10天前）我在京东定下的电吉他，到现在都没有收到货。我对京东的态度也开始发生了变化。之前我选择京东，是因为我认为，京东正品、低价、发货速度快。在体验的过程中，也确实如此，一般三天到货。而淘宝第三方快递平均要4-5天，而且第三方快递服务水平有限。但是这件事，让我对京东有了新的认识。</p>
+<p>当你特别关注一件货物，而货物迟迟不来的时候，你就会感觉时间更加漫长。虽然只有十天，但是给我的感觉远远超过了十天。页面上的快递电话，也打不通，问在线客服，只能说请您稍等我给您催催。这样，我对京东的购物产生了一种恐惧。这两个月，我不会再在京东上买任何东西。而且以后要在京东买东西之前，我心中都会有几个疑问：我是否愿意为这个商品等待十天？周围商店是否有合适的替代品？如果消费者在购物之前有了疑问和思考，不再冲动，那么电子商务网站的出货量就会大大降低，因为他们就是靠着打折策略等，让消费者不再理性，然后冲动的下上订单。</p>
+<p>有点扯远了，这件事情告诉我们，如果你要从事一项工作，那么在具备熟练的专业技能之后，要将就诚信、认真负责的对待客户和工作。做好每一次的用户体验，为客户着想，赢得客户的信任，不容许任何一丝失误。对于公司来说，你只能保持现在的服务状态，或者更好的服务。一旦你的服务体验下降，你将会损失大量的客户，而这里面的有些客户，很有可能决定你的公司是否能继续存活下去。</p>
+<p>这就是为什么这个快递员很失败！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1653.html" data-id="vfbjob5dedsst2z1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-b8-80-e7-a7-8d-e6-96-b0-e5-9e-8b-e8-b6-85-e9-93-be-e6-8e-a5-e4-ba-a4-e4-ba-92-e6-a0-b7-e5-bc-8f-e8-ae-be-e8-ae-a1-e4-b8-8e-e5-ae-9e-e7-8e-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1649.html" class="article-date">
+  <time datetime="2013-01-16T16:48:56.000Z" itemprop="datePublished">Jan 17 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1649.html">一种新型超链接交互样式设计与实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>超链接是网页中，必不可少的内容。超链接的交互设计，也是一个网页中最重要的细节。CSS 也为链接准备了几个伪类选择器，用来设置超链接的交互操作。但是在绝大多数网站中，我们看到的超链接交互样式，通常是：改变一下链接的颜色、取消或者增加下划线、点击链接文本变色或者下划线消失等等。但实际上，超链接的交互设计，并非只能这么简单。</p>
+<p>很久没有登录 W3C 的官方网站，今天上去看了一下，从第一眼就看到了他们的超练级的与众不同。把鼠标放上，点击，测试了一下他们的超链接交互设计，感觉非常不错，就稍微思考了一下这个设计是如何实现的。稍微思考一下之后，才发现实现这个效果非常的容易，而且兼容性较好。下面就来介绍一下。</p>
+<p>先来看一下他们的效果图片，当然，我更推荐直接去 <a href="http://www.w3.org/" target="_blank" rel="external">W3C 官方网站</a>看效果。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link0.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link0.png" alt="w3c 的超链接交互性演示" title="w3c 的超链接交互性演示"></a></p>
+<h2 id="实现原理和分析">实现原理和分析</h2>
+<p>首先，仍然是常规的超链接样式，带一条下划线，但是与普通的超链接样式不同的是，这条下划线要粗（2px 普通的 1px），同时这个下划线和文字颜色不同（用 color 和 text-decoration 定义的超链接下划线颜色是和文本相同的）。所以可以肯定，这个下划线是使用 border-bottom 属性定义的，并且 padding-bottom 了几个像素，空开一定距离。然后交互性操作就很简单了，只需要改变一下底边框的颜色就可以了。当点击事件发生的时候，超链接不是简单的改变了颜色，而是向下移动了几个像素，这样给人的错觉就是按下去了一样，这种用户体验是传统超链接仅仅变换颜色所体验不到的。关于这个的实现，需要使用 position 的 relative 属性，激活 top 属性，即可让超链接脱离原来位置向下偏移一定距离。</p>
+<p>既然原理分析完毕，那么我们就开始写出相应代码吧。</p>
+<h2 id="HTML_结构">HTML 结构</h2>
+<p>随便输入一些字，加上个链接就OK了。</p>
+<pre>&lt;div&gt;
+ 这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。
+ &lt;/div&gt;</pre>
+
+<h2 id="CSS_样式">CSS 样式</h2>
+<p><pre>div{width:300px;margin:20px auto;line-height:24px;}<br> div a{text-decoration:none;color:#000;padding-bottom:1px;}<br> div a:link,div a:visited{border-bottom:2px solid #f00;}<br> div a:hover{border-bottom:2px solid #00f;}<br> div a:active{border-bottom:2px solid #00f;outline:0 none;position:relative;top:1px;}</pre><br>对 div 的宽度定义只是为了好看而已，对行高的定义，是为了不让下划线影响到下一行文字，这个可以自己决定。然后先对 a 标签取消默认的下划线和颜色，再就是交互性的操作。注意，对 :active 使用了 outline 属性，防止有些浏览器在点击超链接的时候，超链接会出现边框。</p>
+<h2 id="发散思维">发散思维</h2>
+<p>既然是用了边框的方式模拟下划线，那么可不可以通过调整超链接的高度让这条线变成一条可以交互操作的 “删除线” 呢？当然是可以的，我们只需要把 height 属性调小一点同时还需要让 a 的 display 属性变成 inline-block，就可以让边框穿过文字，由于 overflow 的默认属性是 visible 所以文本仍然是可见的。</p>
+<p><pre>div a{text-decoration:none;color:#000;padding-bottom:1px;height:6px;display:inline-block;}</pre><br>这样就实现了下图效果</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link1.png" target="_blank" rel="external"><img src="http://qxzm-img.b0.upaiyun.com/blog/2013/01/1649/link1.png" alt="具有交互性的边框模拟删除线样式"></a></p>
+<p>需要注意的是 a 元素是行间元素，直接对其使用 height 是没有作用的，但是对其加上 display：block 变成块元素，则会脱离文本，所以需要添加 inline-block 属性。但是这样，对于早期的 IE 浏览器兼容性不太好。</p>
+<p>制作这样一个超链接的交互样式非常简单，而且交互效果很不错，平时我们应该多一点细心和发散思维，才能不断提高用户体验。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<p><a href="http://www.neoease.com/a-tag-css-design/" target="_blank" rel="external">a 标签的样式规划</a></p>
+<p><a href="http://ued.taobao.com/blog/2012/08/inline-block/" target="_blank" rel="external">inline-block 前世今生</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1649.html" data-id="9kljhcdw9q53oh39" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+    <article id="post--e4-ba-ba-e7-94-9f-e6-9d-a5-e7-a9-b6-e7-ab-9f-e6-98-af-e6-9d-a5-e5-81-9a-e4-bb-80-e4-b9-88-e7-9a-84-ef-bc-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1647.html" class="article-date">
+  <time datetime="2013-01-14T19:34:25.000Z" itemprop="datePublished">Jan 15 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1647.html">人生来究竟是来做什么的？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>人生其实是一个边贡献边享受的过程。</p>
+<p>对，没错，是一个边贡献边享受的过程。</p>
+<p>人就是这么赤裸裸的来到这个世界上，然后又赤裸裸的离开这个世界，无法带走什么。那么为什么要活这么一辈子？因为要做两个方面的事情：贡献和享受。</p>
+<p>你要知道，在这个世界上生活，你需要吃饭需要各种生活用品，这些都是资源都是需要人为制造的，这些就是其他人的贡献，而你在享受他们的成果。所以，作为回报，你必须也要有贡献。最简单的就是工作，挣钱，然后花钱享受这些成果，同时花钱也是贡献为别人带来价值。</p>
+<p>所以，在你享受之前，你必须要付出足够你享受的贡献。这也就是为什么有钱人可以选择穿好的、吃好的、玩好的，因为他们对人类贡献的多。</p>
+<p>你也可以选择贡献很多，无私的贡献，然后不计回报。这样的人一般都会很伟大，甚至会被载入史册以及被后人铭记。但这些都是无所谓的，因为你已经不在了，你已经死去了。及时对你的评价再高，也跟你毫无关联。所以，你要学会在有生之年，在你取得的成就范围内，尽情的享受。</p>
+<p>无私贡献很多的人，实际上，他们的贡献就是他们享受的过程，他们的理想志向在此，所以心甘情愿的付出。</p>
+<p>你现在做的一切事情，其实都是一种享受。你吃饭，是在享受美食或者只是一种饱腹感；你听歌，是在享受一种美妙的旋律；你恋爱，是在享受一种美妙的感觉；你伤心，是在享受一种难受的感觉。无论是高兴、喜悦、成功、失败、伤心、痛苦还是其他的事情或者感觉，都是需要你享受的。</p>
+<p>人生其实就是由这些享受构成的，而你，也需要彻底的享受这些体验，这些感觉。因为，你就这一辈子活，死了之后，什么都带不走，一切都没有了。所以，你在死之前，要做的就是去享受这些事情。要正视这些快乐或者痛苦，并且享受。</p>
+<p>所以，我认为一个最好的人生，应该是充满了各种体验的。对我来说比较理想的人生可以是这样：小时候跟人打过架、上小学考试很好、高考落榜、再复习一年名牌大学、追几个女生失败、追上了一个谈了很久失败很受伤、最后遇到一个最好的过一辈子、工作很辛苦很受委屈、跳槽自己创办公司、成功了非常辉煌成了有钱人、决策失误整个公司下滑自己被开除、涉嫌金额过大被误判犯罪入牢、一年被平反误判、看清了周围的一些人的真面目和社会冷暖、重新东山再起再次辉煌、年迈退休带着钱四处旅游做公益和有意义的事情、去死吧。</p>
+<p>对，人生就应该这样，尽可能多的去体验生活。平稳安定的生活固然好，像公务员之类的，上班悠闲生活自在。但是这样平淡一辈子，等你死之前，如果有人问你，你这辈子做过什么事情，你能想起来你体验过什么生活吗？你几十年如一日，这其实是一种对生命极大的浪费。</p>
+<p>享受！！</p>
+<p>不要害怕过山车和蹦极，只要你死不了，大不了就是吐几口，但你享受了它们的过程和疯狂的感觉；不要害怕创业投资失败，那都将成为你宝贵的经验和成功的垫脚石；有钱的时候，要适当的进行一下高消费，体验一下“猫屎咖啡”，哪怕贵的离谱，哪怕只喝几杯，也算是体验了它的口味和感觉。</p>
+<p>我认为这就是人生，你觉得呢？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1647.html" data-id="f8cvt409x8oxbaju" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2013/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/2013/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2013/page/3/">3</a><a class="page-number" href="/archives/2013/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">73</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/音乐推荐/">音乐推荐</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10.00px;">BUG</a><a href="/tags/CSS/" style="font-size: 18.00px;">CSS</a><a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/HTML5/" style="font-size: 13.00px;">HTML5</a><a href="/tags/JSON/" style="font-size: 10.00px;">JSON</a><a href="/tags/JavaScript/" style="font-size: 14.00px;">JavaScript</a><a href="/tags/JustHost/" style="font-size: 11.00px;">JustHost</a><a href="/tags/PHP/" style="font-size: 13.00px;">PHP</a><a href="/tags/SEO/" style="font-size: 15.00px;">SEO</a><a href="/tags/ThinkSAAS/" style="font-size: 12.00px;">ThinkSAAS</a><a href="/tags/Ubuntu/" style="font-size: 11.00px;">Ubuntu</a><a href="/tags/WP主题函数/" style="font-size: 14.00px;">WP主题函数</a><a href="/tags/WordPress/" style="font-size: 13.00px;">WordPress</a><a href="/tags/WordPress主题/" style="font-size: 10.00px;">WordPress主题</a><a href="/tags/cPanel-X/" style="font-size: 14.00px;">cPanel X</a><a href="/tags/cookie/" style="font-size: 10.00px;">cookie</a><a href="/tags/emmet/" style="font-size: 11.00px;">emmet</a><a href="/tags/jQuery/" style="font-size: 17.00px;">jQuery</a><a href="/tags/jQuery插件/" style="font-size: 13.00px;">jQuery插件</a><a href="/tags/sublime-text-2/" style="font-size: 14.00px;">sublime text 2</a><a href="/tags/wp主题制作教程/" style="font-size: 19.00px;">wp主题制作教程</a><a href="/tags/前端优化/" style="font-size: 10.00px;">前端优化</a><a href="/tags/博客运营/" style="font-size: 16.00px;">博客运营</a><a href="/tags/响应式/" style="font-size: 10.00px;">响应式</a><a href="/tags/思考/" style="font-size: 18.00px;">思考</a><a href="/tags/推广运营/" style="font-size: 13.00px;">推广运营</a><a href="/tags/网络防骗/" style="font-size: 12.00px;">网络防骗</a><a href="/tags/记录生活/" style="font-size: 20.00px;">记录生活</a><a href="/tags/设计/" style="font-size: 13.00px;">设计</a><a href="/tags/资源分享/" style="font-size: 15.00px;">资源分享</a><a href="/tags/音乐推荐/" style="font-size: 14.00px;">音乐推荐</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">38</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">December 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
