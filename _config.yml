@@ -3,21 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: 潜行者m
+subtitle: 关注前端开发热爱简约设计。
 description:
-author: John Doe
-email:
+author: 潜行者m
+email: yujiangshui@gmail.com
 language:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.qianxingzhem.com
 root: /
 permalink: post-:id.html
 tag_dir: tags
 archive_dir: archives
-category_dir: categories
+category_dir: post-category
 code_dir: downloads/code
 permalink_defaults:
 
