@@ -1,11 +1,10 @@
 title: WordPress 自定义菜单功能介绍和使用详解
 tags:
-
-- WP 主题函数
-  id: 1521
-  categories:
-- 网站与后台开发
-  date: 2012-11-02 22:10:52
+	- WP 主题函数
+id: 1521
+categories:
+	- 网站与后台开发
+date: 2012-11-02 22:10:52
 
 ---
 

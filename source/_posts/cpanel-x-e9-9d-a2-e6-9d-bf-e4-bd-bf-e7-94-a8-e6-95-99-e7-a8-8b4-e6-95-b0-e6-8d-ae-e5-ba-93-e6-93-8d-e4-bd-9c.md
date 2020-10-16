@@ -1,11 +1,10 @@
 title: cPanel X 面板使用教程 4—数据库操作
 tags:
-
-- cPanel X
-  id: 693
-  categories:
-- 其他
-  date: 2012-02-16 23:40:43
+  - cPanel X
+id: 693
+categories:
+  - 其他
+date: 2012-02-16 23:40:43
 
 ---
 

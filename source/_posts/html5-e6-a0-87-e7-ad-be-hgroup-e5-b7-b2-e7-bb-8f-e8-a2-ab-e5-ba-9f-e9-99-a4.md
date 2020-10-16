@@ -1,12 +1,11 @@
 title: HTML5 标签 hgroup 已经被废除
 tags:
-
-- HTML5
-  id: 1882
-  categories:
-- HTML
-- 前端相关
-  date: 2013-04-15 05:19:44
+  - HTML5
+id: 1882
+categories:
+  - HTML
+  - 前端相关
+date: 2013-04-15 05:19:44
 
 ---
 

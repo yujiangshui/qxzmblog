@@ -1,11 +1,10 @@
 title: 前端开发神器 Emmet 介绍
 tags:
-
-- sublime text 2
-  id: 1937
-  categories:
-- 前端相关
-  date: 2013-05-06 21:17:09
+  - sublime text 2
+id: 1937
+categories:
+  - 前端相关
+date: 2013-05-06 21:17:09
 
 ---
 

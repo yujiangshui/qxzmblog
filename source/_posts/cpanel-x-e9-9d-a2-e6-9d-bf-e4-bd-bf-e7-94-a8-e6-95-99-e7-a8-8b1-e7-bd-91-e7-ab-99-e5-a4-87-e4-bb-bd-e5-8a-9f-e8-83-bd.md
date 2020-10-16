@@ -1,11 +1,10 @@
 title: cPanel X 面板使用教程 1—网站备份功能
 tags:
-
-- cPanel X
-  id: 589
-  categories:
-- 其他
-  date: 2012-02-12 00:40:11
+  - cPanel X
+id: 589
+categories:
+  - 其他
+date: 2012-02-12 00:40:11
 
 ---
 

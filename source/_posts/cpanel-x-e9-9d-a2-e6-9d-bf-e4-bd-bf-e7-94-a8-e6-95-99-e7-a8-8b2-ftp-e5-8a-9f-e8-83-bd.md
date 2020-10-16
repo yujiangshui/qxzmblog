@@ -1,11 +1,10 @@
 title: cPanel X 面板使用教程 2—FTP 功能
 tags:
-
-- cPanel X
-  id: 623
-  categories:
-- 其他
-  date: 2012-02-14 10:48:50
+  - cPanel X
+id: 623
+categories:
+  - 其他
+date: 2012-02-14 10:48:50
 
 ---
 

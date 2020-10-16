@@ -1,11 +1,10 @@
 title: 在 Sublime Text 2 中使用 SFTP 插件快速编辑远程服务器文件
 tags:
-
-- sublime text 2
-  id: 1924
-  categories:
-- 前端相关
-  date: 2013-05-01 01:02:32
+  - sublime text 2
+id: 1924
+categories:
+  - 前端相关
+date: 2013-05-01 01:02:32
 
 ---
 

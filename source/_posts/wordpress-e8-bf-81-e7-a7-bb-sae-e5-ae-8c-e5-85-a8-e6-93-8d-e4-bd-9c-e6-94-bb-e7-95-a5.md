@@ -1,11 +1,10 @@
 title: WordPress 迁移 SAE 完全操作攻略
 tags:
-
-- WordPress
-  id: 1387
-  categories:
-- 网站与后台开发
-  date: 2012-10-20 07:24:52
+  - WordPress
+id: 1387
+categories:
+  - 网站与后台开发
+date: 2012-10-20 07:24:52
 
 ---
 

@@ -1,11 +1,10 @@
 title: 前端开发利器 Emmet 介绍与基础语法教程
 tags:
-
-- sublime text 2
-  id: 1907
-  comment: false
-  categories:
-- 其他
+  - sublime text 2
+id: 1907
+comment: false
+categories:
+  - 其他
 
 ---
 

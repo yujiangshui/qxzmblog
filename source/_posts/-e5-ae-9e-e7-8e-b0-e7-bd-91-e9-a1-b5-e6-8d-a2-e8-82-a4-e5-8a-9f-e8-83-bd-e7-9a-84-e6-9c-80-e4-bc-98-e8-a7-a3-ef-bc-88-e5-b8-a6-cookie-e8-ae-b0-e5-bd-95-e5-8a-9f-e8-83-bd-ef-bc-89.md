@@ -1,12 +1,11 @@
 title: 实现网页换肤功能的最优解（带 Cookie 记录功能）
 tags:
-
-- jQuery
-  id: 1980
-  categories:
-- JS/JQ
-- 前端相关
-  date: 2013-06-06 17:54:50
+  - jQuery
+id: 1980
+categories:
+  - JS/JQ
+  - 前端相关
+date: 2013-06-06 17:54:50
 
 ---
 

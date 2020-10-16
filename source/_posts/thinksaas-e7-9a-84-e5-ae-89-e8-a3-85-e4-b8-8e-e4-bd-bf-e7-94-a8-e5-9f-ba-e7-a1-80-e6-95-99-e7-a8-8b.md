@@ -1,11 +1,10 @@
 title: ThinkSAAS 的安装与使用基础教程
 tags:
-
-- ThinkSAAS
-  id: 1081
-  categories:
-- 网站与后台开发
-  date: 2012-08-20 10:29:14
+  - ThinkSAAS
+id: 1081
+categories:
+  - 网站与后台开发
+date: 2012-08-20 10:29:14
 
 ---
 

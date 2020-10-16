@@ -1,11 +1,10 @@
 title: jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法
 tags:
-
-- jQuery 插件
-  id: 1602
-  categories:
-- 前端相关
-  date: 2012-12-20 23:04:45
+  - jQuery 插件
+id: 1602
+categories:
+  - 前端相关
+date: 2012-12-20 23:04:45
 
 ---
 

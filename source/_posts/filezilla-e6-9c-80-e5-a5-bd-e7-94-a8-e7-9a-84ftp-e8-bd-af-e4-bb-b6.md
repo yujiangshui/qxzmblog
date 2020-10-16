@@ -1,11 +1,10 @@
 title: filezilla—最好用的 FTP 软件
 tags:
-
-- 资源分享
-  id: 564
-  categories:
-- 其他
-  date: 2012-02-11 01:29:31
+  - 资源分享
+id: 564
+categories:
+  - 其他
+date: 2012-02-11 01:29:31
 
 ---
 

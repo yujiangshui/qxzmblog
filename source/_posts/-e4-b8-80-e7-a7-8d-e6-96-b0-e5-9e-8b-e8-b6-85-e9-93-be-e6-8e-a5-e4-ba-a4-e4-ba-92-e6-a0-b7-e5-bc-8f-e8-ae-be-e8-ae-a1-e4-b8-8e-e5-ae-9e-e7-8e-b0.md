@@ -1,11 +1,10 @@
 title: 一种新型超链接交互样式设计与实现
 tags:
-
-- CSS
-  id: 1649
-  categories:
-- 前端相关
-  date: 2013-01-17 00:48:56
+  - CSS
+id: 1649
+categories:
+  - 前端相关
+date: 2013-01-17 00:48:56
 
 ---
 

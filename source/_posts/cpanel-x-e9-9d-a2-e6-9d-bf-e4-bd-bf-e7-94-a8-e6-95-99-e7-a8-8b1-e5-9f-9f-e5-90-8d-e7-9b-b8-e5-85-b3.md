@@ -1,11 +1,10 @@
 title: cPanel X 面板使用教程 3—域名相关
 tags:
-
-- cPanel X
-  id: 661
-  categories:
-- 其他
-  date: 2012-02-16 12:47:19
+  - cPanel X
+id: 661
+categories:
+  - 其他
+date: 2012-02-16 12:47:19
 
 ---
 

@@ -1,11 +1,10 @@
 title: wordpress 模板开发 1——模板机制
 tags:
-
-- wp 主题制作教程
-  id: 520
-  categories:
-- 网站与后台开发
-  date: 2012-02-08 23:21:46
+  - wp 主题制作教程
+id: 520
+categories:
+  - 网站与后台开发
+date: 2012-02-08 23:21:46
 
 ---
 

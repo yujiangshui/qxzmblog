@@ -1,11 +1,10 @@
 title: DD_belatedPNG 与 unitpngfix 两种解决 IE6 中 PNG 文件透明问题方案横向对比
 tags:
-
-- JavaScript
-  id: 1641
-  categories:
-- 前端相关
-  date: 2013-02-19 04:45:08
+  - JavaScript
+id: 1641
+categories:
+  - 前端相关
+date: 2013-02-19 04:45:08
 
 ---
 

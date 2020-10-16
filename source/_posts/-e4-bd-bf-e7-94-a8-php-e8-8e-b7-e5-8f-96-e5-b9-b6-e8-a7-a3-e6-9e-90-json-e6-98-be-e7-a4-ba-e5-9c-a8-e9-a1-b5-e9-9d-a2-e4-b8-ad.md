@@ -1,12 +1,11 @@
 title: 使用 PHP 获取并解析 JSON 显示在页面中
 tags:
-
-- JSON
-- PHP
-  id: 1904
-  categories:
-- 网站与后台开发
-  date: 2013-04-22 18:01:19
+  - JSON
+  - PHP
+id: 1904
+categories:
+  - 网站与后台开发
+date: 2013-04-22 18:01:19
 
 ---
 

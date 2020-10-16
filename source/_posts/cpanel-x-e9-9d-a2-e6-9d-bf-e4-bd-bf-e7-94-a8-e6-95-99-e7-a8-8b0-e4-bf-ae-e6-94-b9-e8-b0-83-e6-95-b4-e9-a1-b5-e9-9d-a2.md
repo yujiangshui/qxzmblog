@@ -1,11 +1,10 @@
 title: cPanel X 面板使用教程 0—修改调整页面
 tags:
-
-- cPanel X
-  id: 546
-  categories:
-- 其他
-  date: 2012-02-10 12:56:12
+  - cPanel X
+id: 546
+categories:
+  - 其他
+date: 2012-02-10 12:56:12
 
 ---
 

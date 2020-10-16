@@ -1,11 +1,10 @@
 title: wordpress 模板开发 2——配置本地开发环境
 tags:
-
-- wp 主题制作教程
-  id: 602
-  categories:
-- 网站与后台开发
-  date: 2012-02-14 14:12:08
+  - wp 主题制作教程
+id: 602
+categories:
+  - 网站与后台开发
+date: 2012-02-14 14:12:08
 
 ---
 

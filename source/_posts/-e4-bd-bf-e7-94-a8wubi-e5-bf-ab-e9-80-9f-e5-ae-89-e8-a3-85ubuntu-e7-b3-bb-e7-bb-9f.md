@@ -1,11 +1,10 @@
 title: 使用 wubi 快速安装 ubuntu 系统
 tags:
-
-- Ubuntu
-  id: 447
-  categories:
-- 其他
-  date: 2012-01-29 08:00:37
+  - Ubuntu
+id: 447
+categories:
+  - 其他
+date: 2012-01-29 08:00:37
 
 ---
 

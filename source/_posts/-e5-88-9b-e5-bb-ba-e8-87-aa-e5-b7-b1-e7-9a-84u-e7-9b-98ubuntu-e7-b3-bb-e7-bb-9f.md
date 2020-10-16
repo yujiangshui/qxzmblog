@@ -1,11 +1,10 @@
 title: 创建自己的 U 盘 ubuntu 系统
 tags:
-
-- Ubuntu
-  id: 438
-  categories:
-- 其他
-  date: 2012-01-29 07:40:26
+  - Ubuntu
+id: 438
+categories:
+  - 其他
+date: 2012-01-29 07:40:26
 
 ---
 
