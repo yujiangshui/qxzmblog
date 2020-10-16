@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="系统默认的滚动条样式，真的已经看的够恶心了。试想一下，如果在一个很有特色和创意的网页中，出现了一根系统中默认的滚动条样式，会有多么的别扭。 为了自己定义网页中的滚动条的方法，我真的已经找了很久了，就目前寻找的成果来说，找到了两个比较不错的 jQuery 插件：jScrollPane 和 mCustomScrollbar 。关于前者，大家见过的可能比较多，但是这个插件太过于古老而且功能不强大。效果在">
+<meta name="keywords" content="jQuery 插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1602.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="系统默认的滚动条样式，真的已经看的够恶心了。试想一下，如果在一个很有特色和创意的网页中，出现了一根系统中默认的滚动条样式，会有多么的别扭。 为了自己定义网页中的滚动条的方法，我真的已经找了很久了，就目前寻找的成果来说，找到了两个比较不错的 jQuery 插件：jScrollPane 和 mCustomScrollbar 。关于前者，大家见过的可能比较多，但是这个插件太过于古老而且功能不强大。效果在">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll0.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll1.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll2.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll3.png">
+<meta property="og:updated_time" content="2020-10-16T19:10:04.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法">
+<meta name="twitter:description" content="系统默认的滚动条样式，真的已经看的够恶心了。试想一下，如果在一个很有特色和创意的网页中，出现了一根系统中默认的滚动条样式，会有多么的别扭。 为了自己定义网页中的滚动条的方法，我真的已经找了很久了，就目前寻找的成果来说，找到了两个比较不错的 jQuery 插件：jScrollPane 和 mCustomScrollbar 。关于前者，大家见过的可能比较多，但是这个插件太过于古老而且功能不强大。效果在">
+<meta name="twitter:image" content="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll0.png">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e8-87-aa-e5-ae-9a-e4-b9-89-e7-bd-91-e9-a1-b5-e5-86-85-e5-ae-b9-e6-bb-9a-e5-8a-a8-e6-9d-a1-e6-a0-b7-e5-bc-8f-jquery-mcustomscrollbar-js-e4-bd-bf-e7-94-a8-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1602.html" class="article-date">
+  <time datetime="2012-12-20T10:04:45.000Z" itemprop="datePublished">Dec 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>系统默认的滚动条样式，真的已经看的够恶心了。试想一下，如果在一个很有特色和创意的网页中，出现了一根系统中默认的滚动条样式，会有多么的别扭。 为了自己定义网页中的滚动条的方法，我真的已经找了很久了，就目前寻找的成果来说，找到了两个比较不错的 jQuery 插件：<a href="http://www.kelvinluck.com/assets/jquery/jScrollPane/jScrollPane.html" target="_blank" rel="noopener">jScrollPane </a>和 <a href="http://manos.malihu.gr/jquery-custom-content-scroller/" target="_blank" rel="noopener">mCustomScrollbar </a>。关于前者，大家见过的可能比较多，但是这个插件太过于古老而且功能不强大。效果在几年前非常不错，但是放在现在就不好说了。所以我选择了后者： <a href="http://manos.malihu.gr/jquery-custom-content-scroller/" target="_blank" rel="noopener">mCustomScrollbar</a>。下图是两者官方示例的简单对比：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll0.png" alt="jScrollPane 和 mCustomScrollbar 的对比" title="scroll"></a></p>
+<p>本文就是介绍如何使用这个插件，大部分的内容，是根据<a href="http://manos.malihu.gr/jquery-custom-content-scroller/" target="_blank" rel="noopener">mCustomScrollbar 官方的介绍页面</a>进行一个翻译，但将其部分内容修改，同时增加一些自己在使用中的一些技巧。</p>
+<h2 id="关于-mCustomScrollbar"><a href="#关于-mCustomScrollbar" class="headerlink" title="关于 mCustomScrollbar"></a>关于 mCustomScrollbar</h2><p>mCustomScrollbar 使用了 jQuery UI，可以通过灵活的通过 CSS 定义你的滚动条。同时可以定义垂直的和水平的滚动条，并且通过 <a href="http://brandonaaron.net" target="_blank" rel="noopener">Brandon Aaron jquery mouse-wheel plugin</a> 提供了鼠标滚动的支持，滚动的过程中，还可以缓冲滚动使得滚动更加的平滑。可以自动调整滚动条的位置并且可以定义滚动到的位置等。总之，你知道非常好用就好了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll1.png" alt="mCustomScrollbar 效果图" title="scroll"></a></p>
+<p><a href="https://github.com/malihu/malihu-custom-scrollbar-plugin/archive/master.zip" target="_blank" rel="noopener">点击这里可以下载这个 mCustomScrollbar</a></p>
+<p><a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/complete_examples.html" target="_blank" rel="noopener">点击这里可以查看这个 mCustomScrollbar 的 Demo</a></p>
+<h2 id="如何使用-mCustomScrollbar"><a href="#如何使用-mCustomScrollbar" class="headerlink" title="如何使用 mCustomScrollbar"></a>如何使用 mCustomScrollbar</h2><p>首先，先请你下载作者提供的插件包，里面包含了所有的插件文件和一些例子。以下的四个文件时必须要上传到你的服务器上的：jquery.mCustomScrollbar.js, jquery.mousewheel.min.js, jquery.mCustomScrollbar.css and mCSB<em>buttons.png</em>。_</p>
+<p><strong>第一步：加载插件的样式文件。</strong></p>
+<p>可以使用以下代码，引入插件包中的 jquery.mCustomScrollbar.css 样式表文件。</p>
+<pre data-language="html">&lt;link href="jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" /&gt;</pre>
+
+<p><strong>第二步：加载必须的 JS 文件。</strong></p>
+<p>需要加载的文件有如下几个：jQuery、jQuery UI， jquery.mousewheel.min.js 和 jquery.mCustomScrollbar.js。jQuery 和 jQuery UI 是必须的， jquery.mousewheel.min.js 是用来提供滚动支持的，jquery.mCustomScrollbar.js 则是插件的主文件。要注意的是，加载顺序也要按照上面说的来，如果不注意加载的顺序，可能会导致失败，原因请看本人的：<a href="http://www.qianxingzhem.com/post-1539.html">网页中代码的顺序是不可忽略的细节</a>。</p>
+<p>你可以使用如下代码加载：</p>
+<pre data-language="html">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.mousewheel.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.mCustomScrollbar.js"&gt;&lt;/script&gt;</pre>
+
+<p>你可以把这段代码放在文档的底部来缩短加载网页内容的时间，原因也可以在上面介绍的那篇文章中看到。这里的加载的代码使用了 Google 的 CDN 加速服务来获得 jQuery 和 jQuery UI，这样的有好处也有坏处。在插件包中，包含了 jQuery 和 jQuery UI（这个 UI 被作者精简了，包含这个插件必须的模块，大小只有 43KB），你当然可以把插件包中的这两个库上传到服务器上使用。它们在插件包的 jquery 目录里面。</p>
+<p>如果当你在使用类似 Google 或者 Sina 的常用 Javascript 库的加速服务的话，更推荐采用下面的写法（以 Google 为例）：</p>
+<pre data-language="html">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;!window.jQuery &amp;&amp; document.write(unescape('%3Cscript src="jquery/jquery-1.7.2.min.js"%3E%3C/script%3E'))&lt;/script&gt;
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;!window.jQuery.ui &amp;&amp; document.write(unescape('%3Cscript src="jquery/jquery-ui-1.8.21.custom.min.js"%3E%3C/script%3E'))&lt;/script&gt;</pre>
+
+<p>如果这样写，它会在 库 加载完成之后，做一个判断：<strong>如果没有成功加载这个库，那么就生成一段新的 Javascript 引用代码，用来引用本地的文件</strong>。这样，如果外面的库无法使用，就会加载本地的库，而不会导致插件无法使用。推荐这种写法。</p>
+<p><strong>第三步：对 内容块 激活这个插件</strong></p>
+<pre data-language="javascript">&lt;script&gt;
+    (function($){
+        $(window).load(function(){
+            $(".content").mCustomScrollbar();
+        });
+    })(jQuery);
+&lt;/script&gt;</pre>
+
+<p>这里我使用了(function($){ … })(jQuery)；来包裹 jQuery 代码，这是为了避免 jQuery 和其他的 库 在使用中产生冲突。我还用了window load ($(window).load()) 来激活我的插件功能，因为这样，就可以保证在页面对象全部加载完成之后，加载我的插件。当然，你也可以使用常规的 jQuery 代码加载方法，但是你要明白 ready 和 load 方法之间的不同。一般的 jQuery 代码加载方法如下：</p>
+<pre data-language="javascript">&lt;script&gt;
+    (function($){
+        $(document).ready(function(){
+            $(".content").mCustomScrollbar();
+        });
+    })(jQuery);
+&lt;/script&gt;</pre>
+
+<p><strong>第四步：在页面中添加内容和样式</strong></p>
+<p>没有内容当然谈不上出现这个插件的效果了。就上述示例代码来说，我们应该在页面中定义一个 class 为 content 的 内容块。并添加一些测试数据：</p>
+<pre>&lt;div class=".content"&gt;
+    &lt;p&gt;测试数据.......还有很多很多&lt;/p&gt;
+&lt;/div&gt;</pre>
+
+<p>这样当然不算完，<strong>自定义滚动条的样式，必须要出现滚动条才可以</strong>。所以我们还要对这个块加上一些 CSS 来让它出现滚动条，否则是没有效果的。加上的样式很简单，就是定义一个宽或者高或者宽高都定义，然后再定义一个 overflow 值为 auto。这样如果内容超出了指定的宽高，就会出现一个滚动条。例：</p>
+<pre>width:100px;height:100px;overflow:auto;</pre>
+
+<p>完成上述的操作之后，带有滚动条的内容块的滚动条，就变成这个插件的默认样式了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll2.png" alt="使用 mCustomScrollbar 之后的效果图" title="scroll"></a></p>
+<p>官方的默认样式相对于白色的对比度不高，所以为了显示的明显一点，我加了一个深色的背景色。</p>
+<p>当然还有很多参数开扩展插件的功能，这些参数的使用方法过后再讲。先来说说上面用到的这些文件的用途和简单介绍：</p>
+<p><strong>jQuery</strong>：这个插件的必备库，你懂。</p>
+<p><strong>jQuery UI</strong>：扩展 jQuery 库并且为我们的滚动条提供了简单的动画和拖动功能。</p>
+<p><strong>jquery.mousewheel.min.js</strong>：这是 <a href="http://brandonaaron.net" target="_blank" rel="noopener">Brandon Aaron</a> 编写的一个伟大的只有 2kb 的插件，它面向所有的操作系统和浏览器，为我们提供了鼠标滚动事件的支持。</p>
+<p><strong>jquery.mCustomScrollbar.js</strong>：这是我们的插件主文件。在插件包的 minified 你可以找到它的压缩版。</p>
+<p><strong>jquery.mCustomScrollbar.css</strong>： 这个 CSS 文件是让我们来定义边栏用的。你可以在这个文件中定义你的边栏，当然你可以在其他的 CSS 文件中定义，要注意的是，你要用 CSS 中的顺序，其中的优先级关系来覆盖这个文件中的定义。否则可能会无效，关于网页中代码顺序，详情可以看一下 <a href="http://www.qianxingzhem.com">潜行者 m</a> 的这篇文章：<a href="http://www.qianxingzhem.com/post-1539.html">网页中代码的顺序是不可忽略的细节</a>。</p>
+<p><strong>mCSB_buttons.png</strong>： 这个 png 图片文件，包含了向上向下向左向右滚动的按钮。可以使用 CSS sprites 技术，来使用这个图片中的相应按钮。插件包中包含了这个图片的 PSD 源文件（sources/mCSB_buttons.psd ），你可以根据自己的需求自定义。</p>
+<p>完成这些，你已经可以正确的使用这个插件，并且看到了相应的效果。但是没有人愿意使用如此强大的插件来实现这个默认的效果，下面来说一下进阶的使用。</p>
+<h2 id="mCustomScrollbar-的参数介绍"><a href="#mCustomScrollbar-的参数介绍" class="headerlink" title="mCustomScrollbar 的参数介绍"></a>mCustomScrollbar 的参数介绍</h2><p>这个插件的功能巨大，所以参数也很多，参数值当然更多。在介绍参数的时候，我想先为新手介绍两种参数值的写法，分别是直接的和合并的。</p>
+<p>我 们平时接触的插件用的参数，都是直接跟着参数写上参数值，这个比较直观简单。在这个插件中，参数值太多，所以把一些参数合并起来写。例如下面要介绍到的 scrollButtons 这个参数，它下面有四个属性：enable、scrollType、scrollSpeed、scrollAmount，这四个属性也分别有自己的值，来 实现相应的功能。如果再加上其他的参数，那么我们应该这样写：</p>
+<pre>$("#main").mCustomScrollbar({
+ scrollButtons:{
+ enable:false,
+ scrollType:"continuous",
+ scrollSpeed:20,
+ scrollAmount:40
+ },
+ horizontalScroll:false,
+ });</pre>
+
+<p>一定要注意闭合的括号和语句之间的逗号，新手可能会因为不小心，没有严格的按照这个规则写导致插件无法运行。好，下面我们介绍详细的参数。</p>
+<ul>
+<li><strong>set_width:false</strong> | 设置你内容的宽度 值可以是像素或者百分比</li>
+<li><strong>set_height:false</strong> | 设置你内容的高度 值可以是像素或者百分比</li>
+<li><strong>horizontalScroll:Boolean</strong> | 是否创建一个水平滚动条 默认是垂直滚动条 值可为:true(创建水平滚动条) 或 false</li>
+<li><strong>scrollInertia:Integer</strong> | 滚动的惯性值 在毫秒中 使用 0 可以无滚动惯性 (滚动惯性可以使区块滚动更加平滑)</li>
+<li><strong>scrollEasing:String</strong> | 滚动动作类型 查看 <a href="http://view.jqueryui.com/formcontrols/demos/effect/easing.html" target="_blank" rel="noopener">jquery UI easing</a> 可以看到所有的类型</li>
+<li><strong>mouseWheel:String/Boolean</strong> | 鼠标滚动的支持 值为:true.false,像素 默认的情况下 鼠标滚动设置成像素值 填写 false 取消鼠标滚动功能</li>
+<li><strong>mouseWheelPixels:Integer</strong> | 鼠标滚动中滚动的像素数目 值为以像素为单位的数值</li>
+<li><strong>autoDraggerLength:Boolean</strong> | 根据内容区域自动调整滚动条拖块的长度 值:true,false</li>
+<li><strong>scrollButtons:{   enable:Boolean  }</strong> | 是否添加 滚动条两端按钮支持 值:true,false</li>
+<li><strong>scrollButtons:{   scrollType:String  }</strong> | 滚动按钮滚动类型 值:”continuous”(当你点击滚动控制按钮时断断续续滚动)  “pixels”(根据每次点击的像素数来滚动) <a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/scroll_buttons_and_snap_scrolling_examples.html" target="_blank" rel="noopener">点击这里可以看到形象的例子</a></li>
+<li><strong>scrollButtons:{   scrollSpeed:Integer  }</strong> | 设置点击滚动按钮时候的滚动速度(默认 20) 设置一个更高的数值可以更快的滚动</li>
+<li><strong>scrollButtons:{   scrollAmount:Integer   }</strong> | 设置点击滚动按钮时候每次滚动的数值 像素单位 默认 40 像素</li>
+<li><strong>advanced:{   updateOnBrowserResize:Boolean  }</strong> | 根据百分比为自适应布局 调整浏览器上滚动条的大小 值:true,false 设置 false 如果你的内容块已经被固定大小</li>
+<li><strong>advanced:{   updateOnContentResize:Boolean   }</strong> | 自动根据动态变换的内容调整滚动条的大小 值:true,false 设置成 true 将会不断的检查内容的长度并且据此改变滚动条大小 建议除非必要不要设置成 true 如果页面中有很多滚动条的时候 它有可能会产生额外的移出 你可以使用 update 方法来替代这个功能</li>
+<li><strong>advanced:{   autoExpandHorizontalScroll:Boolean   }</strong> | 自动扩大水平滚动条的长度 值:true,false 设置 true 你可以根据内容的动态变化自动调整大小 <a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/complete_examples.html" target="_blank" rel="noopener">可以看 Demo</a></li>
+<li><strong>advanced:{   autoScrollOnFocus:Boolean   }</strong> | 是否自动滚动到聚焦中的对象 例如表单使用类似 TAB 键那样跳转焦点 值:true false</li>
+<li><strong>callbacks:{   onScrollStart:function(){}   }</strong> | 使用自定义的回调函数在滚动时间开始的时候执行 <a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/callbacks_example.html" target="_blank" rel="noopener">具体请看 Demo</a></li>
+<li><strong>callbacks:{   onScroll:function(){}   }</strong> | 自定义回调函数在滚动中执行 Demo 同上</li>
+<li><strong>callbacks:{   onTotalScroll:function(){}  }</strong> | 当滚动到底部的时候调用这个自定义回调函数 Demo 同上</li>
+<li><strong>callbacks:{   onTotalScrollBack:function(){}   }</strong> | 当滚动到顶部的时候调用这个自定义回调函数 Demo 同上</li>
+<li><strong>callbacks:{   onTotalScrollOffset:Integer   }</strong> | 设置到达顶部或者底部的偏移量 像素单位</li>
+<li><strong>callbacks:{  whileScrolling:function(){}  }</strong> | 当用户正在滚动的时候执行这个自定义回调函数</li>
+<li><strong>callbacks:{  whileScrollingInterval:Integer  }</strong> | 设置调用 whileScrolling 回调函数的时间间隔 毫秒单位<br>下面是所有参数的列表和它们的默认值<pre data-language="javascript">$(".content").mCustomScrollbar({
+set_width:false,
+set_height:false,
+horizontalScroll:false,
+scrollInertia:550,
+scrollEasing:"easeOutCirc",
+mouseWheel:"auto",
+autoDraggerLength:true,
+scrollButtons:{
+  enable:false,
+  scrollType:"continuous",
+  scrollSpeed:20,
+  scrollAmount:40
+},
+advanced:{
+  updateOnBrowserResize:true,
+  updateOnContentResize:false,
+  autoExpandHorizontalScroll:false,
+  autoScrollOnFocus:true
+},
+callbacks:{
+  onScrollStart:function(){},
+  onScroll:function(){},
+  onTotalScroll:function(){},
+  onTotalScrollBack:function(){},
+  onTotalScrollOffset:0,
+  whileScrolling:false,
+  whileScrollingInterval:30
+}</pre>
+
+</li>
+</ul>
+<h2 id="mCustomScrollbar-的方法"><a href="#mCustomScrollbar-的方法" class="headerlink" title="mCustomScrollbar 的方法"></a>mCustomScrollbar 的方法</h2><h3 id="update"><a href="#update" class="headerlink" title="update"></a>update</h3><p>用法：\$(selector).mCustomScrollbar(“update”);</p>
+<p>调用 mCustomScrollbar 函数的 update 方法去实时更新滚动条当内容发生变化（例如 通过 Javascript 增加或者移除一个对象、通过 ajax 插入一段新内容、隐藏或者显示一个新内容等）</p>
+<p>下面是例子：</p>
+<pre data-language="javascript">$(".content .mCSB_container").append("&lt;p&gt;New content here...&lt;/p&gt;");
+$(".content").mCustomScrollbar("update");</pre>
+<pre data-language="javascript">$(".content .myImagesContainer").append("&lt;img src='myNewImage.jpg' /&gt;");
+$(".content .myImagesContainer img").load(function(){
+  $(".content").mCustomScrollbar("update");
+});</pre>
+<pre data-language="javascript">$("#content-1").animate({height:800},"slow",function(){
+  $(this).mCustomScrollbar("update");
+});</pre>
+
+<p>当新内容完全加载或者动画完成之后，update 方法一直被调用。</p>
+<h3 id="scrollTo"><a href="#scrollTo" class="headerlink" title="scrollTo"></a>scrollTo</h3><p>用法：\$(selector).mCustomScrollbar(“scrollTo”,position);</p>
+<p>你可以使用这个方法自动的滚动到你想要滚动到的位置。这个位置可以使用字符串（例如 “#element-id”，“bottom” 等）描述或者是一个数值（像素单位）。下面的例子将会滚动到最下面的对象</p>
+<pre data-language="generic">$(".content").mCustomScrollbar("scrollTo","last");</pre>
+
+<p>scrollTo 方法的参数</p>
+<ul>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,String);</strong> | 滚动到某个对象的位置，字符串型的值可以是 id 或者 class 的名字</li>
+<li><strong> \$(selector).mCustomScrollbar(“scrollTo”,”top”);</strong> | 滚动到顶部（垂直滚动条）</li>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,”bottom”);</strong> | 滚动到底部（垂直滚动条）</li>
+<li><strong> \$(selector).mCustomScrollbar(“scrollTo”,”left”);</strong> | 滚动到最左边（水平滚动条）</li>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,”right”);</strong> | 滚动到最右边（水平滚动条</li>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,”first”);</strong> | 滚动到内容区域中的第一个对象位置</li>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,”last”);</strong> | 滚动到内容区域中的最后一个对象位置</li>
+<li><strong>\$(selector).mCustomScrollbar(“scrollTo”,Integer);</strong> | 滚动到某个位置（像素单位）<br>scrollTo 方法还有两个额外的选项参数</li>
+</ul>
+<p><strong>moveDragger: Boolean</strong> | 滚动滚动条的滑块到某个位置像素单位，值：true，flase。例如：\$(selector).mCustomScrollbar(“scrollTo”,200,{ moveDragger:true });</p>
+<p><strong>callback：Boolean</strong> | 执行回调函数当 scroll-to 完成之后，值：true，false 例如：\$(selector).mCustomScrollbar(“scrollTo”,200,{ callback:true });</p>
+<h3 id="disable"><a href="#disable" class="headerlink" title="disable"></a>disable</h3><p>用法：\$(selector).mCustomScrollbar(“disable”);</p>
+<p>调用 disable 方法去使滚动条不可用。如果想使其重新可用，调用 update 方法。disable 方法使用一个可选参数（默认 false）你可以设置 true 如果你想重新让内容区域滚动当 scrollbar 不可用时。例如：</p>
+<pre>$(".content").mCustomScrollbar("disable",true);</pre>
+
+<p><a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/disable_destroy_example.html" target="_blank" rel="noopener">可以看一些使用 disable 的例子</a></p>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3><p>用法：\$(selector).mCustomScrollbar(“destroy”);</p>
+<p>调用 destroy 方法可以移除某个对象的自定义滚动条并且恢复默认样式</p>
+<p><a href="http://manos.malihu.gr/tuts/custom-scrollbar-plugin/disable_destroy_example.html" target="_blank" rel="noopener">可以看一些使用 destroy 的例子</a></p>
+<h2 id="mCustomScrollbar-的原理"><a href="#mCustomScrollbar-的原理" class="headerlink" title="mCustomScrollbar 的原理"></a>mCustomScrollbar 的原理</h2><p>通过潜行者 m 对这些插件的使用，对这些插件的实现原理也做了一些分析。原理就是这样的：</p>
+<p>首先获取要修改滚动条样式的内容区块，然后使用 CSS 隐藏掉默认滚动条，然后使用 Javascript 添加很多 HTML 结构，再配合 CSS 做出一个滚动条的效果。然后再使用 CSS 定义滚动条的样式，使用 Javascript 相应鼠标的滚动事件，产生滚动下滑的效果。</p>
+<p>明白了这点，下面我们就可以看一下滚动条的结构，然后使用 CSS 对其进行定义了。</p>
+<h2 id="定义滚动条外观"><a href="#定义滚动条外观" class="headerlink" title="定义滚动条外观"></a>定义滚动条外观</h2><p>先了解一下滚动条的 HTML 结构，下面是默认的垂直滚动条结构：</p>
+<pre data-language="html">&lt;div class="content mCustomScrollbar _mCS_1"&gt;
+  &lt;div class="mCustomScrollBox"&gt;
+    &lt;div class="mCSB_container"&gt;
+      &lt;!-- your long content here... --&gt;
+    &lt;/div&gt;
+    &lt;div class="mCSB_scrollTools"&gt;
+      &lt;a class="mCSB_buttonUp"&gt;&lt;/a&gt;
+      &lt;div class="mCSB_draggerContainer"&gt;
+        &lt;div class="mCSB_dragger ui-draggable"&gt;
+          &lt;div class="mCSB_dragger_bar"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mCSB_draggerRail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;a class="mCSB_buttonDown"&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>mCSB_buttonUp 和 mCSB_buttonDown 这两个 a 标签只有当你启用了 scroll buttons 功能的时候，才可用。下面这个结构是 水平滚动条 的结构：</p>
+<pre data-language="html">&lt;div class="content mCustomScrollbar _mCS_1"&gt;
+  &lt;div class="mCustomScrollBox mCSB_horizontal"&gt;
+    &lt;div class="mCSB_container"&gt;
+      &lt;!-- your long content here... --&gt;
+    &lt;/div&gt;
+    &lt;div class="mCSB_scrollTools"&gt;
+      &lt;a class="mCSB_buttonLeft"&gt;&lt;/a&gt;
+      &lt;div class="mCSB_draggerContainer"&gt;
+        &lt;div class="mCSB_dragger ui-draggable"&gt;
+          &lt;div class="mCSB_dragger_bar"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mCSB_draggerRail"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;a class="mCSB_buttonRight"&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>知道这些之后，我们就可以来定义滚动条样式了，对于同一页面多个滚动条，官方推荐如下的写法：</p>
+<pre data-language="css">._mCS_1 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    /* 1st scrollbar dragger style... */
+}
+._mCS_2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    /* 2nd scrollbar dragger style... */
+}
+._mCS_3 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    /* 3rd scrollbar dragger style... */
+}</pre>
+
+<p>为了更加直观的看到要定义的滚动条区域，官方给出了一张非常形象的图片</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/12/1602/scroll3.png" alt="mCustomScrollbar 的滚动条结构图" title="scroll"></a></p>
+<p>根据这张图片，就可以很容易的定义滚动条的样式了。</p>
+<h2 id="更加进阶的使用"><a href="#更加进阶的使用" class="headerlink" title="更加进阶的使用"></a>更加进阶的使用</h2><h3 id="修改浏览器的滚动条"><a href="#修改浏览器的滚动条" class="headerlink" title="修改浏览器的滚动条"></a>修改浏览器的滚动条</h3><p>单单是修改某个内容区域的边栏已经无法满足我们的需求了，我们还想修改浏览器边栏应该怎么办？这当然是无法用 Javascript 来实现，因为浏览器是一个容器，Javascript 是容器里面的代码，怎么会把容器修改了呢？当然，有问题就肯定有解决方法。面对这个问题，解决方法很简单，就是虚拟出来一个浏览器窗口。</p>
+<p>我们先添加一个 div 块，然后对这个 div 添加 position：absolute 属性，然后就可以指定它的 width 和 height 为 100% 或者稍微小点的 98%。这样，这个 div 就扩充到了整个浏览器界面，这样就可以被当做是一个网页的 body。然后加上 overflow：auto 让其超出自动出现滚动条。这样就可以模拟出修改了浏览器滚动条的效果。</p>
+<p>关于更多的进阶使用和技巧，欢迎跟我交流，也可以关注本文，会在后面陆续添加。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1602.html" data-id="ckgcnru9x00961d2a9u410lsn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1649.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一种新型超链接交互样式设计与实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1588.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">字体是网页设计中最重要的细节</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1602" data-title="jQuery 自定义网页滚动条样式插件 mCustomScrollbar 的介绍和使用方法" data-url="http://www.qianxingzhem.com/post-1602.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

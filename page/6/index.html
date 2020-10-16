@@ -63,10 +63,122 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e6-95-99-e8-82-b2-e5-9f-b9-e8-ae-ad-e7-b1-bb-e7-bd-91-e7-ab-99-e7-9a-846-e4-b8-aa-e6-8e-a8-e5-b9-bf-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e7-bd-91-e9-a1-b5-e4-b8-ad-e4-bb-a3-e7-a0-81-e7-9a-84-e9-a1-ba-e5-ba-8f-e6-98-af-e4-b8-8d-e5-8f-af-e5-bf-bd-e7-95-a5-e7-9a-84-e7-bb-86-e8-8a-82" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-971.html" class="article-date">
-  <time datetime="2012-04-24T05:13:22.000Z" itemprop="datePublished">Apr 24 2012</time>
+    <a href="/post-1539.html" class="article-date">
+  <time datetime="2012-11-14T08:40:48.000Z" itemprop="datePublished">Nov 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1539.html">网页中代码的顺序是不可忽略的细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>仿佛奇怪的问题总是喜欢找上那些初学者。当我在学习制作网页的时候，经常遇到一些很特别的问题。例如：刚刚添加的样式不起作用、jQuery的代码老是不起作用等等。这往往是不关注细节导致的。而今天我要谈的这个细节，就是关于网页中代码的顺序。没错，代码也是有顺序的，顺序不对有可能会出现一些意外的情况。</p>
+<h2 id="HTML-相关的代码顺序"><a href="#HTML-相关的代码顺序" class="headerlink" title="HTML 相关的代码顺序"></a>HTML 相关的代码顺序</h2><p>下面先来介绍 HTML 中的代码顺序。</p>
+<h3 id="HTML-代码的排序原理"><a href="#HTML-代码的排序原理" class="headerlink" title="HTML 代码的排序原理"></a>HTML 代码的排序原理</h3><p>排序原理很简单，因为当浏览器访问一个网页的时候，要下载这个网页。现在的网速，对于一个几百K的网页来说，很快就能下载完。但是如果网页比较大或者网速比较卡，网页下载就会需要一定的时间。这样的话，浏览器显示网页的过程就很明显了。从 HTML 代码的上到下，依次下载。<strong>重要的内容要优先加载</strong>，所以就产生了 HTML 代码排序的问题。</p>
+<h3 id="head-里面的元素排序"><a href="#head-里面的元素排序" class="headerlink" title="head 里面的元素排序"></a>head 里面的元素排序</h3><p>HTML 中的 head 元素里面，通常放置着文档的描述信息。一般有：网页编码、title标题、meta 描述网页关键字、link 引入 CSS 文件、script 引入 Javascript 文件等等。下面就这几个内容进行一个讨论（以 HTML5 为例）：</p>
+<p>首先，先是标准的 DOCTYPE 声明、HTML 结构那一套。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+其次，编写网页编码，我个人认为编码是网页中最重要的，因为它决定浏览器采用什么编码来解析你的网页，如果编码没有设置好的话，网页显示出来就是一整个乱码。关于网页编码的更详细的文章，可以看一下 [潜行者m](http://www.qianxingzhem.com) 写的 [网页编码就是那点事](http://www.qianxingzhem.com/post-1499.html) 。编码写完之后，应该让浏览器立刻显示出网页的标题，这时候就应该写出 title 标题了。
+<pre>&lt;meta charset="utf-8" /&gt;
+&lt;title&gt;标题&lt;/title&gt;</pre>
+接下来，就应该是声明文档的各种信息，例如 关键词、描述、作者等等信息。之后就要加载 CSS 样式表。让浏览器先下载好 CSS 样式表，之后下载的网页内容，就会立刻加上 CSS 的样式效果，谁也不希望打开网页的时候，是没有样式的，然后加载完内容之后才出现正常的页面。这也就是为什么 CSS 引用要写在 head 里面。
+<pre id="line1">&lt;meta name="<a>keywords</a>" content="<a>潜行者m,网站建设,前端设计,Web开发</a>" /&gt;
+&lt;meta name="<a>description</a>" content="<a>潜行者m 博客，是由 潜行者m 个人设计制作，完全原创写作，关注网站建设/前端设计/Web开发相关的独立博客。欢迎各位观看学习，并且与本人交流！！</a>" /&gt;
+
+&lt;link rel="<a>stylesheet</a>" type="<a>text/css</a>" media="<a>screen</a>" href="http://www.qianxingzhem.com/wp-content/themes/qetro/style.css"/&gt;</pre>
+关于 JavaScript 的位置一直比较有争议。因为 JavaScript 比较灵活，可以添加在页面的任何位置。通常推荐的是加在页面的最底部。因为JavaScript 文件通常比较大，浏览器下载比较费时间，由于 JavaScript 可能会影响到当前页面的结构内容，所以浏览器通常会先下载完JavaScript 代码，“运行” 之后，再下载网页的正文内容。这就导致了加载速度比较慢，因为要先加载  JavaScript 代码才会显示网页内容。所以要放在页面底部。这样浏览器会先下载网页的内容显示出来，然后再下载 JavaScript 对当前的网页进行处理。
+
+### body 主体内容的排序
+
+前面说过浏览器先依次下载网页然后显示，那么网页主体内容的排版布局就很明显了：**重要的内容排在前面**。
+
+例如一个博客类型的网页，最重要的内容肯定是 文章 。所以文章的内容要尽量放在网页的顶部。虽然它可能要显示在下面，但是也要放在代码的上面，然后通过 CSS 布局等放在下面。当网速很卡的时候，排版合理的博客很明显就可以看到，先显示出来头部、文章主体内容，之后再显示 边栏、底部 内容。这就是为了让用户最快的看到他们想要看的内容，即使网速很卡下载很慢，内容出来了边栏等都下载不下来，用户也会得到他需要的内容。这就是 body 元素里面的代码排序原则。
+
+## CSS 代码的排序
+
+CSS中有很多排序的小细节需要注意，不注意的话很有可能就出现一些意外情况。
+
+### 顺序解决样式冲突问题
+
+当你对一个元素赋予了 background-color 属性，你在其他地方，忘了之前的设置，又对这个元素赋予了一个属性值与之前不同的 background-color 属性。那么浏览器究竟会对这个元素渲染哪一个背景颜色呢？答案是代码排在后面的属性值。冲突的内容，后面的属性值就会覆盖前面的属性值。因此要注意，一些 [CSS reset](http://www.qianxingzhem.com/post-610.html) 等要先加载，然后在后面加载自己写的属性值。例如：CSS reset 通常会取消 strong 的加粗，但有时我们的网页作品中，要 strong 显示成加粗效果，所以我们要设置 strong{font-weight：bold；} 这样的样式。但如果 CSS reset 代码放在后面，它之前对 strong 的取消加粗属性就会覆盖掉你的 加粗效果。所以无论刷新网页多少遍，你的 strong 标签里面的内容，还没有加粗。
+
+如果有时候，你真的无法修改加载文件的顺序，那么面对这种情况，你可以使用 CSS 中的 ！important 语法，告诉浏览器要使用这个属性解决冲突。
+
+### 链接的交互排序
+
+一个超链接，默认是蓝色的，当我们把鼠标移动上去，会变色，点击的过程也会变色，访问过后回来一看，通常也不会是原来的蓝色了。控制这些颜色的，分别是 CSS 中的 ：link 、：visited 、：hover、：active 这四个伪类选择器，从名称就可以看出，控制的状态分别是：默认显示、访问过后、鼠标移动上去、点击激活。有时候会出现一些意外情况，例如：同时设置了 ：visited 和 ：hover 的样式，但一旦超链接访问后，hover 的样式就不出现了等。这是因为，这四个伪类选择器对 a 元素定义的时候，是有一个顺序的。如果不按照这个顺序，就会出现一些意外情况。
+
+这个顺序有一个很好记的方法，那就是：love hate，即 l（link）ov（visited）e  h（hover ）a（active）te。
+<pre>a:link{color:#666666; text-decoration:none;}
+a:visited{color:#666666; text-decoration:none;}
+a:hover{color:#666666; text-decoration:underline;}
+a:active{color:#666666; text-decoration:none;}</pre>
+
+<h3 id="属性值的顺序"><a href="#属性值的顺序" class="headerlink" title="属性值的顺序"></a>属性值的顺序</h3><p>CSS 中，有的属性既可以分开写，也可以合并起来写。例如 margin 属性，你可以分别制定 margin-left 、margin-right、margin-top、margin-bottom 的值，也可以直接写成 margin：top right bottom left； 也可以写两个参数，分别代表上下和左右的外边距。这样的写法简练而且灵活，但是对不熟练的新手来说，比较容易搞混。当类似 margin 、 padding 这样的属性，写四个参数的时候，以 top 开始，顺时针旋转。</p>
+<p>除此之外，还有类似 font、background 这样的属性，它的属性值也要有顺序（虽然对顺序要求不严格），它们的参数有缺省值，所以不需要全部定义，只需要定义自己需要的样式即可。但是 border 这样的属性，就必须严格的按照语法编写属性值的顺序。例如：border ：1px solid #ccc；如果 1px solid #ccc 这三个值的顺序出问题了，那么浏览器就可能无法解读这段 CSS 的样式。</p>
+<h2 id="JavaScript-代码的顺序"><a href="#JavaScript-代码的顺序" class="headerlink" title="JavaScript 代码的顺序"></a>JavaScript 代码的顺序</h2><h3 id="JavaScript-文件加载顺序"><a href="#JavaScript-文件加载顺序" class="headerlink" title="JavaScript 文件加载顺序"></a>JavaScript 文件加载顺序</h3><p>jQuery 是一个比较常用的 JavaScript 库，通常我们还要配合它强大的插件使用。对于新手来说，经常会遇到没有产生相应效果的问题。就是说，代码没有检查出问题，但就是没有执行显示应有的效果。原因就出在加载顺序上面。你编写的 JavaScript 代码以及调用的 jQuery 插件，都需要基于 jQuery 库，所以应该在所有 JavaScript 代码之前，先引入 jQuery 库。浏览器先把库下载完了，才会识别后面的依赖这个库的代码实现相应的功能。同样的，激活使用某个插件的代码，也需要放在插件的后面才会有效。</p>
+<pre id="line1">&lt;script type="<a>text/javascript</a>" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/jquery.lazyload.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/插件.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="自己编写的js/js.js"&gt;&lt;/script&gt;</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="ckgcnru9s008r1d2ad2oqnztk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1539" data-title="网页中代码的顺序是不可忽略的细节" data-url="http://www.qianxingzhem.com/post-1539.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e8-87-aa-e5-ae-9a-e4-b9-89-e8-8f-9c-e5-8d-95-e5-8a-9f-e8-83-bd-e4-bb-8b-e7-bb-8d-e5-92-8c-e4-bd-bf-e7-94-a8-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1521.html" class="article-date">
+  <time datetime="2012-11-02T09:10:52.000Z" itemprop="datePublished">Nov 2 2012</time>
 </a>
     
   <div class="article-category">
@@ -81,7 +193,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-971.html">教育培训类网站的6个推广方法</a>
+      <a class="article-title" href="/post-1521.html">WordPress 自定义菜单功能介绍和使用详解</a>
     </h1>
   
 
@@ -89,22 +201,80 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>不久前，有个网友联系我，想咨询一下如何对他的网站进行推广。我看了一下，他的网站是某地区的教育培训类网站，于是就给他写了一个推广分析报告，分析一下有几种比较有效的推广方法。</p>
-<p>1，<strong>SEO</strong>。这类网站最适合的推广方法，就是seo了，当人们想要得到某地区的培训，首先会用搜索引擎搜索一下，定向流量比较高。但是SEO的难度也是比较大的，前期付出的成本也比较高，但是利益也比较大。</p>
-<p>2，<strong>制作视频教程</strong>。利用手头的教育教学资源，做一部分免费的公益教程的，然后对外在比较大型的教育类门户网站或者论坛发布。有充足的老师和教育资源，这样做一些简单的教程、简单的介绍一下课程的学习目标以及重要性，可以让人们对课程加深了解，从而增加报名率。可以考虑与教育类门户等合作，在视频教程中，添加上他们的链接表示合作推出，这样那些大型门户甚至会帮你推广一下。当然，前提是，教程必须要有价值，不能全都是广告，只能稍微提一下自己的培训中心，否则其他网站可能不会同意和你合作。</p>
-<p>3，<strong>写软文</strong>。有专业的老师等，可以组织些一些比较基础的考试培训类的指南，比如XX证考试指南，在文章中穿插进自己的培训中心名称或者链接。例如XX培训中心新推出了一份复习资料等等等等。发布在考试论坛或者考试门户网站上，甚至可以考虑去付费发布。</p>
-<p>4，<strong>编写资源帖</strong>。组织现有的资源，在压缩包里面加上自己的信息，然后组织成一个帖子，例如“XX考试XX本电子复习资料大全”等有吸引力的名字。将其发布在考试类论坛上。要注意的是，帖子里面的资源，必须真实可靠有效，一般这种帖子在论坛里面都很火，而且经常被别人转载，可以制造大量外链。</p>
-<p>5，<strong>邮件营销</strong>。通过上面的几个推广方法，我们可以在下面加上“邮件订阅”，使用QQ列表服务，让对此培训有兴趣的人，通过邮件订阅最新的考试培训信息等。可以使用一些吸引性的文字，来吸引提交邮箱。比如每月提供一些免费的考试培训资料，提供最新的考试相关的信息等等，然后在后面添加上自己培训中心的广告。一段时间之后，收订的人会看到你的实力，会大大提高报名率。</p>
-<p>6，<strong>本地推广</strong>。既然是一个培训中心，而且又有地区性，所以应当在本地进行推广。可以按照自己培训的类型，针对性的进行广告传单等推广。比如向中学、高校等，发放传单，开讲座等。以网站作为实力展示的地方，进行推广。</p>
-<p>以上就是潜行者m关于教育类网站推广方法的总结与分析，如果你有更多更好的推广方法，请与我交流！</p>
+        <p>一个常规的网站，一般都会有一个网站导航。这里的导航，通常包含网站的栏目、特殊的页面等等。对于一个博客来说，有的时候也需要一个这样的导航。如果仅仅是调用 文章分类 或者 页面链接 作为导航的话，会比较难控制，无法自由的添加链接等。当然，成熟的 WordPress 系统已经为我们考虑到了这一点，添加了一个 “自定义菜单” 功能。使用这个功能，可以在 <strong>后台 -》 外观 -》 菜单</strong> 中编辑，当然最好前提是你使用的主题支持这一个功能。</p>
+<h2 id="自定义菜单功能介绍"><a href="#自定义菜单功能介绍" class="headerlink" title="自定义菜单功能介绍"></a>自定义菜单功能介绍</h2><p>当我们在后台打开 “菜单” 的时候，通常会看到类似这样的界面：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan0.png" alt="" title="后台设置 自定义菜单"></a></p>
+<p>没有配置之前，是无法使用的。我们需要先输入一个 菜单名称 才能继续使用。这里的菜单名称，仅仅作为一个关联数据用的标记，所以可以随便起名。完成之后，左边的区域就可以配置使用了。</p>
+<p>如果你的主题不支持 自定义菜单 功能，那么左边的 主题位置 面板会提示你，这个自定义菜单的选项将会在 边栏 中显示。如果主题支持 自定义菜单 功能，那么这个面板则会提示有支持几个自定义菜单、自定义菜单的名称（需要定义）是什么。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan1.png" alt="" title="设置面板"></a></p>
+<p>上面提示，有一个自定义菜单，并且名称为 topnav 。现在，我要制作这个 自定义菜单 的内容。在左边有三个面板：分类目录、自定义链接、页面。里面包含着你当前博客里面的相关数据。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan2.png" alt="" title="主题位置 面板"></a></p>
+<p>我们只需要勾选相应的内容或者直接拖动到右边的刚刚设置的菜单面板中即可。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan3.png" alt="" title="定义菜单"></a></p>
+<p>注意的是，可以通过拖动改变显示顺序，而且还可以修改显示的名称。所以说，这个功能非常的强大而且灵活。这样，一个导航链接就做好了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan4.png" alt="" title="导航做好了"></a></p>
+<p>下面来详细讲解如何在主题中，添加这个功能。也很简单，只需要在两个地方，添加两小段代码即可！</p>
+<h2 id="在主题中添加函数调用"><a href="#在主题中添加函数调用" class="headerlink" title="在主题中添加函数调用"></a>在主题中添加函数调用</h2><p>首先，你需要在主题的 functions.php 文件中，声明一下存在这个功能。只需要添加下面一段代码即可：</p>
+<pre>if(function_exists('register_nav_menus')){
+    register_nav_menus( array(
+        'header-menu' =&gt; __( 'topnav' )
+    ) );
+}</pre>
+
+<p>这段代码首先判断是否支持这个功能，然后注册一个 自定义菜单，并且我指定了一个参数，即这个自定义菜单的名称为 topnav。也就是上面在 主题位置 面板中看到的自定义菜单名称。下面引用官方的资料详细的介绍一下 <a href="http://codex.wordpress.org/Function_Reference/register_nav_menus" target="_blank" rel="noopener">register_nav_menus</a> 这个函数。</p>
+<p>实现这个功能有两个函数 <tt><a href="http://codex.wordpress.org/Function_Reference/register_nav_menu" title="Function Reference/register nav menu" target="_blank" rel="noopener">register_nav_menu</a></tt> 和  <a href="http://codex.wordpress.org/Function_Reference/register_nav_menus" target="_blank" rel="noopener">register_nav_menus</a> 顾名思义，第一个函数用于创建一个自定义菜单，第二个函数用于创建多个自定义菜单。所以通常使用第二个就好了。下面也是根据第二个函数进行讲解。</p>
+<p>介绍就不多说了，使用方法也很简单，只需要传递一个 数组 即可。</p>
+<pre><code>&amp;lt;?php register_nav_menus( $locations ); ?&amp;gt;
+</code></pre><p>这个数组是必选参数，记录着 位置标记（键名） 和 位置描述（键值）。例如：</p>
+<pre>register_nav_menus( array(
+    'header-menu' =&gt; __( 'topnav' )，
+    'footer_menu' =&gt; 'My Custom Footer Menu'
+) );</pre>
+
+<p>上面的语句，定义了两个自定义菜单，它们的标记（可以随便起）分别为：header-menu、footer_menu。它们后面对应的描述，将会显示在后台的 主题位置 面板上，供你选择。在  ‘header-menu’ =&gt; <strong>( ‘topnav’ ) 这句代码中，我加了</strong>() 这个函数，它是用于跨语言翻译用的，与这个功能无关。</p>
+<p>之后，在主题中添加自定义菜单。在主题中合适的位置，添加下面的函数：</p>
+<pre>&lt;?php wp_nav_menu( array( 'theme_location' =&gt; 'header-menu' )); ?&gt;</pre>
+
+<p>这句代码使用了 <a href="http://codex.wordpress.org/Function_Reference/wp_nav_menu" title="Function Reference/wp nav menu" target="_blank" rel="noopener">wp_nav_menu</a> 函数。这个函数也是传递一个数组作为参数，但是这个数字里面的键名比较多。下面根据官方文档的说明选择几个重要的做了一个简单的翻译：</p>
+<pre>&lt;?php $defaults = array(
+    'theme_location'  =&gt; '',
+    'menu'            =&gt; '',
+    'container'       =&gt; 'div',
+    'container_class' =&gt; 'menu-{menu slug}-container',
+    'container_id'    =&gt; '',
+    'menu_class'      =&gt; 'menu',
+    'menu_id'         =&gt; '',
+    'echo'            =&gt; true,
+    'fallback_cb'     =&gt; 'wp_page_menu',
+    'before'          =&gt; '',
+    'after'           =&gt; '',
+    'link_before'     =&gt; '',
+    'link_after'      =&gt; '',
+    'items_wrap'      =&gt; '&lt;ul id="%1$s"&gt;%3$s&lt;/ul&gt;',
+    'depth'           =&gt; 0,
+    'walker'          =&gt; ''
+); ?&gt;
+
+&lt;?php wp_nav_menu( $defaults ); ?&gt;
+
+'theme_location'  =&gt; 可选，值为之前在functions.php中 register_nav_menus 传递的数组参数中的键名，进行绑定。默认：无
+'container'       =&gt; 可选，决定是否要对生成的 自定义菜单（ul） 进行包裹，以及使用什么包裹。如果不需要，传递参数 false。默认：div
+'container_class' =&gt; 可选，为上面包裹的容器添加 class 属性。下面的 container_id 功能类似。
+'before'          =&gt; 可选，在输出的列表中的 a 标签之前添加文本信息。after 功能类似。
+'link_before'     =&gt; 可选，在输出的列表中的链接文字前面加上文字（注意与上面的区别）。link_after 功能类似。
+'items_wrap'      =&gt; 可选，设置包裹自定义菜单的标签形式。默认：&lt;ul id="%1$s"&gt;%3$s&lt;/ul&gt;，通常不要修改 。</pre>
+
+<p>这样，刚刚我添加的那一句代码的意思很明确了，就是在这里调用名为 header-menu 的自定义菜单位置。而这个自定义菜单位置的名称为 topnav，在 WordPress 后台中，我新建了一个名为 “顶部导航” 的菜单，然后与这个 topnav 进行了关联。那么这句代码就调用了我设置的 “顶部导航” 菜单的内容。</p>
+<p>我们不仅仅可以用它来做导航，还可以像上面那样，在多个位置添加多个自定义菜单。例如可以在底部加一个自定义菜单，这样在后台就可以设置底部的链接等等。功能非常强大，不过需要注意一点，WordPress 目前的较新版本 3.4.2 被爆出一个 BUG ，不支持 自定义菜单。当然很快就出了补丁。如果你使用 3.4.2 版本的时候，自定义菜单无法使用，可以自行<a href="http://www.baidu.com/s?tn=monline_4_dg&amp;ie=utf-8&amp;bs=wordpress+%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95+3.4.2&amp;f=8&amp;rsv_bp=1&amp;wd=wordpress+3.4.2++%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95+&amp;rsv_sug3=4&amp;rsv_sug=1&amp;rsv_sug1=2&amp;rsv_sug4=249&amp;rsv_n=2&amp;inputT=5575" target="_blank" rel="noopener">搜索一下解决方法</a>。</p>
+<div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-971.html" data-id="ckgcma3bt002haa2a0d91tqcs" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1521.html" data-id="ckgcnrubn00e31d2a09l3tpnq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a></li></ul>
 
     </footer>
   </div>
@@ -112,7 +282,7 @@
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="971" data-title="教育培训类网站的6个推广方法" data-url="http://www.qianxingzhem.com/post-971.html"></div>
+  <div class="ds-thread" data-thread-key="1521" data-title="WordPress 自定义菜单功能介绍和使用详解" data-url="http://www.qianxingzhem.com/post-1521.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -131,14 +301,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e7-9a-84-e4-b8-80-e8-88-ac-e6-ad-a5-e9-aa-a4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-916-ef-bc-8c-e4-bd-bf-e7-94-a8-e4-b8-bb-e5-be-aa-e7-8e-af-e8-b0-83-e7-94-a8-e6-98-be-e7-a4-ba-e6-97-a5-e5-bf-97-e6-91-98-e8-a6-81-e7-ad-89-e6-95-b0-e6-8d-ae" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-961.html" class="article-date">
-  <time datetime="2012-04-19T19:36:43.000Z" itemprop="datePublished">Apr 20 2012</time>
+    <a href="/post-1502.html" class="article-date">
+  <time datetime="2012-10-26T18:38:36.000Z" itemprop="datePublished">Oct 27 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -149,7 +319,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-961.html">网页设计的一般步骤</a>
+      <a class="article-title" href="/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a>
     </h1>
   
 
@@ -157,26 +327,85 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>看到这个题目，如果你说，网页设计非常简单，根本不需要什么步骤，直接打开dreamweaver软件，然后设计编写即可。那么我只能说，你太不专业了。网页设计是要有一定的步骤的，有了这一些步骤，你的设计过程会更加高效、紧凑，这个是经验。</p>
-<p>首先，<strong>网页有三层，内容层、表现层、交互层。这三层分别对应的技术是，html、css、javascript。</strong>html是储存数据用的，它的作用就是储存并且显示数据；css是用来排版表现，修饰html中的数据，让它显示更加美观更加合理；javascript脚本就是提高页面交互性，提供一些特效，增加了页面的功能等。既然这样，我们就需要一定的步骤，来分别完成这三层的工作。以下就是潜行者m的个人设计经验，以一个用html5构建博客模板为例。</p>
-<p><strong>第一步：设计并且画出原稿（非必须）</strong></p>
-<p>在动手编写之前，最好想好画出原稿，这样就能照着原稿进行编写，可以提高效率并且不会丢失主题。但这一步不是必须的，如果你大脑已经想好了要怎么设计，那么不必画出，直接开始设计吧。</p>
-<p><strong>第二步：规定内容的展示与元素的命名（必须）</strong></p>
-<p>确定需要展示的内容，并且进行命名。一个博客，往往需要在头部放置一个logo，那么我就需要在&lt;body&gt;中添加&lt;header&gt;&lt;div id=”logo”&gt;&lt;/div&gt;&lt;/header&gt;，即在头部，添加一个id为logo的div。还往往需要使用文章分类，做一个网站导航，我就需要在&lt;body&gt;中添加&lt;nav&gt;&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;即在nav标签中，使用ul标签来做成一个网站导航。</p>
-<p>在使用css去布局网页之前，你必须要先想好网页中要显示什么内容，然后使用对应的html标签，来规划，并且命名一个通俗易懂的名字，这样使用css去布局就变得容易多了，有利于提高效率。所以这一步是非常重要的。</p>
-<p><strong>第三步：为html增添css样式（必须）</strong></p>
-<p>到了设计最重要的一步，为已经规划好的html元素，赋予相应的样式。比如，让log宽300px，#logo {width:300px;}；取消li标签默认的圆点，同时让它横过来变成导航，nav li{list-style-type:none;display:inline;}。由于在第二步，你已经对相应内容进行了合理的规划和命名，所以这一步，就要简单的多了，只需要按照对应功能添加相应样式即可。</p>
-<p><strong>第四步：添加javascript代码（非必须）</strong></p>
-<p>如果你想在页面中，添加一些动态交互的行为，或者是一些特效，那么你需要添加一些javascript代码，但这步不是网页设计所必须的。对于设计的工作，我们已经在上两步完成了，这步只是完善页面而已。</p>
-<p>以上就是我的设计经验，我以前的设计，是边添加内容，边进行css样式添加，导致非常的混乱和低效。但是现在不同了，希望新手能理解并且应用，希望老手能够留言给出自己的更加合理的经验！</p>
+        <p>在前面的教程中，我们已经做出来了一个简单的头部，包括 CSS 文件的引入、文档的声明、添加网站标题副标题等。今天的教程，将要讲解如何以列表的方式显示博客中的文章。</p>
+<h2 id="认识-WordPress-的-主循环"><a href="#认识-WordPress-的-主循环" class="headerlink" title="认识 WordPress 的 主循环"></a>认识 WordPress 的 主循环</h2><p>我们想要达到的目的和效果，就是在博客的首页中，显示出来博客中现有的文章的标题、摘要、文章相关信息。通过前面的学习，我们了解到了 <a href="http://www.qianxingzhem.com/post-1251.html">Wordpress 的函数机制</a>，即使用函数调用数据库中的各种信息。可想而知，对于文章的标题、摘要、相关信息等，肯定也是通过函数来调用的。</p>
+<p>但是现在就出来了一个问题。这类的函数不同于其他的函数，例如调用网站标题的函数，它只会返回一个确定的值，那就是数据库中的博客标题。但是这些调用文章标题等信息的函数不同。因为每个博客的文章数据都有很多，如果我添加了一个调用文章主题的函数，那么系统会显示众多文章中的哪一篇文章的相关数据呢？</p>
+<p>所以 WordPress 系统有一个主循环机制。主循环机制就是为了解决这个问题，我们把显示文章的 HTML 结构、调用相关内容的函数等，写进主循环中，执行后查看源文件会发现，写进主循环的内容，会被重复很多遍（具体显示多少，在后台进行配置），但是在原先调用函数的位置会把文章数据调用插入进去。</p>
+<p>于是可以这样认识主循环：<strong>循环调用数据库中的每一篇文章，把定义在主循环的内容，复制一下，把当前循环到的文章的相应数据插入到调用函数中，完成这第一篇文章之后，就继续按照这个步骤循环下一篇文章。这样就形成了一个文章列表。</strong></p>
+<h2 id="主循环的结构和用法"><a href="#主循环的结构和用法" class="headerlink" title="主循环的结构和用法"></a>主循环的结构和用法</h2><p>主循环的结构实际上就是一段简单的 PHP 判断和循环代码：</p>
+<pre>&lt;?php if(have_posts()) : ?&gt;
+    &lt;?php while(have_posts()) : the_post(); ?&gt;
+        主循环里面的循环内容以及各种数据调用函数
+    &lt;?php endwhile; ?&gt;
+&lt;?php else: ?&gt;
+    文章调用出错的处理
+&lt;?php endif; ?&gt;</pre>
+
+<p>上面的代码比较乱，因为保留了 PHP 的标签，现在我将它整理一下，仅仅保留 PHP 的语句：</p>
+<pre>if(have_posts()):
+    while(have_posts()) : the_post();
+        主循环里面的循环内容以及各种数据调用函数
+    endwhile;
+else:
+    文章调用出错的处理
+endif;</pre>
+
+<p>懂一点点编程基础的人，一看就可以看出来，这就是一个简单的 if 判断语句，里面有一个 while 循环语句，然后不断的循环调用文章数据。这里面有两个重要的函数：<strong>have_posts()</strong>、<strong>the_post()</strong>。</p>
+<p>其实从名字中，就可以看出来，第一个函数是判断这个博客是否有符合调用条件的文章，使用 if 语句来判断，如果有符合条件的文章的时候，才会调用主循环来进行下一步的操作。如果没有的话，直接跳到后面进行错误处理。</p>
+<p>在下面的 while 语句中，再次进行了测试，当有文章的时候，才进行循环。之后的 the_post() 函数，就是调用了当前循环到的文章数据，表示下面的代码，都会对这个当前循环到的文章数据，进行数据调用显示。</p>
+<h2 id="应用主循环输出文章的信息"><a href="#应用主循环输出文章的信息" class="headerlink" title="应用主循环输出文章的信息"></a>应用主循环输出文章的信息</h2><p>上面介绍了主循环的原理和结构，下面就要应用到我们的主题 myTheme 中。在这个演示的主题中，要循环的结构有一个 class 属性 article，所以要在这里和它的父结构之间，插入这段主循环的起始代码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop0.png" alt="" title="Loop Code Begin"></a></p>
+<p>在这个 class 为 article 的 div 元素的结尾，加上主循环的结束代码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop1.png" alt="" title="Loop Code End"></a></p>
+<p>这样，就会把包裹在主循环中的数据重复显示。在之前设计主题的阶段，我添加了两个文章摘要，现在我已经把第一个使用主循环包裹起来了，所以第二个可以直接删掉了。下面我们要使用对应的数据调用函数，替换掉里面的演示数据。这里，我直接给出相应的函数，关于函数功能的解释，在后面说。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop2.png" alt="" title="Loop function"></a></p>
+<p>具体代码如下：</p>
+<pre>            &lt;?php if(have_posts()) : ?&gt;&lt;?php while(have_posts()) : the_post(); ?&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/h1&gt;
+                    &lt;div&gt;&lt;?php the_excerpt(); ?&gt;&lt;/div&gt;
+                    &lt;div&gt;作者 : &lt;?php  the_author(); ?&gt; 时间 : 20&lt;?php the_time('y年m月d日') ?&gt; 文章分类 : &lt;?php the_category(', '); ?&gt;
+                     &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;?php endwhile; ?&gt;
+            &lt;?php else: ?&gt;
+                &lt;?php echo '系统没有找到相应的文章!!'; ?&gt;
+            &lt;?php endif; ?&gt;</pre>
+
+<p>将代码修改成这样之后，再打开我们的本地的 WordPress 就可以看到效果了：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop3.png" alt="" title="New Index"></a></p>
+<p>如果在浏览器中随便输入几个参数，这样 WordPress 就无法查询到相应的文章。于是就出现错误信息。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop4.png" alt="" title="New Error"></a></p>
+<h2 id="上例中涉及的函数解析"><a href="#上例中涉及的函数解析" class="headerlink" title="上例中涉及的函数解析"></a>上例中涉及的函数解析</h2><p><strong>the_permalink()</strong></p>
+<p>这个函数用来输出当前文章的 “固定链接”，输出的是链接地址。将其加入 a 中的 href 属性，即可创建跳转到本文内容的超链接。</p>
+<p><strong>the_title()</strong></p>
+<p>这个函数用来输出当前文章的 文章名称。可以配合上一个函数，做成超链接，点击打开相应文章。</p>
+<p><strong>the_excerpt()</strong></p>
+<p>这个函数用来输出当前文章的摘要信息。在 WordPress 后台编写文章的时候，是可以设置摘要内容的（你需要打开右上方的“显示选项”，启用摘要功能），它会显示当前文章的摘要。如果当前文章没有设置摘要，那么将会截取 前 55 个字符 作为摘要内容，并且在后面加上省略号。更加具体的用法，可以<a href="http://codex.wordpress.org/Template_Tags/the_excerpt" target="_blank" rel="noopener">查看官方的文档</a>。此外，这个函数可能会在某些版本中失效或者显示出全文，如果你遇到我说的这种情况，可以查看我之前写过的文章：<a href="http://www.qianxingzhem.com/post-330.html">解决 wp 首页无法显示摘要而显示全文的方法</a></p>
+<p><strong>the_author()</strong></p>
+<p>这个函数用来输出当前文章的作者名称。</p>
+<p><strong>the_category()</strong></p>
+<p>这个函数用来输出当前文章所在的分类目录。通常配合多个参数使用。在上面的代码中，添加了参数 ‘，’。功能是，当本文存在多个 分类目录 的时候，将使用 ‘，’ 来分割当前目录。如果想了解更多的参数，可以百度搜索，或者<a href="http://codex.wordpress.org/Template_Tags/the_category" target="_blank" rel="noopener">查看官方文档</a>。</p>
+<p><strong>the_time()</strong></p>
+<p>这个函数用来输出当前文章的发布时间。在上例中，使用了参数 ‘y 年 m 月 d 日’ 表示输出的信息格式为：XX 年 XX 月 XX 日。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=96950&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-6) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a><div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
+</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-961.html" data-id="ckgcma3cf003yaa2ambg34mo3" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1502.html" data-id="ckgcnru7k00241d2a1ud1wxvt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
 
     </footer>
   </div>
@@ -184,7 +413,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="961" data-title="网页设计的一般步骤" data-url="http://www.qianxingzhem.com/post-961.html"></div>
+  <div class="ds-thread" data-thread-key="1502" data-title="【基础篇】6，使用主循环调用显示日志摘要等数据" data-url="http://www.qianxingzhem.com/post-1502.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -203,14 +432,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-ie6-e5-9c-a8-e4-b8-ad-e5-9b-bd-e6-b6-88-e5-a4-b1-e8-bf-98-e9-9c-80-e8-a6-81-e4-b8-80-e6-ae-b5-e6-97-b6-e9-97-b4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e7-bd-91-e9-a1-b5-e7-bc-96-e7-a0-81-e5-b0-b1-e6-98-af-e9-82-a3-e7-82-b9-e4-ba-8b" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-956.html" class="article-date">
-  <time datetime="2012-04-18T10:37:36.000Z" itemprop="datePublished">Apr 18 2012</time>
+    <a href="/post-1499.html" class="article-date">
+  <time datetime="2012-10-22T10:03:13.000Z" itemprop="datePublished">Oct 22 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -221,7 +450,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-956.html">IE6在中国消失还需要一段时间</a>
+      <a class="article-title" href="/post-1499.html">网页编码就是那点事</a>
     </h1>
   
 
@@ -229,20 +458,63 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近网络上，对Kill IE6的呼声越来越强，连微软官方都出来了一个干掉IE6倒计时的网站，来促进IE6的消失。但是在中国，干掉IE6还是需要一定时间的。</p>
-<p>首先，微软推广自己浏览器，使用的方法就是与操作系统捆绑，windows xp就与IE6进行了捆绑，在2001年左右推出。一经推出，就立刻在全球范围内流行起来，以其简单易用，美观的特性，被很多人使用。直到十年后的今天，还有很多人在用windows xp系统，同时在用IE6。就像我的母亲，给她装上其他浏览器，都不习惯，就习惯IE6。</p>
-<p>在现在的电脑上，大都预装了windows 7系统，WIN7系统中内置的浏览器是IE9，可喜的是，IE8、9正在不断的取代IE6。但是，windows xp系统，在中国实在是流行，现在还到处在安装xp，有些人买电脑甚至特别要求重装成xp系统，同时这些xp系统，大都是盗版的。微软对于IE等微软软件的升级，都会验证系统的合法性，但凡是盗版系统，就不可能升级IE6，这样xp系统用户，除非使用其他内核的浏览器，他的IE内核版本就是6，即使是使用傲游、世界之窗等IE内核浏览器，其调用的系统IE内核版本还是IE6。所以IE6的使用者，在中国还是有不少的，要想让它在中国消失，还是需要一段时间的。所以，我们设计网页等，还是要尽量考虑到IE6，至少不能在里面显示错位。</p>
-<h2 id="对于促进IE6的消失，我想了几个解决方案："><a href="#对于促进IE6的消失，我想了几个解决方案：" class="headerlink" title="对于促进IE6的消失，我想了几个解决方案："></a>对于促进IE6的消失，我想了几个解决方案：</h2><p>1，加深对网民的宣传，让网民知道IE6已经过时了，让他们想办法更换浏览器或者升级IE。例如像<a href="http://www.ie6countdown.cn这类网站，就生动的告诉人们，扔掉IE6。" target="_blank" rel="noopener">www.ie6countdown.cn这类网站，就生动的告诉人们，扔掉IE6。</a></p>
-<p>2，遨游、搜狗等浏览器，创造性的提出了双核的概念，即使用两种浏览器核心来解析网页，可以随时更换。可不可以在调用IE内核的时候，从IE9等浏览器中，提取出最新版本的IE内核，来使用，而不是简单的调用系统目前内置的内核？通过各种数据得知，360浏览器、遨游浏览器等，现有的使用率是非常高的，如果他们这样做了，绝对有利于IE6的消失。</p>
-<p>3，firefox、chrome、opera等其他内核浏览器，加大发展力度。比如firefox浏览器，不兼容网银，可以联系银行开发相应的插件。让这些浏览器不断的完善自己的功能，然后大力宣传，挤占IE的市场占有率。大家都知道，IE浏览器，在众多浏览器中，算是比较烂的。对于速度，chrome是最快的；对于功能和兼容性，firefox是最强大的。IE的市场占有率，仅仅是因为捆绑了windows系统。</p>
-<p>4，废除windows xp系统，xp系统也已经过时，要使用win7、win8或者linux系统等，取代xp系统。</p>
-<p>让我们大家共同努力，<strong>Kill IE6，结束前端设计的噩梦！</strong></p>
-<p>PS:文章中的网站打错了，有两个比较好的网站，一个是<a href="http://www.theie6countdown.cn/，比较有创意的中国IE6倒计时网站。另一个是官方的http://www.ie6countdown.com/" target="_blank" rel="noopener">http://www.theie6countdown.cn/，比较有创意的中国IE6倒计时网站。另一个是官方的http://www.ie6countdown.com/</a></p>
+        <p>编码一直是让新手头疼的问题，特别是 GBK、GB2312、UTF-8 这三个比较常见的网页编码的区别，更是让许多新手晕头转向，怎么解释也解释不清楚。但是编码又是那么重要，特别在网页这一块。如果你打出来的不是乱码，而网页中出现了乱码，绝大部分原因就出在了编码上了。此外除了乱码之外，还会出现一些其他问题（例如：IE6 的 CSS 加载问题）等等。<a href="http://www.qianxingzhem.com">潜行者 m</a> 写出本文的目的，就是要彻底解释清楚这个编码问题！如果你遇到了类似的问题，那就要仔细的看看这篇文章。</p>
+<h2 id="ANSI、GBK、GB2312、UTF-8、GB18030-和-UNICODE"><a href="#ANSI、GBK、GB2312、UTF-8、GB18030-和-UNICODE" class="headerlink" title="ANSI、GBK、GB2312、UTF-8、GB18030 和 UNICODE"></a>ANSI、GBK、GB2312、UTF-8、GB18030 和 UNICODE</h2><p>这几个编码关键词是比较常见的，虽然我把我们放在了一起说，但并不意味这这几个东西是平级的关系。本部分的内容，引用自网络略有修改，不知原文出处，故无法署名。</p>
+<p>很久很久以前，有一群人，他们决定用 8 个可以开合的晶体管来组合成不同的状态，以表示世界上的万物，他们把这称为”字节”。再后来，他们又做了一些可以处理这些字节的机器，机器开动了，可以用字节来组合出很多状态，状态开始变来变去，他们就把这机器称为”计算机”。</p>
+<p>开始计算机只在美国用。八位的字节一共可以组合出 256(2 的 8 次方)种不同的状态。他们把其中的编号从 0 开始的 32 种状态分别规定了特殊的用途，一但终端、打印机遇上约定好的这些字节被传过来时，就要做一些约定的动作。遇上 00×10, 终端就换行，遇上 0×07, 终端就向人们嘟嘟叫，例好遇上 0x1b, 打印机就打印反白的字，或者终端就用彩色显示字母。他们看到这样很好，于是就把这些 0×20 以下的字节状态称为”控制码”。</p>
+<p>他们又把所有的空格、标点符号、数字、大小写字母分别用连续的字节状态表示，一直编到了第 127 号，这样计算机就可以用不同字节来存储英语的文字 了。大家看到这样，都感觉很好，于是大家都把这个方案叫做 <strong>ANSI</strong> 的”<strong>Ascii</strong>”编码（American Standard Code for Information Interchange，美国信息互换标准代码）。当时世界上所有的计算机都用同样的<strong>ASCII</strong>方案来保存英文文字。</p>
+<p>后来计算机发展越来越广泛，世界各国为了可以在计算机保存他们的文字，他们决定采用 127 号之后的空位来表示这些新的字母、符号，还加入了很多画表格时需要用下到的横线、竖线、交叉等形状，一直把序号编到了 最后一个状态 255。从 128 到 255 这一页的字符集被称”扩展字符集”。但是原有的编号方法，已经再也放不下更多的编码。</p>
+<p>等中国人们得到计算机时，已经没有可以利用的字节状态来表示汉字，况且有 6000 多个常用汉字需要保存呢。于是国人就自主研发，把那些 127 号之后的奇异符号们直接取消掉。规定：一个小于 127 的字符的意义与原来相同，但两个大于 127 的字符连在一起时，就表示一个汉字，前面的一个字节（他称之为高字节）从 0xA1 用到 0xF7，后面一个字节（低字节）从 0xA1 到 0xFE，这样我们就可以组合出大约 7000 多个简体汉字了。在这些编码里，我们还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在 127 号以下的那些就叫”半角”字符了。</p>
+<p>中国人民看到这样很不错，于是就把这种汉字方案叫做 “GB2312″。<strong>GB2312</strong> 是对 <strong>ASCII</strong> 的中文扩展。</p>
+<p>但是中国的汉字太多了，后来还是不够用，于是干脆不再要求低字节一定是 127 号之后的内码，只要第一个字节是大于 127 就固定表示这是一个汉字的开始，不管后面跟的是不是 扩展字符集里的内容。结果扩展之后的编码方案被称为 <strong>GBK</strong> 标准，GBK 包括了 GB2312 的所有内容，同时又增加了近 20000 个新的汉字（包括繁体字）和符号。后来少数民族也要用电脑了，于是我们再扩展，又加了几千个新的少数民族的字，<strong>GBK</strong> 扩成了 <strong>GB18030</strong>。从此之后，中华民族的文化就可以在计算机时代中传承了。</p>
+<p>因为当时各个国家都像中国这样搞出一套自己的编码标准，结果互相之间谁也不懂谁的编码，谁也不支持别人的编码。当时的中国人想让电脑显示汉字，就必须装上一个”汉字系统”，专门用来处理汉字的显示、输入的问题，装错了字符系统，显示就会乱了套。这怎么办？就在这时，一个叫 <strong>ISO</strong> （国际标谁化组织）的国际组织决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号的编码！他们打算叫它”Universal Multiple-Octet Coded Character Set”，简称 UCS, 俗称 “<strong>UNICODE</strong>”。</p>
+<p>UNICODE 开始制订时，计算机的存储器容量极大地发展了，空间再也不成为问题了。于是 ISO 就直接规定必须用两个字节，也就是 16 位来统一表示所有的字符，对于 ascii 里的那些”半角”字符，UNICODE 包持其原编码不变，只是将其长度由原来的 8 位扩展为 16 位，而其他文化和语言的字符则全部重新统一编码。由于”半角”英文符号只需要用到低 8 位，所以其高 8 位永远是 0，因此这种大气的方案在保存英文文本时会多浪费一倍的空间。</p>
+<p>但是，UNICODE 在制订时没有考虑与任何一种现有的编码方案保持兼容，这使得 GBK 与 UNICODE 在汉字的内码编排上完全是不一样的，没有一种简单的算术方法可以把文本内容从 UNICODE 编码和另一种编码进行转换，这种转换必须通过查表来进行。UNICODE 是用两个字节来表示为一个字符，他总共可以组合出 65535 不同的字符，这大概已经可以覆盖世界上所有文化的符号。</p>
+<p>UNICODE 来到时，一起到来的还有计算机网络的兴起，UNICODE 如何在网络上传输也是一个必须考虑的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，<strong>UTF8</strong> 就是每次 8 个位传输数据，而<strong> UTF16</strong> 就是每次 16 个位，只不过为了传输时的可靠性，从 UNICODE 到 UTF 时并不是直接的对应，而是要过一些算法和规则来转换。</p>
+<p>看完这些，相信你对于这几个编码关系等，了解的比较清楚了吧。我再来简单的总结一下：</p>
+<ul>
+<li>中国人民通过对 ASCII 编码的中文扩充改造，产生了 GB2312 编码，可以表示 6000 多个常用汉字。</li>
+<li>汉字实在是太多了，包括繁体和各种字符，于是产生了 GBK 编码，它包括了 GB2312 中的编码，同时扩充了很多。</li>
+<li>中国是个多民族国家，各个民族几乎都有自己独立的语言系统，为了表示那些字符，继续把 GBK 编码扩充为 GB18030 编码。</li>
+<li>每个国家都像中国一样，把自己的语言编码，于是出现了各种各样的编码，如果你不安装相应的编码，就无法解释相应编码想表达的内容。</li>
+<li>终于，有个叫 ISO 的组织看不下去了。他们一起创造了一种编码 UNICODE ，这种编码非常大，大到可以容纳世界上任何一个文字和标志。所以只要电脑上有 UNICODE 这种编码系统，无论是全球哪种文字，只需要保存文件的时候，保存成 UNICODE 编码就可以被其他电脑正常解释。</li>
+<li>UNICODE  在网络传输中，出现了两个标准 UTF-8 和 UTF-16，分别每次传输 8 个位和 16 个位。<br>于是就会有人产生疑问，UTF-8 既然能保存那么多文字、符号，为什么国内还有这么多使用 GBK 等编码的人？因为 UTF-8 等编码体积比较大，占电脑空间比较多，如果面向的使用人群绝大部分都是中国人，用 GBK 等编码也可以。但是目前的电脑来看，硬盘都是白菜价，电脑性能也已经足够无视这点性能的消耗了。所以推荐所有的网页使用统一编码：<strong>UTF-8</strong>。</li>
+</ul>
+<h2 id="关于记事本无法单独保存“联通”的问题"><a href="#关于记事本无法单独保存“联通”的问题" class="headerlink" title="关于记事本无法单独保存“联通”的问题"></a>关于记事本无法单独保存“联通”的问题</h2><p>当你新建一个 文本文档 之后，在里面输入 “联通” 两个字，然后保存。当你再次打开的时候，原来输入的 “联通” 会变成两个乱码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1499/char1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1499/char1.png" alt="" title="记事本无法编写 联通"></a></p>
+<p>这个问题就是因为 GB2312 编码与 UTF8 编码产生了编码冲撞造成的。从网上引来一段从 UNICODE 到 UTF8 的转换规则：</p>
+<blockquote>
+<p>UTF-8</p>
+<p>0000 – 007F</p>
+<p>0xxxxxxx</p>
+<p>0080 – 07FF</p>
+<p>110xxxxx 10xxxxxx</p>
+<p>0800 – FFFF</p>
+<p>1110xxxx 10xxxxxx 10xxxxxx<br>例如”汉”字的 Unicode 编码是 6C49。6C49 在 0800-FFFF 之间，所以要用 3 字节模板：1110xxxx 10xxxxxx 10xxxxxx。将 6C49 写成二进制是：0110 1100 0100 1001，将这个比特流按三字节模板的分段方法分为 0110 110001 001001，依次代替模板中的 x，得到：1110-0110 10-110001 10-001001，即 E6 B1 89，这就是其 UTF8 的编码。</p>
+</blockquote>
+<p>而当你新建一个文本文件时，记事本的编码默认是 ANSI, 如果你在 ANSI 的编码输入汉字，那么他实际就是 GB 系列的编码方式，在这种编码下，”联通”的内码是：</p>
+<p>c1 1100 0001</p>
+<p>aa 1010 1010</p>
+<p>cd 1100 1101</p>
+<p>a8 1010 1000</p>
+<p>注意到了吗？第一二个字节、第三四个字节的起始部分的都是”110″和”10″，正好与 UTF8 规则里的两字节模板是一致的，于是再次打开记事本 时，记事本就误认为这是一个 UTF8 编码的文件，让我们把第一个字节的 110 和第二个字节的 10 去掉，我们就得到了”00001 101010″，再把各位对齐，补上前导的 0，就得到了”0000 0000 0110 1010″，不好意思，这是 UNICODE 的 006A，也就是小写的字母”j”，而之后的两字节用 UTF8 解码之后是 0368，这个字符什么也不是。这就 是只有”联通”两个字的文件没有办法在记事本里正常显示的原因。</p>
+<p>由这个问题，可以发散出很多问题。比较常见的一个问题就是：我已经把文件保存成了 XX 编码，为什么每次打开，还是原来的 YY 编码？！原因就在于此，你虽然保存成了 XX 编码，但是系统识别的时候，却误识别为了 YY 编码，所以还是显示为 YY 编码。为了避免这个问题，微软公司弄出了一个叫 <strong>BOM</strong> 头的东西。</p>
+<h2 id="关于文件-BOM-头的问题"><a href="#关于文件-BOM-头的问题" class="headerlink" title="关于文件 BOM 头的问题"></a>关于文件 BOM 头的问题</h2><p>当使用类似 WINDOWS 自带的记事本等软件，在保存一个以 UTF-8 编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即 BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以 UTF-8 编码。这样就可以避免这个问题了。对于一般的文件，这样并不会产生什么麻烦。</p>
+<p>这样做，也<a href="https://qxzm-cdn.sapi.work、包含或者引用这些文件时，会把BOM作为该文件开头正文" target="_blank" rel="noopener">https://qxzm-cdn.sapi.work、包含或者引用这些文件时，会把BOM作为该文件开头正文</a> 的一部分。根据嵌入式语言的特点，这<a href="https://qxzm-cdn.sapi.workpadding" target="_blank" rel="noopener">https://qxzm-cdn.sapi.workpadding</a> 设置为 0，也无法让整个网页紧贴浏览器顶部，因为在 html 一开头有这 3 个字符。如果你在网页中，发现了由未知的空白等，很有可能就是由于文件有 BOM 头造成的。遇到这种问题，把文件保存的时候，不要带有 BOM 头！</p>
+<h2 id="如何查看和修改某文档的编码"><a href="#如何查看和修改某文档的编码" class="headerlink" title="如何查看和修改某文档的编码"></a>如何查看和修改某文档的编码</h2><p><strong>1，直接使用记事本查看和修改。</strong>我们可以用记事本打开文件，然后点击左上角的 “文件” =》“另存为”，这时候就会弹出一个保存的窗口。在下面选择好编码之后，点击保存就可以了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char2.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char2.png" alt="" title="使用记事本查看文档编码"></a></p>
+<p>但是这种方<a href="https://qxzm-cdn.sapi.work使用下面的方法。https://qxzm-cdn.sapi.work" target="_blank" rel="noopener">https://qxzm-cdn.sapi.work使用下面的方法。https://qxzm-cdn.sapi.work</a></p>
+<p><strong>2，使用其他文本编辑器（例如：notepad ++）来查看修改。</strong>几乎所有的成熟的文本编辑器（例如：Dreamweaver、Emeditor 等），都可以快速查看或修改文件编码。这一点尤其体现在 notepad++ 上面。</p>
+<p>打开一个文<a href="https://qxzm-cdn.sapi.workhttps://qxzm-cdn.sapi.work" target="_blank" rel="noopener">https://qxzm-cdn.sapi.workhttps://qxzm-cdn.sapi.work</a></p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char3.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char3.png" alt="" title="使用notepad++ 查看文档编码"></a></p>
+<p>点击上面菜单栏中的 “encoding” 即可把当前文档转换成其他编码</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char4.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char4.png" alt="" title="使用 notepad++ 修改文档编码"></a></p>
+<h2 id="IE6-的加载-CSS-文件-BUG"><a href="#IE6-的加载-CSS-文件-BUG" class="headerlink" title="IE6 的加载 CSS 文件 BUG"></a>IE6 的加载 CSS 文件 BUG</h2><p>当 HTML 文件的编码 与想要加载 CSS 的文件不一致的时候，IE6 将无法读取 CSS 文件，即 HTML 文件没有样式。就本人的观察，这个问题从未在其他浏览器中出现过，只在 IE6 中出现过。只需要把 CSS 文件，保存成 HTML 文件的编码即可。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-956.html" data-id="ckgcma3d70061aa2and352gwi" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1499.html" data-id="ckgcnru9t008u1d2alltitzhq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -251,7 +523,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="956" data-title="IE6在中国消失还需要一段时间" data-url="http://www.qianxingzhem.com/post-956.html"></div>
+  <div class="ds-thread" data-thread-key="1499" data-title="网页编码就是那点事" data-url="http://www.qianxingzhem.com/post-1499.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -270,14 +542,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-css-e4-b8-adclass-e7-a9-b6-e7-ab-9f-e6-98-af-e9-b8-a1-e8-82-8b-e8-bf-98-e6-98-af-e9-b8-a1-e8-82-89-ef-bc-9f" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wordpress-e8-bf-81-e7-a7-bb-sae-e5-ae-8c-e5-85-a8-e6-93-8d-e4-bd-9c-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-952.html" class="article-date">
-  <time datetime="2012-04-16T05:59:52.000Z" itemprop="datePublished">Apr 16 2012</time>
+    <a href="/post-1387.html" class="article-date">
+  <time datetime="2012-10-19T18:24:52.000Z" itemprop="datePublished">Oct 20 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -288,7 +560,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-952.html">css中class究竟是鸡肋还是鸡肉？</a>
+      <a class="article-title" href="/post-1387.html">WordPress 迁移 SAE 完全操作攻略</a>
     </h1>
   
 
@@ -296,21 +568,63 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近学习完了《html5与css3权威指南》，特别是css3部分，体验到了css3的超级强大。特别是一个比较常用的内容：选择器。</p>
-<p>css3中，提供了新型的，可以使用通配符的选择方法。例如：[id=^sec]{ }，表示将此样式，应用在所有id以sec开头的html元素，比如id为section、sec3等的元素都会受到这些规则的影响。这样，我们就可以通过元素命名，来区别不同功能区域，并且使用通配符选择器来统一样式。而这一点，和class的功能类似。class与id的区别就在于，id一个网页中，只能有一个，而class可以有多个，这样可以让多个元素使用相同的样式。</p>
-<p>因此，作者在书中说，不推荐使用class，class最终会消失。然而在另一本前端著作《编写高质量代码Web前端开发修炼之道》中，却推荐使用原子类的方法，来提高css样式的重用程度。之前，本人也写过<a href="http://www.qianxingzhem.com/post-939.html">一篇关于创建和使用原子类的文章</a>，并且在现在的设计中应用原子类，感觉非常方便灵活性非常强大。在这里，潜行者m不禁思考，class究竟可取不可取？是鸡肉还是鸡肋？</p>
-<h2 id="class和id的区别"><a href="#class和id的区别" class="headerlink" title="class和id的区别"></a>class和id的区别</h2><p>html中class和id属性，是用来标记元素、区别元素，这样就可以用css来精确控制样式，也可以使用javascript来控制元素。但class和id是有明显区别的，在网页中，id属性的值只能有一个，但是class的值是可以重复的。比如，我定义一个div的id为a，那么网页中不能再出现一个html元素的id为a；但是我定义一个div的class属性为b，我可以再其他的元素中，定义class属性为b。这样，就可以实现代码的重用，比如两个div都是红色背景，只需写出一个class（.r{background-color:#ff0000;})，然后在两个div中都指定class属性为 r 即可，而要使用id控制，则需要在两个div中，都写上background-color:#ff0000;。同时，id和class的优先级也是不同的，id的优先级要高于class，如果对同一个元素，分别用id和class指定同一属性不同的值，浏览器会优先解析id的值。</p>
-<h2 id="鸡肉说："><a href="#鸡肉说：" class="headerlink" title="鸡肉说："></a>鸡肉说：</h2><p>class可以极大的提高代码的重用，特别是使用原子类，既方便维护，又方便应用。而使用id，必须指定id然后指定大量重复的样式。css3中，虽然升级的强大的选择规则，但是仍然比较混乱，不利于维护。同时，存在即合理，w3c制定出class和id是有他们的道理的，负责不同的工作，class仍然会不断的被使用。</p>
-<h2 id="鸡肋说："><a href="#鸡肋说：" class="headerlink" title="鸡肋说："></a>鸡肋说：</h2><p>css3中，强大的id选择规则，已经可以对相近元素指定相同的样式，达到重用的目的。它已经完全可以取代class的作用，而且对于javascript来说，只能使用id来控制，说不定以后class就会消失了。</p>
-<p>亲，你怎么看？你觉得是鸡肋还是鸡肉？</p>
+        <p>最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。</p>
+<h2 id="SAE-是什么"><a href="#SAE-是什么" class="headerlink" title="SAE 是什么"></a>SAE 是什么</h2><p>在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件、优质高速的硬件等，方便开发者进行应用的开发。狭义的讲，就是一个网站空间，可以把网站放上去，但是和普通的虚拟主机、VPS 等又有很多不同的地方。在后面你会了解到。它的地址：<a href="http://sae.sina.com.cn" target="_blank" rel="noopener">http://sae.sina.com.cn</a></p>
+<h3 id="为什么要迁移-SAE"><a href="#为什么要迁移-SAE" class="headerlink" title="为什么要迁移 SAE"></a>为什么要迁移 SAE</h3><p>之所以迁移到 SAE 上，是因为 SAE 有以下几个优点。</p>
+<ol>
+<li>硬件质量高，网站访问速度快。</li>
+<li>专业，不用怕数据丢失或者服务商跑路。</li>
+<li>按照你使用的资源进行收费，收费合理，性价比高。<br>最看重的是 SAE 平台的<strong>稳定、高速和性价比</strong>，与原来的美国空间、香港空间相比，低价高质量。</li>
+</ol>
+<h3 id="开通-SAE"><a href="#开通-SAE" class="headerlink" title="开通 SAE"></a>开通 SAE</h3><p>开通 SAE 只需要打开 SAE ，然后点击右上方的注册即可，它使用新浪微博作为账号。其中还要区分几个概念，包括安全邮箱、安全密码等等。此外，SAE 平台使用 SVN 的方式上传文件，它的使用要比传统的 FTP 上传方便简单，但是需要学习和适应，这点官方文档写的非常详细。你需要花费一点时间，查看一下他们的帮助文档，这些很简单，也不是本文要说的重点。帮助文档：<a href="http://sae.sina.com.cn/?m=devcenter" target="_blank" rel="noopener">http://sae.sina.com.cn/?m=devcenter</a></p>
+<h2 id="迁移-WordPress"><a href="#迁移-WordPress" class="headerlink" title="迁移 WordPress"></a>迁移 WordPress</h2><p>本文的重点不是 SAE 的注册和开通，而是在于如何合理正确高效的把 WordPress 博客，从之前的主机中迁移到 SAE 中。</p>
+<h3 id="安装-WordPress-应用"><a href="#安装-WordPress-应用" class="headerlink" title="安装 WordPress 应用"></a>安装 WordPress 应用</h3><p>SAE 之所以高速、稳定，是因为它限制了部分功能。例如：出于完全考虑，SAE 禁止了 I/O 读写操作，这样，就无法使用传统的函数，进行生成或者读取操作等。</p>
+<p>所以，官方原版的 WordPress 是不能直接安装上去的，因为里面的一些功能（例如：在线安装主题）是 SAE 平台所不支持的。但是 WordPress 这么流行的系统，当然有团队修改里面的代码，把不支持的功能，进行改写做成了 WordPress for SAE 版本，同时还上架到 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="noopener">应用仓库</a> 中，这样只需要点几下鼠标，就可以在你的应用空间中，安装上 WordPress 。</p>
+<p>1，创建一个应用。登陆之后，在 <a href="http://sae.sina.com.cn/?m=myapp" target="_blank" rel="noopener">我的应用</a> 页面中，找到右上方的 “安装应用” 。会出现如下的配置窗口。SAE 的应用安装，基于安装包（zip 格式）安装，可以直接填写网上的安装包，也可以本地上传。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/1.png" alt="" title="创建应用"></a></p>
+<p>2，在 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="noopener">应用仓库</a> 中，找到 <a href="http://sae.sina.com.cn/?m=apps&amp;a=detail&amp;aid=1" target="_blank" rel="noopener">WordPress for SAE</a> 的安装包地址，可以把地址填写到上面的 安装应用 表单中。其实，也可以点击右上方的 “安装应用”，直接进行安装。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/2.png" alt="" title="从应用仓库中安装"></a></p>
+<p>3，输入一个 二级域名 和 验证码 之后，点击创建，就会告诉你已经创建成功了。现在你就可以管理这个应用了。根据提示，进行应用的初始化，就是安装 WordPress 时配置安装信息。</p>
+<p>配置完成之后，系统会提示你安装完成。WordPress 系统就算安装完成了。你可以进入后台看一下相关配置，这个版本的 WordPress 是比较老的 ，截止到本文写作时，版本为 3.2.1。所以在安装插件的时候，需要注意插件是否支持这个版本。其中内置了几个比较常用的插件以及三个主题。下面就要进行博客数据的迁移。</p>
+<h3 id="转移文章等数据"><a href="#转移文章等数据" class="headerlink" title="转移文章等数据"></a>转移文章等数据</h3><p>文章等数据的迁移是整个迁移工作中，最简单的一个步骤。很多文章写道需要把数据库里的数据导入等等，其实不用这么麻烦，使用 WordPress 内置的工具（导入、导出）即可完成。</p>
+<ol>
+<li>首先在原先的博客中，点击 “工具” -》 “导出” ，选择 “全部内容” ，点击导出。会弹出一个 xml 文件的下载。这个文件就记录了你博客上面的文章、评论、页面等等数据。</li>
+<li>在 SAE 的博客上面，点击 “工具” -》 “导入” ，选择列表中的 “WordPress”。然后上传这个 xml 文件，将作者名等修改一下即可。注意，不要勾选 “下载远程附件” 这个项目，因为 SAE 不支持 读写操作，所以选择这个会报错。<br>这个时候，文章等数据迁移完毕，打开应用首页，你已经可以看到你的文章数据了。</li>
+</ol>
+<h3 id="配置后台网站信息与之前网站完全一致"><a href="#配置后台网站信息与之前网站完全一致" class="headerlink" title="配置后台网站信息与之前网站完全一致"></a>配置后台网站信息与之前网站完全一致</h3><p>采用上面这种方法，只能迁移文章、页面、评论等数据，而无法迁移原有 WordPress 的后台设置。所以我们要打开 SAE 上的 WordPress 后台中的 “设置” 标签，把下面的内容依次重新设置一下，把它们设置的和原先博客中设置的一样。</p>
+<h3 id="对于图片-网站附件的处理"><a href="#对于图片-网站附件的处理" class="headerlink" title="对于图片/网站附件的处理"></a>对于图片/网站附件的处理</h3><p>数据迁移通常分为两种：<strong>内容迁移</strong>和<strong>资源迁移</strong>。内容迁移很简单，上面已经完成。令人头痛的是资源迁移，即 图片资源、附件资源等。<a href="http://www.qianxingzhem.com">潜行者 m</a> 搜寻了很多资料来解决这个资源迁移的问题。</p>
+<p><strong>1，直接使用 SVN 的方式，上传到原有博客的 upload 目录中。</strong></p>
+<p>这是最简单的一种方式，但是有很多问题。首先，SAE 的应用代码空间，只有 100M 大小。上面通常存放代码、基础的图片等资源，不适合存储附件等。潜行者 m 博客光图片资源以及超过 100M 大小，肯定无法使用 SVN 的方式上传到 代码空间。但是对于图片附件比较少的博客来说，可以直接使用这种方法。</p>
+<p><strong>2，使用 SAE 的 Storage 服务</strong></p>
+<p>Storage 服务，是 SAE 为应用提供的专门用于存储文件的空间。容量大，下载速度快。当你使用 WordPress for SAE 写文章上传附件的时候，会自动上传到这个空间中，然后进行调用。这就相当于外链的空间了。</p>
+<p>所以我们首先要把 资源文件 上传到这个应用的 Storage 空间中，然后修改文章中对于资源的引用，把外链修改上。上传有两种方法：</p>
+<p>第一种手动创建目录，然后依次上传。打开应用页面，在左下方找到 “Storage”，打开之后，点击 “管理” ，然后就可以创建目录、上传文件等操作。然后，将原来文章中的资源外链修改一下，Storage 空间的外链通常为 XXX-wordpress.stor.sinaapp.com 加上目录。其中 XXX 为你的应用名称。</p>
+<p>第二种是使用工具上传。如果附件很多，上传的工作量可想而知。所以有人就写出了上传的程序。经过搜索，找到了一个工具 <a href="http://www.shootsoft.net/149" target="_blank" rel="noopener">SAE Mutiple Uploads 0.2</a> 。具体的介绍和使用说明，打开他们的官方教程好了，上面说的很详细了。但是我在操作的时候，不知道为什么，没有成功。工具显示上传成功，但是我在 Storage 空间中，并没有发现我上传的资源。提供一个思路，你可以尝试一下，说不定是我的人品问题。</p>
+<p><strong>补充(2012.10.22)</strong>：<a href="http://sypopo.com/" target="_blank" rel="noopener">信仰飘扬</a> 提醒，可以使用 Cyberduck 这个软件方便进行 storage 空间的管理。**<br>**</p>
+<p><strong>3，使用第三方外链服务(又拍云/华为网盘等)</strong></p>
+<p>只有在迁移的时候，才感觉出来外链的重要性，因为无论怎么迁移，外链是不会变的。因此，我考虑将所有资源放在外链上，然后以后就用外链链接资源。据了解，免费的网盘有部分支持图片外链，例如华为等。收费的比较好的有又拍云。最后我选择了又拍云，购买了又拍云的服务。</p>
+<p>又拍云具体的操作流程我就不多说了，速度非常快。上传资源之后，在网上偶然发现了 <a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="noopener">荒野无灯</a> 写的又拍云上传插件：<a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="noopener">Hacklog Remote Attachment Upyun(又拍云版)</a>。果断激动了一下，因为这个插件，可以让你上传文件的时候，自动上传到远程的又拍云服务器上，同时还有一个非常重要的功能，可以修改数据库，将数据库里面的原有的失效资源连接，自动修正成又拍云的外链。</p>
+<p>但是安装用了一下，还是出错，问了一下灯哥，原来是这个版本太低了，出现了这个错误。所以这个方法就留给以后的人看了，等 SAE 上的 WordPress for SAE 升级之后，就能用了。</p>
+<p>如果想要批量修改原有失效的资源连接，可能只有像荒野无灯写的插件那样，对数据库进行修改。否则只能一篇文章一篇文章的进行修改。如果你有更好的办法，希望能回复交流！</p>
+<p><strong>补充（2012.10.21）</strong>：Denis 提供了一个解决这类问题的好方法，即使用插件 <a href="http://fairyfish.net/2010/05/31/search-and-replace/" target="_blank" rel="noopener">Search &amp; Replace </a> 批量对数据库里面的图片链接进行修改。</p>
+<h3 id="在-WordPress-for-SAE-中安装主题和插件"><a href="#在-WordPress-for-SAE-中安装主题和插件" class="headerlink" title="在 WordPress for SAE 中安装主题和插件"></a>在 WordPress for SAE 中安装主题和插件</h3><p>由于 SAE 禁止了读写操作，所以安装主题和插件，无法向以前那样，直接在后台进行上传或者远程安装。必须要通过 SVN 的方式上传。默认的安装了 WordPress for SAE 之后，并没有开启 SVN 服务，因为开启 SVN 服务，需要花费一些资源，所以要消耗一些云豆。我们在后台左侧找到 “代码管理” 然后点击 “创建 SVN 库” 就开启了 SVN 服务，之后根据 SAE 的<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=212" target="_blank" rel="noopener">说明文档</a>使用即可。安装主题和插件，只需要把主题和插件复制到相应的目录，然后 SVN 上传一下即可，和使用 FTP 一样。但是要注意，主题和插件中的功能不能有 读写操作 等 SAE 不支持的功能，否则可能出现意外情况。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/3.png" alt="" title="SAE 安装 wordpress 插件主题"></a></p>
+<h3 id="将域名解析到-SAE"><a href="#将域名解析到-SAE" class="headerlink" title="将域名解析到 SAE"></a>将域名解析到 SAE</h3><p>现在文章等内容、图片等资源都已经迁移过来了。现在要检查一下迁移之后的网站和原先的网站还有什么地方不同。所有的地方都必须丝毫不差才可以。特别是 “固定链接” 等等，如果有不同，会导致收录等问题。</p>
+<p>当你觉得完全相同，在迁移之后，就要把域名解析到 SAE 中。在管理后台找到左侧的 <strong>“应用管理”</strong> 打开之后，在下面会有独立域名设置。由于 SAE 比较特殊，所以它暂时不支持备案，如果你的域名是备案过的，那么需要填写备案表格，向 SAE 提交申请。如果你的域名没有备案，SAE 支持绑定到国外的合作伙伴那里，然后做一个跳转。比较简单，所以不再多说。</p>
+<p>这两种方案区别很大，备案域名直接接入服务器，ping 值只有 50MS 左右，响应速度和 百度 差不多，下载速度也非常快。绑定到国外的未备案域名，通过香港节点访问，ping 值有 160 MS 左右，下载速度略慢，相当于高质量的香港空间，但是要消耗两倍的流量，也就是交两倍的钱。</p>
+<h3 id="转移之后的-SAE-优化"><a href="#转移之后的-SAE-优化" class="headerlink" title="转移之后的 SAE 优化"></a>转移之后的 SAE 优化</h3><p>鉴于大部分的同学的网站都是没有备案的，但是要花两倍的钱，所以我们就要进行优化。优化的重点就是减少 SAE 流量的损耗。一般通过三个方法进行优化：</p>
+<ol>
+<li>开启 gzip。开启 SAE 的 gzip 教程，请看这里：<a href="http://www.hiadmin.org/blog-seo/wordpress-sae-gzip" target="_blank" rel="noopener">开启 SAE 的 Gzip 压缩为 WordPress 提速</a></li>
+<li>压缩图片、CSS、JavaScript 等文件，尽量使用外链。<br>完成这些步骤之后，可以尽量的避免系统资源的消耗，这样就可以节省云豆。同时，你还可以开发应用，进行开发者认证，这样每月都会送你一些云豆。如果你流量不大的话，这样几乎都成了免费的了。</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-952.html" data-id="ckgcma3d1005haa2amxt45ewn" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1387.html" data-id="ckgcnrubo00e61d2auwyg1ihb" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
 
     </footer>
   </div>
@@ -318,7 +632,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="952" data-title="css中class究竟是鸡肋还是鸡肉？" data-url="http://www.qianxingzhem.com/post-952.html"></div>
+  <div class="ds-thread" data-thread-key="1387" data-title="WordPress 迁移 SAE 完全操作攻略" data-url="http://www.qianxingzhem.com/post-1387.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -337,10 +651,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ad-e6-9e-84-e5-bb-ba-e5-b9-b6-e4-bd-bf-e7-94-a8-e5-8e-9f-e5-ad-90-e7-b1-bb" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e4-bd-bf-e7-94-a8-html5-e6-ad-a3-e7-a1-ae-e5-90-88-e7-90-86-e7-9a-84-e9-87-8d-e6-9e-84-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-939.html" class="article-date">
-  <time datetime="2012-04-08T01:36:04.000Z" itemprop="datePublished">Apr 8 2012</time>
+    <a href="/post-1313.html" class="article-date">
+  <time datetime="2012-09-29T20:29:39.000Z" itemprop="datePublished">Sep 30 2012</time>
 </a>
     
   <div class="article-category">
@@ -355,7 +669,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-939.html">网页设计中构建并使用原子类</a>
+      <a class="article-title" href="/post-1313.html">使用 HTML5 正确合理的重构你的网页</a>
     </h1>
   
 
@@ -363,149 +677,15 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在《编写高质量代码 Web前端开发修炼之道》一书中，作者总结经验，认为网页设计中，css应当分为三层，分别为base层、common层、page层。其中base层为样式最底层，里面包含css reset代码和原子类，基本不需要维护。common层是中层的样式，设置一个网站频道等的样式。page层，则是具体页面的样式。如果把网页设计比作盖房子，base层就是地基，common层就是你这个房子的墙壁、结构，page层就是你房子的内饰等。</p>
-<p>之前，<a href="http://www.qianxingzhem.com/">潜行者m</a>已经写过<a href="http://www.qianxingzhem.com/post-610.html">一篇关于css reset的文章</a>，而今天，潜行者m就来介绍一下原子类。</p>
-<p>原子类是可以高度重用的css样式。例如width:10px;或者是float:left;这类样式，很多的元素都要用到这类样式，但是在每个元素的css样式中，都添加这条语句，无疑会增加代码数量，使其不够简洁，而且当css样式很多的时候，维护起来就会非常麻烦。于是就有了css通用原子类。</p>
-<p>如何编写？</p>
-<p>在css文件中，编写简单简洁的类，每个类实现一个具体的小功能，并且命名一个非常简单直观的名字，例如：</p>
-<p>.w{width:auto;}</p>
-<p>.w10{width:10px;}</p>
-<p>.fl{float:left;}</p>
-<p>.fr{float:right;}</p>
-<p>…………</p>
-<p>在上面，只写了几个样式，作为例子，实际的原子类文件中，会包含各种原子类。</p>
-<p>如何使用？</p>
-<p>编写完成之后，我们应该如何在元素中，使用原子类？这就要用到元素的class属性了。在一个页面元素中，class属性值可以重复，并且可以指定多个样式。例如，我想要让这个div元素，宽度为10px，并且向左浮动，那么我就可以这样写：</p>
-<p>&lt;div class=”w10 fl”&gt;&lt;/div&gt;</p>
-<p>这样写之后，就说明这个div元素，同时具有.w10 .fl两个类的css样式。而如果我想要另一个div元素，宽度10px，并且向右浮动，我们就可以这样写：</p>
-<p>&lt;div class=”w10 fr”&gt;&lt;/div&gt;</p>
-<p>而不必为每个div分别制定width:10px;，这样就可以节约代码，高度重用代码了。同时，简短形象的名字，也可以让人非常容易理解样式的意思，例如一个div的class属性是w100 h100 fl，我们就可以知道，这个div宽100px，高100px，向左浮动，日后修改等都是非常方便的。</p>
-<p>推荐使用 潜行者m 的 <a href="http://lab.qianxingzhem.com/app/csscreater/" target="_blank" rel="noopener">CSS creater</a> 在线生成包含 常用原子类的 CSS 文件。地址：<a href="http://lab.qianxingzhem.com/app/csscreater/" target="_blank" rel="noopener">http://lab.qianxingzhem.com/app/csscreater/</a></p>
-<div></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-939.html" data-id="ckgcma3ce003vaa2a9nchzxzp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="939" data-title="网页设计中构建并使用原子类" data-url="http://www.qianxingzhem.com/post-939.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post-article-e5-85-83-e7-b4-a0-e4-b8-8esection-e5-85-83-e7-b4-a0-e5-8c-ba-e5-88-ab-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-915.html" class="article-date">
-  <time datetime="2012-03-25T19:16:51.000Z" itemprop="datePublished">Mar 26 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-915.html">article 元素与 section 元素区别详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>article 元素</strong>与<strong>section 元</strong>素是 html5 中新增的两种元素，它们的功能与 div 是一样的，都是用来区分不同区域，它们的使用方法也相似，因此有很多朋友会将其混用。<strong>html 5 中之所以新增这两种元素，就是为了更好的描述文档的内容，所以它们之间肯定是有区别的。</strong></p>
-<h2 id="article-元素"><a href="#article-元素" class="headerlink" title="article 元素"></a>article 元素</h2><p><strong>article 元素代表文档、页面或者应用程序中独立完整的可以被外部引用的内容。</strong>例如：博客中的一篇文章，论坛中的一个帖子或者一段浏览者的评论等。因为article元素是一段独立的内容，所以article元素中，通常包含头部（header元素）、底部（footer元素）。例如博客中的一篇文章的结构：</p>
-<pre>&lt;article&gt;
-    &lt;header&gt;
-        &lt;h1&gt;潜行者m的个人介绍&lt;/h1&gt;
-    &lt;/header&gt;
-    &lt;p&gt;潜行者m是一个男的中国人。。。。。&lt;/p&gt;
-    &lt;footer&gt;
-        &lt;p&gt;潜行者m版权所有&lt;/p&gt;
-    &lt;/footer&gt;
-&lt;/article&gt;</pre>
-
-<h2 id="section-元素"><a href="#section-元素" class="headerlink" title="section 元素"></a>section 元素</h2><p><strong>section 元素用于对网站或者应用程序中页面上的内容进行分块。</strong>一个 section 元素通常由内容以及标题组成。例如：</p>
-<pre>&lt;section&gt;
-    &lt;h1&gt;潜行者m的个人介绍&lt;/h1&gt;
-    &lt;p&gt;潜行者m是一个男的中国人。。。。。。&lt;/p&gt;
-&lt;/section&gt;</pre>
-从上例可以看出，**section 元素中，需要包含一个&lt;hn&gt;标题元素**，而一般不用包含头部（header元素）或者底部（footer元素）。通常用 section 元素为那些有标题的内容进行分段。
-
-section 元素的作用，是对页面上的内容分块处理，例如对文章分段等，相邻的 section 元素的内容，应当是相关的，而不是像 article 那样独立。例如一篇文章：
-<pre>&lt;article&gt;
-    &lt;header&gt;
-        &lt;h1&gt;潜行者m喜欢的科技公司&lt;/h1&gt;
-    &lt;/header&gt;
-    &lt;p&gt;本文中，潜行者m列举了一下他喜欢的科技公司。。&lt;/p&gt;
-    &lt;section&gt;
-        &lt;h2&gt;google公司&lt;/h2&gt;
-        &lt;p&gt;著名的搜索引擎公司。。。&lt;/p&gt;
-    &lt;/section&gt;
-    &lt;section&gt;
-        &lt;h2&gt;苹果公司&lt;/h2&gt;
-        &lt;p&gt;非常能创新的公司。。&lt;/p&gt;
-    &lt;/section&gt;
-    &lt;footer&gt;
-        &lt;p&gt;版权所有，翻版不咎&lt;/p&gt;
-    &lt;/footer&gt;
-&lt;/article&gt;</pre>
-通过上面的例子，你应该能感受到 article 元素与 section 元素的区别。事实上 article 元素可以看做是特殊的 section 元素。article 元素更强调独立性、完整性，section 更强调相关性。
-
-## 一个比较完整的例子
-
-<pre>&lt;article&gt;
-    &lt;header&gt;
-         &lt;h1&gt;潜行者m的个人介绍&lt;/h1&gt;
-    &lt;/header&gt;
-    &lt;p&gt;潜行者m是一个中国男人，是一个帅哥。。。。&lt;/p&gt;
-    &lt;section&gt;
-        &lt;h2&gt;评论&lt;/h2&gt;
-        &lt;article&gt;
-            &lt;h3&gt;评论者：潜行者n&lt;/h3&gt;
-            &lt;p&gt;确实，m同学真的很帅&lt;/p&gt;
-        &lt;/article&gt;
-        &lt;article&gt;
-            &lt;h3&gt;评论者：潜行者a&lt;/h3&gt;
-            &lt;p&gt;M今天吃药了没？&lt;/p&gt;
-        &lt;/article&gt;
-    &lt;/section&gt;
-&lt;/article&gt;</pre>
-
-<h2 id="article、section-与-div-的区别"><a href="#article、section-与-div-的区别" class="headerlink" title="article、section 与 div 的区别"></a>article、section 与 div 的区别</h2><p>既然 article、section 是用来划分区域的，又是html 5的新元素，那么我可不可以用article、section来取代div，用来布局网页呢？如果你真打算这样做，那么你就像使用ul来打造表格（table）一样愚蠢。<strong>div的用处就是用来布局网页</strong>，划分大的区域，只是html 4中，只有div、span来划分区域，所以我们就习惯性的把div当成了一个容器。而html 5改变了这个，它让div的工作更纯正。div就是用来布局大块，在不同的内容块中，我们按照需求添加 article、section 等内容块，并且显示其中的内容，这样才是合理的使用这些元素。</p>
+        <p>这可能是我在建博之后到现在为止，写过的最长的一篇文章，不过也是在这个博客里面，文章最短的。什么意思呢？</p>
+<p>这里的这篇文章，我就写这么几个字。但是这篇文章，我写了大约两天，包括构思，查阅资料，排版等等。</p>
+<p>denis 的水煮鱼博客，不知道编辑器抽了风，编辑起来好麻烦。</p>
+<p>好了，直接给出地址：<a href="http://fairyfish.net/article/designing-with-html5/" target="_blank" rel="noopener">http://fairyfish.net/article/designing-with-html5/</a> ，我懒得复制过来排版了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-915.html" data-id="ckgcma3cz0057aa2a007bg2c1" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1313.html" data-id="ckgcnru82003j1d2av6eafijq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
@@ -516,7 +696,7 @@ section 元素的作用，是对页面上的内容分块处理，例如对文章
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="915" data-title="article 元素与 section 元素区别详解" data-url="http://www.qianxingzhem.com/post-915.html"></div>
+  <div class="ds-thread" data-thread-key="1313" data-title="使用 HTML5 正确合理的重构你的网页" data-url="http://www.qianxingzhem.com/post-1313.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -535,10 +715,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e8-ae-b0-e8-bf-99-e6-ac-a1-e8-a2-ab-e7-99-be-e5-ba-a6k-e6-8e-89-e7-9a-84-e6-81-a2-e5-a4-8d-e7-bb-8f-e5-8e-86" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-915-e3-80-81-e5-88-b6-e4-bd-9c-e4-b8-bb-e9-a2-98-e7-9a-84-e5-a4-b4-e9-83-a8-e5-8c-ba-e5-9f-9f" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-876.html" class="article-date">
-  <time datetime="2012-03-20T01:08:29.000Z" itemprop="datePublished">Mar 20 2012</time>
+    <a href="/post-1304.html" class="article-date">
+  <time datetime="2012-09-25T22:52:55.000Z" itemprop="datePublished">Sep 26 2012</time>
 </a>
     
   <div class="article-category">
@@ -553,7 +733,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-876.html">记这次被百度K掉的恢复经历</a>
+      <a class="article-title" href="/post-1304.html">【基础篇】5、制作主题的头部区域</a>
     </h1>
   
 
@@ -561,21 +741,48 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从一开始，我博客网站的固定连接，就觉得不是很好看。后来一直做着思想上的斗争，如果换了新的伪静态策略的话，以前收录的就白弄了，会出现大量404，还要大量的301转向。但是后来一想，如果不换，就一直这样，以后文章越来越多了，再更换损失就会越大。所以就狠下心，换了。</p>
-<p>换了伪静态规则之后，由于那段时间比较忙，结果忘了对重要的页面进行301转向。后来想到的时候，已经是几天之后了，抓紧用百度搜索了一下我独特的关键词“潜行者m”，结果排名一下子到了第二页了，果断被百度K掉了。然后就开始寻找恢复的策略，现总结如下：</p>
-<h2 id="百度K站的诱发因素："><a href="#百度K站的诱发因素：" class="headerlink" title="百度K站的诱发因素："></a>百度K站的诱发因素：</h2><p>网站改版，大量页面链接的改变。百度对这种情况的惩罚还是比较轻微的，只是把我的网站放到了第二页。特别是新站，搜索引擎发现大量改版的现象时，都会给予一定的警惕。因为垃圾网站就有这种特点，经常更改网站内容和链接。所以搜索引擎要K掉你网站一段时间，来观察一下。</p>
-<p>除此之外，百度K站的原因还有大量垃圾外链以及其他的作弊手法等。因为这种原因造成的K站，一般是比较难以恢复的，需要很多时间。或者，直接永远无法恢复。做垃圾站、站群的，自己做好心理准备。</p>
-<h2 id="被百度K掉的解决方法："><a href="#被百度K掉的解决方法：" class="headerlink" title="被百度K掉的解决方法："></a>被百度K掉的解决方法：</h2><p>被K掉之后，一般没有什么解决方法，除非你是百度内部的人，可以轻易的将你的网站从百度那边观察列表上清除。百度K你的，是因为你的网站具有他们认为是垃圾网站的特征，所以，如果是一个正规网站的话，大可不必担心。百度K你，只是考验你的网站是不是垃圾网站，你只需要继续和平常一样，发表原创文章，匀速的做高质量外链。当百度看到你网站在继续正常的运营，他们就会思考是不是自己判断错了，于是排名就会慢慢爬上来。</p>
-<p>就像我的博客，发现被K之后，仍然写原创文章等，过了不到半个月，特殊关键词“潜行者m”现在又重新恢复到第一位了。</p>
-<p>&nbsp;</p>
+        <p>上节课的时候，我们了解接触到了第一个函数。在这节课中，我将会讲解更多的有关头部的 WordPress 函数，并且教你打造一个完整、规范的头部。</p>
+<p>这里的头部，主要分为两部分：</p>
+<ol>
+<li>HTML 文档中的 &lt;head&gt; 区域</li>
+<li>主题中的顶部（通常包含博客名称、描述、导航等内容）</li>
+</ol>
+<h2 id="HTML-文档的-lt-head-gt-区域"><a href="#HTML-文档的-lt-head-gt-区域" class="headerlink" title="HTML 文档的 &lt;head&gt; 区域"></a>HTML 文档的 &lt;head&gt; 区域</h2><p>众所周知，HTML 文档中，&lt;head&gt; 区域用来描述这个文档的各种信息，大部分的内容，都是看不见的，只有一个&lt;title&gt;元素，在标题栏上可以看见。但是并不是它不重要，这里 面包含文档声明，也是很重要的地方。与这块有关的，有很多函数等，在【基础篇】，我直说几个简单的，可以满足基本功能即可。在后面的【中级篇】教程中，我会更详细的讲解更多的函数和相关用法。</p>
+<p>将以下代码复制进 head 标签内</p>
+<pre>&lt;title&gt;&lt;?php bloginfo('name');  ?&gt; &lt;?php  bloginfo( 'description' ); ?&gt;&lt;/title&gt;
+ &lt;meta http-equiv="Content-Type" content="text/html; charset=&lt;?php bloginfo( 'charset' ); ?&gt;" /&gt;
+ &lt;link rel="stylesheet" type="text/css" href="&lt;?php bloginfo( 'stylesheet_url' ); ?&gt;" /&gt;</pre>
+
+<p>简单的介绍一下相关功能。</p>
+<p><strong>&lt;title&gt;标签：</strong></p>
+<p>作为网页的标题，我们通常使用博客标题和博客描述作为博客首页的标题。所以我们使用了&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数。但是在实际应用中，你会发现一个问题，如果就这样做了，所有的博客页面，全部都是相同的“博客标题 博客描述”。关于这个问题，我会单独拿出来在后面进行讨论。</p>
+<p><strong>&lt;meta&gt;标签：</strong></p>
+<p>声明文档的编码，WordPress 默认的编码就是 utf-8 ，所以我们尽可以大胆写上 utf-8。但是在官方主题中，还是用了&lt;?php bloginfo( ‘charset’ ); ?&gt;这个函数，来获取博客编码。所以我们需要这样写。</p>
+<p><strong>&lt;link&gt;标签：</strong></p>
+<p>加载必须的 style.css 文件。&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;这个函数在之前的文章中，提到过，在这里不再赘述。</p>
+<h2 id="主题中的顶部"><a href="#主题中的顶部" class="headerlink" title="主题中的顶部"></a>主题中的顶部</h2><p>在本系列的 demo 主题，顶部只有一个网站标题和网站的副标题描述。所以我们就需要使用&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数，替换掉之前我们的文本，即</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" alt="" title="zhuanhuanhead"></a></p>
+<p>这里还有个细节需要注意，在博客名称的地方，我使用了一个超链接，指向的是一个“#”，现在要把它修改成博客首页，则需要使用这个</p>
+<pre>&lt;?php bloginfo('siteurl'); ?&gt;</pre>
+
+<p>用它替换 href 属性中的 # 。</p>
+<p>好了，头部的处理就这样完成了，我们可以在浏览器中访问一下。这时候，就可以看到标题、网站标题、网站描述变了。你在后台中修改相应的信息，刷新之后，相应的也会变。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=67876&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-5) 本节课主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-876.html" data-id="ckgcma3cl004caa2ay5voot6l" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1304.html" data-id="ckgcnru7j00211d2a4ic7pfn1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
 
     </footer>
   </div>
@@ -583,7 +790,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="876" data-title="记这次被百度K掉的恢复经历" data-url="http://www.qianxingzhem.com/post-876.html"></div>
+  <div class="ds-thread" data-thread-key="1304" data-title="【基础篇】5、制作主题的头部区域" data-url="http://www.qianxingzhem.com/post-1304.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -602,10 +809,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-8f-8b-e6-83-85-e9-93-be-e6-8e-a5-e5-bb-ba-e7-ab-8b-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e5-9c-a8-e4-b8-bb-e9-a2-98-e4-b8-ad-e6-b7-bb-e5-8a-a0-adminbar-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-865.html" class="article-date">
-  <time datetime="2012-03-10T11:25:37.000Z" itemprop="datePublished">Mar 11 2012</time>
+    <a href="/post-1297.html" class="article-date">
+  <time datetime="2012-09-24T00:34:48.000Z" itemprop="datePublished">Sep 24 2012</time>
 </a>
     
   <div class="article-category">
@@ -620,7 +827,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-865.html">友情链接建立完全攻略</a>
+      <a class="article-title" href="/post-1297.html">在主题中添加 AdminBar 功能</a>
     </h1>
   
 
@@ -628,30 +835,28 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>友情链接是一个完整的网站必不可少的一部分，而友情链接也不是随便就可以添加建立的，里面有很多需要注意的地方。下面，就由<a href="http://www.qianxingzhem.com">潜行者m</a>为大家讲解一下如何建立合理有效的友情链接。</p>
-<h2 id="友情链接的作用"><a href="#友情链接的作用" class="headerlink" title="友情链接的作用"></a>友情链接的作用</h2><p>建立友情链接，可以建立你和对方的友情，这是网站友情链接的社会作用。有了友情链接之后，可以增进双方的友情。建立友情链接，可以增加一些流量。这些流量通常还是比较少的，因为很少有人回去关注网站友情链接，更少人去点击访问。建立友情链接，可以增加网站的相关性、网站权重等，友情链接，往往相当于一个高质量的外链，具有一定的seo的价值。这才是友情链接的重要作用。</p>
-<h2 id="寻找友情链接"><a href="#寻找友情链接" class="headerlink" title="寻找友情链接"></a>寻找友情链接</h2><p>寻找友情链接的方法有很多种，比如说，有很多链接交换平台，上面有很多交换友情链接的信息，你可以选择自己合适的进行交换。同时在站长qq群或者一些其他的地方，都可以发现有交换友情链接的站长。但是我不推荐这种方式。一个好的友情链接，是自己花时间去寻找发现的，我推荐的交换友情链接的方式是这样的：经常关注与自己网站类型相关的网站，看看他们的页面上，是否有没有申请友情链接等字样，看一下对方有没有交换友情链接的意向。如果有的话，就提交申请友情链接。还要观察他们的网站友情链接，因为一个比较好的网站，他的友情链接质量也是很高的，和他网站内容也是相关的，换句话说我们也可以和他交换友情链接。如果遇到好的，可以进行提交申请。潜行者m认为这种方式找到的友情链接的质量是最好的。</p>
-<h2 id="衡量友情链接质量"><a href="#衡量友情链接质量" class="headerlink" title="衡量友情链接质量"></a>衡量友情链接质量</h2><p>网站友情链接的方式，通常有三种，一种就是直接在首页下面显示友情链接，另一种就是建立一个专门用于放置友情链接的页面，在首页中链接这个页面，还有就是这两种结合起来的。通常来说，直接放在首页的友情链接质量是最高的，放在内页的要差很多。如果对方是一个大型的权重很大的网站，为了网站版面等，把你的链接放在内页，也有情可原，如果是小网站主动找上门来的还把你放在内页，说明对方根本不重视你，直接无视掉即可。</p>
-<p>此外链接的pr值也是比较重要的，虽然pr值作用已经削减，但是谷歌的判断通常是不会错的，pr值高的网站，说明网站质量要好。需要特别注意的是，要看一下网站的历史，不要被表面的情况迷惑了，看一下这个网站以前曾经做过什么，有没有被搜索引擎k掉。如果这个网站之前被惩罚过，那么和这种网站友情链接是很危险的。如果对方网站是一个充满垃圾的采集网站，那么和这这种网站链接是没有前途的。</p>
-<p>查看对方网站友情链接的数量和质量，我曾经接到过一个网页游戏网站的友情链接申请，他们网站友情链接在下面有上百个，有各种各样的网站。如果对方链接很多的话，每个链接分到的pr值等就会很少得到的利益就会很少，更别提会给你带来点击流量了。相反的，你网站友情链接少，会给他很多的好处。而且对方链接很杂乱，说明这个网站并不是一个质量很好的正规网站，和他们链接是没有任何好处的，所以应当尽量避免此类链接。</p>
-<h2 id="友情链接中的花招"><a href="#友情链接中的花招" class="headerlink" title="友情链接中的花招"></a>友情链接中的花招</h2><p>有很多素质比较低的站长，会使用一些友情链接的花招，来让他得到的利益最大化。</p>
-<p>1，过段时间悄悄的删掉链接。本来和你说的很好，和你建立友情链接，之后过段时间就偷偷删掉。这种情况很常见，一般来说，清除友情链接，应该要提前和对方站长沟通说一声。应对这种情况，我们就要经常看一下友情链接中的网站，是不是还链接着你的网站，如果没有了，问一下出现了什么问题，如果是人为有意的，那么你就可以毫不客气的撤下链接，与这种人断绝来往。</p>
-<p>2，各种方法阻止链接传递权重。比如加上nofollow属性，使用javascript来输出你的链接。这样可以控制权重不向你的网页还有很多中作弊的花招，在这里就不再赘述了。大家在检查友情链接的时候，不要仅仅看外表，一定要看一下相应的源代码。如果有不是最简单的a标签的话就要注意了。很有可能会动过一些手脚。</p>
-<h2 id="接受别人的友情链接"><a href="#接受别人的友情链接" class="headerlink" title="接受别人的友情链接"></a>接受别人的友情链接</h2><p>如果你的网站想要得到友情链接，并且允许申请友情链接的话，请在网站的底部或者其他地方新建<a href="http://www.qianxingzhem.com/friendlink">一个友情链接页面</a>。页面的锚文字可以是“申请友链?”之类的文字，让别人一看就知道是一个申请友情链接的页面，从而让别人知道你想要接受友情链接。在这一个页面中，你应该说明你要添加的友情链接的相关要求，比如要求对方pr多少，对方收录多少，对方网站更新频率多少等等。这样做一个要求之后，如果遇到一些不太好的友情链接申请，你就可以有个比较好的理由回绝对方。</p>
-<h2 id="申请友情链接的礼仪"><a href="#申请友情链接的礼仪" class="headerlink" title="申请友情链接的礼仪"></a>申请友情链接的礼仪</h2><p>在申请友情链接中，有许多需要注意的地方，要礼貌注重礼仪一些，这样得到对方友情链接的几率就会大一些。</p>
-<p>1，在申请对方友情链接的时候，一定要真诚的请求，并且在自己的网站上，提前加上对方的网站链接。这样会让对方感到你是真的很想和他链接。</p>
-<p>2，提前看清对方友情链接的标准，如果自己的网站达不到这个标准，就尽量不要去申请。申请也没有用处，对方一般不会同意的，而且还搞得比较尴尬。</p>
-<p>3，如果对方的网站经常打不开，或者有一些不良的信息等，你不想和他继续交换友情链接了。请提前和对方站长联系一下，说明自己不想做友情链接了，说明对方网站有哪一些地方不符合自己的友情链接的要求，告知对方要撤下链接。不要不通知就私自撤下链接，这是一种非常不礼貌的行为。潜行者m不久前就遇到这种情况，发现后，直接撤下，以后永远不会和这个站长友情链接了。</p>
-<h2 id="申请友情链接的误区"><a href="#申请友情链接的误区" class="headerlink" title="申请友情链接的误区"></a>申请友情链接的误区</h2><p>1，有些人认为，友情链接越多越好，从而只要是网站就去申请友情链接。这是错误的，假如一个生物科技论坛和一个游戏论坛做友情链接，这是没有多少用处的。得到高质量的网站友情链接，必须是相关的网站，例如网络营销网站的话，可以与一些网站建设类网站链接，这样的效果和质量都要好很多。同时，友情链接尽量要控制在20个左右，不要太多了。如果太多了，会被搜索引擎当成链接工厂，而且每个链接的权重也会降低。</p>
-<p>2，pr等指标越高，这个友情链接就越好。这又是一个seo的误区，很多人认为，一个网站的pr值越高，与他链接，得到的好处就越多。于是就有很多人卖pr值高的网站链接，有些人就买。对于pr值来说，不要和自己网站差距太大，相仿、低点、高点都可以。举一个简单的例子，一个pr为1的网站，却有一个pr8的网站链接。搜索引擎发现了，会怎么想？一个pr8的网站为什么要去链接一个pr1的网站？会不会是购买的链接？如果搜索引擎真的这样想，就麻烦了，因为搜索引擎是反感购买链接这类活动的。所以，与自己pr相仿或者高点的网站链接是最好的了。</p>
+        <p>首先，你必须的知道，什么叫做 AdminBar 。这是 WordPress 中的一个非常方便的功能，当管理员或者有管理权限的用户访问页面的时候，就会看到最上面有一个黑色的条条，上面有各种快捷链接。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" alt="adminbar" title="adminbar"></a></p>
+<p>不知道为什么，竟然还有很多人写如何去掉这个功能。但是很少有人写如何增加这个功能。</p>
+<p>这个功能需要增加？对，没错。在早期我制作主题的时候，就出现了没有 AdminBar 的情况。要想在主题中，增加这个功能，必须要用到两个函数：</p>
+<pre>&lt;?php wp_head(); ?&gt;、&lt;?php wp_footer(); ?&gt;</pre>
+
+<p>这两个函数，是实现 WordPress 中某些功能而使用的。例如本文写的 AdminBar 的功能，就是使用这两个函数。新手制作主题的时候，往往会看到或者使用到 wp_head() 这个函数，但是会忽视 wp_footer() 这个函数。所以，AdminBar 不会显示，但是会空出那么高的高度。</p>
+<p>这两个函数的位置也需要注意。</p>
+<ul>
+<li>wp_head() —— 通常放在&lt;/head&gt;上面的一行</li>
+<li>wp_footer() —— 通常放在最下面的&lt;/body&gt;的上面一行<br>只有准确放置了这两个函数，AdminBar 才会出现。</li>
+</ul>
+<p><span style="color: #ff0000;">注意：</span></p>
+<p>忽略了一个地方，在现在的版本中，用户可以自定义在浏览博客的时候，是否显示最上面这个工具条。在 “用户”-》“我的个人资料” 中可以设置。在以前的版本中，记得好像没有这个选项。感谢 “<a href="http://www.linyousai.cn/" target="_blank" rel="noopener">鬼娃娃</a>” 提醒。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-865.html" data-id="ckgcma3bb001caa2a7xhpk90p" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1297.html" data-id="ckgcnru8l00571d2a2ch1t2k1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a></li></ul>
 
     </footer>
   </div>
@@ -659,7 +864,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="865" data-title="友情链接建立完全攻略" data-url="http://www.qianxingzhem.com/post-865.html"></div>
+  <div class="ds-thread" data-thread-key="1297" data-title="在主题中添加 AdminBar 功能" data-url="http://www.qianxingzhem.com/post-1297.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -678,10 +883,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e4-bb-8eseo-e7-9a-84-e8-a7-92-e5-ba-a6-e6-9d-a5-e8-b0-88-e7-bd-91-e7-ab-99-e6-90-ac-e5-ae-b6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wordpress-e7-9a-846-e7-a7-8d-e5-9b-ba-e5-ae-9a-e8-bf-9e-e6-8e-a5-e4-bc-98-e7-bc-ba-e7-82-b9-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-863.html" class="article-date">
-  <time datetime="2012-03-03T19:45:11.000Z" itemprop="datePublished">Mar 4 2012</time>
+    <a href="/post-1240.html" class="article-date">
+  <time datetime="2012-09-11T05:17:07.000Z" itemprop="datePublished">Sep 11 2012</time>
 </a>
     
   <div class="article-category">
@@ -696,7 +901,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-863.html">从seo的角度来谈网站搬家</a>
+      <a class="article-title" href="/post-1240.html">WordPress的6种固定连接优缺点对比</a>
     </h1>
   
 
@@ -704,21 +909,98 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网站搬家，顾名思义就是转移网站更换网站的服务器。在一个网站的运营发展中，必不可少的过程就是转移服务器，可能是由于续费、更换主机服务商或者网站规模增大需要更强配置的服务器等，都需要进行网站搬家。前些天，我看到过一篇不错的关于网站搬家的文章，是潜行者m写的《<a href="http://www.qianxingzhem.com/post-369.html">网站搬家的一般流程</a>》，上面介绍了一下网站搬家的原则和实现的具体步骤，并没有涉及太多的关于seo方面的。在这里本人就从seo的角度来谈谈网站搬家。<br>网站搬家，注定是要更换服务器，通常的说，<strong>将一个网站转移到另一个服务器上，是不会对排名造成影响的</strong>。至于有些人发现排名下降了，那可能是由于你搬到了一台之前被搜索引擎惩罚的服务器上，或者是你搬家的方法不当，导致搬家过程中，搜索引擎发现大量的错误等等。如果操作得当，网站搬家对排名是没有影响的。</p>
-<p>第一步：<strong>确定你真的要进行非常有必要的网站搬家。</strong>我周围就有很多朋友，总是不停的购买主机然后不停的把网站放来放去。这样既麻烦，又有可能造成文件数据丢失，导致排名受损。再说，如果搜索引擎检测到你的网站经常的更换服务器，那么它就会疑惑你的网站究竟是一个什么网站，为什么要经常转移网站，对排名很有可能也有一定的影响。</p>
-<p>第二步：<strong>备份网站的所有资源。</strong>网站搬家的原则就是，不能丢失任何的数据和资源。包括你的数据库和图片等资源，都要全部复制下来。</p>
-<p>第三步：<strong>把所有下载下来的网站资源，按照原先的目录结构等上传到新网站空间，保证文件名和目录一致，将数据等导入数据库。</strong>之后，我们就要进行检测和观察。对比原和转移之后的网站结构、数据等，进行适当的修改。比如有个文件缺失了，无法访问，就下载补上；如果有数据丢失文章不见了，再重新添加上。要多打开几个页面，多看一下，搬家之后的网站是不是和原来的网站有什么变化。如果有变化的话，就修改成原来网站的样子。</p>
-<p>第四步：<strong>修改dns设置，使其生效。</strong>经过第三步，如果你发现已经没有什么问题了，那么就可以进行域名转接了。修改dns，将域名指向新网站空间的ip地址，并且修改一下ttl设置，把它设置成最短。ttl表示dns的缓存时间，短了可以即时的让域名转接生效。过几分钟之后，我们可以ping一下自己的网站域名，就可以发现域名已经指向了新的服务器。这时候，要看看网站和以前有没有什么不同，如果不同的话，请抓紧进行修改。</p>
-<p>第五步：<strong>一段时间将原网站文件数据等删除。</strong>搬家过程已经完成，但是我们的旧网站仍然需要再放一会。如果新的网站空间不行的话，我们可以直接修改dns把域名转接回老网站。我们需要在旧网站上面添加一个新的统计代码，看一下还又没有人访问，通常经过几天，搜索引擎对网站进行正常的收录之后，我们就可以把原网站数据删掉。这也是为了安全的需要，防止原网站数据被下载等。</p>
-<p>这样，网站搬家就算是完成了。还需要注意以下几点：<br>1，过段时间，需要把ttl设置调高。在第一时间告诉isp和搜索引擎你网站换服务器之后，就可以把ttl重新设置的高一些。因为网站的地址不会轻易的变化，所以不需要很短的缓存生效时间。调高之后，可以减少对dns服务器的请求，可以提高网站访问速度。<br>2，如果网站是一个更新速度很快的网站，而且主要的更新者是用户（例如论坛），那么出于防止数据丢失的考虑，我们需要在搬家之前，关掉网站相关功能，显示网站正在升级等。搬家之后，立刻开启功能，这样就不会丢失用户发布的新内容了。<br>3，一定要仔细检查网站文件是否丢失，网站结构是否变化。有些网站使用了伪静态功能重写了url，一定要按照之前的格式，重写，如果url发生了变化，就麻烦了。<br>4，在网站搬家的过程中网站一直可以正常访问，所以不会对搜索引擎的爬行、排名等造成影响。</p>
+        <p>有人说 WordPress 的 SEO 做的比较好，我想这个和 WordPress 可以方便的自定义文章的固定链接有分不开的联系。在众多的 WordPress 博客中，有很多种的固定连接，本文就是把这些固定链接的形式和效果跟大家分析一下，然后根据你自己的需求，选择适合你博客的固定连接。</p>
+<h2 id="默认固定链接样式"><a href="#默认固定链接样式" class="headerlink" title="默认固定链接样式"></a>默认固定链接样式</h2><p>没有在后台的 “设置-》》固定链接” 中设置链接样式的话，就属于默认的固定连接样式，它的形式如下</p>
+<pre>http://www.qianxingzhem.com/?p=123</pre>
+
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接短小</li>
+<li>移植性好，当 WordPress 搬家时，新主机万一不支持 Rewrite 模块，你不需要进行301定向</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>缺乏语义性，对搜索引擎收录稍稍有影响，但是不大</li>
+</ol>
+<h2 id="日期、月份和名称链接样式"><a href="#日期、月份和名称链接样式" class="headerlink" title="日期、月份和名称链接样式"></a>日期、月份和名称链接样式</h2><p>这是官方默认的链接样式，分日期、月份和名称两种，形式如下</p>
+<pre>http://www.qianxingzhem.com/2012/09/11/sample-post/</pre>
+<pre>http://www.qianxingzhem.com/2012/09/sample-post/</pre>
+
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性增强，增加了文章发布时间和文章名称</li>
+<li>文章发布时间和文章名称在链接中，有利于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>生成的链接长度太长，不利于发送等</li>
+<li>文章标题直接显示在连接中，有的时候并不希望这样</li>
+</ol>
+<h2 id="名称型样式"><a href="#名称型样式" class="headerlink" title="名称型样式"></a>名称型样式</h2><p>直接加一个文章名称，形式如下</p>
+<pre>http://www.qianxingzhem.com/sample-post/</pre>
+
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性强，文章名称在链接中，便于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>生成链接长度过长，中文链接会被编码，链接乱且长</li>
+</ol>
+<h2 id="关键词类型链接样式"><a href="#关键词类型链接样式" class="headerlink" title="关键词类型链接样式"></a>关键词类型链接样式</h2><p>将文章中的关键词提取出来，然后自定义固定连接，用“-”链接关键词，很多高手博客使用这种链接，样式如下</p>
+<pre>http://fairyfish.net/m/limit-login-attempts/</pre>
+
+<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性强，便于搜索引擎理解</li>
+<li>生成链接长度合适</li>
+</ol>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>需要博主有一定的英语水平和耐心</li>
+<li>对中文博客的效果不大，几乎没有中国人会搜索一个英文单词来看你的中文文章</li>
+</ol>
+<h2 id="数字型链接样式"><a href="#数字型链接样式" class="headerlink" title="数字型链接样式"></a>数字型链接样式</h2><p>直接把文章的ID写在链接中，样式如下</p>
+<pre>http://www.qianxingzhem.com/123</pre>
+
+<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接极短</li>
+</ol>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>没有任何语义性</li>
+</ol>
+<h2 id="数字型语义增强版链接样式"><a href="#数字型语义增强版链接样式" class="headerlink" title="数字型语义增强版链接样式"></a>数字型语义增强版链接样式</h2><p>不仅仅是文章 ID 还增加一些英文单词，例如：post、archives等，形式如下</p>
+<pre>http://www.qianxingzhem.com/archives/123</pre>
+<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+
+<h3 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接较短</li>
+<li>增加了关键词，便于搜索引擎理解这个页面是一篇文章</li>
+</ol>
+<h3 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>语义性不是非常明确<br>目前，潜行者m博客用的就是这种 数字型语义增强版 固定链接样式。</li>
+</ol>
+<h2 id="如何自定义博客固定链接"><a href="#如何自定义博客固定链接" class="headerlink" title="如何自定义博客固定链接"></a>如何自定义博客固定链接</h2><h3 id="了解结构标签"><a href="#了解结构标签" class="headerlink" title="了解结构标签"></a>了解结构标签</h3><p>WordPress 设置了一系列的固定链接结构标签，来让你定义固定链接，具体标签及功能如下</p>
+<ul>
+<li>%year% 文章发表的年份，四位数，如 2004</li>
+<li>%monthnum% 月份，如 05</li>
+<li>%day% 天，如 28</li>
+<li>%hour% 小时，如 15</li>
+<li>%minute% 分钟，如 43</li>
+<li>%second% 秒，如 33</li>
+<li>%postname% 文章标题的别名 (编辑文章/页面时的别名栏)</li>
+<li>%post_id% 文章的唯一ID，如 423</li>
+<li>%category% 分类的别名 (新建/编辑分类时的别名栏)</li>
+<li>%tag% 标签的别名(新建/编辑标签时的别名栏)</li>
+<li>%author% 作者的别名<br>之后，我们需要打开后台 “固定链接设置” 页面，找到 “自定义链接结构” 根据自己的需求，写上链接结构，加上结构标签。例如潜行者m博客用的链接样式<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+在后台自定义链接结构时，需要定义成
+<pre>/post-%post_id%.html</pre>
+
+</li>
+</ul>
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><p>固定链接在 WordPress 博客中非常重要，强烈建议在建博初期就确定下来，而且之后不要再更换。如果你更换了固定链接，之前的固定链接打开之后，就会出现404错误，影响搜索引擎收录。</p>
+<p>当然，如果你迫不得已更换博客的固定链接，请安装相应的 301链接重定向 插件，使用插件将之前的固定链接重定向到更新后的固定链接上。这类的插件比较多，这里我推荐几个：Simple 301 Redirects、Redirection等。</p>
+<p>关于 WordPress 固定链接更详细的说明，请看官方文档 ：<a href="http://codex.wordpress.org/zh-cn:%E4%BD%BF%E7%94%A8%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5" target="_blank" rel="noopener">zh-cn:使用固定链接</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-863.html" data-id="ckgcma39r000gaa2aakdgidn9" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1240.html" data-id="ckgcnrubn00e01d2aiwuvwurx" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
 
     </footer>
   </div>
@@ -726,7 +1008,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="863" data-title="从seo的角度来谈网站搬家" data-url="http://www.qianxingzhem.com/post-863.html"></div>
+  <div class="ds-thread" data-thread-key="1240" data-title="WordPress的6种固定连接优缺点对比" data-url="http://www.qianxingzhem.com/post-1240.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -745,14 +1027,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-5-e6-9c-ac-e7-bd-91-e7-ab-99-e8-bf-90-e8-90-a5-e7-9b-b8-e5-85-b3-e8-b5-84-e6-96-99-e6-8e-a8-e8-8d-90" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-914-e3-80-81-e5-ae-89-e8-a3-85-e4-b8-bb-e9-a2-98-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-794.html" class="article-date">
-  <time datetime="2012-02-25T04:19:53.000Z" itemprop="datePublished">Feb 25 2012</time>
+    <a href="/post-1268.html" class="article-date">
+  <time datetime="2012-09-09T21:01:50.000Z" itemprop="datePublished">Sep 10 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/其他/">其他</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -763,7 +1045,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-794.html">5本网站运营相关资料推荐</a>
+      <a class="article-title" href="/post-1268.html">【基础篇】4、安装主题文件</a>
     </h1>
   
 
@@ -771,30 +1053,55 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>1，网站推广29种常用方法</strong></p>
-<p>网站站长最头疼的事情，就是网站推广。如何才能进行有效的网站推广呢？本书中就介绍了29种<a href="http://www.qianxingzhem.com">网站推广</a>的方法。本书是外国人写的，而且时代有些久远，其中的有些方法已经失效了，不过仍然有参考价值。</p>
-<p>下载地址：<a href="http://qxzm.qjwm.com/down_1989383.html" target="_blank" rel="noopener">http://qxzm.qjwm.com/down_1989383.html</a></p>
-<p><strong>2，王通《<a href="http://www.qianxingzhem.com">网站运营</a>研究》超值</strong></p>
-<p>这本书的主题是网站运营研究，在本书中，王通以几个著名的网站作为例子，分析他们如何运营，如何成功。想要建设网站，却又找不到好头绪；想要运营网站，却又不知道方法的朋友，千万不要错过本书。通过本书的学习，会给你一些网站建设运营的灵感。</p>
-<p>下载地址：<a href="http://qxzm.qjwm.com/down_1989383.html" target="_blank" rel="noopener">http://qxzm.qjwm.com/down_1989383.html</a></p>
-<p><strong>3，Google Adsense的秘密</strong></p>
-<p>Google Adsense是各位站长都知道的比较好的广告联盟。做Google Adsense其实是有很多需要注意的地方，在布置页面的广告时，也是有很多技巧的。</p>
-<p>本书是老外写的，被翻译成中文。如果有想要做谷歌联盟的朋友，请务必看一下本书！</p>
-<p>下载地址：<a href="http://qxzm.qjwm.com/down_1989385.html" target="_blank" rel="noopener">http://qxzm.qjwm.com/down_1989385.html</a></p>
-<p><strong>4，王通的2007seo</strong></p>
-<p>王通是国内著名的seo专家，他曾写过不少的seo资料，但都是保密的这是他2007年的一本seo资料，虽然过去了几年，但是里面还有部分内容是非常好的，仍然有很多参考价值。推荐大家下载下来看一下。</p>
-<p>下载地址：<a href="http://qxzm.qjwm.com/down_1989336.html" target="_blank" rel="noopener">http://qxzm.qjwm.com/down_1989336.html</a></p>
-<p><strong>5，六篇网赚seo精选文章</strong></p>
-<p>今天<a href="http://www.qianxingzhem.com">潜行者m</a>带给大家的是收集的六篇关于网赚的关于SEO的精品文章，挺不错的。大家可以先看一下文章标题，看看自己需要不需要看，如果需要的话，就下载。</p>
-<p>下载地址：<a href="http://qxzm.qjwm.com/down_1989456.html" target="_blank" rel="noopener">http://qxzm.qjwm.com/down_1989456.html</a></p>
+        <p>在前面的几个教程中，我们已经设计出了主题的模板、样式，同时也添加了模拟数据，现在我们要做的就是把现有模板文件安装到 WordPress 中，这样有两个好处</p>
+<ol>
+<li>添加函数调用之后，刷新即可显示相应数据，方便对数据的规划。</li>
+<li>还有其他各种好处。<br>到了这个步骤，你就会发现 远程调试 和 本地调试 的区别了。远程调试，需要不断的在远程服务器上修改文件，然后刷新速度还要看网速等；本地调试直接复制，然后使用文本编辑器直接打开编辑即可，刷新加载速度也非常快。所以推荐在本地进行调试。</li>
+</ol>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>WordPress 主题安装相信大家都不陌生，我们只需要把上节课只做好的 “myTheme” 文件夹复制到 “wp-contentthemes” 文件目录下面，然后把 Html 文件后缀修改成 PHP 即 index.php，一个文件夹有了 index.php 和 style.css 这两个文件，才能被系统识别。之后我们登录后台，找到 “外观-》主题” 就可以看到我们的 “myTheme” 主题了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/themelist.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/themelist.jpg" alt="" title="themelist"></a></p>
+<p>你会发现你制作的这个主题显示和其他下载的主题显示的不同，标准主题中，需要在 style.css 文件中添加一些信息，同时还要生成缩略图。关于这一部分，将会在 【中级篇】 中进行讲解。</p>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>点击启用之后，我们再访问我们博客的首页，就可以发现，已经显示出来我们之前的模拟数据了。但是完全没有 CSS 的样式效果。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/blogindex.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/blogindex.jpg" alt="" title="blogindex"></a></p>
+<p>原因很简单，我们之前的模板中，引用 style.css 文件的时候，直接用的相对目录</p>
+<pre>&lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;</pre>
+
+<p>href 属性直接指向了 style.css 文件，指向的是 主题 文件下面的 style.css 文件，当我们访问博客首页的时候，就无法加载到这个 style.css 文件了。</p>
+<p>正确的做法是，使用 绝对链接 到你的 style.css 。这里，我们需要将原来模板中的 &lt;link&gt;标签的 href 属性改成 <a href="http://localhost/cms/wp/wp-content/themes/myTheme/style.css" target="_blank" rel="noopener">http://localhost/cms/wp/wp-content/themes/myTheme/style.css</a> 。这里包含你的网址和 CSS 文件的绝对地址。这样就正常了，但是这样做有很多问题：</p>
+<ul>
+<li>使用你的模板的时候，需要修改这个属性的值，把前面的网址改成你的博客网址。</li>
+<li>修改模板名称的时候，我们同样需要修改这个属性的值。</li>
+<li>以及其他麻烦。<br>你懂这种代码，修改起来还比较容易，但是面对不懂的用户呢？你让他们如何修改？所以我们就需要想出解决方法。</li>
+</ul>
+<p>如果说，我可以使用某种东西，然后它就自动得到当前网站的地址，加上当前主题的目录名，自动的生成这个地址，那么这些问题都会迎刃而解。</p>
+<p>WordPress 的主题机制以及为我们准备好了这样的东西，那就是 <strong>WordPress 主题函数</strong>。WordPress 以及帮我们准备好了大量的函数，来调用这些数据。我们只需要插入主题文件中即可。</p>
+<h2 id="style-css-文件调用函数"><a href="#style-css-文件调用函数" class="headerlink" title="style.css 文件调用函数"></a>style.css 文件调用函数</h2><p>我们只需要在原来模板的 href 属性中，将原来的 “style.css” 换成 “&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;” 就可以了。</p>
+<p>下面，潜行者 m 带着你简单分析一下这个函数</p>
+<pre>&lt;?php bloginfo( 'stylesheet_url' ); ?&gt;</pre>
+
+<p>首先，WordPress 是 PHP 开发的，所以执行函数的时候，都需要用 PHP 标签括起来，例如：</p>
+<pre>&lt;?php ........ ?&gt;</pre>
+
+<p>其次，这里面的函数名是 bloginfo(); 这是 WordPress 内置的函数，其功能就是调用各种博客相关数据的，这些数据通常在 “WordPress 后台 》 设置 》 常规” 里面进行设置。这个函数有很多参数，例如上面的那个参数   “stylesheet_url” ，就是调用了 style.css 的绝对地址。所以我们插入这个函数之后，WordPress 的主题机制会运行这些函数，将博客数据替换出来。</p>
+<p>这是我们学习的第一个函数，我这里只是简单的讲解一下，在后面的教程中，我将会更加详细的对参数以及用法进行解析。如果你想超前学习，可以看一下本人之前的关于 bloginfo(); 函数的常用参数文章：<a href="http://www.qianxingzhem.com/post-364.html">wordpress 中 bloginfo()函数详解</a></p>
+<p>添加修改之后，我们可以看到，页面已经恢复正常了</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/cssurl.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/cssurl.png" alt="" title="cssurl"></a></p>
+<h2 id="学习重点"><a href="#学习重点" class="headerlink" title="学习重点"></a>学习重点</h2><p>经过这一个小事情之后，我们可以明确一下学习重点。那就是各种常用 WordPress 函数的参数以及使用方法，之后插入模板文件中，就可以显示 WordPress 的数据了，也就达到了制作主题的目的了。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p>myTheme 主题下载地址 : <a href="http://pan.baidu.com/share/link?shareid=32228&amp;uk=706095745" target="_blank" rel="noopener">&gt;&gt;点击这里</a></p>
+<h2 id="之前的系列文章"><a href="#之前的系列文章" class="headerlink" title="之前的系列文章"></a>之前的系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-794.html" data-id="ckgcma3cx0054aa2ahv7cz5wz" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1268.html" data-id="ckgcnru7i001x1d2a1ryduelk" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源分享/">资源分享</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
 
     </footer>
   </div>
@@ -802,7 +1109,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="794" data-title="5本网站运营相关资料推荐" data-url="http://www.qianxingzhem.com/post-794.html"></div>
+  <div class="ds-thread" data-thread-key="1268" data-title="【基础篇】4、安装主题文件" data-url="http://www.qianxingzhem.com/post-1268.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -823,7 +1130,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -834,7 +1141,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -843,7 +1150,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -852,7 +1159,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -861,7 +1168,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

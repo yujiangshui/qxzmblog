@@ -63,6 +63,626 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-html5-e6-a0-87-e7-ad-be-hgroup-e5-b7-b2-e7-bb-8f-e8-a2-ab-e5-ba-9f-e9-99-a4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1882.html" class="article-date">
+  <time datetime="2013-04-14T17:19:44.000Z" itemprop="datePublished">Apr 15 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/HTML/">HTML</a>►<a class="article-category-link" href="/post-category/HTML/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1882.html">HTML5 标签 hgroup 已经被废除</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTML5 增加了很多语义化的标签，hgroup 就是其中一个，它用来表明标题的集合。如果有主标题、副标题，可以使用这个来包裹一下，一般比较常见的就是网站的标题和网站描述：<img src="https://qxzm-cdn.sapi.work/blog/2013/04/1882/hgroup.png" alt="网站标题和副标题常用 hgroup 包裹"></p>
+<p>但是这样做并不是太必要，而且还有一些麻烦。一般来说，很难有单纯的 hn 标题标签集合在一起，通常还包含一些其他内容，但是使用 hgroup 包裹的内容，必须是 hn 标题标签，否则不会通过 HTML5 验证。又有谁会为了这么一个增强语义性用处不大的标签专门去生成一堆 hn 标签？</p>
+<p>然后好消息是，这个标签在最新的 HTML5.1 版中被废除了，以后可以不再用了。但是又面临了一些问题，如果我有类似这种 <strong>声明主标题和对应副标题说明</strong> 的需求，我应该怎样增强语义性？</p>
+<p>W3 给了一些结构建议，<a href="http://www.w3.org/html/wg/drafts/html/master/common-idioms.html#sub-head" target="_blank" rel="noopener">查看原文请点击这里</a>。下面引用原文然后用我自己的博客标题做一个例子。</p>
+<h2 id="用其他方法模拟-hgroup-的语义性"><a href="#用其他方法模拟-hgroup-的语义性" class="headerlink" title="用其他方法模拟 hgroup 的语义性"></a>用其他方法模拟 hgroup 的语义性</h2><h3 id="使用标点符号分割"><a href="#使用标点符号分割" class="headerlink" title="使用标点符号分割"></a>使用标点符号分割</h3><p>最简单的方法就是使用标点符号分割主标题和副标题：</p>
+<pre>&lt;h1&gt;潜行者m: 关注前端开发热爱简约设计。&lt;/h1&gt;</pre>
+
+<p>这种类型比较适合于文章标题，很显然不适合网站标题。</p>
+<h3 id="使用-span-标签标注副标题说明"><a href="#使用-span-标签标注副标题说明" class="headerlink" title="使用 span 标签标注副标题说明"></a>使用 span 标签标注副标题说明</h3><pre>&lt;h1&gt;潜行者m
+   &lt;span&gt;关注前端开发热爱简约设计。&lt;/span&gt;
+&lt;/h1&gt;</pre>
+
+<p>这种方式比上面好一点，但是感觉还是怪怪的，但是结构比较简单，如果不怕麻烦，推荐下面一种方法。</p>
+<h3 id="使用-header-标签包裹标题和描述"><a href="#使用-header-标签包裹标题和描述" class="headerlink" title="使用 header 标签包裹标题和描述"></a>使用 header 标签包裹标题和描述</h3><p>header 也是 HTML5 新增的语义性标签，用来表示头部信息，一般不会被废弃。我们可以这样做：</p>
+<pre>&lt;header&gt;
+&lt;h1&gt;潜行者m&lt;/h1&gt;
+&lt;p&gt;关注前端开发热爱简约设计。&lt;/p&gt;
+&lt;/header&gt;</pre>
+
+<p>强烈推荐这种写法，这样保证了语义性的同时，也保证了代码的整洁。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1882.html" data-id="ckgcnruaz00c31d2ab3iljqen" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1882" data-title="HTML5 标签 hgroup 已经被废除" data-url="http://www.qianxingzhem.com/post-1882.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-html5-video-e8-b7-a8-e6-b5-8f-e8-a7-88-e5-99-a8-e5-85-bc-e5-ae-b9-e7-9a-84-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1868.html" class="article-date">
+  <time datetime="2013-04-10T18:47:47.000Z" itemprop="datePublished">Apr 11 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/HTML/">HTML</a>►<a class="article-category-link" href="/post-category/HTML/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1868.html">HTML5 video 跨浏览器兼容的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在过去 flash 是网页上最好的解决视频的方法，截至到目前还算是主流，像那些优酷之类的视频网站、虾米那样的在线音乐网站，仍然使用 flash 来提供播放服务。但是这种状况将会随着 HTML5 的发展而改变。就视频而言，HTML5 新增了 video 来实现在线播放视频的功能。</p>
+<p>使用 HTML5 的 video 可以很方便的使用 JavaScript 对视频内容进行控制等等，功能十分强大，同时代码比较少加快加载速度。此外跨平台性比较好，特别是一些平板、手机等。例如苹果公司的产品不支持 flash 仅支持 HTML5 中的 video 功能。</p>
+<p>但是 HTML5 的兼容性问题是个硬伤，我们可以在网页中使用 video 来播放视频，但使用早期浏览器的访问者可能无法正常观看这个视频。此外，由于视频编码器的历史渊源导致各种浏览器支持的视频格式不同。应对这些问题，想在网页中使用 HTML5 video 功能，可以按照下面三个步骤操作。</p>
+<h2 id="第一步：提前准备好多格式视频文件"><a href="#第一步：提前准备好多格式视频文件" class="headerlink" title="第一步：提前准备好多格式视频文件"></a>第一步：提前准备好多格式视频文件</h2><p>由于编码器的版权问题，导致不同浏览器对视频格式的兼容性不同。目前没有一个视频格式兼容所有浏览器，唯一的解决方法就是把视频转换成多种格式。</p>
+<p>首先要准备一个 mp4 格式的视频，可以在苹果设备中使用；其次要准备 ogv 格式的视频，用在火狐浏览器中；最后要准备一下 webm 格式的视频，这个可以用在谷歌浏览器等。webm 是谷歌提出的，开源、免费，很有可能成为兼容所有浏览器的视频格式。</p>
+<p>准备多格式浏览器的麻烦之处在于转换格式。视频转换工具国内的功能比较少，转换格式可能没有上面后两个，而且质量良莠不齐，往往需要注册才能使用。推荐一个国外的工具 <a href="http://www.online-convert.com/" target="_blank" rel="noopener">Online converter</a> ，在线免费视频转换工具。甚至不用安装软件，直接选择相应的目标格式，然后上传视频，配置一下参数就可以转换出来了。没有合适工具的朋友，可以尝试一下。</p>
+<h2 id="第二步：编写对应-HTML5-video-代码"><a href="#第二步：编写对应-HTML5-video-代码" class="headerlink" title="第二步：编写对应 HTML5 video 代码"></a>第二步：编写对应 HTML5 video 代码</h2><p>HTML5 中的 video 实际上就是一个简单的标签，包含了一些视频相关信息等。下面我直接给出具体代码，然后简单解释一下：</p>
+<p><pre>&lt;video width=”800” height=”374”&gt;<br>    &lt;source src=”my_video.mp4” type=”video/mp4” /&gt;<br>    &lt;source src=”my_video.ogv” type=”video/ogg” /&gt;<br>    &lt;source src=”my_video.webm” type=”video/webm” /&gt;<br>    你浏览器不支持 video 功能，点击这里下载视频： &lt;a href=”video.webm”&amp;gt下载视频&lt;/a&amp;gt.<br>&lt;/video&gt;</pre><br>video 标签表示这里是一个视频，width、height 属性分别表示这个视频内容的宽高（单位像素）。video 标签中可以包含 source 标签，source 标签用来表示引用的视频和视频的格式、类型。为了保证向下的兼容性，我们还在 video 标签中加了一句提示，这句话在支持 video 标签的浏览器中是不会显示的，如果不支持就会显示出来。这里，还增加了一个视频的下载地址，如果浏览器不支持，可以让用户选择下载下来看。</p>
+<p>特别需要注意一点，你的主机必须能正确的处理这事些视频请求。确保你的主机被请求这些视频的时候会在 Content-Type 头发送正确的 MIME 类型。如果你不清楚，可以咨询一下主机服务商，也可以自己添加。如果主机支持 .htaccess ，可以在 .htaccess 文件中增加下面语句：</p>
+<p><pre>AddType video/ogg .ogv<br>AddType video/mp4 .mp4<br>AddType video/webm .webm</pre><br>大体就是这样，比较简单，更加具体的关于 video 的使用方法，可以搜索一下，也可以见本文扩展阅读链接，在这里不再赘述。</p>
+<h2 id="第三步：为旧版浏览器做兼容"><a href="#第三步：为旧版浏览器做兼容" class="headerlink" title="第三步：为旧版浏览器做兼容"></a>第三步：为旧版浏览器做兼容</h2><p>前面说过，如果浏览器不支持 video ，将会把 video 中的提示内容显示出来。那么对付老旧浏览器，我们可以用传统的 flash 来替换这个提示内容。这样，当浏览器不兼容 video 标签的时候，就会显示出 flash 版本的视频。例如：</p>
+<p><pre>&lt;video width=”800” height=”374”&gt;<br>    &lt;source src=”my_video.mp4” type=”video/mp4” /&gt;<br>    &lt;source src=”my_video.ogv” type=”video/ogg” /&gt;</pre></p>
+<pre><code>&amp;lt;object width=&quot;800&quot; height=&quot;374&quot; type=&quot;application/x-shockwave-flash&quot; data=&quot;fallback.swf&quot;&amp;gt;
+    &amp;lt;param name=&quot;movie&quot; value=&quot;fallback.swf&quot; /&amp;gt;
+    &amp;lt;param name=&quot;flashvars&quot; value=&quot;autostart=true&amp;amp;amp;file=video.flv&quot; /&amp;gt;
+&amp;lt;/object&amp;gt;
+</code></pre><p>&lt;/video&gt;<br>直接按照原来正常的 flash 引入方法写进 video 标签中即可。这样，我们就实现了跨浏览器兼容的 video 功能使用。</p>
+<h2 id="参考文章和扩展阅读"><a href="#参考文章和扩展阅读" class="headerlink" title="参考文章和扩展阅读"></a>参考文章和扩展阅读</h2><ul>
+<li><a href="http://www.catswhocode.com/blog/cross-browser-compatible-html5-videos" target="_blank" rel="noopener">Cross browser compatible HTML5 videos</a></li>
+<li><a href="http://baike.baidu.com/view/3655243.htm" target="_blank" rel="noopener">WebM 格式百度百科</a></li>
+<li><a href="http://www.w3schools.com/html/html5_video.asp" target="_blank" rel="noopener">HTML5 Video @w3schools</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1868.html" data-id="ckgcnrub000c61d2aopyq50q5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1868" data-title="HTML5 video 跨浏览器兼容的方法" data-url="http://www.qianxingzhem.com/post-1868.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-blink-e6-b5-8f-e8-a7-88-e5-99-a8-e5-86-85-e6-a0-b8-e6-9d-a5-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1865.html" class="article-date">
+  <time datetime="2013-04-06T13:53:00.000Z" itemprop="datePublished">Apr 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1865.html">Blink 浏览器内核来了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前 Web 界有一个重磅信息，那就是 Opera 抛弃了自己的内核 Presto 而改用 WebKit 内核。大家都在议论缺乏了渲染内核的多样性，会不会影响到浏览器和 Web 标准之类的进步和发展。而现在，应该不用讨论了，因为一个新内核 Blink 要来了。</p>
+<p>Blink 是由 WebKit 内核衍生出来的，是由 Chromium 开发维护的新项目。在官方的博客上有详细的说明：<a href="http://blog.chromium.org/2013/04/blink-rendering-engine-for-chromium.html" target="_blank" rel="noopener">Blink: A rendering engine for the Chromium project</a>。关于这个浏览器的更加详细的特性和目标，可以看这里：<a href="http://www.chromium.org/blink" target="_blank" rel="noopener">http://www.chromium.org/blink</a>。大体就是一大堆的优化，提高速度，各种支持。</p>
+<p>之前的 WebKit 内核是由 谷歌 chrome 和 苹果 safari 共同开发，谷歌不干了，从 WebKit 中衍生分离出 Blink 不知道是何居心，不过浏览器渲染内核的多样性是肯定有了，以谷歌的技术，这种多样性应该会促进 Web 的发展。</p>
+<p>对于国内来说，Blink 是开源引擎，X60 、X狗 之类的浏览器，又可以再增加一个核了，因为 Blink 对速度做了优化，应该会比 WebKit 还要快，所以可能会被命名为超急速三核切换功能。总之，妈妈再也不用担心我的浏览器核心不够用了。</p>
+<p>最害怕的是增加前端工程师的压力，<a href="http://wange.im/blink-browser-is-coming.html" target="_blank" rel="noopener">万戈前辈好像很蛋碎</a>，以谷歌的技术，应该不会像对 IE 那样费力的去 Hack，至于那些前缀什么的，随着标准的确立，就自然去掉了。</p>
+<p>Opera 怎么办？当然，它也会使用 Blink 内核的。还是让我们拭目以待吧，看看这个内核究竟怎么样。</p>
+<p>此外，Firefox 也耐不住寂寞了，前几天也在官方博客上发表了关于联手三星共同开发下一代浏览器内核（servo）的声明（<a href="https://blog.mozilla.org/blog/2013/04/03/mozilla-and-samsung-collaborate-on-next-generation-web-browser-engine/" target="_blank" rel="noopener">点击这里查看官方声明</a>），这是要干什么？Web 界还是不太平啊，期待国内有哪个技术团队能开发一个自主的内核啊。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1865.html" data-id="ckgcnruae00an1d2abyhhiw0q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1865" data-title="Blink 浏览器内核来了" data-url="http://www.qianxingzhem.com/post-1865.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-e5-8e-9f-e7-94-9f-javascript-e5-9c-a8-e9-a1-b5-e9-9d-a2-e5-8a-a0-e8-bd-bd-e5-ae-8c-e6-88-90-e5-90-8e-e5-a4-84-e7-90-86-e5-a4-9a-e4-b8-aa-e5-87-bd-e6-95-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1850.html" class="article-date">
+  <time datetime="2013-04-01T09:37:08.000Z" itemprop="datePublished">Apr 1 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/JS-JQ/">JS/JQ</a>►<a class="article-category-link" href="/post-category/JS-JQ/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1850.html">使用原生 JavaScript 在页面加载完成后处理多个函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript 脚本语言的执行，是需要触发的。一般的做法就是在网页中，直接编写几个函数，有的在代码被加载的时候就被浏览器处理，或者使用类似下面的代码来触发实现函数的相关功能。</p>
+<p><pre>&lt;div id=”link” onclick=”fun()” &gt;&lt;/div&gt;</pre><br>上面代码的意思就是，当鼠标点击 id 为 link 的元素的时候，就触发了它的 onclick 事件，然后执行使用 JavaScript 定义的 fun 函数。这样的做法肯定是很不合理的，因为触发操作直接写进了 HTML 结构里面，内容和行为没有隔离开，对日后的二次开发或者修改带来不便。</p>
+<p>需要注意的是，当事件处理与对应元素绑定起来的时候，只有在那个元素加载完之后才能进行操作。如果说把处理的脚本放在了 head 区域，浏览器会报错。因为下面的 HTML 元素还没有加载出来，head 中的处理脚本已经被处理了。</p>
+<p>一个好的执行 JavaScript 代码的方法应该是 <strong>行为内容分离的</strong>、<strong>在页面加载后处理 </strong>的。所以，处理 JavaScript 代码我们要用到 <strong>监听器 </strong>和<strong> window 对象的 load 事件</strong>。</p>
+<h2 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h2><p>监听器实际上的功能就是行为与内容分离的。以前需要在 HTML 中加上一些触发事件来触发 JavaScript 的相关函数，而现在直接在 JavaScript 中对某个元素的使用监听器，监听这个元素的事件，如果这个元素被触发了某些事件，在监听器中又定义了这个事件对应的处理函数，那么就会处理这个函数。</p>
+<p>W3C 的标准方法叫做 addEventListener ，被IE9，chrome，firefox，opera所支持，写法：</p>
+<p><pre>window.addEventListener(‘load’,function,false);</pre><br>早期 IE 中有 attachEvent 方法效果类似：</p>
+<p><pre>window.attachEvent(‘onload’,function);</pre><br>使用监听器的方法也很简单，就是先获取页面中的某个元素，然后对这个元素使用监听器，定义监听的事件和对应的事件处理函数，就上文例子：</p>
+<p><pre>document.getElementById(‘link’).addEventListener(‘click’,fun,false);</pre><br>关于监听器更加详细的使用说明，请见文末补充资料。</p>
+<h2 id="window-onload-事件"><a href="#window-onload-事件" class="headerlink" title="window.onload 事件"></a>window.onload 事件</h2><p>onload 事件只有在整个页面已经完全载入的时候才会被触发，我们将 JavaScript 代码写进 onload 事件中，就可以保证在 HTML 元素被加载完成之后，浏览器才会处理我们的 JavaScript 代码。基础的写法：</p>
+<p><pre>window.onload = function(){<br> //code<br>}</pre><br>这样，这个函数里面的 code 会在加载完成之后被处理。但是，这种方法有个缺陷，就是只能用于这一个函数。页面中无法出现多个 window.onload 事件，如果出现了多个 onload 事件，那么后面的内容会覆盖前面的。</p>
+<p>那么，我们可以这样做，在一个 window.onload 事件中，写上所有需要加载的函数名，然后在外面定义函数：</p>
+<p><pre>window.onload = function(){<br>   func1();<br>   func2();<br> }</pre></p>
+<p>function func1(){…}<br>function func2(){…}<br>这样做虽然可以，但是很不方便，因为我们需要把所有要加载的函数名都写进去，修改起来就会很麻烦。当然办法肯定是有的，jQuery 就特别提供了很强大的多脚本加载方法，那么原生的 JavaScript 肯定也有办法。</p>
+<h2 id="window-onload-同时处理多个函数"><a href="#window-onload-同时处理多个函数" class="headerlink" title="window.onload 同时处理多个函数"></a>window.onload 同时处理多个函数</h2><p>我们需要编写一个处理函数，先看一下代码：</p>
+<p><pre>    function addLoadListener(fn){<br>        if (typeof window.addEventListener != ‘undefined’){<br>            window.addEventListener(‘load’,fn,false);<br>        }else if(typeof document.addEventListener != ‘undefined’){<br>            document.addEventListener(‘load’,fn,false);<br>        }else if (typeof window.attachEvent != ‘undefined’){<br>            window.attachEvent(‘onload’,fn);<br>        }else{<br>            var oldfn = window.onload;<br>            if(typeof window.onload != ‘function’){<br>                window.onload = fn;<br>            }else{<br>                window.onload = function(){<br>                    oldfn();<br>                    fn();<br>                };<br>            }<br>        }<br>    }</pre><br>简单的来解析一下，这个自定义的 addLoadListener 函数，传递一个 函数名称 作为参数。它首先判断浏览器是否支持相关的 监听器，如果支持 监听器，就使用 监听器 监听 window 对象的 onload 事件，然后处理这个函数。这段代码使用 if 语句判断了所有浏览器的监听事件，是跨浏览器兼容的。</p>
+<p>我们把这段代码放在 JavaScript 代码段的最上面，然后在下面定义相关函数，然后使用下面语句来加载 JavaScript 函数了。</p>
+<p><pre>addLoadListener(func);<br>function func() {…}</pre><br>这样，有什么 JavaScript 函数是需要在页面加载完成之后处理的，直接使用 addLoadListener 函数即可，而且可以使用多个。通常来说，所有的 JavaScript 最好都使用 onload 事件加载，以避免意外情况发生。</p>
+<h2 id="引用和补充资料"><a href="#引用和补充资料" class="headerlink" title="引用和补充资料"></a>引用和补充资料</h2><ul>
+<li>这段代码来自《JavaScript 精粹（修订版）》 一书</li>
+<li><a href="http://baike.baidu.com/view/2965912.htm" target="_blank" rel="noopener">addEventListener 百度百科介绍</a></li>
+<li><a href="http://parkmy.iteye.com/blog/431306" target="_blank" rel="noopener">addEventListener 和 attachEvent用法</a></li>
+<li><a href="http://www.cnblogs.com/yihai/articles/2234592.html" target="_blank" rel="noopener">道听途说之JavaScript事件监听器</a></li>
+<li><a href="http://www.candoudou.com/archives/523" target="_blank" rel="noopener">javascript中addEventListener方法和removeEventListener方法</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1850.html" data-id="ckgcnru7z00381d2aikbrn1mz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1850" data-title="使用原生 JavaScript 在页面加载完成后处理多个函数" data-url="http://www.qianxingzhem.com/post-1850.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-b0-86-wordpress-e5-8d-9a-e5-ae-a2-e4-bb-8e-sae-e8-bf-81-e5-87-ba-e6-90-ac-e5-9b-9e-justhost" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1846.html" class="article-date">
+  <time datetime="2013-03-31T15:24:14.000Z" itemprop="datePublished">Apr 1 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1846.html">将 WordPress 博客从 SAE 迁出搬回 JustHost</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天不知道为什么，SAE 老是抽风，然后打开很慢甚至无法打开，然而 ping 确实可以 ping 的通。不通过顶级域名而是直接使用 SAE 提供的二级域名也无法打开。</p>
+<p>我一直以为 SAE 是非常正规、高质量的，可能偶尔遇到几次抽风问题，事实上这是我第一次遇到。写了一篇文章，结果等了一个下午也没有发表出去。期间，我找了一些网友进行测试，发现不是我个人网络的问题，他们也都打不开。然后 哼哼猪 跟我说，我的博客经常遇到这种很慢的情况。难道是我之前都没有怎么管理导致的吗？</p>
+<p>我打算再等等看，第二天恢复正常了。然后第三天一大清早的，又是这种问题。我上网搜索了一下其他放在 SAE 上面的网站，没有这个问题。我开始忍受不了了，忍受不了这种影响用户体验的问题存在。于是打算从 SAE 迁出去。</p>
+<p>跟 <a href="www.x-berry.com">软矿</a> 的博主 MK 聊了一下，跟我推荐了几个 VPS，我看了半个下午的 VPS 套餐，确定下来之后发现人家卖完了，很无语。于是晚上将博客数据什么的搬回了之前的 JustHost 暂时用一下待日后再解决主机问题。虽然访问速度比较慢，但是至少不会出现那种打不开的抽风问题，使用 又拍云 进行静态文件加速，应该也不会慢到受不了。</p>
+<h2 id="WordPress-迁出-SAE-的步骤"><a href="#WordPress-迁出-SAE-的步骤" class="headerlink" title="WordPress 迁出 SAE 的步骤"></a>WordPress 迁出 SAE 的步骤</h2><p>这段虽然比较水，但是还是大体说一下，因为搬出来的时候遇到了一些小插曲，可供后来者参考使用。</p>
+<p>WordPress 搬家步骤有很多，我个人比较喜欢的是：导出数据》》在目的主机安装 WordPress 》》导入数据。</p>
+<p>这时候，强大的资源外链的作用体现出来了，因为图片等都用外链，所以根本不用管那些资源，直接把数据库内容转移即可。看起来步骤非常简单，但实际上从 SAE 迁移到 JustHost 的过程中遇到了很多问题，折腾了一个下午。</p>
+<h2 id="SAE-的数据导出问题"><a href="#SAE-的数据导出问题" class="headerlink" title="SAE 的数据导出问题"></a>SAE 的数据导出问题</h2><p>导出 WordPress 的数据有两种方式，第一种是在后台使用“工具”里面的“导出”，导出为 xml 文件，然后在新博客的后台直接导入即可。当然，这是一种不完全的导入方式，虽然说是博客全部的数据，但实际上只有文章、页面、简单的配置数据，一些博客名称什么的内容，还需要自己在新博客后台细微调整。</p>
+<p>因为这种方式比较傻瓜，所以优先考虑。这时候出现问题了，SAE 上的 WordPress 无法导出所有的数据，只能导出 34kb 的 xml 数据文件。原因不详，看后台提示可能是因为 SAE 限制了数据查询次数还是其他乱七八糟的东西，反正导不出所有数据。不得已，我拿出前天导出的备份 xml 文件，大约 3M 左右大小。这时候要上传新博客的时候，发现服务商把 php 的上传限制在了 2M 大小。好吧，这种方法还得看你的主机参数配置，所以不是好办法。</p>
+<p>SAE 上面也附带了 PHPMyAdmin 那就使用它直接把 MySQL 的数据库内容导出，然后在 JustHost 后台的 PHPMyAdmin 中导入好了。SAE 上的东西肯定都是阉割版的，不知道 PHPMyAdmin 是什么版本的，把数据库导出之后，在 JustHost 后台无法导入，因为某些语句出错。后来经过搜索，发现也有网友迁移的时候，遇到了这种问题。</p>
+<p>SAE 还提供了一个他们自己开发的数据库管理服务 <a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=196" target="_blank" rel="noopener">Deferred Jobs</a> 可以用来导入导出 MySQL 数据库。因为使用这个服务需要排队等，不是立即生效的，所以官方推荐 4M 一下的数据库用 PHPMyAdmin 导入导出，4M 以上的使用这个服务。不管了，直接用了，其实没过多久就直接导出完毕。</p>
+<p>下载下来 sql 文件有 3M 多，而使用 PHPMyAdmin 导出的才有 2M 多一点，我怀疑没有完全导出，难道又是被 SAE 阉割限制了？这次的 sql 文件非常正常，使用 JustHost 的后台 PHPMyAdmin 直接上传导入就可以了。</p>
+<p>再全面的检查一下，增加一下固定链接伪静态，把主题文件、插件上传到新博客，这样搬家完成了，顺带升级成了最新版的 WordPress，SAE 上用的是 3.2.1 阉割版的 WordPress 大家都懂的。</p>
+<h2 id="感谢-SAE"><a href="#感谢-SAE" class="headerlink" title="感谢 SAE"></a>感谢 SAE</h2><p>我从2012年10月16号左右，把 WordPress 博客从 JustHost 迁移到了 SAE，后来总结写了<a href="http://www.qianxingzhem.com/post-1387.html">《WordPress 迁移 SAE 完全操作攻略》</a> 这篇文章，下面虽然有评论说看到很多人进去又出来了，但是我觉得我不会。因为我对 SAE 的服务挺有好感的，一直以为 新浪 是大公司，放在上面很安全，不会丢失数据也不会轻易被黑客攻击，可以安心写文章。以至于后面的这段时间，我连数据都没有备份过几次。</p>
+<p>截止到今年3月份，博客在 SAE 上面已经5个多月了，这段时间内访问速度还是挺不错的，当然是相对于 JustHost 来说。对于小型的博客来说，花费非常少，我也做了很多优化，消耗资源很少，所以截止到现在的5个月的使用，算起来只花了2块钱的短信验证费，其他都是实名认证送的云豆。</p>
+<p>同时通过 SAE，还学到了一些简单的 SVN 使用等。总之，虽然搬出了 SAE 还是要感谢它，日后一些小应用的开发什么的，说不定还会放在上面。感谢 SAE ！</p>
+<h2 id="为什么不要用-SAE"><a href="#为什么不要用-SAE" class="headerlink" title="为什么不要用 SAE"></a>为什么不要用 SAE</h2><p>在刚开始使用 SAE 的时候，对 SAE 充满了好感，曾经强烈推荐周围的朋友试用 SAE，也曾建议 多说 他们使用 SAE 或者 阿里云 主机，这样可以减少成本、人力消耗。因为他们的服务器都是自己购买，自己维护的，如果使用第三方稳定的服务，就可以仅仅专注于 多说 的开发了。但是他们拒绝了，我现在明白了。</p>
+<p>东西只有掌握在自己手里，才是最安全的。SAE 或许比一些低端主机靠谱的多，但是为了开发或者资源限制，功能什么的阉割的太严重了。开发、修改等，都得按照他们的套路来，而放在自己的主机或者服务器上，想怎么处理就怎么处理（当然，你得有相关技术），无论是备份还是什么，都是很方便的。我想，多说团队之所以自己维护服务器，就是这个原因吧。</p>
+<p>对我个人来说，可能也不会在 SAE 上寄放博客了，因为我本身要折腾 WordPress 所以在自己的主机上折腾比较方便，SAE 上的是早期阉割版本的 WordPress。</p>
+<h2 id="博客未来的发展"><a href="#博客未来的发展" class="headerlink" title="博客未来的发展"></a>博客未来的发展</h2><p>JustHost 虽然便宜，但是速度实在是比较慢，之前也是因为经常抽风宕机所以才想搬到 SAE 上面的。但是最近手头太紧，买好点的 VPS 又没有足够的资金，此外还有几个筹划中的网站项目等待上线。所以先暂时使用 JustHost，多写一些文章，等访问量大了，也有足够的资金，就会更换好点的主机，例如 linode 啥的。暂时先忍忍吧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1846.html" data-id="ckgcnru92006b1d2a9gfjjawp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1846" data-title="将 WordPress 博客从 SAE 迁出搬回 JustHost" data-url="http://www.qianxingzhem.com/post-1846.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e5-ad-90-e4-b8-bb-e9-a2-98-e5-8a-9f-e8-83-bd-e4-b8-ba-wordpress-e5-a2-9e-e5-8a-a0-e5-88-86-e7-b1-bb-e6-90-9c-e7-b4-a2-e5-8a-9f-e8-83-bd-e5-b9-b6-e7-be-8e-e5-8c-96" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1843.html" class="article-date">
+  <time datetime="2013-03-27T17:15:07.000Z" itemprop="datePublished">Mar 28 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1843.html">WordPress 子主题功能 + 为 WordPress 增加分类搜索功能并美化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期关于 WordPress 方面主要写了两篇文章，分别是 <a href="http://blog.wpjam.com/article/child-themes/" target="_blank" rel="noopener">使用 WordPress 的子主题（Child Themes）功能快速制作自己的主题</a> 和 <a href="http://blog.wpjam.com/m/search-by-category/" target="_blank" rel="noopener">为 WordPress 增加按分类搜索功能并自定义外观</a> 。</p>
+<p>之后，关于 WordPress 的文章，我直接首发在 <a href="http://blog.wpjam.com" target="_blank" rel="noopener">我爱水煮鱼 </a>上面，在 潜行者m 博客就不转发了，只对一些比较好点的文章做一个链接。欢迎大家关注 <a href="http://blog.wpjam.com" target="_blank" rel="noopener">我爱水煮鱼</a>，国内最专业的 WordPress 技术平台。</p>
+<h2 id="子主题功能"><a href="#子主题功能" class="headerlink" title="子主题功能"></a>子主题功能</h2><p>如果你想修改一个 WordPress 最好的方法并不是直接上去修改，而是通过 WordPress 的子主题功能进行修改。这样修改之后，不会影响到原来主题文件，原来主题升级覆盖之后，也不会影响你修改的内容。</p>
+<p>结合着官方文档，并且动手实践了一下，写出了这篇文章：<a href="http://blog.wpjam.com/article/child-themes/" target="_blank" rel="noopener">使用 WordPress 的子主题（Child Themes）功能快速制作自己的主题</a>。</p>
+<h2 id="增加分类搜索功能并定义外观"><a href="#增加分类搜索功能并定义外观" class="headerlink" title="增加分类搜索功能并定义外观"></a>增加分类搜索功能并定义外观</h2><p>对于一个比较大型类门户的博客来说，按照分类搜索功能是必不可少的，这篇文章就介绍了如何增加这个功能。同时对输出的 select 分类选择下拉列表进行了美化。<br>这篇文章中，提供并用 jQuery 实现了模拟下拉列表的功能，想要围观请看这里：<a href="http://blog.wpjam.com/m/search-by-category/" target="_blank" rel="noopener">为 WordPress 增加按分类搜索功能并自定义外观</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1843.html" data-id="ckgcnrubh00dk1d2a5n2o5nih" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1843" data-title="WordPress 子主题功能 + 为 WordPress 增加分类搜索功能并美化" data-url="http://www.qianxingzhem.com/post-1843.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-ba-af-e7-ba-af-e7-9a-84-e8-b6-85-e6-a3-92-e7-9a-84-e5-86-99-e4-bd-9c-e5-b7-a5-e5-85-b7-ef-bc-9awritings-io" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1806.html" class="article-date">
+  <time datetime="2013-03-25T07:57:20.000Z" itemprop="datePublished">Mar 25 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1806.html">纯纯的超棒的写作工具：Writings.io</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个崇尚简约设计的博主，我对于写作环境的要求比较苛刻。先是用过 WordPress 的原生编辑器，然后觉得功能不够，使用增强版的编辑器插件，再到使用 Windows live write 这样的桌面写作软件，到现在的回归原始使用 WordPress 原生编辑器。这个过程中，我从要求功能的复杂转变到了简洁、简单。</p>
+<p>但是 WordPress 原生编辑器仍然满足不了我追求简洁、愉快的写作体验，虽然它有全屏模式，但是切换神马的比较麻烦。自己如果修饰定义后台界面，工程又过于繁杂。偶然的机会，我发现了 <a href="http://writings.io/" target="_blank" rel="noopener">Writings.io</a> 这个工具。</p>
+<p>可以这样说，如果 Writings.io 这个工具早点被开发出来，或许就不会有这个博客了，我会直接在那上面写作，用这个域名指向过去。相见恨晚。</p>
+<h2 id="Writings-io-简介"><a href="#Writings-io-简介" class="headerlink" title="Writings.io 简介"></a>Writings.io 简介</h2><p>引用作者的话，就是说：</p>
+<blockquote>
+<p>Writings.io 是一个提供在线文章写作、管理、发布的网站服务。整个网站采用清新简约的设计，学习 37signals 公司的理念，不求功能最多最全，但求简单够用。目前的 Writings.io 只有两个功能：文章管理和文章编辑。</p>
+</blockquote>
+<p>其实作者也是简洁控，追求极致的写作乐趣，既然现有的已经无法满足，那么就自己动手开发个吧。看着这种介绍，我忍不住试了一下。</p>
+<h2 id="试用-Writings"><a href="#试用-Writings" class="headerlink" title="试用 Writings"></a>试用 Writings</h2><p>先简单的注册一个账号，然后就进入了后台，及其简约的后台：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings0.png" alt="Writings 后台截图"></p>
+<p>然后很明显的新文章按钮，点击一下就进入了新写文章界面，超级简洁和必备的编辑功能：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings1.png" alt="Writings 文章编辑器截图"></p>
+<p>我把前段时间写的一篇文章复制上去测试一下，然后编辑器支持 HTML 代码，排版布局非常合理，写文章的普通基础功能都必备。点击一下发表之后就可以成功发布了，在此过程中实时的保存，妈妈再也不用担心我写的文章不见了。发布之后，就可以查看了。</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings2.png" alt="Writings 文章发表之后截图"></p>
+<p>展示文章的样式也是非常简洁的，非常不错。后台其实有更强大的功能，比较亮的有这个：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings3.png" alt="Writings 后台亮点功能"></p>
+<p>支持绑定域名和 Disqus 账号，这样就可以自定义域名并且拥有评论功能了。绑定域名超级简单，直接 CNAME 到 writings.io 然后在后台设置一下，无需备案没有延迟，直接就可以使用了。</p>
+<p>我做了一个小测试，绑定了一个域名然后发表了一片文章，大家可以点击看一下：<a href="http://test.qianxingzhem.com/" target="_blank" rel="noopener">http://test.qianxingzhem.com/</a></p>
+<h2 id="Writings-优势和未来发展"><a href="#Writings-优势和未来发展" class="headerlink" title="Writings 优势和未来发展"></a>Writings 优势和未来发展</h2><p>国内也有一些轻博客具有简约、专注于写作的特性，但是相比之下 Writings 做的更加极致，没有利益影响，没有框架和不必要的功能限制，单纯的享受写作的乐趣。</p>
+<p>从前端技术的角度来看，整个网站前端做的非常好，采用了响应式的设计，同时 YSlow 性能测试得分 96 分。</p>
+<p>目前还正在开发中，只由 <a href="http://blog.chloerei.com/" target="_blank" rel="noopener">Rei</a> 一个人在开发，许多设想的功能还没有开发出来，例如：导出为 epub 格式、多人协作写作等等。欢迎大家亲自试用，然后提出相应的问题和需求。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1806.html" data-id="ckgcnru9p008f1d2a0g0nzikt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1806" data-title="纯纯的超棒的写作工具：Writings.io" data-url="http://www.qianxingzhem.com/post-1806.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1801.html" class="article-date">
+  <time datetime="2013-03-23T12:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
+<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
+<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
+<h2 id="id-和-class-的区别"><a href="#id-和-class-的区别" class="headerlink" title="id 和 class 的区别"></a>id 和 class 的区别</h2><p>有经验的朋友可以略过这一部分。</p>
+<h3 id="唯一性和重复可用性"><a href="#唯一性和重复可用性" class="headerlink" title="唯一性和重复可用性"></a>唯一性和重复可用性</h3><p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
+<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
+<h3 id="CSS-中优先级不同"><a href="#CSS-中优先级不同" class="headerlink" title="CSS 中优先级不同"></a>CSS 中优先级不同</h3><p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
+<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
+<h3 id="跳转功能"><a href="#跳转功能" class="headerlink" title="跳转功能"></a>跳转功能</h3><p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
+<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="noopener">http://baike.baidu.com/view/371.htm#8</a></p>
+<h2 id="为什么使用-class-而不是-id"><a href="#为什么使用-class-而不是-id" class="headerlink" title="为什么使用 class 而不是 id"></a>为什么使用 class 而不是 id</h2><p>使用 class 究竟有什么好处？</p>
+<h3 id="减少命名"><a href="#减少命名" class="headerlink" title="减少命名"></a>减少命名</h3><p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
+<h3 id="高度重复使用"><a href="#高度重复使用" class="headerlink" title="高度重复使用"></a>高度重复使用</h3><p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
+<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
+<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
+<h3 id="优先级低"><a href="#优先级低" class="headerlink" title="优先级低"></a>优先级低</h3><p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
+<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
+<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
+<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
+<h2 id="id-也是必须有的"><a href="#id-也是必须有的" class="headerlink" title="id 也是必须有的"></a>id 也是必须有的</h2><p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
+<h3 id="锚标记跳转"><a href="#锚标记跳转" class="headerlink" title="锚标记跳转"></a>锚标记跳转</h3><p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
+<h3 id="用在-input-中"><a href="#用在-input-中" class="headerlink" title="用在 input 中"></a>用在 input 中</h3><p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
+<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
+<h2 id="最佳的使用组合"><a href="#最佳的使用组合" class="headerlink" title="最佳的使用组合"></a>最佳的使用组合</h2><p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
+<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
+<p>欢迎讨论交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ckgcnru7o002j1d2ank3uysu4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1801" data-title="为什么使用 class 属性来标注 HTML 元素而不是 id 属性" data-url="http://www.qianxingzhem.com/post-1801.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
     <article id="post--e6-8e-a8-e8-8d-90-e4-b8-80-e4-b8-aa-e6-9c-80-e5-a5-bd-e7-9a-84-wordpress-e9-97-ae-e9-a2-98-e8-a7-a3-e5-86-b3-e5-b9-b3-e5-8f-b0" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1795.html" class="article-date">
@@ -105,7 +725,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1795.html" data-id="ckgcma3bu002jaa2aihpk7g9f" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1795.html" data-id="ckgcnru9900701d2agbo35uv9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -133,431 +753,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-9c-a8-e9-a1-b5-e9-9d-a2-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-bb-9a-e5-8a-a8-e4-b8-80-e5-ae-9a-e8-b7-9d-e7-a6-bb-e5-90-8e-e8-b7-9f-e9-9a-8f-e6-bb-9a-e5-8a-a8-e6-a8-a1-e5-9d-97-e7-9a-84-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e6-96-b0-e7-89-88-e4-b8-aa-e4-ba-ba-e7-ae-80-e5-8e-86-e5-8d-9a-e5-ae-a2-e5-86-99-e4-bd-9c-e6-96-b9-e5-90-91" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1782.html" class="article-date">
-  <time datetime="2013-03-03T18:14:46.000Z" itemprop="datePublished">Mar 4 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1782.html">在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>现在在网页中，经常可以看到一些滚动跟随模块。比较常见的两种场景：</p>
-<ol>
-<li>页面滚动到了导航条位置，然后导航条就固定到页面顶端，跟随滚动</li>
-<li>边栏高度不如正文高，滚动到边栏末端，出现一个跟随页面的滚动的边栏模块<br>本文就是来介绍如何实现这个效果，并且解决这个效果带来的一些问题。</li>
-</ol>
-<h2 id="实现的基本原理"><a href="#实现的基本原理" class="headerlink" title="实现的基本原理"></a>实现的基本原理</h2><p>固定到页面的某个位置，并且跟随页面滚动，实际上就是用到了一个 CSS 中的<a href="http://www.w3school.com.cn/css/pr_class_position.asp" target="_blank" rel="noopener"> position 属性值 fixed</a>。对 HTML 对象指定 position 属性为 fixed 之后，这个对象就会保证位置不变，跟随页面滚动。但是这个属性在早期的 IE 浏览器中是不支持的，有很多 hack 方法，在这里不再赘述。</p>
-<p>那么，要想实现 滚动一定距离 之后，某个模块跟随页面滚动，要做的就是用 Javascript 来监控页面的滚动事件，判断滚动距离是否达到目标位置，然后对要跟随滚动的模块修改 position 属性为 fixed。当然，也可以提前做好一个滚动跟随模块，用 display 属性隐藏起来，等滚动到了一定距离，取消显示。至于怎么出现和出现什么内容，就看你自己的需求了。用 jQuery 监控方法如下：</p>
-<p><pre>$(window).scroll(function(){<br>    if ($(window).scrollTop()&gt;64){<br>        $(“#menu”).css({position:”fixed”,left:”0px”,top:”0px”});<br>    }else{<br>        $(“#menu”).css({position: “relative”});<br>    }<br>});</pre><br>这里，对 window 对象使用<a href="http://api.jquery.com/scroll/" target="_blank" rel="noopener"> jQuery 的 scroll 方法</a>，用来监控滚动事件。当页面滚动的时候，就会触发定义的函数。函数的功能也比较简单，使用 <a href="http://api.jquery.com/scrollTop/" target="_blank" rel="noopener">scrollTop 方法</a>来获取当前网页滚动的位置距离页面顶部多高（单位 px），然后用 if 语句判断，当滚动距离页面顶端超过 64px 之后，就对 id 为 menu 的模块修改 CSS 样式，让它跟随页面滚动。当小于这个高度的时候，再修改回去。</p>
-<p>虽然功能比较简陋，但大体的原理就是这样，更多具体的效果，请自由发挥。</p>
-<h2 id="两个跟随滚动插件"><a href="#两个跟随滚动插件" class="headerlink" title="两个跟随滚动插件"></a>两个跟随滚动插件</h2><p>神说，这么好的效果应该做成插件，于是就有了插件。这里简单的介绍两款基于 jQuery 的插件：<strong>Sidebar Follow</strong> 和 <strong>Scroll Follow</strong> 。</p>
-<h3 id="Sidebar-Follow"><a href="#Sidebar-Follow" class="headerlink" title="Sidebar Follow"></a>Sidebar Follow</h3><p>这是 <a href="http://www.neoease.com/" target="_blank" rel="noopener">mg12 </a>写的一个小插件，代码比较少，功能也比较简单，所以使用起来就比较方便。看名字就可以知道，主要用于边栏模块的跟随滚动。代码页比较少，有兴趣的同学可以看一下。</p>
-<p><a href="http://www.neoease.com/sidebar-follow-scrolling-section/" target="_blank" rel="noopener">Sidebar Follow官方主页和使用说明</a></p>
-<h3 id="Scroll-Follow"><a href="#Scroll-Follow" class="headerlink" title="Scroll Follow"></a>Scroll Follow</h3><p>这是个比较老功能比较强大的插件，可以实现各种你想要的跟随滚动效果。具体的下载地址和使用方法，也不再赘述了。</p>
-<p><a href="http://kitchen.net-perspective.com/open-source/scroll-follow/" target="_blank" rel="noopener">Scroll Follow官方主页和使用说明</a></p>
-<h2 id="添加跟随滚动模块的注意事项"><a href="#添加跟随滚动模块的注意事项" class="headerlink" title="添加跟随滚动模块的注意事项"></a>添加跟随滚动模块的注意事项</h2><p>本文介绍的技术其实没有什么技术含量，写本文的最主要的目的，是想介绍下面这两个注意事项。</p>
-<h3 id="尽量少的使用"><a href="#尽量少的使用" class="headerlink" title="尽量少的使用"></a>尽量少的使用</h3><p>再好的功能，也要适度使用。屏幕的空间本来就有限，加上一个很高的导航条，再加上左下角、右下角的广告，右边再来个边栏跟随，这样的页面你如何才能专注的看正文内容？所以要尽量多的留出浏览者阅读的空间，适度的补充内容，尽量保证页面的整洁。才能有一个比较好的用户体验。</p>
-<h3 id="设置合理的结构防止页面塌陷"><a href="#设置合理的结构防止页面塌陷" class="headerlink" title="设置合理的结构防止页面塌陷"></a>设置合理的结构防止页面塌陷</h3><p>这个问题才是本文的重点，网上很多采用这个效果的页面都中了这个问题。先来看看<a href="http://www.qianxingzhem.com/demo/1782/">问题演示 demo</a>。</p>
-<p>塌陷的具体问题效果很明显，就是下面的内容突然跑上去了，产生了<a href="http://www.blueidea.com/tech/web/2007/4950.asp" target="_blank" rel="noopener">回流（reflow）</a>。回流简单的说，就是当你页面中某个部分突然消失了，浏览器就需要重新渲染网页的内容。潜行者M的 Demo 页面由于结构比较简单，所以具体效果只是内容突然上去而已。但是对于结构比较复杂、代码比较多的网站来说，一旦出现回流，浏览器就要重新计算渲染，页面就会卡一下子。如果浏览者的电脑配置比较低，甚至会卡一下电脑。如果浏览者的浏览器版本比较低，可能会导致页面错乱。</p>
-<p>事关用户体验的问题，是不能容忍的。问题的原因，就是突然改变了相关结构的 CSS 属性导致。就本例而言，原来的导航条 position 属性是 relative ，在页面中占据一定空间。突然改成了 fixed 脱离了文档流，自然浏览器要把原来位置补上，重新渲染。</p>
-<p>所以，在设计页面跟随滚动模块之前，一定要考虑到这个细节。最好设置比较好的 HTML 结构，撑起来。也可以在要滚动的模块外面包裹一层结构，用来占位。也可以在一开始，就让滚动模块脱离文档流。<a href="http://www.qianxingzhem.com">潜行者M</a>的建议是，最好专门设置一个用来滚动的模块，先隐藏，然后触发显示。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1782.html" data-id="ckgcma3bi001waa2am9vujg9w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1782" data-title="在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项" data-url="http://www.qianxingzhem.com/post-1782.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e4-bd-bf-e7-94-a8-jquery-easing-js-e5-a2-9e-e5-bc-ba-e5-8a-a8-e7-94-bb-e8-bf-87-e6-b8-a1-e6-95-88-e6-9e-9c" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1778.html" class="article-date">
-  <time datetime="2013-03-02T15:51:32.000Z" itemprop="datePublished">Mar 3 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/JS-JQ/">JS/JQ</a>►<a class="article-category-link" href="/post-category/JS-JQ/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1778.html">使用 jquery.easing.js 增强动画过渡效果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>jQuery 提供了一些诸如 show、hide、slideUp、fadeIn 等等动画方法，可以方便的切换元素的显隐。更有强大的自定义动画方法 animate ，可以实现很多动画效果。为了让动画有好的过渡变化过程，官方为这些方法设置 easing 属性，但是官方没有给出很多过渡效果。</p>
-<p>jquery.easing.js 这个插件，增加了很多过渡效果，引入之后可以让动画过渡过程更加多样化。</p>
-<p>先来看一下：<a href="http://www.qianxingzhem.com/demo/1778/">Demo</a>。官方也有案例：<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank" rel="noopener">打开官方主页</a>。</p>
-<h2 id="如何使用-jquery-easing-js"><a href="#如何使用-jquery-easing-js" class="headerlink" title="如何使用 jquery.easing.js"></a>如何使用 jquery.easing.js</h2><h3 id="第一步-引入插件"><a href="#第一步-引入插件" class="headerlink" title="第一步 引入插件"></a>第一步 引入插件</h3><p>jQuery 插件嘛，当然要先引入 jQuery，然后再引入 jquery.easing.js  。</p>
-<p><pre>&lt;script type=”text/javascript” src=”<a href="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script" target="_blank" rel="noopener">http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script</a>&gt;<br>&lt;script type=”text/javascript” src=”<a href="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js&quot;&gt;&lt;/script" target="_blank" rel="noopener">http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js&quot;&gt;&lt;/script</a>&gt;</pre><br>然后再在引入代码下面编写调用的 Javascript 代码，注意<a href="http://www.qianxingzhem.com/post-1539.html">代码顺序</a>。</p>
-<h3 id="第二步-启用插件"><a href="#第二步-启用插件" class="headerlink" title="第二步 启用插件"></a>第二步 启用插件</h3><p>首先先假设使用 animate 方法把网页上的 class 为 aa 的 div 的宽度，从原本的 300px 变成 600px。按照 animate 的写法，加上 easing 。</p>
-<p><pre>$(‘.aa’).animate( {‘width’:’600’} , { duration:1000,easing:’easeInOutCirc’ });</pre><br>这样，就对 aa 对象，启用了一个 easeInOutCirc 过渡效果，在 1000毫秒 内变成 600px。</p>
-<h2 id="可以应用的动画方法"><a href="#可以应用的动画方法" class="headerlink" title="可以应用的动画方法"></a>可以应用的动画方法</h2><p>不仅仅支持 animate 方法，还支持 hide、show、slideDown、slideUp、fadeIn、fadeOut等等支持 easing 的动画方法。只需要按照官方对应的格式去写就可以，<strong>这个插件相当于扩充了官方的过渡效果样式</strong>。</p>
-<h2 id="插件的参数"><a href="#插件的参数" class="headerlink" title="插件的参数"></a>插件的参数</h2><p>这个插件有三个参数：<strong>duration</strong>、<strong>easing</strong>、<strong>complete</strong>。</p>
-<h3 id="duration-参数"><a href="#duration-参数" class="headerlink" title="duration 参数"></a>duration 参数</h3><p>用来指定动画变化的时间，以毫秒为单位。</p>
-<h3 id="easing-参数"><a href="#easing-参数" class="headerlink" title="easing 参数"></a>easing 参数</h3><p>指定这个动画要使用何种过渡样式。具体的过渡样式名和效果，需要在<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank" rel="noopener">官方主页上查看左边的 “Example”</a>，选择找到自己想要的效果。</p>
-<h3 id="complete-参数"><a href="#complete-参数" class="headerlink" title="complete 参数"></a>complete 参数</h3><p>设置一个回调函数，当动画完成之后，执行这个函数。</p>
-<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><h3 id="使用-slideUp-动画方法"><a href="#使用-slideUp-动画方法" class="headerlink" title="使用 slideUp 动画方法"></a>使用 slideUp 动画方法</h3><p>slideUp 这类的动画方法，要比 animate 简单一些，不需要复杂的属性参数，所以可以直接这样写：</p>
-<pre><code>$(element).slideUp(1000, method, callback});
-$(element).slideUp({ duration: 1000, easing: method, complete: callback});`&lt;/pre&gt;
-其他的 hide 、show 之类的方法，自行类比。
-
-### 指定默认的 easing 样式
-
-在使用中 easing 参数是可以省略的，省略之后，就会调用默认的过渡样式。可以使用下面一句代码，指定默认的动画过渡样式。
-&lt;pre&gt;`jQuery.easing.def = &quot;过渡样式名，例如 easeInOutCirc&quot;;
-</code></pre><p>用起来挺简单的，但是有了更和谐的变化效果，可以增强用户体验。更多用法欢迎观看<a href="http://www.qianxingzhem.com/demo/1778/"> Demo </a>。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1778.html" data-id="ckgcma3b4000zaa2a6944vpc8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1778" data-title="使用 jquery.easing.js 增强动画过渡效果" data-url="http://www.qianxingzhem.com/post-1778.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1758.html" class="article-date">
-  <time datetime="2013-02-25T15:07:40.000Z" itemprop="datePublished">Feb 26 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1758.html">用 jQuery 制作一个简单的遮罩弹窗效果教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。</p>
-<p>神说，有代码的文章，应该有个 Demo ，于是就有了 <a href="http://www.qianxingzhem.com/demo/1758/">Demo</a>。</p>
-<h2 id="HTML-结构"><a href="#HTML-结构" class="headerlink" title="HTML 结构"></a>HTML 结构</h2><p>首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。</p>
-<pre> &lt;div class="click"&gt;点击这里&lt;/div&gt;
- &lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
- &lt;div class="bg"&gt;&lt;/div&gt;
- &lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
-
-<h2 id="CSS-代码"><a href="#CSS-代码" class="headerlink" title="CSS 代码"></a>CSS 代码</h2><p>对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。</p>
-<p><pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}<br>.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre><br>简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。</p>
-<p>特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。</p>
-<h2 id="jQuery-代码"><a href="#jQuery-代码" class="headerlink" title="jQuery 代码"></a>jQuery 代码</h2><p>分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。</p>
-<p><pre>   $(function(){<br>        $(‘.click’).click(function(){<br>            $(‘.bg’).css({‘display’:’block’});<br>            $(‘.content’).css({‘display’:’block’});<br>        });<br>        $(‘.bg’).click(function(){<br>            $(‘.bg’).css({‘display’:’none’});<br>            $(‘.content’).css({‘display’:’none’});<br>        });<br>    });</pre><br>这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。</p>
-<h2 id="更多技巧和方法"><a href="#更多技巧和方法" class="headerlink" title="更多技巧和方法"></a>更多技巧和方法</h2><h3 id="更平缓的显示"><a href="#更平缓的显示" class="headerlink" title="更平缓的显示"></a>更平缓的显示</h3><p>点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。</p>
-<p><pre> $(‘.click1’).click(function(){<br>    $(‘.bg’).fadeIn(200);<br>    $(‘.content’).fadeIn(400);<br> });<br> $(‘.bg’).click(function(){<br>    $(‘.bg’).fadeOut(800);<br>    $(‘.content’).fadeOut(800);<br> });</pre><br>这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。</p>
-<h3 id="其他的实现方法"><a href="#其他的实现方法" class="headerlink" title="其他的实现方法"></a>其他的实现方法</h3><p>现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：<a href="http://www.54173.cn/blog/?p=701" target="_blank" rel="noopener">简单的jQuery弹出遮罩层</a>。</p>
-<p>差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1758.html" data-id="ckgcma3c4003aaa2aodc9u4ge" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1758" data-title="用 jQuery 制作一个简单的遮罩弹窗效果教程" data-url="http://www.qianxingzhem.com/post-1758.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e6-9c-ac-e7-ab-99-e5-8e-9f-e5-88-9b-e4-b8-bb-e9-a2-98-qetro-e7-8e-b0-e5-af-b9-e5-a4-96-e5-85-ac-e5-bc-80-e5-8f-91-e5-b8-83" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1730.html" class="article-date">
-  <time datetime="2013-02-07T03:57:06.000Z" itemprop="datePublished">Feb 7 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/作品/">作品</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1730.html">本站原创主题 Qetro 现对外公开发布</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>早在去年的8月份，本人就开始制作这套主题，期间收集了不少网友提供的建议。今年二月份以来，经过近一周的工作，对大部分代码进行了重写，推出了公开版本。</p>
-<p>早在去年10月份的 1.2 版本，就打算对外公开，但是由于当时的水平有限，所以一直没有怎么处理主题，让很多网友久等了！！没有这些网友的敦促，相信也不会有公开版本。</p>
-<p>这套主题功能和结构都比较简单，比较适合初学者研究、折腾、二次改造使用，在今后的升级，将会不断的增加新的功能，如果你有什么建议和功能需求，请邮：qianxingzhem#126.com（#换@）</p>
-<p>关于主题更详细的介绍和下载地址，请看这里：<a href="http://www.qianxingzhem.com/theme/qetro">Theme Qetro</a></p>
-<p>同时，祝大家新年快乐，万事如意！！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1730.html" data-id="ckgcma3bx002qaa2ahit4iy56" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress主题/">WordPress主题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1730" data-title="本站原创主题 Qetro 现对外公开发布" data-url="http://www.qianxingzhem.com/post-1730.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9113-ef-bc-8c-e8-a1-a5-e5-85-85-e4-b9-8b-e5-89-8d-e6-95-99-e7-a8-8b-e4-b8-ad-e7-9a-84-e4-b8-80-e4-ba-9b-e7-9f-a5-e8-af-86-e8-a6-81-e7-82-b9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1658.html" class="article-date">
-  <time datetime="2013-01-26T10:58:08.000Z" itemprop="datePublished">Jan 26 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1658.html">【基础篇】13，补充之前教程中的一些知识要点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在之前的教程中，我通过做一套非常简单的 WordPress 主题，介绍了一系列关于 WordPress 主题制作的方法和函数。对于基础篇，有一些细节略过了，有一些功能没有提到，因为这些对于基础比较差的朋友有点难度，所以放在了 中级篇 教程中。回顾整个初级篇教程，有几个知识点需要介绍但是没有介绍到，还有一个小错误，于是就在本文中总结一下。</p>
-<h2 id="显示更多的文章列表"><a href="#显示更多的文章列表" class="headerlink" title="显示更多的文章列表"></a>显示更多的文章列表</h2><p>在目前的主题中，在首页中，只能显示有限的文章列表内容，并没有前后翻页的功能。这样，时间比较早的文章就看不到了，现在就要加上。需要用到的代码如下：</p>
-<p><pre>&lt;div id=”pagination” class=”mt10”&gt;<br>     &lt;?php posts_nav_link(); ?&gt;<br>&lt;/div&gt;</pre><br>其中 <strong>posts_nav_link();</strong> 这个函数就是用于生成列表翻页的函数。这段代码通常要放在文章列表的最下面</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more0.png" alt="页面翻页导航"></a></p>
-<p>保存一下，刷新页面，我们就可以看到了多了一个“下一页”链接，点击之后，还会出现 “上一页”</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more1.png" alt="看到上一页"></a></p>
-<p>这种方式非常简单，但是效果有限。在实际的应用中不大，因为现在网站大都用“页码数字”的形式来翻页。但是 WordPress 并没有提供与之相关的函数，有很多插件是用于实现这个功能的，但实际上用代码也能很方便的实现。下面就是我在网上找到的一段比较好的实现代码，作者不详：</p>
-<p><pre>function qxzm_pagination($query_string){<br>    global $posts_per_page, $paged;<br>    $my_query = new WP_Query($query_string .”&amp;posts_per_page=-1”);<br>    $total_posts = $my_query-&gt;post_count;<br>    if(empty($paged))$paged = 1;<br>    $prev = $paged - 1;<br>    $next = $paged + 1;<br>    $range = 5; // only edit this if you want to show more page-links<br>    $showitems = ($range * 2)+1;</pre></p>
-<pre><code>$pages = ceil($total_posts/$posts_per_page);
-if(1 != $pages){
-echo &quot;&amp;lt;div class=&apos;pagination&apos;&amp;gt;&quot;;
-echo ($paged &amp;gt; 2 &amp;amp;&amp;amp; $paged+$range+1 &amp;gt; $pages &amp;amp;&amp;amp; $showitems &amp;lt; $pages)? &quot;&amp;lt;a  href=&apos;&quot;.get_pagenum_link(1).&quot;&apos; class=&apos;inactive&apos;&amp;gt;|&amp;lt;&amp;lt;/a&amp;gt;&quot;:&quot;&quot;;
-echo ($paged &amp;gt; 1 &amp;amp;&amp;amp; $showitems &amp;lt; $pages)? &quot;&amp;lt;a href=&apos;&quot;.get_pagenum_link($prev).&quot;&apos; class=&apos;inactive&apos;&amp;gt;&amp;lt;&amp;lt;&amp;lt;/a&amp;gt;&quot;:&quot;&quot;;
-
-for ($i=1; $i &amp;lt;= $pages; $i++){
-if (1 != $pages &amp;amp;&amp;amp;( !($i &amp;gt;= $paged+$range+1 || $i &amp;lt;= $paged-$range-1) || $pages &amp;lt;= $showitems )){
-echo ($paged == $i)? &quot;&amp;lt;span class=&apos;current&apos;&amp;gt;&quot;.$i.&quot;&amp;lt;/span&amp;gt;&quot;:&quot;&amp;lt;a  href=&apos;&quot;.get_pagenum_link($i).&quot;&apos; class=&apos;inactive&apos; &amp;gt;&quot;.$i.&quot;&amp;lt;/a&amp;gt;&quot;;
-}
-}
-
-echo ($paged &amp;lt; $pages &amp;amp;&amp;amp; $showitems &amp;lt; $pages) ? &quot;&amp;lt;a href=&apos;&quot;.get_pagenum_link($next).&quot;&apos; class=&apos;inactive&apos;&amp;gt;&amp;gt;&amp;gt;&amp;lt;/a&amp;gt;&quot; :&quot;&quot;;
-echo ($paged &amp;lt; $pages-1 &amp;amp;&amp;amp; $paged+$range-1 &amp;lt; $pages &amp;amp;&amp;amp; $showitems &amp;lt; $pages) ? &quot;&amp;lt;a href=&apos;&quot;.get_pagenum_link($pages).&quot;&apos; class=&apos;inactive&apos;&amp;gt;&amp;gt;|&amp;lt;/a&amp;gt;&quot;:&quot;&quot;;
-echo &quot;&amp;lt;/div&amp;gt;&quot;;
-}
-</code></pre><p>}<br>把这段代码复制到主题下面的 <strong>functions.php</strong> 中，然后在需要这个功能的地方，写上定义的这个函数，就可以实现了。</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more2.png" alt="实现翻页的函数"></a></p>
-<p>这段代码其实也是比较好理解的，如果你有一定的 php 基础，很容就可以看出代码的实现过程。此外，这段代码还输出 html 结构，这样你就可以方便的用 CSS 定义样式了。在中级篇会详细讲解这个地方，默认的情况下效果如下。</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more3.png" alt="实现翻页的效果"></a></p>
-<p>因为之前的 archieve.php 文件是使用 index.php 文件生成的，同时这个文件的用途也是显示文章列表，所以我们也要在这个文件的相应位置，放上这些代码。</p>
-<h2 id="在文章页面中显示上一篇、下一篇文章"><a href="#在文章页面中显示上一篇、下一篇文章" class="headerlink" title="在文章页面中显示上一篇、下一篇文章"></a>在文章页面中显示上一篇、下一篇文章</h2><p>在一个文章或者页面中，显示相邻的上下篇文章这个功能，也比较常见。我们可以使用下面的代码来实现：</p>
-<p><pre>&lt;div id=”prevnext” class=”mt10 ofh”&gt;<br>   &lt;div class=”fl”&gt;&lt;?php previous_post_link(‘%link’); ?&gt;&lt;/div&gt;<br>    &lt;div class=”fr”&gt;&lt;?php next_post_link(‘%link’); ?&gt;&lt;/div&gt;<br>&lt;/div&gt;</pre><br>首先定义了一个结构，然后里面有两个函数：<strong>previous_post_link(‘%link’);</strong>、<strong>next_post_link(‘%link’);</strong>，这两个函数从字面意义上就可以指定，分别用来生成 上一篇、下一篇文章 链接用的。添加的位置一般在文章的底部，当然也可以在顶部添加。保存一下，我们就可以看到效果了。如果一篇文章有上一篇和下一篇文章的话，就会出现这个链接，如果没有，就不会出现。</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more4.png" alt="上一篇下一篇文章的效果"></a></p>
-<p>由于 page.php 文件是由 single.php 文件生成的，如果我们想在页面中也有这个功能，那么我们需要在 page.php 中也加上这些函数。</p>
-<h2 id="当管理员登陆后显示管理工具条（AdminBar）"><a href="#当管理员登陆后显示管理工具条（AdminBar）" class="headerlink" title="当管理员登陆后显示管理工具条（AdminBar）"></a>当管理员登陆后显示管理工具条（AdminBar）</h2><p>现有的演示主题中，当我们登陆之后，返回首页，上面什么都没有。在使用其他的主题时，登陆后台之后，应该会在页面上显示一个快捷管理条。这个管理条可以让你快速的发表文章或者修改这篇文章等等。</p>
-<p>至于如何为这个主题添加 AdminBar ，之前写过文章：<a href="http://www.qianxingzhem.com/post-1297.html">在主题中添加 AdminBar 功能</a> ，在这里就不再赘述了。</p>
-<h2 id="不同页面显示对应的标题（title"><a href="#不同页面显示对应的标题（title" class="headerlink" title="不同页面显示对应的标题（title)"></a>不同页面显示对应的标题（title)</h2><p>在之前的第五节教程<a href="http://www.qianxingzhem.com/post-1304.html">制作主题的头部区域</a>中，我提到使用下面这段代码来显示标题：</p>
-<p><pre>&lt;title&gt;&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;&lt;/title&gt;</pre><br>这的确显示出来了标题，但是在其他页面中，标题也显示这一种形式。因为其他的页面（例如 single.php），引用了 header.php 文件，所以当你访问一篇文章的时候，浏览器标题显示的都是一样的内容，这显然是不行的。那么我们如何进行修改呢？</p>
-<p>这里可以选择让 single.php 不引用 header.php 文件，而是把 header.php 的内容复制到 single.php 的头部，然后在 title 标签内，编写上调用当篇文章的标题。这样的做法可以解决问题，但是后期的修改不方便，也违背了 WordPress 分块机制的目的。其实我们可以使用下面这段很简单的代码解决这个问题：</p>
-<p><pre>&lt;?php if(is_home()): ?&gt;<br>&lt;title&gt;&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;&lt;/title&gt;<br>&lt;?php else: ?&gt;<br>&lt;title&gt;&lt;?php wp_title(‘&amp;laquo;’, true, ‘right’); ?&gt;&lt;?php bloginfo(‘name’); ?&gt; &lt;/title&gt;<br>&lt;?php endif ?&gt;</pre><br>这几条语句，使用了一个 if 语句，同时使用了 is_home() 这个判断函数，判断当前页面是否为首页。如果是，则显示现有的标题结构，如果不是，就调用 <strong>wp_title(‘&amp;laquo;’, true, ‘right’);</strong> 及其参数来显示标题。这样，当访问文章或者页面等页面的时候，显示的标题就是文章标题和网站名称了，而不是原来的网站名称和网站描述了。我们把它替换到 header.php 文件中，之后就完成了</p>
-<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more5.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1658/more5.png" alt="显示对应标题的代码"></a></p>
-<p>至此，初级篇教程就结束了，敬请期待更高级的中级篇教程，它将会以一个更加复杂的主题制作过程为主线，深入的介绍更多常用的函数，以及之前基础篇略过的细节。</p>
-<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=197077&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-13) 本节课主题下载</a></p>
-<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
-<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的wordpress主题教程计划</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress的主题机制</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的HTML主题文件</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1556.html">【基础篇】8，添加博客边栏功能</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1564.html">【基础篇】9，制作底部区域 footer</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1566.html">【基础篇】10，将现有 index.php 文件分块处理</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1568.html">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a></li>
-<li><a href="http://www.qianxingzhem.com/post-1570.html">【基础篇】12，通过当前的文件，生成主题其他必要文件</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1658.html" data-id="ckgcma39d0003aa2akap7jnud" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1658" data-title="【基础篇】13，补充之前教程中的一些知识要点" data-url="http://www.qianxingzhem.com/post-1658.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e8-bf-99-e4-b8-aa-e5-bf-ab-e9-80-92-e5-91-98-e4-b8-ba-e4-bb-80-e4-b9-88-e5-be-88-e5-a4-b1-e8-b4-a5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1653.html" class="article-date">
-  <time datetime="2013-01-20T08:03:02.000Z" itemprop="datePublished">Jan 20 2013</time>
+    <a href="/post-1787.html" class="article-date">
+  <time datetime="2013-03-06T10:33:11.000Z" itemprop="datePublished">Mar 6 2013</time>
 </a>
     
   <div class="article-category">
@@ -572,7 +771,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1653.html">这个快递员为什么很失败</a>
+      <a class="article-title" href="/post-1787.html">新版个人简历+博客写作方向</a>
     </h1>
   
 
@@ -580,28 +779,26 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在京东买了几批东西准备过年，快递发过来不少，就遇到了同一个快递公司的两个不同的快递员。然后他们俩个给我的体验是完全不同的，从做事的角度上来说，很显然，其中一个会变成主管或者高层，另一个会被辞退，如果他们继续这样下去。</p>
-<p>先说不好的一个，他姓王，他是这样送快递的。第一天，我在京东上查询到了我的快递正在送货，在上午。从前两天的送货来看，这家快递公司一般在中午之后的下午左右到我家附近送货，所以我就一直在等着。果然下午的时候，来了一个电话，是我妈接的。他在那头问，我家在哪里。我妈细心的跟他说了半天，走那条街到什么路口之类的。然后他说他现在在一个离那里比较远的地方，可不可以晚点过去送。我妈比较和善，就说可以，说一直都有人最晚来送也可以。然后我等到睡觉，也没来送货的。甚至，我连是哪个货都不知道。</p>
-<p>第二天早上，虽然已经九点了，但是我还在睡觉。这时候，电话响了，是他来送快递，说还有两分钟到我们家附近的街道，让我出来拿快递。有没有搞错？！送快递的，让我从家出去到外面的大街上拿快递。没办法，我也是个好人，就急忙起来随便穿了几件衣服，然后就跑出去了。临出去之前，我突然想到一个事情，这个是不是那个货到付款的货？为了保险，我特意带上了钱包。这时候外面下着小雨，气温很低，我穿的比较单薄，而且从我家下楼到外面的大街，需要走几百米的路。我就这样哆哆嗦嗦的出去了，然后他又打电话给我，问我在哪。然后我就看见他了，在一个封闭的三轮车上。我走过去，他拿出快递，然后撕开说货到付款。幸亏我提前拿了钱，因为我还订了其他不是货到付款的快递。</p>
-<p>然后他找了一会钱，这时候，我看到了三轮车后面坐着两个女的。男的还回头说了一声，稍微等一下。之后找完了钱，头也不抬的说，没有两毛钱。然后我就直接说不要了，就回来了。很明白了，他在利用快递的途中，顺便拉客，多赚一些钱。然后根据拉客的需求，顺便送一下附近的快递。他也解释了昨晚为什么没来送了，说昨晚已经到了六点半了，然后就没来送。也没有道歉，也没有诚意。所以我扭头就走。</p>
-<p>下午，同一个公司的另一个快递员也来送货了，也是货到付款的快递。她是一个女的，姓马，前两次都是她来送的。下午接到了一个电话，问我在家吗？我说在，然后她说现在可以下楼来拿快递了，货到付款，准备好钱。然后我就穿衣服，拿好钱，用了大约两分钟，然后下楼。她已经在我家楼梯口那里等着，同样也是坐在封闭的三轮车，但是里面都是一些快递。我递上钱，然后她给我货，确认无误之后，就完成了。</p>
-<p>对于马来说，实在是有点笨啊。因为从大街上拐进来小区，然后到我楼底下，需要一点点时间和精力，而且要在下面等我一会，然后在出去。真是好浪费时间啊！但是，难道快递不是应该这样的吗？难道快递，要让你自己打车去他们公司拿货吗？！这位姓马的，是我见过的最好的快递员，服务那一切都是那么完美可亲，每次她走，我都要说个谢谢。而那个王快递员，我连骂都不愿意浪费口水。冷静下来，我们透过表面来看一下工作成功的本质因素是什么。</p>
-<p><strong>专业技能。</strong>对于快递行业来说，认识每个地点在哪里，这是必要也是必备的专业知识。你如果连个地方都不知道在哪里，你怎么去送快递？马快递员，不仅知道我家的小区，还根据上面的楼和门牌号，确定我在哪个楼栋。而王快递员，解释了半天，最终还是在大街上。</p>
-<p><strong>诚信。</strong>既然你已经说过要晚点来送，那么就是下了下班时间，也应该送过来。因为知道要有快递来，我都没敢出门，一直在家里等。结果最后也没来。即便是有些意外情况，实在是来不了，也应该打个电话来介绍一下，道个歉。连一点诚信都没有，礼貌也没有，知道自己做的不对，连个对不起都不说，理直气壮的说一句“昨晚到了六点半了，就没来送”。</p>
-<p><strong>负责。</strong>快递讲究什么？当然就是速度。王快递员非常聪明，为了增加自己的收入，利用工作的条件（有车、到处跑），顺便拉人接私活。这样是很聪明，但是你的工作是送快递。用最快的速度把货送到收货人那里。现在则是先拉人，然后到目的地看看有没有货，然后再送。这就是对工作的不负责和不认真。而马快递员全心全意的送快递，而且宁愿自己累点等待，也要让客户得到良好的体验。这就是对工作的认真负责。</p>
-<p>这两个不同的快递员，给我的间接印象会造成后面的什么影响？如果他们俩是不同的快递公司，那么我对王快递员所在公司已经失望，以后收发快递都不会使用这家公司，即使他们承诺很快也很便宜。但是他们俩是同一家快递，当王快递员送货之后，我对这家快递也有了很坏的影响，虽然之前感觉他们不错。这种感觉一直到马快递员送完货之后，才得到调整。</p>
-<p>对，没错，就是这样。当一个航空公司，一直没有出现失误的时候，突然有一架飞机失事，机毁人亡。那么这家公司虽然一直都很好，但是也很快倒闭了。你可以保证一直提供和以前一样的服务，或者更好一点的服务。但是哪怕有一次，你提供给了客户一次不好的服务，哪怕是稍差一点的，那么这个客户就可能留下很坏的印象，下次不会在合作。正如在很久以前（10天前）我在京东定下的电吉他，到现在都没有收到货。我对京东的态度也开始发生了变化。之前我选择京东，是因为我认为，京东正品、低价、发货速度快。在体验的过程中，也确实如此，一般三天到货。而淘宝第三方快递平均要4-5天，而且第三方快递服务水平有限。但是这件事，让我对京东有了新的认识。</p>
-<p>当你特别关注一件货物，而货物迟迟不来的时候，你就会感觉时间更加漫长。虽然只有十天，但是给我的感觉远远超过了十天。页面上的快递电话，也打不通，问在线客服，只能说请您稍等我给您催催。这样，我对京东的购物产生了一种恐惧。这两个月，我不会再在京东上买任何东西。而且以后要在京东买东西之前，我心中都会有几个疑问：我是否愿意为这个商品等待十天？周围商店是否有合适的替代品？如果消费者在购物之前有了疑问和思考，不再冲动，那么电子商务网站的出货量就会大大降低，因为他们就是靠着打折策略等，让消费者不再理性，然后冲动的下上订单。</p>
-<p>有点扯远了，这件事情告诉我们，如果你要从事一项工作，那么在具备熟练的专业技能之后，要将就诚信、认真负责的对待客户和工作。做好每一次的用户体验，为客户着想，赢得客户的信任，不容许任何一丝失误。对于公司来说，你只能保持现在的服务状态，或者更好的服务。一旦你的服务体验下降，你将会损失大量的客户，而这里面的有些客户，很有可能决定你的公司是否能继续存活下去。</p>
-<p>这就是为什么这个快递员很失败！</p>
+        <p>好久没有写一些生活记录类的文章了，今天就来一篇记录一下。马上就要开学了，有种很奇怪的感觉。如果说还在家里，觉得每天都坐在电脑面前真的有点无聊。如果说要回到学校，又是这种事那种事的，也挺烦人的。反正我留下或者开学，都无所谓了，就那么过吧。只是越学越觉得学得不踏实，很多东西只是皮毛，却以为用的很熟练。Javascript 从上学期就要拿下，结果这个假期都没有搞下。还有很多设计草稿，还只是画在上面，还没有做。执行力真的有些不行了。</p>
+<h2 id="新版个人简历"><a href="#新版个人简历" class="headerlink" title="新版个人简历"></a>新版个人简历</h2><p>原本跟团队里面的人承诺，假期也要升级我的个人简历，但是转眼一个假期就过来了，也没有去做。当然草图是有的，打算应用视差滚动做一个，一共有六个页面，包括怎么滚动怎么交互都想好了。但是一个假期都没把视差滚动的相关技术研究好。之前看到网上有些插件，于是就想用插件的方法，但是插件都太不好用了。看起来太麻烦，就不想看，然后就忙别的了。</p>
+<p>当然，昨天上午彻底不能忍了，于是就查找视差滚动相关教程，然后就找到了，然后看完之后豁然开朗，做这种效果太简单了。教程文章：<a href="http://f6design.com/journal/2011/08/06/build-a-parallax-scrolling-website-interface-with-jquery-and-css/" target="_blank" rel="noopener">Build a parallax scrolling website interface with jQuery and CSS</a> 。这是 11 年 8 月份的文章，当时视差滚动已经流行了一段时间了，不得不承认，国内的技术水平和设计实力就是不如国外啊。国内很难找到关于视差滚动的教程，更找不到一些作品。</p>
+<p>然后就开始动手做呗。拿出之前画的草图，挑选了几个场景，然后 PS 素材，写写代码，就做出来了。当然，这个版本的跟我之前的构思差距太远了，很多细节都没处理上，但是用了几个小时就做出来了。主要还是为了应付哈，有些滚动的方式什么的处理的不算好，大家可以看一下，如果有什么建议提一下。<a href="http://www.yujiangshui.com" target="_blank" rel="noopener">点击这里打开 于江水</a>。</p>
+<h2 id="博客写作方向"><a href="#博客写作方向" class="headerlink" title="博客写作方向"></a>博客写作方向</h2><p>先来吐槽一下百度这个大垃圾搜索引擎。自从之前那次<a href="http://www.qianxingzhem.com/post-1048.html"> robots 事件</a>之后，google 的收录几天就全部恢复了，百度到现在还只是几十篇文章。瞎了百度的狗眼算法，光记忆中的就有两次 K 我的博客，连搜索“潜行者 m”这样的独一无二的关键词都找不到。距离那次已经接近半年的时间了，从那次之后，我就不用百度的搜索服务了。说是专注搜索体验，连我的原创博客都 K，搜索也出现很多垃圾，滚蛋吧。</p>
+<p>谷歌是最好的搜索引擎，但无奈香港节点经常抽风。所以，本人推荐使用 <a href="http://cn.bing.com/" target="_blank" rel="noopener">Bing</a>。自从上次百度 K 站事件过来，我用 Bing 已经快半年了，这半年的搜索体验还算不错，虽然图片搜索经常抽风。也比百度的狗屎算法强多了。百度其他服务也有好的，也就百度云放点文件还不错。对了，百度还把我一老站给 K 了，流量直接减半。那论坛根本连碰都没碰，根本没改版过，也没有什么服务器的问题，就这么无缘无故的 K 掉。老子真想用 robots 吧百度给屏蔽掉，只能期待 X60 抓紧崛起。</p>
+<p>其实也分析过为什么会这样。我写过的文章，通常都投稿到<a href="http://blog.wpjam.com/" target="_blank" rel="noopener"> 我爱水煮鱼 </a>博客上面，一般就给通过了。然后，通常就会有转载到别的地方的。对于百度这种垃圾算法而言，我的博客文章就成了复制转载的。所以写作方向要改变，这个博客主要记录前端相关的学习总结，包括一些 CSS3 Html5 之类的，推荐一些 jQuery 插件，翻译一些教程等。我还会写一些 WordPress 的文章，主要以翻译文档为主，但是不会发在这个博客上了。关于 WordPress 的文章，我直接发到 水煮鱼 博客上，这个博客如果有好的前端文章，发表一个月后再投稿到 水煮鱼 上。</p>
+<p>还是尽量高的提高文章质量，更新频率不会太高。</p>
+<h2 id="回到学校"><a href="#回到学校" class="headerlink" title="回到学校"></a>回到学校</h2><p>返校之后，马上开始酝酿已久的一个项目。抓紧给团队的人施压，给他们上课让他们学习。就目前了解的情况来看，大家在假期里都玩的挺好，一点都没学。虽然说，慢慢来，不能太慢了吧。</p>
+<p>最后，再吐槽一下 IE，某日不小心搜索 HTML5 兼容性 出来的。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/03/1787/1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/03/1787/1.png" alt="吐槽IE"></a></p>
+<p>&nbsp;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1653.html" data-id="ckgcma3cr004qaa2ae4z0w44v" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1787.html" data-id="ckgcnru9b00761d2ay6b2vafn" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
 
     </footer>
   </div>
@@ -609,7 +806,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1653" data-title="这个快递员为什么很失败" data-url="http://www.qianxingzhem.com/post-1653.html"></div>
+  <div class="ds-thread" data-thread-key="1787" data-title="新版个人简历+博客写作方向" data-url="http://www.qianxingzhem.com/post-1787.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -630,7 +827,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2013/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2013/">1</a><a class="page-number" href="/archives/2013/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/archives/2013/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2013/">1</a><a class="page-number" href="/archives/2013/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2013/page/4/">4</a><a class="page-number" href="/archives/2013/page/5/">5</a><a class="extend next" rel="next" href="/archives/2013/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -641,7 +838,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -650,7 +847,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -659,7 +856,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -668,7 +865,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

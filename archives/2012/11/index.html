@@ -63,6 +63,206 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9111-ef-bc-8c-e9-80-9a-e8-bf-87-index-php-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90-e6-96-87-e7-ab-a0-e9-a1-b5-e9-9d-a2single-php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1568.html" class="article-date">
+  <time datetime="2012-11-26T12:08:25.000Z" itemprop="datePublished">Nov 27 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1568.html">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上一节我们讲解了如何对 index.php 文件进行分块，这节课就来讲解，如何通过这个文件，生成一个 文章模板（single.php 文件）。通过这节课，你会体验到文件分块的好处。</p>
+<p>生成这个 文章页面模板 的步骤很简单。首先，我们先来仔细想一下，文章页面和博客首页有什么不同？除非是很特殊的设计，它们之间的不同，就在于主体区域。因为博客首页，更多的是要展示文章的信息，包括标题、时间、摘要等，通常以列表的形式出现。而具体的文章页面，就需要显示文章内容。至于其他的元素，例如头部、边栏、底部等这些都是不需要变化的。</p>
+<p>那么生成的步骤就出来了。只需要把 index.php 复制一遍，然后命名为 single.php ，之后再修改一下这个文件，把结构改一下、添加上评论功能等，就变成了一个文章页面模板了。</p>
+<h2 id="修改文档结构"><a href="#修改文档结构" class="headerlink" title="修改文档结构"></a>修改文档结构</h2><p>对于文章内容页面，为了更加方便的使用 CSS 对其进行控制，我们需要对其 结构进行修改。之前的结构</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single0.png" alt="" title="single0.png"></a></p>
+<p>修改后的结构，已经添加了 文章信息描述 和 评论模块</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single1.png" alt="" title="single1"></a></p>
+<p>之后，我们还要修改调用数据的函数。之前复制的时候，还是 the_excerpt() 这个显示文章摘要，我们现在要使用下面语句来调用全文内容</p>
+<pre>&lt;?php the_content(); ?&gt;</pre>
+
+<p>不需要任何参数，即可直接输出一篇文章的所有内容。当然，也可以为这个函数加上一些参数，这样可以根据自己的需要进行定义。更加详细的用法，请看 <a href="http://codex.wordpress.org/Template_Tags/the_content" target="_blank" rel="noopener">官方文档</a> 或者 <a href="http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-the_content%28%29.html" target="_blank" rel="noopener">中文版</a> 的。在这里，就不再赘述了。</p>
+<p>完成上述步骤之后，我们刷新一下博客，然后随便打开一篇文章的时候，发现已经可以显示出来文章全文了。下面我们需要来进行一些样式的修饰。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single2.png" alt="" title="single2"></a></p>
+<h2 id="添加-CSS-样式"><a href="#添加-CSS-样式" class="headerlink" title="添加 CSS 样式"></a>添加 CSS 样式</h2><p>之后可以看到文章数据之后，我们就需要对其使用 CSS 排版布局。排版主要的内容包括：文章整体布局、文章内元素的修饰、新增结构的布局等。关于文章内元素的修饰，在高级篇还会更加深入的讲解。在初级篇中，我简单的对其进行修饰一下，不对一些文章内的细节进行修饰。之后，文章页面效果图如下：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single3.png" alt="" title="single3"></a></p>
+<h2 id="添加相应数据调用"><a href="#添加相应数据调用" class="headerlink" title="添加相应数据调用"></a>添加相应数据调用</h2><p>修饰完成之后，我们需要在新增的“文章信息”模块中，添加相应的数据调用。只需要把下面一段代码复制到那个位置即可：</p>
+<pre>原创作者：&lt;a href="&lt;?php echo $authordata-&gt;user_url; ?&gt;" title="&lt;?php echo $authordata-&gt;display_name;?&gt;"&gt;&lt;?php echo $authordata-&gt;display_name;?&gt;&lt;/a&gt;&lt;br /&gt;
+ 原文链接：&lt;a href="&lt;?php echo get_permalink($post-&gt;ID);?&gt;" title="&lt;?php echo $post-&gt;post_title; ?&gt;"&gt;&lt;?php echo $post-&gt;post_title; ?&gt;&lt;/a&gt;&lt;br /&gt;
+ 版权声明：&lt;a href="&lt;?php bloginfo('siteurl'); ?&gt;"&gt;© &lt;?php bloginfo('name'); ?&gt; &lt;/a&gt; 版权所有，转载请声明版权！</pre>
+
+<p>显示效果如下：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single4.png" alt="" title="single4"></a></p>
+<p>上面的代码，对于有一定 PHP 基础的朋友来说，很容易理解。就是通过 WordPress 内置的几个全局对象，调取当前文章的相应信息，然后以 HTML 的方式呈现出来，于是就有了大家看到的那个效果。</p>
+<h2 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h2><p>评论功能，是一篇文章必不可少的模块。增加评论模块，通常在 主题目录下面 新建一个名为 comments.php 的文件，然后在里面添加上相应的评论提交、评论调用显示的函数，之后在相应位置，加上调用函数。但是评论模块比较复杂，在基础篇中，就不讲解如何去手动添加评论模块，而是推荐使用第三方评论插件。</p>
+<p>在这里推荐一下 <a href="http://duoshuo.com/" target="_blank" rel="noopener">多说</a> 这个评论插件。在 WordPress 中安装这个插件，然后在他们官方网站上注册账号，通过密钥链接起来之后，就可以使用他们的插件了。他们定义的评论框样式美观，而且是拥有完整的评论功能，还可以使用社会化的网络登录并且同步到微博等等功能。所以推荐一下，大家可以去他们官方网站（<a href="http://duoshuo.com/" target="_blank" rel="noopener">http://duoshuo.com/</a>）得到详细的使用教程和方法。</p>
+<p>新建完 comments.php 之后，保持这个文档内容为空即可。然后找到主题文件中的评论功能的位置，在这里添加下面的代码：</p>
+<pre>&lt;?php comments_template(); ?&gt;</pre>
+
+<p>这个函数就是用来调用评论模块的，我们只需要做这么多即可。因为安装 多说 插件之后，它会自动检测 这个函数 然后将其内容替换成他们的评论模块。安装完多说插件，并且安装官方要求配置好之后，就会看到如下的评论框样式。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single5.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1568/single5.png" alt="" title="single5"></a></p>
+<p>好，我们的文章页面就这样完成了。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=141181&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-11) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1556.html">【基础篇】8，添加博客边栏功能</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1564.html">【基础篇】9，制作底部区域 footer</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1566.html">【基础篇】10，将现有 index.php 文件分块处理</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1568.html" data-id="ckgcnru7c001g1d2a9etnw0dv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1568" data-title="【基础篇】11，通过 index.php 文件生成 文章页面(single.php)" data-url="http://www.qianxingzhem.com/post-1568.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9110-ef-bc-8c-e5-b0-86-e7-8e-b0-e6-9c-89-index-php-e6-96-87-e4-bb-b6-e5-88-86-e5-9d-97-e5-a4-84-e7-90-86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1566.html" class="article-date">
+  <time datetime="2012-11-23T17:29:31.000Z" itemprop="datePublished">Nov 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1566.html">【基础篇】10，将现有 index.php 文件分块处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WordPress 具有一套成熟的模板系统，在前面第二节 <a href="http://www.qianxingzhem.com/post-1251.html">WordPress 的主题机制 </a>中介绍过它的缺失文件替换机制和分离文件分块机制。这个文件分块机制，可以极大的提高代码的重用，而且方面之后的升级和修改。本节课就来讲解如何将现有的主题文件进行分割。</p>
+<p>到现在，我们的示例主题 myTheme 已经有三个文件了，分别是：style.css、index.php 、functions.php 三个文件，其中 index.php 文件，就是整个主题的核心文件，下面我们就要对它进行分块，将其分成 头部、主体、边栏和底部 几块。</p>
+<h2 id="分出头部区域"><a href="#分出头部区域" class="headerlink" title="分出头部区域"></a>分出头部区域</h2><p>头部区域通常包含 HTML 中的 head 区域，以及博客顶部很少变化的区域（例如：logo、标题、描述）。就本示例主题中，head 区域的内容以及 div 中 id 为 header 的区域，都可以划分到头部区域中。所以，我们把它剪切出来，再在目录下面，新建一个文本文档，复制进去。保存为 utf-8 编码的文件，命名为 header.php 。保存为统一的 utf-8 编码，有助于减少网页中的乱码现象，详情可以看一下本人的这篇文章：<a href="http://www.qianxingzhem.com/post-1499.html">网页编码就是那点事</a>。</p>
+<p>之后，在 index.php 文件中的头部原来代码位置中，添加一个句代码</p>
+<pre>&lt;?php get_header(); ?&gt;</pre>
+
+<p>这句代码不需要什么参数，就直接复制上去就可以，从名字上看就可以理解，这个函数的功能是引用主题下面的 header.php 文件，包含进来。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1566/header.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1566/header.png" alt="" title="分出头部区域"></a></p>
+<h2 id="分出主体区域"><a href="#分出主体区域" class="headerlink" title="分出主体区域"></a>分出主体区域</h2><p>主题就是当前页面的主要区域，所以这一部分，不用像上面那样，剪切出去，然后使用函数引用进来。确定好主主体区域之后，只需要在当前文件（index.php）中，保留这部分。</p>
+<p>主体区域，即用于表示当前页面的主要功能。例如：index.php 文件，首页文件通常包含一个文章列表，那么这个文章列表就是这个页面的主体区域；single.php 文件是用于显示具体文章内容的，所以调用文章内容以及相关信息就变成了它的主体区域。</p>
+<h2 id="分出边栏区域"><a href="#分出边栏区域" class="headerlink" title="分出边栏区域"></a>分出边栏区域</h2><p>在示例主题 myTheme 中，边栏区域就是 div 元素中 id 为 sidebar 的内容区域。和分离头部区域一样，我们只需要剪切下来，然后复制到 sidebar.php 文件中（需要自己新建且保存为 utf-8 编码）。然后使用下面函数引用</p>
+<pre>&lt;?php get_sidebar(); ?&gt;</pre>
+
+<p>边栏是主体的描述，通常包括一些文章分类、友情链接等等内容。它通常也是高度可重用的模块，可以再几乎所有的网页中调用相同的内容。所以这部分要拿出来。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1566/sidebar.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1566/sidebar.png" alt="" title="分出边栏区域"></a></p>
+<h2 id="分出底部区域"><a href="#分出底部区域" class="headerlink" title="分出底部区域"></a>分出底部区域</h2><p>通过上面的介绍，分离底部区域还需要过多的介绍吗？剪切出来代码之后，只需要在原位置添加下面代码进行调用即可</p>
+<pre>&lt;?php get_footer(); ?&gt;</pre>
+
+<h2 id="如果不分割"><a href="#如果不分割" class="headerlink" title="如果不分割"></a>如果不分割</h2><p>我就是不明白为什么要分割这个文件，分割成不同的区域，我可以不分吗？当然可以，但是你会遇到下面问题。</p>
+<p>你在 index.php 文件中，修改头部文件的内容，在访问文章内容页面（使用 single.php 文件作为模板），却发现头部的内容没有变化，因为你没有在 single.php 文件中，修改相应的头部信息代码。如果你修改一处，需要把主题中所有模板文件全部修改一遍才会生效。</p>
+<p>由于没有统一文件，你可能会根据不同的页面，对 HTML 结构进行修改或者编辑，这样会导致网站整体风格的不一致和一些意外错误。</p>
+<p>而分割之后，上面的这些问题都将不存在。分割的优势在于提高维护的效率等，所以需要进行分割处理。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=138687&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-10) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1556.html">【基础篇】8，添加博客边栏功能</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1564.html">【基础篇】9，制作底部区域 footer</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1566.html" data-id="ckgcnru7d001j1d2aj2abq634" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1566" data-title="【基础篇】10，将现有 index.php 文件分块处理" data-url="http://www.qianxingzhem.com/post-1566.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
     <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-919-ef-bc-8c-e5-88-b6-e4-bd-9c-e5-ba-95-e9-83-a8-e5-8c-ba-e5-9f-9f-footer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1564.html" class="article-date">
@@ -107,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1564.html" data-id="ckgcma39i0007aa2apgrhut8i" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1564.html" data-id="ckgcnru7n002d1d2aevboki1x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
@@ -119,6 +319,310 @@
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1564" data-title="【基础篇】9，制作底部区域 footer" data-url="http://www.qianxingzhem.com/post-1564.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-ad-a6-e4-bc-9a-e5-9c-a8-e4-ba-92-e8-81-94-e7-bd-91-e7-9a-84-e6-b5-b7-e9-87-8f-e4-bf-a1-e6-81-af-e4-b8-ad-e5-ad-a6-e4-b9-a0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1561.html" class="article-date">
+  <time datetime="2012-11-21T17:55:58.000Z" itemprop="datePublished">Nov 22 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1561.html">学会在互联网的海量信息中学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，不可否认的是互联网是个资料大宝库，这里面包含各种各样的资料。全面性、实时性是它的有点，零散性、不系统是它的缺点。本文就是介绍一下 <a href="http://www.qianxingzhem.com">潜行者 m</a> 在互联网上的学习方法和经验。</p>
+<h2 id="发现这些优良资料"><a href="#发现这些优良资料" class="headerlink" title="发现这些优良资料"></a>发现这些优良资料</h2><p>资料超级多，正是因为如此多，所以查找起来优秀的资料，就比较麻烦了。最简单方便效果最差的，就是通过搜索引擎搜索了。它确实方便，因为只需要输入想了解的关键词，就会出来很多相关的资源。为什么说效果最差呢？有很多原因：首先限于搜索引擎的技术水平，偶然无法根据算法判断出资料的优劣（百度，你懂）。搜索结果会被”半人为控制”（通过 SEO），而这些控制之后，显示的文章等，通常是一些伪原创的垃圾信息等等。此外找不到原创作者，很多知名的文章，或是被转载不署名或是直接改了版权，搜索引擎都无法判断出原创作者，这样就无法联系，进一步的交流。</p>
+<p>使用搜索引擎检索资料，固然是一种必不可少的方式，但是我更推荐使用下面的方式来寻找学习资料。就是很多人常用的“订阅”功能。一个功能完全合理的信息类型的网站，通常都会提供一个 “订阅源”（rss），我们可以通过他们提供的这个订阅源，获取他们网站上的最新更新的文章，或者是之前的内容。现在的问题，就是如何发现这些优秀的内容提供者？首先，你要先确定一下，你关注的领域是什么？你想看到哪一方面的内容和资料？确定下来之后，就可以通过下面几种途径找到优秀的资源：</p>
+<ul>
+<li>使用名站导航或者搜索引擎等，找到这一领域比较权威比较热门的网站。</li>
+<li>通过名站的友情链接等，发掘其他同类型的网站。这一点很实用，对于一些比较著名的网站来说，他们的友情链接的质量非常的高，绝对是同领域的知名网站。</li>
+<li>找到他们网站的订阅源。通常功能完全的网站，会被软件、浏览器等自动检测到订阅源，站长通常也会提供自己网站的订阅源，这一点在独立博客中，尤为体现。<br>下面是我推荐的订阅方式和阅读方式。使用的工具很简单，就是 火狐 浏览器 和 <a href="http://www.chrisfinke.com/addons/feedbar/" target="_blank" rel="noopener">Feed Sidebar 插件</a> 火狐浏览器本身就提供了订阅功能，当你打开一个可以用的订阅源的时候，会自动弹出添加订阅菜单。</li>
+</ul>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study0.png" alt="" title="订阅潜行者m 博客"></a></p>
+<p>但是火狐浏览器的这个订阅功能做的不是特别好，如果你想查看订阅的最新信息，你需要打开订阅文件夹，然后打开相应的订阅源才能看到。所以，我推荐使用 Feed Sidebar 这个插件，因为它监控订阅的订阅源，可以设置提醒，当有新消息的时候会立刻提醒。而且还会列出一个更新列表，方便你打开相应的资料。更多的使用方法等，需要你安装一下自己探索，这里不再赘述。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study1.png" alt="" title="订阅列表"></a></p>
+<p>使用本地客户端，其实是一种比较古老的订阅方法，很久以前就出现了一些在线订阅服务。例如：google reader、鲜果订阅等。使用这些在线订阅服务，可以不需要安装软件等，也便于同网友交流等，此外它们通常对订阅源的内容，进行重新排版布局便于阅读。但是我选择使用这种比较古老的方法，是因为：不需要登录等，也比较方便的保护了自己的订阅隐私，不受网速的影响不必登录第三方网站，此外还有一个最重要的原因，我主要关注的是前端、设计方面的内容，通常需要打开他们的页面查看他们的布局设计等。所以我选择很原始的，直接打开网页的方式阅读。</p>
+<h2 id="收藏有价值的资料"><a href="#收藏有价值的资料" class="headerlink" title="收藏有价值的资料"></a>收藏有价值的资料</h2><p>仅仅发现资料、阅读完资料是不够的。对于优秀的资料，我们还需要收藏整理起来，方便日后的阅读和观看。那么什么资料算是有价值的，可收藏的资料呢？</p>
+<ul>
+<li>看完之后，会有一定的感触，认为以后还会想看的资料。</li>
+<li>很有收藏价值的资料（例如一些手册之类的）。</li>
+<li>现在看不懂，但以后可能会用到的。<br>其他资料，如果自己已经知道的东西或者写的不太好，总结不完全的资料，就没有必要收藏了。此外，收藏之后，还需要合理的规划、分类，便于日后的查找。</li>
+</ul>
+<p>这里，我推荐使用 <a href="http://note.youdao.com/?invitation=9014799" target="_blank" rel="noopener">有道笔记</a> 来记录收藏资料，各种收藏文档的功能都具备，空间大的一般用不完，还具有日志分享功能、多设备平台同步功能等。通过建立不同的笔记本，进行归类，通过搜索可以迅速查找到需要的文档。还有一个比较方便的功能，可以再浏览器的收藏夹栏里面，加上一个连接“收藏到有道笔记”，点击一下会获取当前页面的信息，然后自动保存到你的笔记本中。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1561/study2.png" alt="" title="潜行者m 的有道笔记"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1561.html" data-id="ckgcnru9000641d2ab9ov2k39" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1561" data-title="学会在互联网的海量信息中学习" data-url="http://www.qianxingzhem.com/post-1561.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-918-ef-bc-8c-e6-b7-bb-e5-8a-a0-e5-8d-9a-e5-ae-a2-e8-be-b9-e6-a0-8f-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1556.html" class="article-date">
+  <time datetime="2012-11-18T04:44:58.000Z" itemprop="datePublished">Nov 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1556.html">【基础篇】8，添加博客边栏功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常的博客都有边栏功能，边栏通常放置文章分类、友情链接等等信息。本节课讲解如何添加博客的边栏相关功能。在 WordPress 系统中，不得不提到的一个强大的功能，那就是 “小工具” ，即在后台中，找到 “外观” 选项下面的 “小工具”。当一款主题支持小工具的时候，我们只需要配置一下小工具，把需要的模块拖动进去，就可以在博客中显示出来。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png" alt="" title="WordPress 小工具"></a></p>
+<p>对于初学者来说，本文暂时不讲解复杂的边栏相关的函数使用，而是直接介绍如何为主题添加“小工具”这个功能的支持。这样就可以实现快速定义博客的边栏。</p>
+<p>为主题添加小工具功能，需要两个步骤：1，<strong>在 functions.php 文件中声明注册这个功能</strong>。2，<strong>在主题模板的相应位置，添加对边栏的调用</strong>。</p>
+<h2 id="在-functions-php-文件中声明这个功能"><a href="#在-functions-php-文件中声明这个功能" class="headerlink" title="在 functions.php 文件中声明这个功能"></a>在 functions.php 文件中声明这个功能</h2><p>需要用到 <a href="http://codex.wordpress.org/Function_Reference/register_sidebar" target="_blank" rel="noopener">register_sidebar</a> 这个函数。这个函数用于注册一个边栏小工具，当然还有一个函数 <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebars </a>与之类似，但是可以注册多个边栏小工具。但是如果你想在主题中，加入多个边栏小工具，我更推荐的是 <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebar</a> 函数，因为它可以自己定义更多的输出信息，注册多个，只需要复制几遍即可，更加灵活。</p>
+<p>下面介绍一下这个函数的相关参数：</p>
+<pre>'name'          =&gt; __( 'Sidebar name', 'theme_text_domain' ),
+'id'            =&gt; 'unique-sidebar-id',
+'description'   =&gt; '',
+'class'         =&gt; '',
+'before_widget' =&gt; '&lt;li id="%1$s"&gt;',
+'after_widget'  =&gt; '&lt;/li&gt;',
+'before_title'  =&gt; '&lt;h2&gt;',
+'after_title'   =&gt; '&lt;/h2&gt;' );</pre>
+
+<ul>
+<li><strong>name</strong>：设置这个边栏的名称，在之后的主题中的数据调用中，会用到这个名称。</li>
+<li><strong>id</strong> ：用于在 WordPress 内部对这个特定的边栏小工具进行标记，必须是唯一的值，同主题不能有两个相同的 id。</li>
+<li><strong>description</strong>：这个边栏小工具的描述，填写之后，在后台小工具选项配置的时候，可以看到当前工具的描述。</li>
+<li><strong>class</strong>：当前边栏小工具在生成的时候，在 HTML 结构中，加入的 class 属性，这样可以自定义接口，方便 CSS 对其样式的控制。</li>
+<li><strong>before_widget</strong>：在小工具生成的内容前面加上什么？默认加上 li 标签。</li>
+<li><strong>after_widget</strong>：同上。</li>
+<li><strong>before_title</strong>：在后台小工具设置中，添加小工具之后，可以设置小工具的标题，这个属性是为设置的标题包裹什么标签？默认 h2.</li>
+<li><strong>after_title</strong>：同上。<br>这个函数还是比较简单的，参数也都容易理解。那么在主题中，想声明一个边栏，就可以编写下面代码：<br><pre>if ( function_exists(‘register_sidebar’) ){ //先判断当前 WordPress 是否支持边栏小工具功能<pre><code>register_sidebar(array( //以数组的方式，传递参数
+&apos;name&apos; =&amp;gt; &apos;小工具&apos;,
+&apos;id&apos; =&amp;gt; &apos;sidebar1&apos;,
+&apos;description&apos; =&amp;gt; &apos;拖动小工具会在边栏显示出来&apos;,
+</code></pre>));<br>}</pre><br>你也可以编写更多的参数，例如制定元素包裹的标签等等，但是在这里，为了演示，其他属性均保持默认。</li>
+</ul>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar1.png" alt="" title="添加 小工具 声明代码"></a></p>
+<p>添加到 functions.php 文件之后，我们登录后台会发现小工具已经可以用了，并且显示出来了设置的信息。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar2.png" alt="" title="配置小工具功能"></a></p>
+<p>这时，我们就可以把左边的内容拖动到右边去，即可显示出相应的功能。例如拖动“搜索”会生成一个搜索框，拖动“链接”会生成一个有情链接列表。但是刷新主题之后，并没有出现，因为这时候我们还没有在主题中调用这个边栏数据。</p>
+<h2 id="在主题中调用边栏数据"><a href="#在主题中调用边栏数据" class="headerlink" title="在主题中调用边栏数据"></a>在主题中调用边栏数据</h2><p>声明完成之后，我们找到主题，在相应的位置使用 下面一句代码即可调用某边栏数据：</p>
+<pre>&lt;?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('小工具') ) : ?&gt;&lt;?php endif; ?&gt;</pre>
+
+<p>这句代码的意思就是：首先检测是否存在边栏小工具功能，如果存在，检测是否有 “name” 为 “小工具” 的小工具。如果有（即在 functions.php 声明过了）就调用它的数据。即后面的单引号中的内容，就是在 functions.php 文件中声明的 sidebar 的 name 参数值。</p>
+<p>在本系列教程的演示主题 myTheme 中，我们需要添加到 id 为   sidebar 的元素中，添加在下面。要注意的是，由于采用了默认的参数，所以每个小工具将会以 li 标签标记，为了符合 W3C 的标准，我们需要在外面加上 ul 标签。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar3.png" alt="" title="配置小工具"></a></p>
+<p>在后台拖动小工具到边栏，配置一下，然后刷新首页就可以看到添加好的小工具内容了。这样，我们的边栏功能就实现了。</p>
+<h2 id="为主题添加多个小工具功能"><a href="#为主题添加多个小工具功能" class="headerlink" title="为主题添加多个小工具功能"></a>为主题添加多个小工具功能</h2><p>再扩展的多说一些。小工具这个功能非常的使用，而且功能很多。我们可以在主题中添加多个小工具功能，这样修改主题的相关内容，直接在后台编辑小工具即可。例如：在底部添加小工具功能，想修改底部版权文字等，直接通过后台小工具进行编辑就可以了。</p>
+<p>前面也说过，添加多个小工具可以使用   <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebars </a> 但是我更推荐的是复制多遍 <a href="http://codex.wordpress.org/Function_Reference/register_sidebar" target="_blank" rel="noopener">register_sidebar</a> 这个函数，因为它可以对每个边栏都进行描述，让别人更容易看懂。</p>
+<p>我们只需要把上面的代码，复制一遍：</p>
+<pre>if ( function_exists('register_sidebar') ){
+    register_sidebar(array(
+    'name' =&gt; '小工具',
+    'id' =&gt; 'sidebar1',
+    'description' =&gt; '拖动小工具会在边栏显示出来',
+));
+   register_sidebar(array(
+    'name' =&gt; '底部',
+    'id' =&gt; 'footer',
+    'description' =&gt; '这里是底部的小工具',
+));
+}</pre>
+
+<p>然后重新配置一下参数，特别要注意的是，name 和 id 一定不能和其他小工具相同，否则会产生数据调用冲突。之后像上面一样，在相应的位置，加上调用代码即可，当然要修改后面单引号里面的内容为要调用数据的 name 参数值。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=133909&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-8) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1556.html" data-id="ckgcnru7m002a1d2amrlgc0ws" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1556" data-title="【基础篇】8，添加博客边栏功能" data-url="http://www.qianxingzhem.com/post-1556.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-917-ef-bc-8c-e5-88-b6-e4-bd-9c-e5-8d-9a-e5-ae-a2-e7-9a-84-e6-90-9c-e7-b4-a2-e6-a8-a1-e5-9d-97" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1551.html" class="article-date">
+  <time datetime="2012-11-15T18:21:02.000Z" itemprop="datePublished">Nov 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1551.html">【基础篇】7，制作博客的搜索模块</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>搜索模块几乎成为了信息性网站的标配组件，对于博客来说，更是必不可少的东西。有了搜索就可以快速的定位你的文章。本节就来讲解如何制作博客的搜索模块。</p>
+<h2 id="制作搜索表单"><a href="#制作搜索表单" class="headerlink" title="制作搜索表单"></a>制作搜索表单</h2><p>搜索模块的实质就是一个表单而已，将搜索的内容，提交给 WordPress ，然后由系统查询返回结果。别告诉我你连一个 HTML 的表单都写不出来，如果真的，请先回去学习一下 HTML 吧，因为这是制作主题必备的基本能力。下面我直接给出一个搜索表单。</p>
+<pre>&lt;form method="get" action=""&gt;
+      &lt;input type="text" name="s"  /&gt;
+      &lt;input type="submit" value="GO" /&gt;
+&lt;/form&gt;</pre>
+
+<p>上面就是一个非常简单的搜索表单，有一个 文本框 和一个 提交按钮。WordPress 系统的搜索模块，接受 get 方式发送的数据，同时要注意它的 action 地址，为博客的首页。同时要注意，对于搜索框，必须要对它设置 name 属性值为 s ，这样 WordPress 才能接收搜索字符串。所以，一个可用的 WordPress 搜索表单应该这样写：</p>
+<pre>&lt;form method="get" action="&lt;?php bloginfo('home'); ?&gt;/"&gt;
+        &lt;input type="text" name="s"  /&gt;
+        &lt;input type="submit" value="GO" /&gt;
+&lt;/form&gt;</pre>
+
+<h2 id="进一步的优化"><a href="#进一步的优化" class="headerlink" title="进一步的优化"></a>进一步的优化</h2><p>单纯的一个表单是不太好的，我们可以加一些修饰，这种修饰包括交互性的修饰、外观的修饰。为了尽量简单照顾初学者，这里不讲外观的修饰，尽量不涉及 CSS 设计相关的内容。下面说一下搜索框的简单的交互性修饰。</p>
+<p>通常，我们需要在打开页面的时候，自动将光标聚焦到 搜索框 中，这样可以让用户在敲击键盘的时候，可以自动的在输入框中输入，而不需要让用户手动找到搜索框。实现这个效果，需要为表单加上 autofocus 属性。</p>
+<p>此外，我们通常希望能告诉用户，这是一个搜索框，最好的方法就是在搜索框中填写说明文字，当用户点击聚焦的时候，文字自动消失。实现这个效果，可以通过两种方法：1，<strong>HTML5 的 placeholder 属性</strong>。2，<strong>通过一段 JavaScript 代码</strong>。第一种方法很简单，直接把说明文本当做这个属性的属性值，即可显示出来。但是这是 HTML5 中新增的属性，所以在早期的浏览器中，不会被支持。那样的话就不会显示说明文字了。所以我更推荐的是下面的这段 JavaScript 代码：</p>
+<pre>onblur="if (this.value =='') this.value='搜索一下'" onfocus="this.value=''" onclick="if (this.value=='搜索一下') this.value=''"</pre>
+
+<p>稍懂 JavaScript 的朋友就能看出来这段代码的意思，即：当光标激活或者点击文本框的时候，判断值是否为空，如果为空，就让值变成“搜索一下”。当焦点移出文本框的时候，会检测文本框的内容，如果为空，就自动变成“搜索一下”。如果你实在是看不懂，就不用管了，直接复制上去就可以了。</p>
+<h2 id="最终的版本"><a href="#最终的版本" class="headerlink" title="最终的版本"></a>最终的版本</h2><p>我们在 myTheme 主题中，找到边栏模块（id=“sidebar”），在下面新建一个用于搜索的 div 块，然后把代码复制上去：</p>
+<pre>&lt;form method="get" action="&lt;?php bloginfo('home'); ?&gt;/"&gt;
+    &lt;input type="text" name="s" onblur="if (this.value =='') this.value='搜一下又不会怀孕...'" onfocus="this.value=''" onclick="if (this.value=='搜一下又不会怀孕...') this.value=''" autofocus /&gt;
+    &lt;input type="submit" value="GO" /&gt;
+&lt;/form&gt;</pre>
+
+<p>这样就完成了一个简单的、没有样式的博客搜索模块了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1551/search0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1551/search0.png" alt="" title="搜索表单代码"></a></p>
+<p>完成之后，现在就可以搜索一下看一下效果了哦！</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=132442&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-7) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1551.html" data-id="ckgcnru7l00271d2ajdry7s2b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1551" data-title="【基础篇】7，制作博客的搜索模块" data-url="http://www.qianxingzhem.com/post-1551.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -219,7 +723,7 @@ a:active{color:#666666; text-decoration:none;}</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="ckgcma3c8003laa2acvidghb2" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="ckgcnru9s008r1d2ad2oqnztk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
@@ -249,6 +753,132 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
+    <article id="post-wordpress-e8-87-aa-e5-ae-9a-e4-b9-89-e8-8f-9c-e5-8d-95-e5-8a-9f-e8-83-bd-e4-bb-8b-e7-bb-8d-e5-92-8c-e4-bd-bf-e7-94-a8-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1521.html" class="article-date">
+  <time datetime="2012-11-02T09:10:52.000Z" itemprop="datePublished">Nov 2 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1521.html">WordPress 自定义菜单功能介绍和使用详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个常规的网站，一般都会有一个网站导航。这里的导航，通常包含网站的栏目、特殊的页面等等。对于一个博客来说，有的时候也需要一个这样的导航。如果仅仅是调用 文章分类 或者 页面链接 作为导航的话，会比较难控制，无法自由的添加链接等。当然，成熟的 WordPress 系统已经为我们考虑到了这一点，添加了一个 “自定义菜单” 功能。使用这个功能，可以在 <strong>后台 -》 外观 -》 菜单</strong> 中编辑，当然最好前提是你使用的主题支持这一个功能。</p>
+<h2 id="自定义菜单功能介绍"><a href="#自定义菜单功能介绍" class="headerlink" title="自定义菜单功能介绍"></a>自定义菜单功能介绍</h2><p>当我们在后台打开 “菜单” 的时候，通常会看到类似这样的界面：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan0.png" alt="" title="后台设置 自定义菜单"></a></p>
+<p>没有配置之前，是无法使用的。我们需要先输入一个 菜单名称 才能继续使用。这里的菜单名称，仅仅作为一个关联数据用的标记，所以可以随便起名。完成之后，左边的区域就可以配置使用了。</p>
+<p>如果你的主题不支持 自定义菜单 功能，那么左边的 主题位置 面板会提示你，这个自定义菜单的选项将会在 边栏 中显示。如果主题支持 自定义菜单 功能，那么这个面板则会提示有支持几个自定义菜单、自定义菜单的名称（需要定义）是什么。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan1.png" alt="" title="设置面板"></a></p>
+<p>上面提示，有一个自定义菜单，并且名称为 topnav 。现在，我要制作这个 自定义菜单 的内容。在左边有三个面板：分类目录、自定义链接、页面。里面包含着你当前博客里面的相关数据。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan2.png" alt="" title="主题位置 面板"></a></p>
+<p>我们只需要勾选相应的内容或者直接拖动到右边的刚刚设置的菜单面板中即可。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan3.png" alt="" title="定义菜单"></a></p>
+<p>注意的是，可以通过拖动改变显示顺序，而且还可以修改显示的名称。所以说，这个功能非常的强大而且灵活。这样，一个导航链接就做好了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1521/caidan4.png" alt="" title="导航做好了"></a></p>
+<p>下面来详细讲解如何在主题中，添加这个功能。也很简单，只需要在两个地方，添加两小段代码即可！</p>
+<h2 id="在主题中添加函数调用"><a href="#在主题中添加函数调用" class="headerlink" title="在主题中添加函数调用"></a>在主题中添加函数调用</h2><p>首先，你需要在主题的 functions.php 文件中，声明一下存在这个功能。只需要添加下面一段代码即可：</p>
+<pre>if(function_exists('register_nav_menus')){
+    register_nav_menus( array(
+        'header-menu' =&gt; __( 'topnav' )
+    ) );
+}</pre>
+
+<p>这段代码首先判断是否支持这个功能，然后注册一个 自定义菜单，并且我指定了一个参数，即这个自定义菜单的名称为 topnav。也就是上面在 主题位置 面板中看到的自定义菜单名称。下面引用官方的资料详细的介绍一下 <a href="http://codex.wordpress.org/Function_Reference/register_nav_menus" target="_blank" rel="noopener">register_nav_menus</a> 这个函数。</p>
+<p>实现这个功能有两个函数 <tt><a href="http://codex.wordpress.org/Function_Reference/register_nav_menu" title="Function Reference/register nav menu" target="_blank" rel="noopener">register_nav_menu</a></tt> 和  <a href="http://codex.wordpress.org/Function_Reference/register_nav_menus" target="_blank" rel="noopener">register_nav_menus</a> 顾名思义，第一个函数用于创建一个自定义菜单，第二个函数用于创建多个自定义菜单。所以通常使用第二个就好了。下面也是根据第二个函数进行讲解。</p>
+<p>介绍就不多说了，使用方法也很简单，只需要传递一个 数组 即可。</p>
+<pre><code>&amp;lt;?php register_nav_menus( $locations ); ?&amp;gt;
+</code></pre><p>这个数组是必选参数，记录着 位置标记（键名） 和 位置描述（键值）。例如：</p>
+<pre>register_nav_menus( array(
+    'header-menu' =&gt; __( 'topnav' )，
+    'footer_menu' =&gt; 'My Custom Footer Menu'
+) );</pre>
+
+<p>上面的语句，定义了两个自定义菜单，它们的标记（可以随便起）分别为：header-menu、footer_menu。它们后面对应的描述，将会显示在后台的 主题位置 面板上，供你选择。在  ‘header-menu’ =&gt; <strong>( ‘topnav’ ) 这句代码中，我加了</strong>() 这个函数，它是用于跨语言翻译用的，与这个功能无关。</p>
+<p>之后，在主题中添加自定义菜单。在主题中合适的位置，添加下面的函数：</p>
+<pre>&lt;?php wp_nav_menu( array( 'theme_location' =&gt; 'header-menu' )); ?&gt;</pre>
+
+<p>这句代码使用了 <a href="http://codex.wordpress.org/Function_Reference/wp_nav_menu" title="Function Reference/wp nav menu" target="_blank" rel="noopener">wp_nav_menu</a> 函数。这个函数也是传递一个数组作为参数，但是这个数字里面的键名比较多。下面根据官方文档的说明选择几个重要的做了一个简单的翻译：</p>
+<pre>&lt;?php $defaults = array(
+    'theme_location'  =&gt; '',
+    'menu'            =&gt; '',
+    'container'       =&gt; 'div',
+    'container_class' =&gt; 'menu-{menu slug}-container',
+    'container_id'    =&gt; '',
+    'menu_class'      =&gt; 'menu',
+    'menu_id'         =&gt; '',
+    'echo'            =&gt; true,
+    'fallback_cb'     =&gt; 'wp_page_menu',
+    'before'          =&gt; '',
+    'after'           =&gt; '',
+    'link_before'     =&gt; '',
+    'link_after'      =&gt; '',
+    'items_wrap'      =&gt; '&lt;ul id="%1$s"&gt;%3$s&lt;/ul&gt;',
+    'depth'           =&gt; 0,
+    'walker'          =&gt; ''
+); ?&gt;
+
+&lt;?php wp_nav_menu( $defaults ); ?&gt;
+
+'theme_location'  =&gt; 可选，值为之前在functions.php中 register_nav_menus 传递的数组参数中的键名，进行绑定。默认：无
+'container'       =&gt; 可选，决定是否要对生成的 自定义菜单（ul） 进行包裹，以及使用什么包裹。如果不需要，传递参数 false。默认：div
+'container_class' =&gt; 可选，为上面包裹的容器添加 class 属性。下面的 container_id 功能类似。
+'before'          =&gt; 可选，在输出的列表中的 a 标签之前添加文本信息。after 功能类似。
+'link_before'     =&gt; 可选，在输出的列表中的链接文字前面加上文字（注意与上面的区别）。link_after 功能类似。
+'items_wrap'      =&gt; 可选，设置包裹自定义菜单的标签形式。默认：&lt;ul id="%1$s"&gt;%3$s&lt;/ul&gt;，通常不要修改 。</pre>
+
+<p>这样，刚刚我添加的那一句代码的意思很明确了，就是在这里调用名为 header-menu 的自定义菜单位置。而这个自定义菜单位置的名称为 topnav，在 WordPress 后台中，我新建了一个名为 “顶部导航” 的菜单，然后与这个 topnav 进行了关联。那么这句代码就调用了我设置的 “顶部导航” 菜单的内容。</p>
+<p>我们不仅仅可以用它来做导航，还可以像上面那样，在多个位置添加多个自定义菜单。例如可以在底部加一个自定义菜单，这样在后台就可以设置底部的链接等等。功能非常强大，不过需要注意一点，WordPress 目前的较新版本 3.4.2 被爆出一个 BUG ，不支持 自定义菜单。当然很快就出了补丁。如果你使用 3.4.2 版本的时候，自定义菜单无法使用，可以自行<a href="http://www.baidu.com/s?tn=monline_4_dg&amp;ie=utf-8&amp;bs=wordpress+%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95+3.4.2&amp;f=8&amp;rsv_bp=1&amp;wd=wordpress+3.4.2++%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95+&amp;rsv_sug3=4&amp;rsv_sug=1&amp;rsv_sug1=2&amp;rsv_sug4=249&amp;rsv_n=2&amp;inputT=5575" target="_blank" rel="noopener">搜索一下解决方法</a>。</p>
+<div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1521.html" data-id="ckgcnrubn00e31d2a09l3tpnq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1521" data-title="WordPress 自定义菜单功能介绍和使用详解" data-url="http://www.qianxingzhem.com/post-1521.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
   
 </section>
         
@@ -258,7 +888,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -267,7 +897,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -276,7 +906,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -285,7 +915,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2012 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/archives/2012/page/9/index.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e5-a6-82-e4-bd-95-e4-bd-bf-e7-94-a8ftp-e7-bb-b4-e6-8a-a4-e4-bc-a0-e8-be-93-e7-bd-91-e7-ab-99-e7-a8-8b-e5-ba-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-505.html" class="article-date">
+  <time datetime="2012-02-04T11:28:43.000Z" itemprop="datePublished">Feb 5 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-505.html">如何使用 FTP 维护传输网站程序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网站建设过程中，必不可少的就是不断的上传下载网站源码。那我们应该怎样上传下载网站源码呢？那就是使用大家很熟悉的 FTP。</p>
+<p>首先先由潜行者 m 来介绍一下 FTP 是个什么东西。FTP 是一种协议，是文件传输协议。通过名字就可以看出了，这个协议的主要用途就是用来与远程服务器端传输文件用的。而我们所说的 FTP，就是具体使用这个文件传输协议，来传输文件与远程服务器交流。</p>
+<p>使用 FTP 呢，就需要 FTP 软件。常用的功能强大的 FTP 软件有这三个：LeapFTP、FlashfXP、Cuteftp。这其中，flashfxp 集大成，无论从外表还是功能，都不错，就是需要花钱注册，当然网上有破解版，但是我的电脑装不了破解版。cuteftp 确实比较老了，所以潜行者 m 目前使用的是 Leapftp，确实非常好用。本文也以这个为例。</p>
+<p>首先要下载，下载地址：<a href="http://www.onlinedown.net/soft/2099.htm" title="http://www.onlinedown.net/soft/2099.htm" target="_blank" rel="noopener">http://www.onlinedown.net/soft/2099.htm</a>，百度一下就行。下载下来之后，发现就是一个程序，无需安装运行即可，大赞！运行之后的界面如下：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/ftp1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/ftp1.jpg" alt="ftp1"></a></p>
+<p>之后，就要与服务器链接。点击左上角的“ftp”之后，就打开了 FTP 配置对话框（也可以直接摁 F9）</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/ftp2.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/ftp2.jpg" alt="ftp2"></a></p>
+<p>在上面填上你的服务器域名（或 IP 地址），添加上你的用户名、密码，点击链接即可。链接之后，就可以发现右边的框框出现了远程服务器上的文件目录等。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/ftp3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/ftp3.jpg" alt="ftp3"></a></p>
+<p>这样，右边的目录是远程服务器目录，左边的目录是本地的目录。想要进入远程服务器的某个目录，双击即可。如果想要上传文件到制定目录，首先要打开这个目录，之后把文件拖到目录列表中，这时你会发现，你的文件出现在了下面的传输信息表。之后，只需要右击，选择传输即可。下载文件同样，在左边打开你要保存文件的文件夹，然后选中远程服务器文件，右击，选择下载即可。至于修改远程服务器上的属性、编辑远程服务器上的文件，都是可以的，只要在相应的文件上右击即可弹出功能菜单。在这里就不多说了。</p>
+<p>这篇文章不能就这么写完了，这样的话，太简单了。下面我再介绍两种 FTP 登陆使用方式。</p>
+<p>在早期的网络中，最常用的功能就是文档的传输，就是使用 ftp 传输。所以操作系统通常都内置了 FTP 传输工具。下面，潜行者 m 介绍两个 windows 下的内置的 FTP 工具，这样可以在没有 FTP 软件的情况下，很方便的使用 FTP。</p>
+<p>第一个就是资源管理器。打开“我的电脑”，在地址栏上面输入“ftp://你的域名或者 IP”。敲击回车之后，就 OK 了。之后会弹出一个菜单，要求你输入这个 FTP 的用户名和密码。输入之后，就可以登录远程服务器了。这种方法的优点就是，操作远程服务器上的文件就和在本地操作一样。缺点就是功能不怎么强，有些服务器连接不上。关于这种方法，有一种高级用法，就是“添加一个网络位置”。打开“我的电脑”，在空白位置右击，选择“添加一个网络位置”之后，就打开了配置向导。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/ftp4.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/ftp4.jpg" alt="ftp4"></a></p>
+<p>根据这个向导一步一步的，添加上自己的用户名、密码等信息之后，就创建了这个快捷方式。以后如果你想要管理你的网站，只需要打开“我的电脑”，双击这个图标就可以打开，相当于本地硬盘，比较方便。</p>
+<p>第二个就是 DOS。这个是比较有技术含量的，而且比较难用。早期的操作系统是 DOS，所以它也具有 FTP 文件传输功能，就是使用 FTP 命令进行传输。它的缺点很明显，就是需要敲击代码，记住大量参数等。它也是有很多优点的，由于在命令行下没有了那些过多的界面等，所以它的执行速度是最快的。使用方法就是“win+R”运行“cmd”，之后输入 ftp 即可查看 ftp 相关命令，登陆管理。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/ftp5.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/ftp5.jpg" alt="ftp5"></a></p>
+<p>至于具体的使用命令和方法，在这里先不说了，如果有兴趣想试一下的朋友，可以百度一下。</p>
+<p>&nbsp;</p>
+<p><strong>补充：</strong>leapftp 软件并不是一个好用的 FTP 软件，在本文发布几天之后，本人找到了一个更好的 ftp 软件，请看这里：<a href="http://www.qianxingzhem.com/post-564.html">http://www.qianxingzhem.com/post-564.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-505.html" data-id="ckgcnru8q005k1d2aabuqhrjh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="505" data-title="如何使用 FTP 维护传输网站程序" data-url="http://www.qianxingzhem.com/post-505.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-9c-ac-e5-9c-b0-e6-90-ad-e5-bb-ba-e9-85-8d-e7-bd-aeapachephpmysql-e7-8e-af-e5-a2-83" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-455.html" class="article-date">
+  <time datetime="2012-02-03T02:50:09.000Z" itemprop="datePublished">Feb 3 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-455.html">本地搭建配置 apache+php+mysql 环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>前言：</strong>我以前一直用的是类似 wamp 之类的综合网络服务器系统软件。这些软件使用很简单，整合了 apache、php、mysql 等。但是这些软件也有很多弊端。比如功能限制大，自己配置一些信息不方便，不方便组件的升级等。为了更好的学习 apache 服务器配置以及 php 环境，我决定不再用这些软件，自己手动搭建环境。首先先在网上搜索了一下这方面的文章，结果发现大都是 06 年、07 年的，那时候的配置方法都太古老了，现在已经是 2012 年了。我自己安装了一下，非常简单，根本没有以前那么麻烦。这样，就写这篇比较新的教程供新手参考。</p>
+<p><strong>第一步，准备</strong>：先介绍一下我的系统配置。我的系统是<strong>vista 32 位旗舰版</strong>，其他 windows 系统环境下的操作应该是差不多一样的。我们需要的程序就是<strong>httpd-2.2.21-win32-x86-no_ssl.msi</strong>、<strong>php-5.2.17-Win32-VC6-x86.zip</strong>和<strong>mysql-5.5.20-win32.msi</strong>。在这里我都是从官方下载的最新原版。</p>
+<p><strong>httpd-2.2.21-win32-x86-no_ssl.msi</strong>这个文件是最新版的 apache 服务器软件，下载地址：<a href="http://httpd.apache.org/download.cgi#apache22" target="_blank" rel="noopener">http://httpd.apache.org/download.cgi#apache22</a> 跳转到这里之后，找到适合自己系统的 apache 程序，下载即可。</p>
+<p><strong>php-5.2.17-Win32-VC6-x86.zip</strong>这个压缩包是 php 最新的环境包，下载地址：<a href="http://windows.php.net/download/下载php环境包的时候，一定要注意看清楚左边等说明。它分为VC9和VC6两种，这两种还分别有不同功能等包，分别是多线程安全（Thread" target="_blank" rel="noopener">http://windows.php.net/download/下载php环境包的时候，一定要注意看清楚左边等说明。它分为VC9和VC6两种，这两种还分别有不同功能等包，分别是多线程安全（Thread</a> Safe）和无多线程安全（Non Thread Safe）。其中 VC9 是适合 IIS 服务器等，VC6 是适合 apache 服务器的。</p>
+<p><strong>mysql-5.5.20-win32.msi</strong>这是 mysql 的最新版 windows 安装包，下载地址：<a href="http://www.mysql.com/downloads/mysql/找到适合自己系统的版本下载即可。" target="_blank" rel="noopener">http://www.mysql.com/downloads/mysql/找到适合自己系统的版本下载即可。</a></p>
+<p><strong>第二步，安装：</strong>下载完之后，我们就开始安装。首先，我们先安装 apache 服务器。双击<strong>httpd-2.2.21-win32-x86-no_ssl.msi</strong>，出现安装向导。一步一步的按照向导来安装，非常简单。需要注意的是，到了<strong>【Server Information】</strong>安装界面时，如果你是在本地调试，不是一台可用的服务器，甚至没有联网。那么你就得在前面两个框中直接输入<strong>localhost</strong>，在第三栏中任意输入你的邮箱地址。之后如果没有提示什么错误，就算是安装完成了。右下角等任务栏会出现 apache 羽毛图标，显示绿色正在运行。这时，打开你的浏览器，在地址栏上输入<strong> “localhost”</strong>，浏览器会显示<strong>“It works”</strong>这就说明 apache 服务器已经成功的安装完成了。</p>
+<p>下面是更简单的 php 安装。打开<strong>php-5.2.17-Win32-VC6-x86.zip</strong>这个压缩包，将里面的所有文件随便复制到一个文件夹中即可。在我的电脑里，是复制在 E 盘的 php 文件夹里。</p>
+<p>mysql 的安装也是很简单的，有向导，根据向导一步一步的来，如果看不懂什么意思的话，一般保持默认选项即可。需要注意的是，在设置密码的地方，设置上一个密码，并且记住，这样使你的系统更安全。安装完成后，会自动注册为系统服务，并且开机会自动运行。</p>
+<p><strong>第三步，连接：</strong>这是在安装配置这个环境中，最重要的一步。要 apache 服务器能正常的解析 php，必须把 php 和 apache 链接起来。在 windows 系统中，打开“<strong>控制面板</strong>”找到“<strong>系统</strong>”，之后打开“<strong>高级系统设置</strong>”，选择“<strong>高级</strong>”标签。点击下面的“<strong>环境变量</strong>”，找到下面的“<strong>系统变量</strong>”，在列表中选择“<strong>Path</strong>”，双击打开，在变量值中，加上你 php 的路径（本例为 E:php）。注意：<strong>使用“；”分号与前面的值分开，不要修改原有的值，否则会产生系统错误。</strong></p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache.jpg" alt="" title="apache"></a></p>
+<p>之后，打开 apache 安装目录，找到“conf”文件夹中的“<strong>httpd.conf</strong>”文件，使用记事本打开编辑。在<strong>LoadModule</strong>段落的最下面，按照下图的格式，写下如下代码：</p>
+<pre>LoadModule php5_module "e:/php/php5apache2_2.dll"
+LoadFile  E:/php/libmysql.dll
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php .htm
+PHPIniDir "E:/php"</pre>
+
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache2.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache2.jpg" alt="" title="apache2"></a></p>
+<p>简单解释一下，<strong>LoadModule</strong>是指加载模块，前两句的意思就是，加载 php 编译模块和 php 链接 mysql 模块，如果不添加第二句的话，mysql 是无法链接的。<strong>AddType</strong>是增加文件类型，这两句的意思是，遇到文件后缀为 php、htm 的文件，都使用 php 对其进行编译。在这里，你可以随便添加文件类型，比如 php3、html 等等，访问它们的时候，文档中的 php 代码都会被运行。<strong>PHPIniDir</strong> 是制定了 php 安装的目录。</p>
+<p>再进入 php 安装目录，找到“<strong>php.ini-dist</strong>”文件，把它的文件名修改成“<strong>php.ini</strong>”，这样大功告成！之后，重启 apache 服务器，如果 apache 服务器成功重启，则说明你的 apache+php+mysql 环境已经成功安装。如果无法重启，说明你修改 httpd.conf 文件的时候，没有按照指定的格式书写，也有可能是因为一些其他原因。但是如果按照我上面的步骤，是没有问题的。如果你遇到了问题，可以与我联系（qianxingzhem#163.com）。</p>
+<p>最后，我们进行 mysql 数据库功能的加载，只有配置了这一步，才能连接 mysql 使用。打开 php.ini 文件，搜索找到“<strong>extension_dir</strong>”，把引号内的内容(如”./”)改成”<strong>e:/php/ext</strong>”，即指定扩展模块的目录。之后，继续查找”;extension=php_mysql.dll”，把<strong>;extension=php_mysql.dll</strong>和<strong>;extension=php_mysql.dll</strong> 前的”<strong>;</strong>”注释号去掉，这样就可以让 PHP 加载扩展模块<strong>mysql</strong>及<strong>mysqli</strong>模块。保存退出即可。</p>
+<p><strong>第四步，使用：</strong>安装完了之后，使用才是最关键的。按照上面的步骤完成后，你的网页文件应该存放在：E:apachehtdocs（就是 apache 安装目录的 htdocs 文件夹中）</p>
+<p>我们先来测试一下自己环境是否搭建成功。打开记事本，编写一句显示 php 环境的函数：</p>
+<pre>&lt;?php phpinfo(); ?&gt;</pre>
+
+<p>保存为 index.php 文件，复制到 apache 的 htdocs 目录下，在浏览器中输入：localhost。这时候，就可以看到你的 php 环境的配置了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache3.jpg" alt="" title="apache3"></a></p>
+<p>这样，apache 和 php 就算是完美的连接到一起了。只要把你的 php 网站源码放在这个目录下，访问 localhost 就可以看到。下面重点来讲解一下关于 mysql 数据库的使用。mysql 数据库使用默认配置安装后，它的默认数据库存放地址是：<strong>C:ProgramDataMySQLMySQL Server 5.5data</strong>。我们如果想要对数据库进行操作，打开这么多文件夹实在不是明智之举。这样，我们就需要修改一下它的默认位置。我在网上搜索了一下，结果发现，修改默认位置的文章大都是在 linux 下的。下面我就教大家如何在 windows 系统下，修改数据库的默认位置：</p>
+<p>我们需要找到 mysql 数据库安装位置下面的<strong>my.ini</strong>文件，下拉找到</p>
+<pre>#Path to installation directory. All paths are usually resolved relative to this.
+basedir="C:/Program Files/MySQL/MySQL Server 5.5/"
+
+#Path to the database root
+datadir="E:/mysql/data"</pre>
+
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache4.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache4.jpg" alt="" title="apache4"></a><br>这两段，第一段的<strong>basedir</strong>是安装目录，不要修改，第二段的<strong>datadir</strong>是你的数据库位置，在这里我修改成了“E:/mysql/data”，这里是你指定的位置。修改完成之后，关掉保存。之后，需要暂停 mysql 服务，然后把原来默认的数据库文件，全部不变的复制到你的新目录里面，之后再重启即可。至于如何停止 mysql 服务，你可以摁下“WIN+R”键，打开运行，输入“cmd”回车，打开 DOS 命令窗口。在里面输入：<strong>net stop mysql</strong>。这样就停止服务了。当文件复制完成，再输入：<strong>net start mysql</strong>，即可开启服务。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache5.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache5.jpg" alt="" title="apache5"></a></p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache6.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache6.jpg" alt="" title="apache6"></a></p>
+<p>必须要注意的是，原来的文件目录等，都要完全一致，否则可能会出现意外情况。下面，我带着大家亲自安装一下 wordpress 程序，让大家了解 mysql 该如何配置使用。</p>
+<p>在上图中，我新建了一个“wp”文件夹，这样，就相当于建立了一个新的数据库，名称“wp”。我们进入 wordpress 安装界面：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" alt="" title="apache7"></a></p>
+<p><strong>数据库名称</strong>，就是你新建的文件夹名称；<strong>用户名</strong>，就是 mysql 用户名，默认为 root；<strong>密码</strong>就是在上面安装 mysql 过程中，你配置的密码，如果你在安装时，没有配置密码则此处留空；数据库主机，就是你本地，输入 localhost 即可；<strong>表名前缀</strong>，随便填写即可，如果一个数据库中安装多个 wordpress 程序，这个前缀是用来表明不同 wordpress 程序的。点击“提交”，OK，安装完成！</p>
+<p>这样，我们的 apache+php+mysql 就彻底的完成了，是不是很简单？在运行 php 网站的时候，你可能会遇到一些错误，这多半是由于 php.ini 没有配置的缘故。我们使用的虚拟主机等，都是他们已经配置好的，而原官方的 php.ini 是全新的，没有经过任何配置，大多数模块由于安全考虑，都是关闭的。如果你遇到什么问题，可以上网搜索一下，修改一下 php.ini 文件就可以了。</p>
+<p>最后说明一下，这个步骤和方法在本人的电脑上是完全正常可以的，如果在你的电脑上不能正常，有可能是由于操作系统、apache 版本、php 版本、mysql 版本不同造成的，推荐使用搜索引擎寻找解决方案，也可以与本人联系看看能不能帮你解决。</p>
+<p>&nbsp;</p>
+<p><strong>PS：有些朋友安装完成后，apache 有可能无法启动，怎么也找不到原因。这有可能是由于端口冲突造成的。</strong></p>
+<p>我们在访问一个网站的时候，默认使用的 80 端口，输入一个网址（例如 qianxingzhem.com），在浏览器请求实际上是这样的<a href="http://qianxingzhem.com:80/，表示使用80端口访问。由于默认就是80端口，所以在浏览器中就省略了“:80”。apache、IIS等服务器的服务端口，默认也是80，这样的话，如果你之前安装过IIS或者安装过其他使用80端口的程序，那么你使用localhost是无法访问apache服务其上的网页文件（因为端口被占用）。关于这种情况，可以有两种解决方式：" target="_blank" rel="noopener">http://qianxingzhem.com:80/，表示使用80端口访问。由于默认就是80端口，所以在浏览器中就省略了“:80”。apache、IIS等服务器的服务端口，默认也是80，这样的话，如果你之前安装过IIS或者安装过其他使用80端口的程序，那么你使用localhost是无法访问apache服务其上的网页文件（因为端口被占用）。关于这种情况，可以有两种解决方式：</a></p>
+<p>1，结束掉占用 80 端口的程序。方法可以看这里：<a href="http://down.cnzz.cn/HelpInfo/49.aspx" target="_blank" rel="noopener">关于 Apache 端口冲突问题</a>。就是把占用的程序关掉即可。</p>
+<p>2，修改 apache 的默认端口，改变成其他不常用的端口。方法可以看这篇文章：<a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">如</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">何</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">改</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">变</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">A</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">p</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">a</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">c</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">h</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">e</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">端</a><wbr><a href="http://wenku.baidu.com/view/f422521b6bd97f192279e92e.html" target="_blank" rel="noopener">口</a><wbr><wbr><br></p>
+<p>如果还出现其他问题，欢迎与我联系，我会帮忙看一下如何解决。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-455.html" data-id="ckgcnru9f007k1d2asqj4l1xx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="455" data-title="本地搭建配置 apache+php+mysql 环境" data-url="http://www.qianxingzhem.com/post-455.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-gb2312-e3-80-81gbk-e4-b8-8eutf-8-e7-9a-84-e5-8c-ba-e5-88-ab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-464.html" class="article-date">
+  <time datetime="2012-01-31T08:38:38.000Z" itemprop="datePublished">Jan 31 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-464.html">GB2312、GBK与UTF-8的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是一个异常经典的问题，有无数的新手站长每天都在百度这个问题，而我，作为一个“伪老手”站长，在明白这个这个问题的基础上，有必要详细的解答一下。</p>
+<p>首先，我们要明白，GB2312、GBK和UTF-8都是一种字符编码，除此之外，还有好多字符编码。只是对于我们中国人的网站来说，用这三种编码比较多。简单的说一下，为什么要用编码，在计算机内，储存文本信息用ASC II码，每一个字符对应着唯一的ASCII码。最初计算机是由美国发明的，他们也用的是键盘和上面的字母，所以他们的字符ASCII好解决。但是我们中国的就不同了，每个汉字要对应唯一的ASCII码。这样，就出来了国家制定的字符编码标准：GB2312、GBK等。其他国家，其他语言也有他们对应的编码标准。</p>
+<p>GB 就是国标的意思，GB2312和GBK主要用于汉字的编码，而UTF-8是全世界通用的。意思就是说，如果你的网页主要面对使用汉语的中国人的话，使用GB2312和GBK非常好，文字储存体积要小，有一些优点。如果你的网页要面向世界的话，你再用GB2312和GBK作为网页编码的话，有些电脑上的浏览器没有这种编码，你的网页汉字内容就会变成无法识别的乱码。</p>
+<p>它们通常用在网页的meta标签内，例如：&lt;meta http-equiv=”Content-Type” content=”text/html; charset=gb2312” /&gt;，表示这个页面使用的是GB2312编码。这个信息是给浏览器看的，浏览器会优先考虑使用从网页头部提取出来的编码信息对网页进行解码。当然，我们也可以强制浏览器使用某种编码解释网页，这样我们就看到了传说中的乱码。请看下图IE浏览器：</p>
+<p><a href="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/gb23121.jpg" target="_blank" rel="noopener"><img src="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/gb23121-300x227.jpg" alt="" title="gb2312"></a></p>
+<p>百度首页使用的是GB2312编码，我们可以看到现在是正常的。我们右击页面，选择“编码”-&gt;“其他”-&gt;“Unicode（UTF-8)”，意思就是强制浏览器使用UTF-8的编码方式解析页面，我们可以看到奇迹发生了：</p>
+<p><a href="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/utf-81.jpg" target="_blank" rel="noopener"><img src="http://yujiangshui.com/qianxingzhem.com/wp-content/uploads/2012/01/utf-81-300x195.jpg" alt="" title="utf-8"></a></p>
+<p>百度页面上所有的汉字都变成了乱码。如果你的网页使用了GB2312编码，却被一台没有GB2312编码的电脑访问了，里面所有的汉字都成了乱码。如果你使用UTF-8编码，在没有汉字的电脑里，仍然可以正常显示，因为UTF-8是通用的编码，所有电脑都有。</p>
+<p>所以，在编写网页时，尽量使用UTF-8编码。</p>
+<p>小小的声明一下，以上就是潜行者M个人的理解，如果有什么不对，请高手指正！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-464.html" data-id="ckgcnruax00bw1d2a3yticw0c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="464" data-title="GB2312、GBK与UTF-8的区别" data-url="http://www.qianxingzhem.com/post-464.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e8-b4-ad-e4-b9-b0-e9-a6-99-e6-b8-af-e7-a9-ba-e9-97-b4-e9-9c-80-e8-a6-81-e6-85-8e-e9-87-8d-e8-80-83-e8-99-91" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-462.html" class="article-date">
+  <time datetime="2012-01-31T07:54:56.000Z" itemprop="datePublished">Jan 31 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-462.html">购买香港空间需要慎重考虑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写这篇文章，是因为前些天买的香港虚拟主机。</p>
+<p>可以说，这是我不太满意的一次购物，我第一次在淘宝上退款。原因很简单，这个香港空间实在是太烂了。</p>
+<p>至于是哪家IDC，为了防止被误认为枪手，我就不说了。反正60块钱一年，1G大小，100M mysql数据库，支持各种脚本，IIS限制200 ，绑定5个域名，可以多个子目录。而且后台管理使用Free system管理系统，这个系统我以前用过很好用。这样的配置，仅仅60块钱，性价比真的非常高。所以我想都没想，就买下了。</p>
+<p>之后登陆后台，查看空间的信息，发现管理系统被修改的千疮百孔。绑定域名的时候，怎么也绑定不上。上面写着“如果绑定不上域名，请联系客服解决”，这样我就联系了一下他们的客服，等了半天之后，他回话问我要绑定什么域名。原来，他们绑定域名是人工绑定的，问他们为什么，原来是因为这样人工审核可以防止垃圾站。想在上面建设一个discuz！论坛，之后就传上去了源码。访问速度很不稳定。ping它的时候，速度都在70ms左右，但是打开的时候，要等一大会，还不如我的justhost空间打开速度快。这可能是由于服务器用户太多，宽带不够用，导致下载速度不行。</p>
+<p>还有更致命的一点，discuz！论坛的头像显示不出来，帖子内的discuz！标签无法解析。意思就是说，php程序运行有问题，更进一步说，他们的php运行环境有问题。这样的话，这个空间就没法用了。</p>
+<p>还好，他们最好的就是退款了。用了几天后，联系他们客服退款，一会退回来了57块钱。</p>
+<p>回想一下，其实我也有错，这么好的配置，60块钱能买到吗？一分钱一分货！</p>
+<p>通过这次经历，我终于明白了为什么大家搜索的都是“香港空间 月付”了，因为月付相当于试用，如果哪个月觉得不好用了，可以及时的退出不再续费，而月付，就是几块钱而已，即便是受骗也不至于损失太大。而对于空间商来说，如果他提供月付，说明他对自己的主机非常有信心。因为如果主机质量不好的话，买家就不会续费了，他也没有钱赚了。</p>
+<p>所以，我总结出的购买香港空间的经验就是：1，不要图便宜，要仔细看清评论，特别是后来补充上的。在淘宝评论上，可以查看后续补充的。他们补充的评论可信度非常高，因为这是他们亲身使用过的。2，尽量选择月付空间，这样可以试用，如果不行可以及时换掉，以免损失太大。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-462.html" data-id="ckgcnrua5009w1d2a64saera8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="462" data-title="购买香港空间需要慎重考虑" data-url="http://www.qianxingzhem.com/post-462.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8wubi-e5-bf-ab-e9-80-9f-e5-ae-89-e8-a3-85ubuntu-e7-b3-bb-e7-bb-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-447.html" class="article-date">
+  <time datetime="2012-01-28T19:00:37.000Z" itemprop="datePublished">Jan 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-447.html">使用 wubi 快速安装 ubuntu 系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>传统的安装 linux 操作系统和 windows 双系统是非常麻烦的，需要光盘、u 盘之类的安装，之后还要改一些东西来设置引导。一般的做法是使用虚拟机软件，在 windows 系统上使用虚拟机（例如：VMware）安装一个 linux 系统。这样做虽然方便，但是会严重影响 linux 的性能，其他的功能也有损伤。这样，就出现了 wubi.exe 这个程序。</p>
+<p>这个程序默认是包含在 ubuntu 系统镜像文件里的，使用时，只需把这个镜像文件用压缩软件打开，把程序拖出来即可。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/01/ubuntu1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/01/ubuntu1.jpg" alt="" title="ubuntu1"></a></p>
+<p>双击程序之后，就出来一个很简洁的配置界面，包括你要安装到哪个硬盘里、安装后的大小是多少、设置账号密码等，配置完之后，点击开始就可以了。由于本文是在安装完之后写的，所以截不到安装之前的图了。</p>
+<p>当 wubi 程序把镜像文件解压配置好之后，会要求重启。这时候重启电脑就自动开始安装 ubuntu 系统了。它的安装比 windows 安装简单太多了，完全是自动的，不用你去配置任何文件，而且图画、效果非常美观。等大约一个小时左右，系统就安装完成了，电脑自动重启。</p>
+<p>之后，就可以在开机界面选择登陆什么系统了。</p>
+<p>使用 wubi 安装 ubuntu 系统非常的简单方便，但是有很多人觉得，使用这种方法安装 ubuntu 系统，会影响 ubuntu 系统的性能。我也寻找过相关资料，其实 wubi 的原理很简单，就是把 ubuntu 镜像文件解压出来，然后配置一下安装信息，添加一下引导信息。重启之后，自动开始进行 ubuntu 的安装，由于安装系统的一些信息都使用 wubi 配置进去了，所以全过程自动安装了。</p>
+<p>因此，我个人觉得 wubi 不会影响 ubuntu 的性能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-447.html" data-id="ckgcnru86003u1d2anhq8us0i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="447" data-title="使用 wubi 快速安装 ubuntu 系统" data-url="http://www.qianxingzhem.com/post-447.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-88-9b-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84u-e7-9b-98ubuntu-e7-b3-bb-e7-bb-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-438.html" class="article-date">
+  <time datetime="2012-01-28T18:40:26.000Z" itemprop="datePublished">Jan 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-438.html">创建自己的 U 盘 ubuntu 系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这些天终于把 vista 系统整理的差不多了，为了学习的考虑，打算再装上个 linux 系统。最终还是选择了 ubuntu，确实不错的系统。</p>
+<p>下面，安装就成了一个问题。我的笔记本电脑光驱已经用了四年了，基本上报废了，盗版光盘和自己刻录的光盘读不出来了。以前刻录的那个 ubuntu 安装光盘也已经不行了。那么就用 U 盘吧。自己在网上找了找，官方就有这个教程，是英文的，我现在用中文写一遍。</p>
+<p>首先，你需要的东西是<strong>ubuntu 操作系统的镜像文件</strong>、<strong>一个 4G 以上的 U 盘</strong>和<strong>Universal-USB-Installer</strong>这个程序。这个程序是主角，下载地址是<a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/。本文重点讲的也是如何使用这个程序来把linux系统装到u盘上。" target="_blank" rel="noopener">http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/。本文重点讲的也是如何使用这个程序来把linux系统装到u盘上。</a></p>
+<p>以上三个东西都准备好了之后，运行这个程序，点击“I agree”之后，就进入了程序配置页面，请看下面说明：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/01/linux1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/01/linux1.jpg" alt="" title="linux1"></a></p>
+<p>之后，点击“create”就开始格式化你的 u 盘、解压缩系统、安装系统了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/01/linux2.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/01/linux2.jpg" alt="" title="linux2"></a></p>
+<p>接着等待即可，大约半个多小时之后，linux 操作系统就已经安装到了 u 盘上。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/01/linux3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/01/linux3.jpg" alt="" title="linux3"></a></p>
+<p>这样，我们只要插着 u 盘重启电脑就可以进入 u 盘 linux 了，就和光盘版的一样。如果有同学重启之后，还是自动进入了 windows 系统，说明你的电脑默认从硬盘加载系统，在开机界面的时候，按下 F8（通常是 F8，有的电脑可能不同），选择 USB 那一项就可以了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-438.html" data-id="ckgcnru8b004c1d2apfw0efxw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="438" data-title="创建自己的 U 盘 ubuntu 系统" data-url="http://www.qianxingzhem.com/post-438.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e8-b4-ad-e4-b9-b0-e4-b8-80-e4-b8-aa-e7-bd-91-e7-ab-99-e7-a9-ba-e9-97-b4-e4-bd-a0-e9-9c-80-e8-a6-81-e6-b3-a8-e6-84-8f-e4-bb-80-e4-b9-88" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-382.html" class="article-date">
+  <time datetime="2012-01-28T01:40:04.000Z" itemprop="datePublished">Jan 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-382.html">购买一个虚拟主机你需要注意什么</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又申请了一个域名，想再做几个网站，于是又进入鱼目混杂的虚拟主机大海里，寻找合适的网站空间。顺便写篇文章，总结一下如何选购虚拟主机以及虚拟主机的各个参数，以供新站长参考防止上当受骗。</p>
+<p>一个虚拟主机，主要有以下参数：<strong>空间大小</strong>、<strong>IIS连接数</strong>、<strong>流量限制</strong>、<strong>数据库类型与大小</strong>、<strong>可绑定域名数</strong>、<strong>可划分子目录数</strong>、<strong>支持脚本类型</strong>、<strong>宽带大小</strong>、<strong>CPU资源</strong>、<strong>操作系统</strong>等，这些是主要的，在购买空间时重点需要参考的，此外还有其他一些各个服务商不同的参数。比如：支持wap访问、支持伪静态等，这些要有你自己来决断，比如你的网站需要伪静态功能，那么你就要买个支持伪静态的主机。下面我来对主要参数一一分析：</p>
+<p><strong>空间大小</strong>：就是网站空间所能存放文件的大小。在国内来说，一般有100M、200M、1G、3G等等。在国外来说，一般无限大，例如我的潜行者M博客用的justhost的虚拟主机，空间大小是750G，不过有文件限制，文件数不能超过5万个。所以，空间大小不是衡量虚拟主机的标准。一般选用和自己网站程序大小的空间就行，比如一个博客网站需要100M就行，论坛的话一般500M就行，资源型的网站1G的空间就够了。如果需要很多空间的下载资源型网站，一般不能用虚拟主机，因为虚拟主机承受不住那么大的压力，服务商可能会关掉你的网站。 所以，通常来说，虚拟主机最多用1G空间就行，而且空间大小不能作为价格衡量的标准，现在的硬盘都是很便宜的，注意这一点。</p>
+<p><strong>IIS连接数</strong>：这才是一个重要的参数，它决定了你网站的访问数量的限制。在你选购虚拟主机的时候，通常会见到IIS连接数100等，它的意思是只能支持同时有100个人访问你的网站，第101个人就无法访问你的网站了。如果你的网站每日的访问量在1000IP左右，那么你就得选择IIS连接数300以上的，如果不这样的话，会经常出现网站无法访问的情况。特别要注意的一点，虚拟主机肯定会有IIS连接数限制的，有些虚拟主机介绍中会说IIS连接数不限，这是不现实的。如果虚拟主机真的不限制IIS连接数的话， 那么这台服务器会很不稳定的，访问量过大的网站会占用大量服务器资源，导致其他网站不稳定等。</p>
+<p><strong>流量限制</strong>：这也是一个非常重要的参数。可以这样说，如果你的网页大小是10KB，你虚拟主机的月流量限制是1MB（实际上肯定不会这么小），那么当你的这个网页被浏览100次之后，你的这个虚拟主机就会因超流量暂时关闭。限制流量可以提高服务器的稳定性，像万网这些大公司通常都限制流量，这样可以防止服务器上的网站提供大量下载服务导致严重占用服务器资源。不过大部分都是不限制流量的。就像潜行者m这个博客用的就是不限流量的主机。</p>
+<p><strong>数据库类型与大小</strong>：你的网站如果是动态网站的话，就得需要数据库的支持，通常来说网站的搭配有asp+access数据库、php+mysql数据库和aspx+mssql数据库等。access数据库，是一个文件，在支持asp的虚拟空间，直接放在网站空间中即可，而mysql和mssql数据库是需要额外支持的。通常虚拟主机附赠数据库，一般是几十M的mysql，mssql一般要比mysql贵。购买时一定要注意你的空间是否支持数据库、数据库的大小和数据库的类型。如果你做一个 aspx+mssql数据库的网站，却买了一个支持mysql数据库的虚拟主机，那就无法安装上去了。当然，数据库是可以单独购买的。</p>
+<p><strong>可绑定域名数</strong>： 一个网站需要用一个域名访问，虚拟主机只是存放文件，我们要绑定上域名，才能用域名访问到虚拟主机上的网页文件。假设可绑定的域名数是10，意思就是可以支持10个域名绑定这个空间，如果配合子目录的话，就可以建设多个网站。</p>
+<p><strong>可划分子目录数</strong>：子目录就是主目录下面的一个文件夹，划分出来之后，就可以单独绑定域名制作独立的网站。比如我在虚拟主机上划分出一个名字为xx的子目录，同时使用自己的另一个域名：<a href="http://www.xyyx.com绑定带着个子目录上，就相当于建设了一个独立的网站。可悲的是，现在的虚拟主机往往很少支持划分子目录了，最多也就划分3个左右，这个也是为了服务器的稳定。" target="_blank" rel="noopener">www.xyyx.com绑定带着个子目录上，就相当于建设了一个独立的网站。可悲的是，现在的虚拟主机往往很少支持划分子目录了，最多也就划分3个左右，这个也是为了服务器的稳定。</a></p>
+<p><strong>支持脚本类型</strong>：这个非常重要。在国内来说，通常都支持asp、php，部分高级点的套餐支持asp.net脚本，而国外往往分别支持asp/.net(windows环境)和php(linux环境)。购买虚拟主机要根据自己网站的类型来选择，如果你的网站是一个基于php技术设计制作的，就无法安装在仅仅支持asp的空间上。同时还要注意，主机是否配有相应的数据库。</p>
+<p><strong>宽带大小</strong>：这个大家都知道，虚拟主机一般是共享宽带，一般是100M的。宽带越大，速度越快。共享的用户越多，速度越慢。</p>
+<p><strong>CPU资源</strong>：这个也是为了防止过多占用系统资源设置的。一般来说，使用asp、php等脚本的网站，访问执行脚本的时候，都会使用cpu运算。假设cpu资源限制在3%，如果你的网站经常占用CPU资源超过3%的话，就会暂时关掉你的网站。</p>
+<p><strong>操作系统</strong>：就是服务器使用的操作系统。在国内的话，通常使用盗版的windows，安装上各个组件，支持asp/.net、php等等。而国外的不同。国外重视版权，分为windows系统和linux系统，在windows系统中支持asp/.net（微软自家的东西），在linux系统中支持php。windows系统的服务器由于需要支付版权费，所以要比linux系统下的虚拟主机贵一些。</p>
+<p>在购买虚拟主机的时候，最主要看的参数就是这几个，决定价格的参数也是这几个。至于其他的，就要根据自己的需求决定。此外，寻找一个好的虚拟主机需要耐心，仔细分辨虚假信息，辨别虚假评论，这样才能找到合适的性价比高的虚拟主机。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-382.html" data-id="ckgcnrua4009t1d2aj2kg2wkr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="382" data-title="购买一个虚拟主机你需要注意什么" data-url="http://www.qianxingzhem.com/post-382.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-88-9a-e5-88-9ajusthost-e7-a9-ba-e9-97-b4-e5-8f-88-e5-87-ba-e9-97-ae-e9-a2-98-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-378.html" class="article-date">
+  <time datetime="2012-01-21T14:51:01.000Z" itemprop="datePublished">Jan 22 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-378.html">刚刚justhost空间又出问题了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>刚刚我登陆博客的时候，发现数据库连接出错。记得几天前，也是相同的问题。这不得不让我怀疑justhost的稳定性。</p>
+<p>justhost的官方介绍中，提到 uptime 99.9%。uptime是什么意思呢？就是指运行时间，就是说在你使用的期间，他们会保证百分之99.9%你的网站是可以访问的，如果一个月内达不到这个标准，他们会退这个月的钱。</p>
+<p>这里就有一个歧义。就像刚才，我的网站是可以访问的，但是不正常数据库连接出错。这算不算？因为可以访问，所以他们的服务器运行正常，但是数据库服务出现异常，那么我的网站究竟算是正常还是不正常？</p>
+<p>如果有人说，知足吧，你的网站隔着一个太平洋，难免会出现错误。不对，这和网络、线路无关。数据库都是在他们自己主机上的，出错的话，原因只能是他们内部服务器出现问题，或者数据库服务出了问题。对于这点，我们也应该理解，因为justhost是虚拟主机，一台主机上有很多个用户，而且他们的功能配置都是无限的，难免会有占用大量资源的用户。此外，价格便宜面向全世界。特别是中国的购买者，很大一部分是用来做垃圾网站和仿牌网站之类的，及其容易遭受黑客入侵。所以造成他们主机的不稳定以及不安全。</p>
+<p>我犯了一个错误。以前一直以为justhost空间不错，很稳定。原因是我很少的登陆自己的网站，而现在比以前稍微多了点，就发现了好几次的错误。我决定使用网络上的宕机监测服务，来对我的justhost进行监测，看看justhost具体是不是很稳定。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-378.html" data-id="ckgcnru8a00481d2a72krv2te" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustHost/">JustHost</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="378" data-title="刚刚justhost空间又出问题了" data-url="http://www.qianxingzhem.com/post-378.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e7-ab-99-e6-90-ac-e5-ae-b6-e7-9a-84-e4-b8-80-e8-88-ac-e6-ad-a5-e9-aa-a4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-369.html" class="article-date">
+  <time datetime="2012-01-19T23:39:07.000Z" itemprop="datePublished">Jan 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-369.html">网站搬家的一般步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前些天，准备给我这个博客（qianxingzhem.com）搬家来着，结果域名被绑定到justhost空间上了，动不了于是准备了半天没有搬成。关于网站搬家，有很多新站长可能感觉无从下手，结果搬完之后的网站，就像重新建设的一样，乱七八糟的而且还有数据丢失。今天，我就结合以前学的SEO中关于网站搬家部分的知识以及前些天搬家的实践来总结一下网站搬家的一般步骤。</p>
+<p>首先，网站搬家的原则是：<strong>不丢失任何文件以及链接，保持和搬家前网站一致。</strong><br><strong>第一步：备份并且下载所搬网站的内容</strong><br>做什么事之前，要养成一个备份的习惯，如果出现意外，可以防止丢失。此外，我所说的网站的内容不仅仅是你看到的服务器上的网站源码文件。就像我的这个是用wordpress搭建的博客网站，其博客数据都储存在mysql数据库中，而重要的部分也是这个。我们不仅仅要下载网站的源码文件，还要是用网站后台的导出数据的功能，把数据库里面的网站数据导出来。<br><strong>第二步：上传网站文件到新空间</strong><br>这一点不用多说，把传下来的东西再传到新的服务器上。但是要注意，这个传是有技巧的。对于普通的html页面和是用asp+access数据库的网站，可以直接上传。但是是用php+mysql数据库以及类似的数据库与主机空间分离的网站，直接上传是会出现数据库连接问题的。原因很简单，网站文件中，有个文件是配置数据库连接的。它配置的是你现在使用的数据库的相关信息，比如数据库地址、用户名、密码等。数据库的地址一般就是本机，通常为localhost，而你上传上去之后，新主机的并没有那种配置，所以就会出现数据库连接出错。</p>
+<p>而你根据新服务器的数据库配置来修改你的数据库连接文件，也是不可以的，因为你的数据库里面没有任何数据，即使连接上了，也不会调用出来东西。这样，可以通过多种方法，比较常用的有这两种：第一种就是使用phpmyadmin等数据库操作软件或者登陆数据库管理页面，把你原网站导出的数据库文件导入进去。然后根据新数据库的信息修改数据库连接文件，之后就可以访问了。第二种我比较喜欢，就是把你的网站重新在新服务器上安装一遍。比如我的这个wp博客，就可以把一套新的wp程序上传上去，根据他们的数据库信息重新配置安装一遍，然后把原网站导出的数据从后台导入进去，最好把上面所有非数据库配置文件都删掉，然后把原网站的非数据库配置文件上传上去就行了。一般来说就这两种方法，大家可以根据情况操作。<br><strong>第三步：调整并且修改新空间上的网站</strong><br>完全上传上去之后，可能会有一些冗杂数据和错误等。冗杂数据删掉就可以了，而错误，就需要多方面考虑。出现的错误，有以下几种原因：1，可能是由服务器的配置造成的。很简单的例子，有些服务器支持伪静态，网站使用伪静态方式的可以正常使用，而转移到一个不支持伪静态的服务器上，伪静态页面就无法使用了。2，可能由网站的配置造成的。比如在网站后台的配置中，一般需要配置你的网址。它的用处一般是来链接模板、以及网站其他资源的，而搬了新空间但是没有把域名转接上，就无法正常访问网站资源造成网站显示不正常。一切按照原网站的样子调整修改，并且确认无误。<br><strong>第四步：修改dns设置绑定域名到新空间</strong><br>当你把搬过去的网站彻底的修改调整好了和原网站已经没有什么区别了之后，之后要做的就是把你的域名解析到新的空间上面，让你的域名指向你搬过去的地方。注意，只有当和原网站一样之后，在进行转接。如果过早的转接，会导致用户访问时看到你的网站是一个有错误不完善的网站，而且会有部分连接出错。而我们的目标是让搬家之前访问的用户和搬家之后再次访问的用户感觉不到有什么变化。<br><strong>第五步：清除原网站内容及数据</strong><br>搬完就完事了？不，你还要把原先网站的内容全部清空。这只是一个好习惯，防止出现一些特殊的意外，比如数据泄露。就像前不久csdn泄露的600万份用户的账号资料。这本来就是一个过期的备份，本来应该及时删掉的，结果留在那里了，于是就被下载了。所以，清空原来服务器上的数据。</p>
+<p><strong>这样的五步，你的网站就成功的搬完家了。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-369.html" data-id="ckgcnru9r008l1d2alkwwv7wf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="369" data-title="网站搬家的一般步骤" data-url="http://www.qianxingzhem.com/post-369.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e4-b8-adbloginfo-e5-87-bd-e6-95-b0-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-364.html" class="article-date">
+  <time datetime="2012-01-18T23:56:45.000Z" itemprop="datePublished">Jan 19 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-364.html">wordpress中bloginfo()函数详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>bloginfo()函数，顾名思义，是用来显示博客相关信息的函数。常用的有如下几种：</p>
+<p><strong>&lt;?php bloginfo(‘name’); ?&gt;</strong> 输出博客名称，例如“潜行者M”，在后台设置常规里面可以设置；<br><strong>&lt;?php bloginfo(‘stylesheet_url’); ?&gt;</strong> 输出模板style.css文件的地址，使用如下语句来加载模板的css样式表：&lt;link rel=”stylesheet” href=”&lt;?php bloginfo(‘stylesheet_url’); ?&gt;” type=”text/css” media=”screen” /&gt;；<br><strong>&lt;?php bloginfo(‘url’); ?&gt;</strong> 输出博客的网址，在后台设置常规里面可以设置；<br><strong>&lt;?php bloginfo(‘template_url’); ?&gt;</strong> 输出博客模板的位置；<br><strong>&lt;?php bloginfo(‘rss2_url’); ?&gt;</strong> 输出博客RSS2.0 feed地址；<br><strong>&lt;?php bloginfo(‘charset’); ?&gt;</strong> 输出博客所采用的编码；<br><strong>&lt;?php bloginfo( ‘description’ ); ?&gt;</strong> 输出博客的描述，即副标题，在后台设置常规里面可以设置。</p>
+<p>此外，与此函数相近的函数有get_bloginfo()，它的用法与此函数相同，区别在于get_bloginfo()函数用来输出到变量中。<br>用法：<strong>&lt;?php $bloginfo = get_bloginfo( $show ); ?&gt;</strong>更多的用法请参考：<br><a href="http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-bloginfo%28%29.html" target="_blank" rel="noopener">http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-bloginfo%28%29.html</a></p>
+<p>此外，本人总结了一些<a href="http://www.qianxingzhem.com/post-354.html"> wordpress模板开发常用的函数</a></p>
+<p>本人正在写wordpress模板制作教程，详情可以查看：<a href="http://www.qianxingzhem.com/post-tag/wp%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91">wordpress模板开发</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-364.html" data-id="ckgcnrubf00dd1d2aobkevavu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP主题函数/">WP主题函数</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="364" data-title="wordpress中bloginfo()函数详解" data-url="http://www.qianxingzhem.com/post-364.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2012/page/8/">&laquo; Prev</a><a class="page-number" href="/archives/2012/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2012/page/7/">7</a><a class="page-number" href="/archives/2012/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/archives/2012/page/10/">10</a><a class="extend next" rel="next" href="/archives/2012/page/10/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2012 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/archives/2012/page/7/index.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-dns-e7-9b-b8-e5-85-b3-e8-ae-b0-e5-bd-95-e4-b8-8e-e8-a7-a3-e6-9e-90-e8-af-b4-e6-98-8e" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-671.html" class="article-date">
+  <time datetime="2012-02-16T02:16:17.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-671.html">DNS相关记录与解析说明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，先来了解一下dns是什么。</p>
+<p>网站都是放在服务器上面的，在网络发展的初期，通常都是使用IP地址访问网站。这样就出现了一些问题：1，一台服务器上，只能放一个主网站；2，IP地址通常有好几位数字，记忆起了非常不方便。于是人们就发明了域名，通过域名来标记网站的位置。使用域名，可以方便记忆，而且可以设置子域等等，一台服务器上，可以绑定多个域名建设多个网站，域名还是一种品牌。但是发明了域名，要怎么才能用呢？虽然有了域名，但是访问一个网站，实际上还得通过服务器IP等去访问。于是DNS也出现了，它的作用就是，当用户访问一个域名的时候，把域名提交给dns服务器，dns服务器从服务器上面读取这个域名对应的服务器IP，返回IP地址，然后浏览器就去访问服务器，获取相应的网页。</p>
+<p>当然，上面的一个流程只是简单的介绍了一下工作原理，实际中要复杂的多。既然我们是使用者，不是创造者，所以在这里就不用过多的研究。下面，潜行者m以dnspod的dns解析为例，给大家说说关于dns设置的各个记录的作用和用法：</p>
+<p><strong>1，主机记录：</strong></p>
+<p>主机记录就是设置你要解析的域名。如果你要解析根域名，就填上“@”或者空着，如果你要解析子域名，例如：www等，你可以填上www或者是其他你要创建的新的子域名。</p>
+<p><strong>2，记录类型：</strong></p>
+<p>这才是dns主要的功能。记录类型，表示着你这个域名要怎么解析，不同的记录类型有着不同的作用，而且在后面填的信息也不同。通常来说，当你购买网站空间或者服务器的时候，服务商会告诉你域名要怎么解析，解析到哪里。你要根据服务商告诉你的信息去解析。常见的几种记录类型如下：</p>
+<p>A记录：表示你要把这个域名解析到一个IP地址，就是你让这个域名指向的是服务器地址。空间服务商会给你空间的服务器IP地址，之后在后面填写。</p>
+<p>CNAME记录：表示你要把这个域名解析到另一个域名上，通过那一个域名获得服务器IP。通常购买虚拟主机的时候，服务商提供给你解析的不是IP地址，而是一个域名，这时候，你就要使用CNAME记录。</p>
+<p>NS记录：表示域名服务器记录，它表示你的域名的dns服务器地址。通常不用修改，如果你新建了一个子域名，想要把这个子域名的dns服务交给其他dns服务器，可以新建一个子域名，选择NS记录，在后面填上你想换用的dns服务器地址即可。</p>
+<p>MX记录：是邮件交换记录，它指向一个邮件服务器，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。如果你想拥有类似<a href="mailto:qxzm@qianxingzhem.com" target="_blank" rel="noopener">qxzm@qianxingzhem.com</a>的邮箱，那么你必须要在dns上面配置MX记录，并且将其指向一台提供邮件服务的服务器。当有人要发送邮件到 <a href="mailto:qxzm@qianxingzhem.com" target="_blank" rel="noopener">qxzm@qianxingzhem.com</a>上面时，邮件系统会通过dns检测qianxingzhem.com域名上面是否绑定了邮件服务器，如果绑定了，就把邮件发送到这个服务器上面处理。</p>
+<p>除了上面四种比较常用的记录类型之外，还有AAAA、TXT、URL等记录类型，但是这些不常用，有想了解的朋友，可以搜索一下。</p>
+<p><strong>3，记录值：</strong></p>
+<p>记录值是与前面记录类型相对应的，在前面选择了记录类型，在后面的记录值中，就必须填入相应格式的记录值。</p>
+<p>A记录：填入服务器IP地址，注意是IPv4，就是类似 192.168.22.123 这种的服务器IP。</p>
+<p>CNAME记录：填入一个域名，这个域名是空间商提供的。</p>
+<p>NS记录：填入的也是一个域名，是DNS服务器域名，例如：f1g1ns1.dnspod.net.</p>
+<p>MX记录：通常是一个域名，一般有邮件服务商提供。</p>
+<p><strong>4，MX优先级</strong></p>
+<p>这一项只针对MX记录，而且多条MX记录才有效。当添加多条MX记录之后，我们可以设置优先级，让邮件系统通过dns读取的时候，优先读取哪一个值。这样，当优先级高的服务器不能使用的时候，可以调用优先级低的服务器补充上，同时优先级低的服务器可以当做备份使用。</p>
+<p><strong>5，TTL</strong></p>
+<p>dns中的ttl表示缓存生效时间。DNS解析一个域名，是需要一定时间的，也需要占用dns服务器资源，然而域名指向的IP地址并不是经常变化的。所以当用户访问一次域名之后，DNS服务器把返回的IP地址储存到你的电脑上，当你再去访问这个域名的时候，就不用在请求dns服务器了，直接从电脑上读取直接访问，这样可以节省资源。TTL就是生效时间，如果超过了这个时间，当你访问这个域名的时候，会再次请求dns服务器，dns服务器会再次返回域名的地址，进行缓存。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-671.html" data-id="ckgcnruar00bb1d2ajca3ymbr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="671" data-title="DNS相关记录与解析说明" data-url="http://www.qianxingzhem.com/post-671.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b1-e5-9f-9f-e5-90-8d-e7-9b-b8-e5-85-b3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-661.html" class="article-date">
+  <time datetime="2012-02-15T23:47:19.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-661.html">cPanel X 面板使用教程 3—域名相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X 面板</a>的过程中，不得不承认的是，它的域名相关功能非常的强大、方便。首先，先来看看域名相关控制面板：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/domain5.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/domain5.jpg" alt="" title="domain"></a></p>
+<p>下面来依次介绍这几个功能。</p>
+<p><strong>1，子域：</strong></p>
+<p>子域就是主域名的二级域名。比如我绑定的主域名是 qianxingzhem.com ，那么我可以设置的子域名就是类似这种的 demo.qianxingzhem.com。使用子域这个功能，还可以设置子域对应的文件目录。之后，我们在 DNS 配置中，添加一条子域并且指向服务器 IP 就可以使用该子域。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/domain11.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/domain11.jpg" alt="" title="domain1"></a></p>
+<p><strong>2，附加域：</strong></p>
+<p>附加域，就是你另外绑定的域名。比如你的空间不仅仅要做一个网站，还要把另外一个网站也绑定过来。那么就是用附加域功能，添加你的顶级域名，并且配置一下目录。之后，修改域名 dns 指向服务器 IP，就可以了。</p>
+<p><strong>3，暂停的域：</strong></p>
+<p>就是你暂停使用的域名，添加之后，就暂停使用你这个域名。</p>
+<p><strong>4，重新定向：</strong></p>
+<p>这是一个非常实用的功能，使用重定向，在 seo 上面有比较重要的应用，比如网站换用了新域名等等。</p>
+<p>这个面板功能也是很强大的：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/domain21.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/domain21.jpg" alt="" title="domain2"></a></p>
+<p>类型中有永久和临时两种选择，这样可以告诉搜索引擎你的网站是临时转移还是永久转移。在下面，我们可以选择要设置的域名，这里的域名包含绑定的主域名和附加域，还可以配置相应的目录。之后，在下面的重定向至里面，输入你要重定向的域名或者地址。</p>
+<p>而下面的三个单选，第一个“只能使用 www 重定向”意思就是重定向的域名，都是以 www 开头的，例如<a href="http://www.qianxingzhem.com。中间的那个，就是不确定是不是使用www开头。最后一个，就是不要重定向www的域名，只定向类似" target="_blank" rel="noopener">www.qianxingzhem.com。中间的那个，就是不确定是不是使用www开头。最后一个，就是不要重定向www的域名，只定向类似</a> qianxingzhem.com 的域名。</p>
+<p>至于最下面的 “wild card”功能，本人也没有见过，搞不清楚。</p>
+<p><strong>5，简单 dns 编辑器和高级 dns 编辑器：</strong></p>
+<p>justhost 有他们自己的 dns 服务器，为了方便，可以将域名直接绑定到 justhost 自己的 dns 服务器上面，这样设置子域等直接就可以生效。但是 justhost 的 dns 功能不是很强只能实现简单的 dns 功能，例如：添加 A 记录，添加 CNAME 记录等。添加的时候，首先要选择一个域：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/domain3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/domain3.jpg" alt="" title="domain3"></a></p>
+<p>关于图中的的“高级 dns 编辑器”，有些朋友的 cPanel X 面板可能没有这个功能，我的面板是被服务商修改过的，我之前用的就没有这个功能。“高级 dns 编辑器”就是把 dns 功能扩展了一些，可以多添加一个 TXT 记录而已。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/domain4.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/domain4.jpg" alt="" title="domain4"></a></p>
+<p>对于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X 面板</a>的 dns 功能，不是太强，所以建议把域名指向其他 dns 服务器，例如国内的 dnspod 等，之后再指向服务器 IP 即可。</p>
+<h2 id="相关文章："><a href="#相关文章：" class="headerlink" title="相关文章："></a>相关文章：</h2><p><a href="http://www.qianxingzhem.com/post-589.html">1，cPanel X 面板使用教程 1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html">2，cPanel X 面板使用教程 2—FTP 功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html">3，cPanel X 面板使用教程 3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html">4，cPanel X 面板使用教程 4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>中，我们最常用的就是 网站备份、FTP 相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-661.html" data-id="ckgcnruag00at1d2afsxkri8v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="661" data-title="cPanel X 面板使用教程 3—域名相关" data-url="http://www.qianxingzhem.com/post-661.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e4-bd-bf-e7-94-a8css-reset" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-610.html" class="article-date">
+  <time datetime="2012-02-15T02:27:03.000Z" itemprop="datePublished">Feb 15 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-610.html">网页设计为什么要使用 CSS reset</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="先来简单的介绍一些-css-reset"><a href="#先来简单的介绍一些-css-reset" class="headerlink" title="先来简单的介绍一些 css reset"></a>先来简单的介绍一些 css reset</h2><p>从字面意思中，我们可以看出，css reset的功能就是把网页标签样式使用 css 重置。学过 html 的朋友都知道，html 标签是有它默认的样式的，例如：&lt;h*&gt;标签表示标题，通常会对文字进行加粗，并且会让文字变大；&lt;p&gt;是段落标签，表示一个段落，通常会与其他文字空开一段距离。</p>
+<p>那我们为什么要把网页的标签样式进行重置呢？原因很简单，<a href="http://www.qianxingzhem.com/post-612.html">内核不同的浏览器，它对于网页标签的解析是不同的。</a>举个不恰当的例子，某浏览器对于&lt;h1&gt;标签，可能会对文字进行加粗，并且调整文字大小为24px，之后在屏幕中输出。但是另一个浏览器，可能不会这样解析，它可能不会对文字进行加粗，文字大小也可能是20px。这样，同一个网页，在不同浏览器的浏览下，就会发生较大的区别，可能在某浏览器中是正常的，在另一个浏览器中，就错位了不正常了。潜行者m之前写过比较一篇关于几个主流浏览器的区别，有兴趣的可以看一下  <a href="http://www.qianxingzhem.com/post-612.html">firefox、chrome、opera和IE 7的区别</a> 。</p>
+<p>但是，所有的主流浏览器，对于css的支持都是不错的，所以我们可以使用css reset来解决上面的问题。我们使用css来控制页面标签的样式，比如把&lt;h*&gt;标题的加粗、扩大、边距等样式清除，让它和普通文字一样；把&lt;ul&gt;等列表标签的前面标志、空格等清除。这样，把所有的标签样式清除了，当我们需要某一种样式的时候，只需要在css文件中，对其进行控制即可。这样的好处就是，能够尽量的消除各个浏览器对于页面标签样式的解析，尽量使网页在各个浏览器中显示效果一样。</p>
+<h2 id="那么css-reset如何编写"><a href="#那么css-reset如何编写" class="headerlink" title="那么css reset如何编写"></a>那么css reset如何编写</h2><p>目前在网络上，已经有很多关于css reset的框架，例如雅虎的 YUI 等，我们可以下载下来看看他们是怎么写的，是怎么处理的。同时也可以直接在网页中引用。但是对于小的页面，潜行者m并不推荐这种做法，那些大的框架，适合大型网站使用，里面几乎对所有的html标签进行了css reset，而我们制作的小页面，并不需要太多的标签，如果使用那么多无用的css reset代码，会导致页面体积变大。所以我推荐的做法是，根据自己页面用到的标签，去寻找相应的css reset代码。下面，是我从《编写高质量代码—web前端开发修炼之道》一书中，提取出来的一段css reset代码，大家可以根据自己的需要，选择引用：</p>
+<p><pre id="line1">/<em>CSS reset</em>/<br>html{color:#000;background:#fff;}<br>body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,<br>form,fieldset,legend,input,button,textarea,p,blockquote,<br>th,td{margin:0;padding:0;}table{border-collapse:collapse;<br>border-spacing:0;}fieldset,img{border:0;}address,caption,<br>cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;<br>font-weight:inherit;}del,ins{text-decoration:none;}<br>li{list-style:none;}caption,th{text-align:left;}h1,h2,<br>h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,<br>q:after{content:’’;}abbr,acronym{border:0;font-variant:normal;}<br>sup{vertical-align:baseline;}sub{vertical-align:baseline;}<br>legend{color:#000;}input,button,textarea,select,optgroup,<br>option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}<br>input,button,textarea,select{*font-size:100%;}input,button,select,<br>textarea{outline:none;}a {outline: 0;}</pre><br>上面就是一段还不错的css reset代码，在文章的后面，我补充了一些css reset资源。</p>
+<h2 id="关于-margin-0-padding-0"><a href="#关于-margin-0-padding-0" class="headerlink" title="关于*{margin:0;padding:0}"></a>关于*{margin:0;padding:0}</h2><p><em>{margin:0;padding:0}这就是一段非常简洁的css reset代码，有一些人仅仅使用这一句代码，表示将所有标签的内边距和外边距清除，达到css reset的效果。但是潜行者m不推荐使用。原因很简单，这一行代码不能算作是css reset代码，它仅仅清除了标签的内边距和外边距而已，而我们要的css reset效果，是要把ol和ul的列表样式、th的加粗、h标签的变大加粗等样式都清除，全部重置。之后，根据自己的设计需要来进行css的控制。而这句</em>{margin:0;padding:0}，没有把所有的样式清除。</p>
+<p>PS：补充一个资源 <a href="http://sofish.de/736" title="Permanent Links to 10款浏览器CSS Reset的方法" target="_blank" rel="noopener">10款浏览器CSS Reset的方法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-610.html" data-id="ckgcnru9v00901d2amwcjq5a1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="610" data-title="网页设计为什么要使用 CSS reset" data-url="http://www.qianxingzhem.com/post-610.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-b8-b8-e8-a7-81-e7-9a-84-e7-bd-91-e7-ab-99-e6-ba-90-e7-a0-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-651.html" class="article-date">
+  <time datetime="2012-02-14T08:50:24.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-651.html">如何安装常见的网站源码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，我们应该了解网站源码是什么东西。网站是由许多网页组成的，这只是比较低级的静态网页，只能建设比较小的，或者没有交互性的网站。如果想要建设博客、论坛、门户网站等，使用普通的静态网页是无法完成的。所以我们就需要使用动态网页，即使用动态脚本建设的网站。</p>
+<p>如果使用动态脚本建设网站，就需要想静态页面那样，设计制作并且编写。但是动态脚本的编写，是需要一定技术水平的，不是人人都能轻松地编写开发出网站，而且也不是所有人都有那么多的时间、金钱和精力，去编写一套网站程序。但是为什么网络上还有那么多个人建设的功能强大的网站呢？他们就是使用了网络上发布的网站源码建设网站程序。</p>
+<p>网站源码就是一些网站开发程序员设计制作的网站程序，分为好多个类型，有免费的，有收费的，有完全自由的等等。我们可以很方便的在网上下载到网站源码，并且建设相应的网站。但是，下载下来的网站源码，放在相应的服务器上面，往往不能直接成为一个可以使用的网站，我们必须要对其进行安装配置。于是，就出现了本文的主题，如何安装网站源码。</p>
+<p>动态网站源码，通常分为两类，第一类就是 asp 脚本技术配合 access 数据库；第二类就是 php 脚本技术配合 mysql 数据库技术。他们的安装方式略有不同。</p>
+<p><strong>asp+access：</strong></p>
+<p>asp 这种类型的网站源码比较流行，原因很简单，asp 语法比较简单，制作简单，同时它一般配合 access 数据库使用。access 数据库是不需要数据库环境支持的，它就是一个后缀为 mdb 的文件，我们可以直接把它放在网站目录下面。这样，可以节省数据库环境所需要的成本，同时在维护备份、转移网站的时候，直接用 ftp 软件把所有的文件下载下来即可。所以有很多人在用。</p>
+<p>它的安装方法也比较简单，一般会有说明文件指导你去安装，你只需要根据说明文件，一步一步的去做就可以。此外，asp+access 类型网站源码安装，通常就是配置一下数据库的位置信息，让网站程序能够连接到数据库。这样就能安装完成了。</p>
+<p><strong>php+mysql：</strong></p>
+<p>php 这种类型的网站源码，目前应该变成了主流。毕竟 php 的功能的都要比 asp 强大的多，但是 php 通常与 mysql 数据库结合使用。mysql 数据库是需要单独的数据库环境支持的，即服务器必须安装 mysql 数据库环境。所以，安装 php 程序的时候，必不可少的步骤就是配置 mysql 服务器的信息。例如比较经典的 wordpress 博客程序的安装</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" alt="" title="apache7"></a></p>
+<p>在这样的 php 网站源码的安装中，就需要配置数据库相关信息。包括数据库名、数据库的用户名、数据库用户密码、数据库服务器 IP 地址以及数据库表前缀等。只有配置好这些信息之后，网站才能安装。当然，如果你买虚拟主机支持 php 和 mysql 数据库的话，你可以在虚拟主机控制面板上看到这些信息。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-651.html" data-id="ckgcnru8s005o1d2aziypsg7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="651" data-title="如何安装常见的网站源码" data-url="http://www.qianxingzhem.com/post-651.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-firefox-e3-80-81chrome-e3-80-81opera-e5-92-8cie-7-e7-9a-84-e5-8c-ba-e5-88-ab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-612.html" class="article-date">
+  <time datetime="2012-02-14T02:16:31.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-612.html">firefox、chrome、opera 和 IE 7 的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前些天，制作过几个 html 页面，为了测试网页的兼容度，在电脑里面安装了上面这四个浏览器。之后的一段时间内，我依次用过这四个浏览器。下面，我就把这四个浏览器的体验以及显示效果和大家分享一下。</p>
+<p>本文所写的浏览器的版本分别是：firefox 9.0.1、chrome 16.0.912.75 m、opera 11.61 internal 和 IE 7 官方原版无插件。</p>
+<p><strong>firefox：</strong></p>
+<p>火狐浏览器很早就听说过了，但是一直没有用过。之前潜行者 m 一直使用着世界之窗等 IE 内核的浏览器，现在下载来试用了一下，果然很强大。用过火狐之后，就再也不想使用 IE 了。</p>
+<p>火狐浏览器的特点就是功能强大，可扩展性比较强，含有大量插件；观看网页源代码很方便，它的编辑器会进行语法的高亮，而且能观看选中内容的网页源代码等等。</p>
+<p>关于火狐浏览器，值得称道的地方有很多，其中最重要就是浏览体现。火狐浏览器解析出来的字体样式很好看，并且进行了适当的加粗，这是其他浏览器做不到的。同时它对于<a href="http://www.qianxingzhem.com/post-tag/css">css</a>以及<a href="http://www.qianxingzhem.com/post-category/webdev">网页布局</a>的解释是比较正确的，基本上 css 代码都能够达到我们预期的效果。</p>
+<p>当然它也有很多缺点。1，对于网银等支持不好，无法进行网银等的操作；2，很多功能华而不实，特别是图片收藏功能。这可能是潜行者 m 个人的习惯，对于一个图片，我会拖动它，想要让它在一个浏览器的新窗口打开以便观看大图像。但是在火狐浏览器中拖动，它会把图片收藏起来，而且收藏的图片，删除很麻烦。此外，当我拖动一个关键词，是想让它弹出一个新窗口，使用搜索引擎搜索。但是火狐却出来“火狐魔镜”功能，在一个小窗口里面，显示着使用维基、百科、购物等搜索的内容。</p>
+<p>总体来说，火狐浏览器在其他几款浏览器中，是比较好的，也是目前本人一直在用的浏览器。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb0.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb0.jpg" alt="" title="wb0"></a></p>
+<p><strong>chrome：</strong></p>
+<p>谷歌浏览器，太过于简洁。不过简洁，就是他们追求的风格。的确，一个浏览器，最重要的东西就是浏览网页，没有必要有太多的功能。所以，谷歌浏览器，把所有的东西，都集中在了长长的地址栏上面。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb1.jpg" alt="" title="wb1"></a></p>
+<p>这样做有好处，也有缺点。好处就是方便了人们的操作，直接在浏览器输入地址，或者要搜索的关键字就可以。缺点就是功能性不强，对于某些喜欢自定义使用风格的朋友来说，无法去定义更多的个人风格。</p>
+<p>谷歌浏览器的技术确实很好，特别是它创造的，每个页面开启一个浏览器进程，如果某页面崩溃，可以防止影响其他页面。但是我并不赞同，谷歌浏览器浏览速度要比其他浏览器快。因为，浏览器的访问速度与两方面有关，第一个就是网速，第二个就是浏览器的执行速度等。目前主流的浏览器，使用的技术差不多都是一样的，所以在浏览器方面，速度的快慢，区别不大。如果你感觉它的速度快，可能是因为它界面太过于简洁，给人的一种心理感觉。</p>
+<p>谷歌浏览器对于<a href="http://www.qianxingzhem.com/post-tag/css">css</a>等的解析也是比较正常的，基本上都能达到预想的效果。显示效果也中规中矩的。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb2.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb2.jpg" alt="" title="wb2"></a></p>
+<p><strong>opera：</strong></p>
+<p>我在手机上经常使用这个浏览器，手机上的欧朋浏览器，比 UC 要好用的多。但是电脑版的，稍微差点。</p>
+<p>它的功能不差，提供了很多创新性的功能，例如笔记本功能，我们可以把网页中的文本内容等，复制到临时笔记本中。但是它比较致命的缺点，还是解析能力不强。我们在使用 opera 的时候，经常能够发现很多错误，例如下面的</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb4.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb4.jpg" alt="" title="wb4"></a></p>
+<p>这是正常的收款主页，但是在 opera 中，却显示成这样</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb3.jpg" alt="" title="wb3"></a></p>
+<p>如果不严格的使用<a href="http://www.qianxingzhem.com/post-tag/css">css</a>等进行控制，它总是会显示出不友好的界面，这才是最致命的问题。此外，它和火狐浏览器是“亲兄弟”，不知道是谁模仿的谁。自从谷歌浏览器出来之后，它的把网页标题加在了最上方的标题栏上的设计，被一再模仿，现在你已经找不到哪个浏览器不把网页标题放在最上面了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb5.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb5.jpg" alt="" title="wb5"></a></p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb6.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb6.jpg" alt="" title="wb6"></a></p>
+<p>它的显示效果，也是中规中矩的。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb7.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb7.jpg" alt="" title="wb7"></a></p>
+<p><strong>IE：</strong></p>
+<p>最后，是我不想提但又不能不提的一个浏览器。IE 浏览器，由于绑定了 windows，有很多人在使用。由于它的难用，导致出现了大量的第三方浏览器（例如：遨游、世界之窗、搜狗等），使用它的内核来解析网页，剥去了它的外皮。针对 IE 的漏洞和攻击层出不穷。这还不是主要的，对于一个用户来说，倒是无所谓，但是对于一个网页设计师来说，IE 浏览器可能会让他崩溃。</p>
+<p>IE 的解析能力实在是太弱了，而且与其他浏览器不同。所以在设计网页时，必须围绕着 IE 来进行单独的设计。就拿本人目前使用的模板（qxzm 0.95）来说，当时我制作完成了，在火狐、谷歌、欧朋浏览器中测试全部通过。之后准备发布，结果想起了还没有用 IE 测试，结果用 IE7 一看，页面内容惨不忍睹，没有居中，全部左对齐了。后来不得不用 css hack 技术，对 IE 单独编写了几行 css 代码，才让它勉强显示出了需要的效果。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb8.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb8.jpg" alt="" title="wb8"></a></p>
+<p>但是 IE 却是必不可少的东西，只有它才能完美的支持网银以及一些操作，而且它的用户量非常大，不能不关注它。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wb9.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wb9.jpg" alt="" title="wb9"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-612.html" data-id="ckgcnruav00bq1d2aqiehmd3h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="612" data-title="firefox、chrome、opera 和 IE 7 的区别" data-url="http://www.qianxingzhem.com/post-612.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e6-a8-a1-e6-9d-bf-e5-bc-80-e5-8f-912-e9-85-8d-e7-bd-ae-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-602.html" class="article-date">
+  <time datetime="2012-02-14T01:12:08.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-602.html">wordpress 模板开发 2——配置本地开发环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>模板开发有两种方法：<strong>第一种，就是在 wordpress 程序上，新建一个模板文件夹，之后不断设计模板，然后使用浏览器访问即时的看到效果。</strong>这种方法比较适合新手，开发比较慢，但是能够边制作边学习。<strong>第二种，就是直接写，制作完成之后，放在博客上面测试一下。</strong>这种方法需要有一定的开发经验。</p>
+<p>本系列教程采用第一种方法。即在本地搭建一个 wordpress 程序，然后使用工具（例如<a href="http://www.qianxingzhem.com/post-620.html">dreamweaver</a>）新建一个站点，指向新建的模板目录，在 wordpress 后台配置一下使用模板，之后开始制作模板，并且不断的通过浏览器观看模板制作的效果。</p>
+<p><strong>第一步，wordpress 程序安装：</strong></p>
+<p>为了调试方便，我们在本地安装 wordpress 程序。这样，我们首先应该搭建一个本地 apache、php、mysql 环境。关于如何搭建，可以观看本人的这篇文章教程：<a href="http://www.qianxingzhem.com/post-455.html">本地搭建配置 apache+php+mysql 环境</a>，在这里不再赘述。</p>
+<p>安装 wordpress 也同样不再多说了，如果你连 wordpress 都安装不上，肯定不会去学习<a href="http://www.qianxingzhem.com/post-tag/wordpresstheme">模板开发</a>了。</p>
+<p>这里要注意的是，我们要从现有的博客中导出部分测试数据，导入到新的博客中。在模板开发中，要看到具体的效果，本地 wordpress 里面必须要有数据才能看到。完成上面的步骤之后，我们的本地 wordpress 程序就安装好了，打开浏览器，输入 localhost，我们应该可以看到本地的测试博客。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf.jpg" alt="" title="wpkf"></a></p>
+<p><strong>第二步，配置 dreamweaver：</strong></p>
+<p>你可以选择记事本进行手写，但是我更加推荐使用第三方强大的软件，来进行模板的开发，这样可以节省大量的时间和精力。关于 dreamweaver，如果不熟悉或者不会使用的朋友，可以观看我制作的<a href="http://www.qianxingzhem.com/post-620.html">dreamweaver 基础视频教程</a>。</p>
+<p>在这里的配置，主要是新建一个站点，设置站点文件夹指向你的 wordpress 程序目录，或者直接指向模板目录。还可以在配置的过程中，使用 php 服务器技术，这样，我们在制作完成模板的时候，可以不需要打开浏览器，直接在 dreamweaver 中就可以看到效果。</p>
+<p>新建一个站点的具体操作在这里不再赘述，如果有不会的朋友，可以搜索一下或者看我的视频教程。在这里，我们新建好了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf1.jpg" alt="" title="wpkf1"></a></p>
+<p>这样，我们开发 wordpress 模板的第一步—搭建本地测试环境就这样完成了，下一节开始，我们就进行模板相应模块的开发。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-602.html" data-id="ckgcnrubm00dx1d2avku2it3c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="602" data-title="wordpress 模板开发 2——配置本地开发环境" data-url="http://www.qianxingzhem.com/post-602.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b2-ftp-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-623.html" class="article-date">
+  <time datetime="2012-02-13T21:48:50.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-623.html">cPanel X 面板使用教程 2—FTP 功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>FTP 对于一个强大的空间来说，是一个必不可少的东西。在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>中 ftp 功能就比较强大，但是强大的背后也是难以接触。我第一次使用的时候，真的不会用，新开辟的 ftp 账号，链接不上。后来看了一些网上的文章之后，才会使用的。</p>
+<p>我们来看一下关于 ftp 功能的面板：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp5.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp5.jpg" alt="" title="cPanel xftp"></a></p>
+<p><strong>1，ftp 账号</strong></p>
+<p>通常来说，使用<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X 面板</a>的主机，ftp 账号是可以开通无限个的。点击“ftp 账号”，我们就可以去新建 ftp 登陆账号。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp1.jpg" alt="" title="cPanel xftp1"></a></p>
+<p>配置的 ftp 账号，可以设置一个特定的文件夹，并且也有大小的限制，非常方便进行控制。之后，我们点击“生成邮件列表”就可以了，这里是翻译错了 。</p>
+<p>配置好之后，在下面的 ftp 列表中就可以看到了，并且可以点击右边的按钮进行一些配置。下面说说最关键的链接使用，因为我第一次配置之后，就不会链接。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp2.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp2.jpg" alt="" title="cPanel xftp2"></a></p>
+<p>这样，我们使用 ftp 软件进行连接的时候，应该在用户名那里输入：账户@域名 而不能仅仅输入账户。这里，就体现出了在一开始设置主域名的用处，就是用来标记你的空间用的。</p>
+<p><strong>2，ftp 进程控制</strong></p>
+<p>这是一个比较实用的功能，当我使用 ftp 软件连接上去的时候，就可以在后台看到连接信息。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp3.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp3.jpg" alt="" title="cPanel xftp3"></a></p>
+<p>这样的好处就是，如果你看到了陌生的 ftp 连接，这有可能是黑客入侵以及其他的行为，你可以人为的控制断掉他的链接，保证网站的安全。</p>
+<p><strong>3，匿名 ftp</strong></p>
+<p>匿名 ftp 就是可以不需要用户名和密码就可以登录的 ftp。在<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>中默认允许匿名访问你空间主域 ftp 的。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp4.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cPanel-xftp4.jpg" alt="" title="cPanel xftp4"></a></p>
+<p>为了减少不必要的安全隐患，潜行者 m 在这里提醒大家，如果没有必要的话，请关闭匿名 ftp 功能。</p>
+<p>但是从这个匿名 ftp 功能中，我们又可以得到一些启发。如果服务器进行了 http 网速等的限制，我们可以给出 ftp 下载地址，让用户可以通过匿名 ftp 的方式，从服务器上下载文件。这样就能突破某些下载限制了，呵呵，说多了。</p>
+<h2 id="相关文章："><a href="#相关文章：" class="headerlink" title="相关文章："></a>相关文章：</h2><p><a href="http://www.qianxingzhem.com/post-589.html">1，cPanel X 面板使用教程 1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html">2，cPanel X 面板使用教程 2—FTP 功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html">3，cPanel X 面板使用教程 3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html">4，cPanel X 面板使用教程 4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>中，我们最常用的就是 网站备份、FTP 相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-623.html" data-id="ckgcnruah00ay1d2ataiymctj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="623" data-title="cPanel X 面板使用教程 2—FTP 功能" data-url="http://www.qianxingzhem.com/post-623.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-dreamweaver-8-e5-9f-ba-e7-a1-80-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-620.html" class="article-date">
+  <time datetime="2012-02-13T04:03:27.000Z" itemprop="datePublished">Feb 13 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-620.html">Dreamweaver 8基础教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是本人为旗下网站“我就是站长”制作的视频教程，每一个教程都制作了幻灯片，而且还有语音视频。真的是好累啊，每次录制都要录制三四遍才行。如果有需要的，想要学习网站建设基础的朋友，可以看一下，全部看完大约1个小时左右。</p>
+<p>我就是站长，正式上线：<a href="http://www.594z.com" target="_blank" rel="noopener">www.594z.com</a> 提供一个网站建设交流学习的平台！</p>
+<p>文件名：第一课 认识dreamweaver 8.swf<br>文件大小：9.05 MB下载地址：<a href="http://1000eb.com/6ysq" target="_blank" rel="noopener">http://1000eb.com/6ysq</a><br>文件名：第二课 使用DW8创建站点.swf<br>文件大小：4.07 MB下载地址：<a href="http://1000eb.com/6yt2" target="_blank" rel="noopener">http://1000eb.com/6yt2</a><br>文件名：第三课 使用DW8设计表格.swf<br>文件大小：5.49 MB下载地址：<a href="http://1000eb.com/6ytw" target="_blank" rel="noopener">http://1000eb.com/6ytw</a><br>文件名：第四课 DW8中层的编辑.swf<br>文件大小：6.69 MB下载地址：<a href="http://1000eb.com/6yu7" target="_blank" rel="noopener">http://1000eb.com/6yu7</a><br>文件名：第五课 使用DW8创建模板.swf<br>文件大小：5.5 MB下载地址：<a href="http://1000eb.com/6yud" target="_blank" rel="noopener">http://1000eb.com/6yud</a><br>文件名：第六课 DW8中文本的编辑.swf<br>文件大小：4.09 MB下载地址：<a href="http://1000eb.com/6yuq" target="_blank" rel="noopener">http://1000eb.com/6yuq</a><br>文件名：第七课 DW8中css的使用.swf<br>文件大小：3.56 MB下载地址：<a href="http://1000eb.com/6yv4" target="_blank" rel="noopener">http://1000eb.com/6yv4</a><br>文件名：第八课 DW8创建超链接.swf<br>文件大小：5.31 MB下载地址：<a href="http://1000eb.com/6yvl" target="_blank" rel="noopener">http://1000eb.com/6yvl</a><br>文件名：第九课 DW8中图像的编辑.swf<br>文件大小：7.43 MB下载地址：<a href="http://1000eb.com/6ywp" target="_blank" rel="noopener">http://1000eb.com/6ywp</a><br>文件名：第十课 测试与使用总结.swf<br>文件大小：3.33 MB下载地址：<a href="http://1000eb.com/6yww" target="_blank" rel="noopener">http://1000eb.com/6yww</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-620.html" data-id="ckgcnruas00be1d2ashw77kpe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源分享/">资源分享</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="620" data-title="Dreamweaver 8基础教程" data-url="http://www.qianxingzhem.com/post-620.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e8-bf-9b-e8-a1-8c-e9-ab-98-e6-95-88-e6-9c-89-e5-ba-8f-e7-9a-84-e7-bd-91-e7-ab-99-e5-a4-87-e4-bb-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-599.html" class="article-date">
+  <time datetime="2012-02-11T23:43:37.000Z" itemprop="datePublished">Feb 12 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-599.html">如何进行高效有序的网站备份</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网站备份，在网站运营中，是必不可少的一部分。很多站长没有备份的习惯，假如服务器被封，或者遇到些天灾把机房弄坏了，那么辛辛苦苦维护的网站，就这样白费了；有些站长有网站备份的想法，但是却没有一个良好的规划，随时想起随时备份，有的数据备份了多次，有些数据却一次没有备份，最后乱七八糟的，恢复也找不到最新的正确的数据。为此，在这里，潜行者m总结一下如何进行高效有序的网站备份。</p>
+<p>首先，网站的备份应该视网站的类型、规模来定。网站备份的原则就是，<strong>把改变过的，完整复制并保存。</strong></p>
+<h2 id="从类型来分："><a href="#从类型来分：" class="headerlink" title="从类型来分："></a>从类型来分：</h2><p>静态网站，只需要把页面保存一次即可，之后只需要把修改过的页面，保存备份一下即可。因为它不需要经常变化，所以不用经常备份。</p>
+<p>动态网站，变化的内容通常分为两部分，一个是上传资源（例如图片等），另一个就是数据库内容。一个成熟的网站系统，它会规定一个特殊的目录用来集中所有的上传资源。这样，我们只需要用 ftp 等把整个文件夹传下来即可。对于数据库来说，可以通过网站后台，把数据库内容导出即可。</p>
+<h2 id="从规模来分："><a href="#从规模来分：" class="headerlink" title="从规模来分："></a>从规模来分：</h2><p>小型网站的备份比较简单，通常更新速度较慢，变化文件较少。我们可以规定，每周一备份一次数据，每两周备份一次资源，每个月进行一次整站备份即可。或者比较懒的同学，可以增加备份循环周期的时间。</p>
+<p>中型网站来说，更新比小型网站要快，资源、数据也比较多，如果出现缺损，而无法及时恢复到最新状态，那么对网站影响比较大。所以，要缩短备份周期。</p>
+<p>大型网站的备份更加麻烦，大型网站每时每刻都在进行数据的更新，最好的方法就是热备份，建立一个镜像服务器，当网站更新的时候，及时的把数据同时复制到另一台服务器上，如果主站挂掉了，立刻将域名解析到镜像站上，这样可以最大限度的减少损失。</p>
+<h2 id="高效备份的经验："><a href="#高效备份的经验：" class="headerlink" title="高效备份的经验："></a>高效备份的经验：</h2><p>1，善于利用空间管理面板。一个成熟的空间面板都会有备份功能，这种功能往往会把要备份的内容，整体压缩成一个压缩包，然后可以使用 ftp 等下载。众所周知，下载一个大文件，要比下载多个小文件用的时间少，而且网页等文件，压缩比例很高，可以方便上传下载。此外，管理面板一般还附带很多备份工具，例如 PHPMyAdmin 等，可以使用这些工具导出数据库内容等（ PHP 和 MySQL 类型的网站）。</p>
+<p>2，将数据进行明确的划分归类。潜行者m通常的做法是，在一块用于放置备份的硬盘上，以某网站的名称命名文件夹，在文件夹下面新建两个文件夹“数据备份”、“资源备份”、“全站备份”。在数据备份文件夹放置导出的数据库文件，在资源备份文件夹放置图片等上传资源，把整站的压缩包放在全站备份文件夹中。</p>
+<p>3，将备份数据压缩加密。对于文本型的文件，压缩比例是非常高的，对于 sql 等数据库文件，最好要进行压缩加密处理。这样，既可以减小体积方便传输保存，而且可以保证不会发生数据泄露。</p>
+<p>4，复制多份存放在不同地方。理论上来说，备份放置的地方越多，数据就越不容易丢失。对于中小型网站来说，可以在自己电脑上划分一块硬盘来备份，使用移动硬盘复制一份，再注册一个大容量网盘（推荐<a href="http://www.kuaipan.cn/?channel=g4ikrx" target="_blank" rel="noopener">金山网盘</a>），上传上去一份。这样三份来说，就比较安全。但是要注意数据的加密，防止数据泄露。对于大型网站来说，就需要比较复杂的备份机制了，这里超出了本人知识范围，不做讨论。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-599.html" data-id="ckgcnru8v005u1d2aw1nocwk2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="599" data-title="如何进行高效有序的网站备份" data-url="http://www.qianxingzhem.com/post-599.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-cpanel-x-e9-9d-a2-e6-9d-bf-e4-bd-bf-e7-94-a8-e6-95-99-e7-a8-8b1-e7-bd-91-e7-ab-99-e5-a4-87-e4-bb-bd-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-589.html" class="article-date">
+  <time datetime="2012-02-11T11:40:11.000Z" itemprop="datePublished">Feb 12 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-589.html">cPanel X 面板使用教程 1—网站备份功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网站运营过程中，备份是一个必不可少的环节，一个网站，需要定期的进行数据和资源的备份，以防出现各种意外情况，这是血的教训！备份功能也是一个网站空间控制面板必不可少的功能。</p>
+<p><a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X 面板</a>的备份功能，可谓是非常的强大，是<a href="http://www.qianxingzhem.com">潜行者 m</a>用过的所有的后台备份功能最强大的了。</p>
+<p>我们登陆后，找到“文件”面板，有两个备份，一个是“备份”，另一个是“备份向导”。如果新手第一次使用，可以点击“备份向导”，有文字提示，而直接使用备份也是很方便的。我们打开：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen0.png" alt="" title="cbeifen0"></a></p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen1.png" alt="" title="cbeifen1"></a></p>
+<p>我通常的做法是直接备份全部目录，这样，justhost 主机上所有目录的所有文件都会导出，而且数据库里面的数据也会导出，一起压缩成一个压缩包。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen2.png" alt="" title="cbeifen2"></a></p>
+<p>它的备份速度是很快的，用不了几分钟，我的邮箱收到了备份完成的邮件</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen3.png" alt="" title="cbeifen3"></a></p>
+<p>这时候，我们就可以登陆面板，找到备份文件，进行下载，也可以使用 ftp 登陆远程服务器，备份的内容会在根目录下面显示。这种备份方式的优点很明确，就是体积小，下载等都非常的节约时间，它把网站所有的文件都压缩起来，众所周知，代码、数据库等文件的压缩比是很高的，而且下载一个大文件的速度也比下载多个小文件的速度要快，因为不用 ftp 软件依次进行连接。</p>
+<p>关于备份的还原，也是很方便的。我们可以</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/cbeifen4.png" alt="" title="cbeifen4"></a></p>
+<p>上传相应备份的 tar.gz 文件包，如果没有经过修改，<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>是会自动识别文件，并且导入数据，非常方便。同样对于网站搬家来说，也是非常方便。如果我从一个使用 cPanel X 的主机，把网站搬到另一个使用 cPanel X 的主机，只需要进行一个全目录的备份，之后把这个备份上传到另一台主机上，恢复备份。之后，再把域名转向新主机，修改一些细节就可以了。</p>
+<p>&nbsp;</p>
+<h2 id="相关文章："><a href="#相关文章：" class="headerlink" title="相关文章："></a>相关文章：</h2><p><a href="http://www.qianxingzhem.com/post-589.html">1，cPanel X 面板使用教程 1—网站备份功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-623.html">2，cPanel X 面板使用教程 2—FTP 功能</a></p>
+<p><a href="http://www.qianxingzhem.com/post-661.html">3，cPanel X 面板使用教程 3—域名相关</a></p>
+<p><a href="http://www.qianxingzhem.com/post-693.html">4，cPanel X 面板使用教程 4—数据库操作</a></p>
+<p>&nbsp;</p>
+<p><strong>PS：</strong><a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>中，我们最常用的就是 网站备份、FTP 相关、域名相关和数据库相关的操作。再加上目前网络上已经有很多关于<a href="http://www.qianxingzhem.com/post-tag/cpanel-x">cPanel X</a>的文章，再次就不再继续编写这类文章。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-589.html" data-id="ckgcnruag00aw1d2a7czj4ep6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cPanel-X/">cPanel X</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="589" data-title="cPanel X 面板使用教程 1—网站备份功能" data-url="http://www.qianxingzhem.com/post-589.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2012/page/6/">&laquo; Prev</a><a class="page-number" href="/archives/2012/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2012/page/5/">5</a><a class="page-number" href="/archives/2012/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/2012/page/8/">8</a><a class="page-number" href="/archives/2012/page/9/">9</a><a class="page-number" href="/archives/2012/page/10/">10</a><a class="extend next" rel="next" href="/archives/2012/page/8/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -63,6 +63,531 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--e8-ae-a9-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5-e5-9c-a8-e6-bb-9a-e5-8a-a8-e7-9a-84-e6-97-b6-e5-80-99-e6-94-be-e5-b1-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1944.html" class="article-date">
+  <time datetime="2013-05-09T08:14:47.000Z" itemprop="datePublished">May 9 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/JS-JQ/">JS/JQ</a>►<a class="article-category-link" href="/post-category/JS-JQ/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1944.html">让你的网页在滚动的时候 放屁</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>放屁绝对不是一个很高雅的行为，但是如果你比较喜欢恶搞，或者在愚人节，或者是一些比较特殊的网页设计中，可以通过  <a href="http://theonion.github.io/fartscroll.js/" target="_blank" rel="noopener">fartscroll.js</a> 这个插件让你的网页在滚动的过程中 放屁。</p>
+<p>直接打开 fatscroll.js 的官方页面（<a href="http://theonion.github.io/fartscroll.js/），滚动一下，你就可以听到了放屁声音了，你滚动的距离和速度不同，放屁的声音也不同。" target="_blank" rel="noopener">http://theonion.github.io/fartscroll.js/），滚动一下，你就可以听到了放屁声音了，你滚动的距离和速度不同，放屁的声音也不同。</a></p>
+<p>使用方法也很简单，先<a href="https://github.com/theonion/fartscroll.js/zipball/master" target="_blank" rel="noopener">下载插件包</a>，解压出来之后，在网页中引入 fartscroll.min.js 这个文件，然后配置下面的参数等，启用这个插件：</p>
+<p><pre>    // 在文档中滚动 400 像素就放屁<br>    $(document).fartscroll();</pre></p>
+<pre><code>// 文档中每滚动 800 像素就放屁
+$(document).fartscroll(800);
+
+// 网页中没滚动 100 像素就放屁
+$(&quot;body&quot;).fartscroll(100);
+
+// 很多很多的屁
+$(&quot;body&quot;).fartscroll(5);&lt;/pre&gt;
+</code></pre><p>仅供娱乐和恶搞哈，相信应该没有太多人喜欢在访问你网页的时候，听到你网页在放屁哈哈。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1944.html" data-id="ckgcnrua1009g1d2a76zfijkf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1944" data-title="让你的网页在滚动的时候 放屁" data-url="http://www.qianxingzhem.com/post-1944.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-emmet-e7-94-9f-e6-88-90-html-e7-9a-84-e8-af-ad-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1940.html" class="article-date">
+  <time datetime="2013-05-07T11:26:32.000Z" itemprop="datePublished">May 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1940.html">Emmet 生成 HTML 的语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇文章<a href="http://www.qianxingzhem.com/post-1937.html">前端开发神器 Emmet 介绍</a>中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。</p>
+<p>现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！</p>
+<h2 id="生成-HTML-文档初始结构"><a href="#生成-HTML-文档初始结构" class="headerlink" title="生成 HTML 文档初始结构"></a>生成 HTML 文档初始结构</h2><p>HTML 文档的初始结构，就是包括 doctype、html、head、body 以及 meta 等内容。你只需要输入一个 “!” 就可以生成一个 HTML5 的标准文档初始结构，你没有看错，输入一个感叹号（当然是英文符号），然后摁下 TAB 键，就会发现生成了下面的结构：</p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+这就是一个 HTML5 的标准结构，也是默认的 HTML 结构。如果你想生成 HTML4 的过渡型结构，那么输入指令 `html:xt` 即可生成如下结构：
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+Emmet 会自动把 doctype 给你补全了，怎么样，这样的功能会不会让你动心？简单总结一下常用的 HTML 结构指令：
+
+*   `html:5` `或者 !` 生成 HTML5 结构
+*   `html:xt` 生成 HTML4 过渡型
+*   `html:4s` 生成 HTML4 严格型
+
+## 生成带有 id 、class 的 HTML 标签
+
+Emmet 的语法有点类似 CSS 的语法，生成 id 为 aaa 的 div 标签，我们只需要编写下面指令：
+<pre>#aaa</pre>
+Emmet 默认的标签为 div ，如果我们不给出标签名称的话，默认就生成 div 标签。如果编写一个 class 为 bbb 的 span 标签，我们需要编写下面指令：
+<pre>span.bbb</pre>
+然后就生成了对应的结构。同理，如果想要编写一个 id 为 ccc 的 class 为 ddd 的 ul 标签，我们可以这样写：
+<pre>ul#ccc.ddd</pre>
+很简单吧？比你用手写 id 、class 方便多了吧
+
+## 生成后代：&gt;
+
+大于号表示后面要生成的内容是当前标签的后代。例如我要生成一个无序列表，而且被 class 为 aaa 的 div 包裹，那么可以使用下面指令：
+<pre>div.aaa&gt;ul&gt;li</pre>
+可以生成如下的结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<h2 id="生成兄弟："><a href="#生成兄弟：" class="headerlink" title="生成兄弟：+"></a>生成兄弟：+</h2><p>上面是生成下级元素，如果想要生成平级的元素，就需要使用 + 号。例如下面指令：</p>
+<p>div+p+bq`<br>就可以生成如下的 HTML 结构：</p>
+<pre>`&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;`</pre>
+
+<h2 id="生成上级元素："><a href="#生成上级元素：" class="headerlink" title="生成上级元素：^"></a>生成上级元素：^</h2><p>上级 （Climb-up）元素是什么意思呢？前面咱们说过了生成下级元素的符号“&gt;”，当使用 div&gt;ul&gt;li 的指令之后，再继续写下去，那么后续内容都是在 li 下级的。如果我想编写一个跟 ul 平级的 span 标签，那么我需要先用 “^” 提升一下层次。例如：</p>
+<pre>div&gt;ul&gt;li^span</pre>
+就会生成如下结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+如果我想相对与 div 生成一个平级元素，那么就再上升一个层次，多用一个“^”符号：
+<pre>div&gt;ul&gt;li^^span</pre>
+
+<h2 id="重复生成多份："><a href="#重复生成多份：" class="headerlink" title="重复生成多份：*"></a>重复生成多份：*</h2><p>特别是一个无序列表，ul 下面的 li 肯定不只是一份，通常要生成很多个 li 标签。那么我们可以直接在 li 后面 * 上一些数字：</p>
+<pre>ul&gt;li*5</pre>
+这样就直接生成五个项目的无序列表了。如果想要生成多份其他结构，方法类似。
+
+## 生成分组：()
+
+用括号进行分组，这样可以更加明确要生成的结构，特别是层次关系，例如：
+<pre>`div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p`</pre>
+这样很明显就可以看出层次关系和并列关系，生成如下结构：
+<pre>`&lt;div&gt;
+    &lt;header&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;`</pre>
+此外，分组还可以很方便的结合上面说的 “*” 符号生成重复结构：
+<pre>`(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p`</pre>
+生成结构：
+<pre>`&lt;div&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/footer&gt;`</pre>
+
+<h2 id="生成自定义属性：-attr"><a href="#生成自定义属性：-attr" class="headerlink" title="生成自定义属性：[attr]"></a>生成自定义属性：[attr]</h2><p>a 标签中往往需要附带 href 属性和 title 属性，如果我们想生成一个 href 为 “<a href="http://www.qianxingzhem.com”" target="_blank" rel="noopener">http://www.qianxingzhem.com”</a> ，title 为“潜行者m 博客”的 a 标签，可以这样写：</p>
+<pre>a[href="http://www.qianxingzhem.com" title="潜行者m 博客"]</pre>
+其他标签和属性都类似。
+
+## 对生成内容编号：$
+
+例如无序列表，我想为五个个 li 增加一个 class 属性值 item1 ，然后依次递增从 1-5，那么就需要使用 $ 符号：
+<pre>`ul&gt;li.item$*5`</pre>
+这样就生成了如下结构：
+<pre>&lt;ul&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+$ 就表示一位数字，只出现一个的话，就从1开始。如果出现多个，就从0开始。如果我想生成三位数的序号，那么要写三个 $：
+<pre>`ul&gt;li.item$$$*5`</pre>
+输出：
+<pre>`&lt;ul&gt;
+    &lt;li class="item001"&gt;&lt;/li&gt;
+    &lt;li class="item002"&gt;&lt;/li&gt;
+    &lt;li class="item003"&gt;&lt;/li&gt;
+    &lt;li class="item004"&gt;&lt;/li&gt;
+    &lt;li class="item005"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+只能这样单调的生成序号？对于强大的 Emmet 来说，肯定不会会了，我们也可以在 $ 后面增加 @- 来实现倒序排列：
+<pre>`ul&gt;li.item$@-*5`</pre>
+生成如下结构：
+<pre>`&lt;ul&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+同样，我们也可以使用 @N 指定开始的序号：
+<pre>`ul&gt;li.item$@3*5`</pre>
+这样就会从 3 开始排序，生成如下代码：
+<pre>`&lt;ul&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+配合上面倒序输出，可以这样写：
+<pre>`ul&gt;li.item$@-3*5`</pre>
+生成的就是以 3 为底倒序：
+<pre>`&lt;ul&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+
+<h2 id="生成文本内容："><a href="#生成文本内容：" class="headerlink" title="生成文本内容：{}"></a>生成文本内容：{}</h2><p>上面讲解了如何生成 HTML 标签，那里面的内容呢？当然也可以生成了：</p>
+<p><pre><code>a[href=&quot;http://www.qianxingzhem.com&quot;]{点击这里到 潜行者m 的博客}</code></pre><br>这样就生成了一个到我博客的超链接了。在生成内容的时候，特别要注意前后的符号关系，虽然 a&gt;{Click me} 和 a{Click me} 生成的结构是相同的，但是加上其他的内容就不一定了，例如：</p>
+<p><pre>`&lt;!– a{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;</pre></p>
+<p>&lt;!– a&gt;{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;`<br>这样就生成了完全不同的结构，注意这些小细节哦。</p>
+<h2 id="不要有空格"><a href="#不要有空格" class="headerlink" title="不要有空格"></a>不要有空格</h2><p>在写指令的时候，你可能为了代码的可读性，使用一些空格什么的排版一下。这就会导致代码无法使用。例如下面这句：</p>
+<p><pre>`(header &gt; ul.nav &gt; li*5) + footer</pre></p>
+<p>而去掉空格之后，就可以正常执行生成结构了。HTML 语法部分说完了，现在回头看看第一篇文字，你是否已经看懂了那一串指令？下一篇将会讲解快速编写 CSS 的技巧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1940.html" data-id="ckgcnruat00bk1d2a0mnescsa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1940" data-title="Emmet 生成 HTML 的语法" data-url="http://www.qianxingzhem.com/post-1940.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-89-8d-e7-ab-af-e5-bc-80-e5-8f-91-e7-a5-9e-e5-99-a8-emmet-e4-bb-8b-e7-bb-8d" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1937.html" class="article-date">
+  <time datetime="2013-05-06T09:17:09.000Z" itemprop="datePublished">May 6 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1937.html">前端开发神器 Emmet 介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在前端开发的过程中，一大部分的工作是写 HTML、CSS 代码。特别是手动编写 HTML 代码的时候，效率会特别低下，因为需要敲打很多尖括号，而且很多标签都需要闭合标签等。于是，就有了 Emmet，它可以极大的提高代码编写的效率，它提供了一种非常简练的语法规则，然后立刻生成对应的 HTML 结构或者 CSS 代码，同时还有多种实用的功能帮助进行前端开发。</p>
+<p>你可能听说过一款强大的功能相似的工具：Zen Coding，那个比较老了，而现在的 Emmet 则是 Zen Coding 的升级版，由 Zen Coding 的原作者进行开发等。</p>
+<p>Emmet 严格意义上来说，并不是一款软件或者工具，它是一款编辑器插件，必须要基于某个编辑器使用。目前它支持如下编辑器：</p>
+<ul>
+<li><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="noopener">Sublime Text 2</a></li>
+<li><a href="https://github.com/emmetio/Emmet.tmplugin" target="_blank" rel="noopener">TextMate 1.x</a></li>
+<li><a href="https://github.com/emmetio/emmet-eclipse" target="_blank" rel="noopener">Eclipse/Aptana</a></li>
+<li><a href="https://github.com/emmetio/Emmet.codaplugin" target="_blank" rel="noopener">Coda 1.6 and 2.x</a></li>
+<li><a href="https://github.com/emmetio/Emmet.sugar" target="_blank" rel="noopener">Espresso</a></li>
+<li><a href="https://github.com/sergeche/emmet.chocmixin" target="_blank" rel="noopener">Chocolat</a> (可以通过 “Install Mixin” 对话框安装)</li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">Komodo Edit/IDE</a> ( Tools → Add-ons)</li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">Notepad++</a></li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">PSPad</a></li>
+<li><a href="https://github.com/emmetio/emmet/downloads" target="_blank" rel="noopener">&lt;textarea&gt;</a></li>
+<li><a href="https://github.com/emmetio/codemirror" target="_blank" rel="noopener">CodeMirror2/3</a></li>
+<li><a href="https://github.com/emmetio/brackets-emmet" target="_blank" rel="noopener">Brackets</a><br>在 上面列表点击你目前使用的编辑器，就可以获得对应的插件文件，安装之后就可以使用 Emmet 的相关功能了。由于 Sublime text 2 是目前最好最强大的前端开发代码编辑器，所以本文就以 Sublime text 2 为例，讲解 Emmet 的安装、基础语法。</li>
+</ul>
+<h2 id="在-Sublime-text-2-中安装-Emmet"><a href="#在-Sublime-text-2-中安装-Emmet" class="headerlink" title="在 Sublime text 2 中安装 Emmet"></a>在 Sublime text 2 中安装 Emmet</h2><p>Sbulime text 2 安装插件肯定要通过 Package Control 这个插件了，如果你还没有安装这个插件，抓紧先去安装一下吧。安装完成之后，我们摁下“shift + ctrl + p”呼出面板，输入“pci”即可锁定“Package Control：Install Package”这个功能，回车之后就可以看到一个列表，我们继续输入“emmet”即可找到这个插件，回车之后等待一会就安装完成了。</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/04/1907/emmet0.png" alt="sublime text 2 安装 emmet "></p>
+<h2 id="开始使用-Emmet"><a href="#开始使用-Emmet" class="headerlink" title="开始使用 Emmet"></a>开始使用 Emmet</h2><p>Emmet 可以快速的编写 HTML、CSS 以及实现其他的功能。它根据当前文件的解析模式来判断要使用 HTML 语法还是 CSS 语法来解析。例如当前文件的后缀为 .html 那 Sublime text 2 就会用 HTML 的解析模式来解析高亮这个文件，Emmet 遇到里面的指令就会根据 HTML 的语法把它编译成 HTML 结构。如果是在一个 .c 的 C 语言 文件中，你写出来的用于编译 HTML 指令就不会被 Emmet 识别编译。</p>
+<p>此外，在没有后缀的文件中，你可以摁下“shift + ctrl + p”呼出面板，输入“seth”就可以设置当前文件的解析模式为 HTML 。了解这些之后，下面我们来见证强大的 Emmet 。</p>
+<p>如果让你编写下面的这个 HTML 结构，你需要多长时间？</p>
+<pre>&lt;div id="page"&gt;
+    &lt;div class="logo"&gt;&lt;/div&gt;
+    &lt;ul id="navigation"&gt;
+        &lt;li&gt;&lt;a href=""&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Item 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Item 4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Item 5&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<p>然而，这一切你只需要编写下面这一句按照 Emmet 语法写出来的语句，然后用 Emmet 编译一下，就可以生成了！</p>
+<pre>#page&gt;div.logo+ul#navigation&gt;li*5&gt;a{Item $}</pre>
+
+<p>我们把它复制到 Sublime text 2 中已经打开的 HTML 文件中，这时候紧跟着敲击一下 TAB 键，见证奇迹的时刻到来了。</p>
+<p>怎么样？很神奇吧，仅仅写一行代码，就可以生成这么一个复杂的 HTML 结构，而且还可以生成对应的 class 、id 和有序号的内容。而且 Emmet 的语法很简单，虽然你现在可能还看不懂，后面的系列教程会详细讲解它的语法，你现在只需要知道 Emmet 的工作流程：<strong>打开 HTML 或 CSS 文件</strong>-&gt;<strong>按语法编写指令</strong>-&gt;<strong>摁下 TAB 键</strong>-&gt;<strong>生成！</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1937.html" data-id="ckgcnru8c004f1d2ahda9abel" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1937" data-title="前端开发神器 Emmet 介绍" data-url="http://www.qianxingzhem.com/post-1937.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-css-e5-b0-86-e5-bd-a9-e8-89-b2-e5-9b-be-e7-89-87-e8-bd-ac-e6-8d-a2-e6-88-90-e9-bb-91-e7-99-bd-e5-9b-be-e7-89-87" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1931.html" class="article-date">
+  <time datetime="2013-05-01T16:35:44.000Z" itemprop="datePublished">May 2 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>►<a class="article-category-link" href="/post-category/CSS/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1931.html">使用 CSS 将彩色图片转换成黑白图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>原文：<a href="http://demosthenes.info/blog/532/Convert-Images-To-Black-And-White-With-CSS" target="_blank" rel="noopener">Convert Images To Black And White With CSS</a></li>
+<li>原作者：<a href="http://demosthenes.info/users.php?usernum=1" target="_blank" rel="noopener">Dudley Storey</a>  译者：<a href="http://www.qianxingzhem.com">潜行者 m</a></li>
+<li>版权声明：版权归原作者所有，翻译仅作学习参考交流使用。<br>PS：最近翻译不少国外的优秀文章，不是没有写作灵感，是马上就要四级考试了 T _ T，哥现在还没开始正式复习。为了锻炼一下英语，所以选择翻译一些优秀的国外文章。</li>
+</ul>
+<p>CSS3 中的滤镜（filter）功能让我们轻松方便简单的处理图片，而不需要使用 PhotoShop 或者使用很多 JavaScript、PHP 代码。这个属性已经得到比较新的 Firefox、Safari、Chrome 浏览器支持，而且我们可以通过综合的可替代的技术来模拟实现这个效果——甚至是 IE 浏览器。</p>
+<p>本文中，我们将使用标准测试图片 <a href="http://en.wikipedia.org/wiki/Lenna" target="_blank" rel="noopener">Lena Söderberg</a> （译者注：Lena 这张裸体美女照片，被作为图片压缩的标准测试用图片）作为演示，使用 CSS 将其转换成黑白图片。在下面我将讲解如何使用 CSS 的这个功能实现调整色调、模糊、亮度、对比度和一些其他的效果。效果图：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1931/lena.jpg" alt="lena"></p>
+<h2 id="CSS3-的灰阶滤镜"><a href="#CSS3-的灰阶滤镜" class="headerlink" title="CSS3 的灰阶滤镜"></a>CSS3 的灰阶滤镜</h2><p>使用 CSS3 来稀释一个图片的颜色，再简单不过了。我们可以把这个 CSS 语句写成一个类，这样遇到想要效果的图片，直接加上个类就可以了。</p>
+<pre>img.desaturate { filter: grayscale(100%); }</pre>
+
+<p>当然，当前的浏览器在使用 CSS3 的时候，要加上他们自己的浏览器功能实验性前缀，所以，我们首先要做的，就是写上浏览器的前缀：</p>
+<pre>img.desaturate { filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+}</pre>
+
+<p>想要用在某个图片上很简单，加上一个类：</p>
+<pre>&lt;img src=lena-söderberg.png alt="Lena Söderberg" style=width:512px;height:512px class=desaturate&gt;</pre>
+
+<p>这就可以了。</p>
+<h2 id="增加一个-SVG-的滤镜效果"><a href="#增加一个-SVG-的滤镜效果" class="headerlink" title="增加一个 SVG 的滤镜效果"></a>增加一个 SVG 的滤镜效果</h2><p>这个功能目前只在 Chrome 18+ 有效，其他浏览器马上就会增加支持。为了在 Firefox 4+ 中得到相同的效果，我们可以需要使用 SVG 滤镜。我把新建了一个单独的文件 的 saturate.svg ，代码如下：</p>
+<pre>&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;filter id="greyscale"&gt;
+&lt;feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0
+0.3333 0.3333 0.3333 0 0
+0.3333 0.3333 0.3333 0 0
+0  0  0  1 0"/&gt;
+&lt;/filter&gt;
+&lt;/svg&gt;</pre>
+
+<p>不要被这段 SVG 代码吓住了——虽然上面的矩阵数列有点复杂。这段代码我推荐你直接复制粘贴成一个通用的“小文件”。我会再写一篇文章详细介绍一下上面矩阵变化，在这里不再赘述。</p>
+<p>加上上面的 SVG 文件引用，我们要插入 HTML 页面的 CSS 代码如下：</p>
+<pre>img.desaturate{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%); -o-filter: grayscale(100%);
+filter: url(desaturate.svg#greyscale);
+}</pre>
+
+<h2 id="为-IE-做兼容"><a href="#为-IE-做兼容" class="headerlink" title="为 IE 做兼容"></a>为 IE 做兼容</h2><p>到现在我们的代码可以兼容未来的浏览器，和最新版的 Chrome 、 Firefox 4+。为了让 IE 6-9 加入兼容列表，我们需要使用微软的笨拙但是有效的 filter 滤镜：</p>
+<pre>img.desaturate{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%); -o-filter: grayscale(100%);
+filter: url(desaturate.svg#greyscale);
+filter: gray;
+}</pre>
+
+<p>如果你还想做老版本的 Webkit 内核浏览器的兼容：</p>
+<pre>img.desaturate{
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%); -o-filter: grayscale(100%);
+filter: url(desaturate.svg#greyscale);
+filter: gray;
+-webkit-filter: grayscale(1);
+}</pre>
+
+<p>不幸的是，Safari 和 Opera 仍然不支持，但是 Safari 5.2 ——很快就会发布——应该会支持 webkit CSS3 滤镜功能，同时 Opera 对 CSS3 的支持正在不断提升。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>如果你想要在所有的浏览器中实现这个视觉效果（假设你的访问者都支持 JavaScript）你可以使用 jQuery 或者 <a href="http://james.padolsey.com/demos/grayscale" target="_blank" rel="noopener">Greyscale.js</a> 来修改你的图片，使其去色。</p>
+<p>上面咱们写的 CSS 代码可以让我们不需要使用 PhotoShop 就可以把图片变成黑白的。使用 CSS 来实现这个功能，可以非常容易修改：例如，你可以看到当我们把去色程度参数从 100% 变成 50% 的时候图片会是原色和黑白融合在一起的效果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1931.html" data-id="ckgcnru7u00311d2amw6lt7b6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1931" data-title="使用 CSS 将彩色图片转换成黑白图片" data-url="http://www.qianxingzhem.com/post-1931.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
     <article id="post-html-e7-9a-84-id-e5-92-8c-class-e5-8f-af-e4-bb-a5-e4-bd-bf-e7-94-a8-unicode-e7-bc-96-e7-a0-81-e7-9a-84-e7-89-b9-e6-ae-8a-e5-ad-97-e7-ac-a6-e5-91-bd-e5-90-8d" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1927.html" class="article-date">
@@ -100,7 +625,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1927.html" data-id="ckgcma3d80068aa2abvpv634p" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1927.html" data-id="ckgcnruay00c01d2aqqc1x2xx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -110,6 +635,86 @@
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1927" data-title="HTML 的 id 和 class 可以使用 Unicode 编码的特殊字符命名" data-url="http://www.qianxingzhem.com/post-1927.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-9c-a8-sublime-text-2-e4-b8-ad-e4-bd-bf-e7-94-a8-sftp-e6-8f-92-e4-bb-b6-e5-bf-ab-e9-80-9f-e7-bc-96-e8-be-91-e8-bf-9c-e7-a8-8b-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1924.html" class="article-date">
+  <time datetime="2013-04-30T13:02:32.000Z" itemprop="datePublished">May 1 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1924.html">在 Sublime Text 2 中使用 SFTP 插件快速编辑远程服务器文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sublime Text 2 本身并不强大，但是它方便使用插件扩展功能，所以变得很强大。今天 <a href="http://www.qianxingzhem.com">潜行者 m </a>介绍一个很实用的插件 SFTP ，可以大大提高前端工作效率。</p>
+<h2 id="常见的工作流程"><a href="#常见的工作流程" class="headerlink" title="常见的工作流程"></a>常见的工作流程</h2><p>有时候修改一些网站上的文件，通常是下面这样的流程：使用 FTP/SFTP 连接到远程服务器 -&gt; 下载要修改的文件 -&gt; 使用 ST2 修改文件 -&gt; 保存然后拖进 FTP 中 -&gt; 刷新网站。</p>
+<p>很明显这样的工作流程效率很低，特别是你修改一句代码的时候，为了即时生效，也需要重复切换几个窗口重复这个过程。于是就有了 SFTP 这个插件。</p>
+<p>它主要功能就是通过 FTP/SFTP 连接远程服务器并获取文件列表，可以选择下载编辑、重命名、删除等等操作，点下载编辑之后，可以打开这个文件进行修改。修改完成之后，保存一下会自动上传到远程的服务器上面。</p>
+<p>使用这个插件之后，工作流程就变成了：使用 SFTP 插件打开文件 -&gt; 使用 ST2 编辑修改文件 -&gt; 保存文件 -&gt; 刷新页面。效率提升了至少一倍以上，下面就来介绍一下具体的使用方法。</p>
+<h2 id="SFTP-使用方法"><a href="#SFTP-使用方法" class="headerlink" title="SFTP 使用方法"></a>SFTP 使用方法</h2><p>先要安装这个插件，打开 Sublime Text 2 ，摁下 shift + ctrl + p 键，呼出面板，使用 Package Control 这个插件安装。输入 “pci” 敲击回车，再输入 “sftp” 即可安装这个插件。安装完之后，就要开始配置服务器使用了。</p>
+<h3 id="第一步：配置-FTP-SFTP-服务器信息"><a href="#第一步：配置-FTP-SFTP-服务器信息" class="headerlink" title="第一步：配置 FTP/SFTP 服务器信息"></a>第一步：配置 FTP/SFTP 服务器信息</h3><p>安装完插件之后，找到 “文件” 菜单，找到 “SFTP/FTP” 选项，点击配置：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp0.png" alt="在 SFTP 中配置远程服务器信息"></p>
+<p>点击之后，会弹出一个新的窗口，这是一个配置文件</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp1.png" alt="SFTP 中服务器的配置参数"></p>
+<p>一般就是配置一下我箭头所指的四个参数，包括连接方式、服务器地址、用户名、密码等。如果你的服务器还有其他配置，你也可以对照注释设置一下。一般为了方便，还会设置一下“路径”，这样直接可以看到想要修改的文件列表。</p>
+<p>配置完成之后，我们保存，然后输入一个名字作为标识。</p>
+<h3 id="第二步：连接服务器获取文件列表"><a href="#第二步：连接服务器获取文件列表" class="headerlink" title="第二步：连接服务器获取文件列表"></a>第二步：连接服务器获取文件列表</h3><p>还是点击 “文件” 选择 “SFTP/FTP” 中的查看服务器列表</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp2.png" alt="使用 SFTP 连接远程服务器"></p>
+<p>会弹出刚刚配置好的服务器，我们可以点击需要连接的 FTP 服务器，这时候就链接上了并且弹出文件列表</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp3.png" alt="SFTP 连接服务器获取文件列表"></p>
+<p>这时候点击一个文件，就可以弹出一些选项</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp4.png" alt="使用 SFTP 操作远程文件"></p>
+<p>就可以根据你自己的需要，对文件编辑、重命名什么的了。点击编辑之后，会在本地打开，然后可以修改。摁下 ctrl + s 保存文件的时候，就会自动上传文件。</p>
+<p>如果需要查看服务器上的别的文件，或者需要更多的功能，可以直接在当前文件中右击，选择 “SFTP/FTP” 就会弹出更多选项可以使用，没法截图所以不再赘述。更多的功能，就交给你自己探索了！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1924.html" data-id="ckgcnru8p005h1d2at90yqnze" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1924" data-title="在 Sublime Text 2 中使用 SFTP 插件快速编辑远程服务器文件" data-url="http://www.qianxingzhem.com/post-1924.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -275,7 +880,7 @@ else: ?&amp;gt;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1921.html" data-id="ckgcma3ck0049aa2at9fkjiv8" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1921.html" data-id="ckgcnrua2009j1d2amk340lot" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式/">响应式</a></li></ul>
@@ -287,6 +892,105 @@ else: ?&amp;gt;
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1921" data-title="让浏览者禁用响应式布局界面" data-url="http://www.qianxingzhem.com/post-1921.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-php-e8-8e-b7-e5-8f-96-e5-b9-b6-e8-a7-a3-e6-9e-90-json-e6-98-be-e7-a4-ba-e5-9c-a8-e9-a1-b5-e9-9d-a2-e4-b8-ad" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1904.html" class="article-date">
+  <time datetime="2013-04-22T06:01:19.000Z" itemprop="datePublished">Apr 22 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1904.html">使用 PHP 获取并解析 JSON 显示在页面中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很久没写过 PHP 的文章了，也很久没有用 PHP 了，差点忘了怎么做了。JSON 是现在比较流行的数据交流方式，比 XML 都流行，一般用作 api 接口进行数据获取、交流。</p>
+<p>就文章的标题来说，本文介绍两个小要点：PHP 获取内容、PHP 解析 JSON 并显示。</p>
+<h2 id="PHP-获取接口内容"><a href="#PHP-获取接口内容" class="headerlink" title="PHP 获取接口内容"></a>PHP 获取接口内容</h2><p>你如果想解析 JSON 数据并且显示在页面中，第一步肯定要先得到 JSON 接口文件的内容。在 PHP 中获取一个页面的内容，可以使用 <a href="http://php.net/manual/zh/function.fopen.php" target="_blank" rel="noopener">fopen() 函数</a>远程页面然后使用 <a href="http://php.net/manual/en/function.fread.php" target="_blank" rel="noopener">fread() 函数</a>循环获取内容。</p>
+<p>假设接口文件页面为：<a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5" target="_blank" rel="noopener">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5</a> ，那么我们可以使用下面语句获取这个接口文件内容：</p>
+<pre>$handle = fopen("http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5","rb");
+$content = "";
+while (!feof($handle)) {
+    $content .= fread($handle, 10000);
+}
+fclose($handle);</pre>
+
+<p>这样 content 保存的就是 JSON api 内容。</p>
+<h2 id="PHP-解析-JSON-并显示"><a href="#PHP-解析-JSON-并显示" class="headerlink" title="PHP 解析 JSON 并显示"></a>PHP 解析 JSON 并显示</h2><p>原始的内容是无法直接调用的，必须被 PHP 进行进一步处理，才能被调用显示在网页中。在 PHP 5.2 及后续版本中，使用 json_decode() 函数来解析 JSON 数据，将其转换成 PHP 可以调用的数据格式。例如：</p>
+<pre>$content = json_decode($content);</pre>
+
+<p>解析之后呢，我们就可以按照 PHP 中调用数组数据的方法一样的调用 JSON 中的数据。这个调用方法需要按照具体的 JSON 数据格式来写，演示请看下面。关于 json_decode 函数的使用，具体看 PHP 手册，这里不再赘述：<a href="http://php.net/manual/en/function.json-decode.php" target="_blank" rel="noopener">http://php.net/manual/en/function.json-decode.php</a></p>
+<h2 id="实战调用琼台博客的-api"><a href="#实战调用琼台博客的-api" class="headerlink" title="实战调用琼台博客的 api"></a>实战调用琼台博客的 api</h2><p>细心的朋友会发现 <a href="http://www.qianxingzhem.com">潜行者 m 博客</a>的边栏最下面多了一个“友文推荐”模块，里面推荐了一些<a href="http://www.qttc.net" target="_blank" rel="noopener">琼台博客</a>的文章。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/04/1904/youwen.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/04/1904/youwen.png" alt="友文推荐"></a></p>
+<p>友文推荐是琼台博客倡议的一种博客之间交流方式，比传统的友情链接更有效，同时实现了博客内容互补。由于琼台博客的博客程序是他自己本人编写的，所以他提供了 JSON api 接口，可以获取到最新的可推荐的文章。</p>
+<p>本人使用 PHP 获取这个 JSON 接口，然后输出到自己博客的边栏中，下面来实战操作一下。</p>
+<h3 id="第一步，查看-api-调用方式"><a href="#第一步，查看-api-调用方式" class="headerlink" title="第一步，查看 api 调用方式"></a>第一步，查看 api 调用方式</h3><p>调用之前，你肯定要看一下对方的 api 调用手册，包括调用地址、如何调用、数据输出格式等等。琼台博客的 api 说明地址如下：<a href="http://www.qttc.net/openapi.html" target="_blank" rel="noopener">http://www.qttc.net/openapi.html</a>。</p>
+<p>根据文档，我使用了 <a href="http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5" target="_blank" rel="noopener">http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5</a> 这样的参数，意思就是调用五条他推荐的文章。</p>
+<h3 id="第二步，获取-api-结构数据"><a href="#第二步，获取-api-结构数据" class="headerlink" title="第二步，获取 api 结构数据"></a>第二步，获取 api 结构数据</h3><p>很简单，上面说过了，具体代码如下：</p>
+<pre>$handle = fopen("http://www.qttc.net/api.php?action=open_getBlogList&amp;only_recommend=1&amp;limit=5","rb");
+$content = "";
+while (!feof($handle)) {
+    $content .= fread($handle, 10000);
+}
+fclose($handle);</pre>
+
+<p>先打开这数据文件，然后把所有内容保存到 content 变量中，因为可以肯定 api 数据不会超过 10000 个字符，所以用 10000 作为 fread 函数的第二个参数。这样，api 返回的 JSON 数据就保存在了 content 变量中。</p>
+<h3 id="第三步，解析并输出内容"><a href="#第三步，解析并输出内容" class="headerlink" title="第三步，解析并输出内容"></a>第三步，解析并输出内容</h3><p>使用下面代码解析数据，然后调用输出</p>
+<pre>$content = json_decode($content);
+foreach ($content-&gt;data as $key) {
+    echo '&lt;li&gt;&lt;a target="_blank" href="'.$key-&gt;b_url.'"&gt;'.$key-&gt;b_title.'&lt;/a&gt;&lt;/li&gt;';
+}</pre>
+
+<p>首先对 content 变量中的 JSON  数据处理，然后变成 PHP 可以调用的数据，再使用 foreach 遍历输出这五条内容，按照我需要的 HTML 格式，将内容插入进去即可。</p>
+<p>再加上样式修饰，这样就完成了 获取并解析 JSON 显示在页面中了。调用其它 api 数据的方法大同小异。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1904.html" data-id="ckgcnru84003p1d2a55xzzo0q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/">JSON</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1904" data-title="使用 PHP 获取并解析 JSON 显示在页面中" data-url="http://www.qianxingzhem.com/post-1904.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -351,7 +1055,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1900.html" data-id="ckgcma39u000maa2adlvortyz" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1900.html" data-id="ckgcnru80003c1d2ajtuyfk7l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端优化/">前端优化</a></li></ul>
@@ -412,7 +1116,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1897.html" data-id="ckgcma3da006daa2as7r830mm" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1897.html" data-id="ckgcnrub400cg1d2as9rra4l8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
@@ -442,470 +1146,9 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-html5-video-e8-b7-a8-e6-b5-8f-e8-a7-88-e5-99-a8-e5-85-bc-e5-ae-b9-e7-9a-84-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1868.html" class="article-date">
-  <time datetime="2013-04-10T18:47:47.000Z" itemprop="datePublished">Apr 11 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/HTML/">HTML</a>►<a class="article-category-link" href="/post-category/HTML/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1868.html">HTML5 video 跨浏览器兼容的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在过去 flash 是网页上最好的解决视频的方法，截至到目前还算是主流，像那些优酷之类的视频网站、虾米那样的在线音乐网站，仍然使用 flash 来提供播放服务。但是这种状况将会随着 HTML5 的发展而改变。就视频而言，HTML5 新增了 video 来实现在线播放视频的功能。</p>
-<p>使用 HTML5 的 video 可以很方便的使用 JavaScript 对视频内容进行控制等等，功能十分强大，同时代码比较少加快加载速度。此外跨平台性比较好，特别是一些平板、手机等。例如苹果公司的产品不支持 flash 仅支持 HTML5 中的 video 功能。</p>
-<p>但是 HTML5 的兼容性问题是个硬伤，我们可以在网页中使用 video 来播放视频，但使用早期浏览器的访问者可能无法正常观看这个视频。此外，由于视频编码器的历史渊源导致各种浏览器支持的视频格式不同。应对这些问题，想在网页中使用 HTML5 video 功能，可以按照下面三个步骤操作。</p>
-<h2 id="第一步：提前准备好多格式视频文件"><a href="#第一步：提前准备好多格式视频文件" class="headerlink" title="第一步：提前准备好多格式视频文件"></a>第一步：提前准备好多格式视频文件</h2><p>由于编码器的版权问题，导致不同浏览器对视频格式的兼容性不同。目前没有一个视频格式兼容所有浏览器，唯一的解决方法就是把视频转换成多种格式。</p>
-<p>首先要准备一个 mp4 格式的视频，可以在苹果设备中使用；其次要准备 ogv 格式的视频，用在火狐浏览器中；最后要准备一下 webm 格式的视频，这个可以用在谷歌浏览器等。webm 是谷歌提出的，开源、免费，很有可能成为兼容所有浏览器的视频格式。</p>
-<p>准备多格式浏览器的麻烦之处在于转换格式。视频转换工具国内的功能比较少，转换格式可能没有上面后两个，而且质量良莠不齐，往往需要注册才能使用。推荐一个国外的工具 <a href="http://www.online-convert.com/" target="_blank" rel="noopener">Online converter</a> ，在线免费视频转换工具。甚至不用安装软件，直接选择相应的目标格式，然后上传视频，配置一下参数就可以转换出来了。没有合适工具的朋友，可以尝试一下。</p>
-<h2 id="第二步：编写对应-HTML5-video-代码"><a href="#第二步：编写对应-HTML5-video-代码" class="headerlink" title="第二步：编写对应 HTML5 video 代码"></a>第二步：编写对应 HTML5 video 代码</h2><p>HTML5 中的 video 实际上就是一个简单的标签，包含了一些视频相关信息等。下面我直接给出具体代码，然后简单解释一下：</p>
-<p><pre>&lt;video width=”800” height=”374”&gt;<br>    &lt;source src=”my_video.mp4” type=”video/mp4” /&gt;<br>    &lt;source src=”my_video.ogv” type=”video/ogg” /&gt;<br>    &lt;source src=”my_video.webm” type=”video/webm” /&gt;<br>    你浏览器不支持 video 功能，点击这里下载视频： &lt;a href=”video.webm”&amp;gt下载视频&lt;/a&amp;gt.<br>&lt;/video&gt;</pre><br>video 标签表示这里是一个视频，width、height 属性分别表示这个视频内容的宽高（单位像素）。video 标签中可以包含 source 标签，source 标签用来表示引用的视频和视频的格式、类型。为了保证向下的兼容性，我们还在 video 标签中加了一句提示，这句话在支持 video 标签的浏览器中是不会显示的，如果不支持就会显示出来。这里，还增加了一个视频的下载地址，如果浏览器不支持，可以让用户选择下载下来看。</p>
-<p>特别需要注意一点，你的主机必须能正确的处理这事些视频请求。确保你的主机被请求这些视频的时候会在 Content-Type 头发送正确的 MIME 类型。如果你不清楚，可以咨询一下主机服务商，也可以自己添加。如果主机支持 .htaccess ，可以在 .htaccess 文件中增加下面语句：</p>
-<p><pre>AddType video/ogg .ogv<br>AddType video/mp4 .mp4<br>AddType video/webm .webm</pre><br>大体就是这样，比较简单，更加具体的关于 video 的使用方法，可以搜索一下，也可以见本文扩展阅读链接，在这里不再赘述。</p>
-<h2 id="第三步：为旧版浏览器做兼容"><a href="#第三步：为旧版浏览器做兼容" class="headerlink" title="第三步：为旧版浏览器做兼容"></a>第三步：为旧版浏览器做兼容</h2><p>前面说过，如果浏览器不支持 video ，将会把 video 中的提示内容显示出来。那么对付老旧浏览器，我们可以用传统的 flash 来替换这个提示内容。这样，当浏览器不兼容 video 标签的时候，就会显示出 flash 版本的视频。例如：</p>
-<p><pre>&lt;video width=”800” height=”374”&gt;<br>    &lt;source src=”my_video.mp4” type=”video/mp4” /&gt;<br>    &lt;source src=”my_video.ogv” type=”video/ogg” /&gt;</pre></p>
-<pre><code>&amp;lt;object width=&quot;800&quot; height=&quot;374&quot; type=&quot;application/x-shockwave-flash&quot; data=&quot;fallback.swf&quot;&amp;gt;
-    &amp;lt;param name=&quot;movie&quot; value=&quot;fallback.swf&quot; /&amp;gt;
-    &amp;lt;param name=&quot;flashvars&quot; value=&quot;autostart=true&amp;amp;amp;file=video.flv&quot; /&amp;gt;
-&amp;lt;/object&amp;gt;
-</code></pre><p>&lt;/video&gt;<br>直接按照原来正常的 flash 引入方法写进 video 标签中即可。这样，我们就实现了跨浏览器兼容的 video 功能使用。</p>
-<h2 id="参考文章和扩展阅读"><a href="#参考文章和扩展阅读" class="headerlink" title="参考文章和扩展阅读"></a>参考文章和扩展阅读</h2><ul>
-<li><a href="http://www.catswhocode.com/blog/cross-browser-compatible-html5-videos" target="_blank" rel="noopener">Cross browser compatible HTML5 videos</a></li>
-<li><a href="http://baike.baidu.com/view/3655243.htm" target="_blank" rel="noopener">WebM 格式百度百科</a></li>
-<li><a href="http://www.w3schools.com/html/html5_video.asp" target="_blank" rel="noopener">HTML5 Video @w3schools</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1868.html" data-id="ckgcma3d80065aa2akuuzquul" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1868" data-title="HTML5 video 跨浏览器兼容的方法" data-url="http://www.qianxingzhem.com/post-1868.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post-blink-e6-b5-8f-e8-a7-88-e5-99-a8-e5-86-85-e6-a0-b8-e6-9d-a5-e4-ba-86" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1865.html" class="article-date">
-  <time datetime="2013-04-06T13:53:00.000Z" itemprop="datePublished">Apr 7 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/其他/">其他</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1865.html">Blink 浏览器内核来了</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前 Web 界有一个重磅信息，那就是 Opera 抛弃了自己的内核 Presto 而改用 WebKit 内核。大家都在议论缺乏了渲染内核的多样性，会不会影响到浏览器和 Web 标准之类的进步和发展。而现在，应该不用讨论了，因为一个新内核 Blink 要来了。</p>
-<p>Blink 是由 WebKit 内核衍生出来的，是由 Chromium 开发维护的新项目。在官方的博客上有详细的说明：<a href="http://blog.chromium.org/2013/04/blink-rendering-engine-for-chromium.html" target="_blank" rel="noopener">Blink: A rendering engine for the Chromium project</a>。关于这个浏览器的更加详细的特性和目标，可以看这里：<a href="http://www.chromium.org/blink" target="_blank" rel="noopener">http://www.chromium.org/blink</a>。大体就是一大堆的优化，提高速度，各种支持。</p>
-<p>之前的 WebKit 内核是由 谷歌 chrome 和 苹果 safari 共同开发，谷歌不干了，从 WebKit 中衍生分离出 Blink 不知道是何居心，不过浏览器渲染内核的多样性是肯定有了，以谷歌的技术，这种多样性应该会促进 Web 的发展。</p>
-<p>对于国内来说，Blink 是开源引擎，X60 、X狗 之类的浏览器，又可以再增加一个核了，因为 Blink 对速度做了优化，应该会比 WebKit 还要快，所以可能会被命名为超急速三核切换功能。总之，妈妈再也不用担心我的浏览器核心不够用了。</p>
-<p>最害怕的是增加前端工程师的压力，<a href="http://wange.im/blink-browser-is-coming.html" target="_blank" rel="noopener">万戈前辈好像很蛋碎</a>，以谷歌的技术，应该不会像对 IE 那样费力的去 Hack，至于那些前缀什么的，随着标准的确立，就自然去掉了。</p>
-<p>Opera 怎么办？当然，它也会使用 Blink 内核的。还是让我们拭目以待吧，看看这个内核究竟怎么样。</p>
-<p>此外，Firefox 也耐不住寂寞了，前几天也在官方博客上发表了关于联手三星共同开发下一代浏览器内核（servo）的声明（<a href="https://blog.mozilla.org/blog/2013/04/03/mozilla-and-samsung-collaborate-on-next-generation-web-browser-engine/" target="_blank" rel="noopener">点击这里查看官方声明</a>），这是要干什么？Web 界还是不太平啊，期待国内有哪个技术团队能开发一个自主的内核啊。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1865.html" data-id="ckgcma3d0005baa2au0yf1nzo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1865" data-title="Blink 浏览器内核来了" data-url="http://www.qianxingzhem.com/post-1865.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e4-bd-bf-e7-94-a8-e5-8e-9f-e7-94-9f-javascript-e5-9c-a8-e9-a1-b5-e9-9d-a2-e5-8a-a0-e8-bd-bd-e5-ae-8c-e6-88-90-e5-90-8e-e5-a4-84-e7-90-86-e5-a4-9a-e4-b8-aa-e5-87-bd-e6-95-b0" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1850.html" class="article-date">
-  <time datetime="2013-04-01T09:37:08.000Z" itemprop="datePublished">Apr 1 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/JS-JQ/">JS/JQ</a>►<a class="article-category-link" href="/post-category/JS-JQ/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1850.html">使用原生 JavaScript 在页面加载完成后处理多个函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript 脚本语言的执行，是需要触发的。一般的做法就是在网页中，直接编写几个函数，有的在代码被加载的时候就被浏览器处理，或者使用类似下面的代码来触发实现函数的相关功能。</p>
-<p><pre>&lt;div id=”link” onclick=”fun()” &gt;&lt;/div&gt;</pre><br>上面代码的意思就是，当鼠标点击 id 为 link 的元素的时候，就触发了它的 onclick 事件，然后执行使用 JavaScript 定义的 fun 函数。这样的做法肯定是很不合理的，因为触发操作直接写进了 HTML 结构里面，内容和行为没有隔离开，对日后的二次开发或者修改带来不便。</p>
-<p>需要注意的是，当事件处理与对应元素绑定起来的时候，只有在那个元素加载完之后才能进行操作。如果说把处理的脚本放在了 head 区域，浏览器会报错。因为下面的 HTML 元素还没有加载出来，head 中的处理脚本已经被处理了。</p>
-<p>一个好的执行 JavaScript 代码的方法应该是 <strong>行为内容分离的</strong>、<strong>在页面加载后处理 </strong>的。所以，处理 JavaScript 代码我们要用到 <strong>监听器 </strong>和<strong> window 对象的 load 事件</strong>。</p>
-<h2 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h2><p>监听器实际上的功能就是行为与内容分离的。以前需要在 HTML 中加上一些触发事件来触发 JavaScript 的相关函数，而现在直接在 JavaScript 中对某个元素的使用监听器，监听这个元素的事件，如果这个元素被触发了某些事件，在监听器中又定义了这个事件对应的处理函数，那么就会处理这个函数。</p>
-<p>W3C 的标准方法叫做 addEventListener ，被IE9，chrome，firefox，opera所支持，写法：</p>
-<p><pre>window.addEventListener(‘load’,function,false);</pre><br>早期 IE 中有 attachEvent 方法效果类似：</p>
-<p><pre>window.attachEvent(‘onload’,function);</pre><br>使用监听器的方法也很简单，就是先获取页面中的某个元素，然后对这个元素使用监听器，定义监听的事件和对应的事件处理函数，就上文例子：</p>
-<p><pre>document.getElementById(‘link’).addEventListener(‘click’,fun,false);</pre><br>关于监听器更加详细的使用说明，请见文末补充资料。</p>
-<h2 id="window-onload-事件"><a href="#window-onload-事件" class="headerlink" title="window.onload 事件"></a>window.onload 事件</h2><p>onload 事件只有在整个页面已经完全载入的时候才会被触发，我们将 JavaScript 代码写进 onload 事件中，就可以保证在 HTML 元素被加载完成之后，浏览器才会处理我们的 JavaScript 代码。基础的写法：</p>
-<p><pre>window.onload = function(){<br> //code<br>}</pre><br>这样，这个函数里面的 code 会在加载完成之后被处理。但是，这种方法有个缺陷，就是只能用于这一个函数。页面中无法出现多个 window.onload 事件，如果出现了多个 onload 事件，那么后面的内容会覆盖前面的。</p>
-<p>那么，我们可以这样做，在一个 window.onload 事件中，写上所有需要加载的函数名，然后在外面定义函数：</p>
-<p><pre>window.onload = function(){<br>   func1();<br>   func2();<br> }</pre></p>
-<p>function func1(){…}<br>function func2(){…}<br>这样做虽然可以，但是很不方便，因为我们需要把所有要加载的函数名都写进去，修改起来就会很麻烦。当然办法肯定是有的，jQuery 就特别提供了很强大的多脚本加载方法，那么原生的 JavaScript 肯定也有办法。</p>
-<h2 id="window-onload-同时处理多个函数"><a href="#window-onload-同时处理多个函数" class="headerlink" title="window.onload 同时处理多个函数"></a>window.onload 同时处理多个函数</h2><p>我们需要编写一个处理函数，先看一下代码：</p>
-<p><pre>    function addLoadListener(fn){<br>        if (typeof window.addEventListener != ‘undefined’){<br>            window.addEventListener(‘load’,fn,false);<br>        }else if(typeof document.addEventListener != ‘undefined’){<br>            document.addEventListener(‘load’,fn,false);<br>        }else if (typeof window.attachEvent != ‘undefined’){<br>            window.attachEvent(‘onload’,fn);<br>        }else{<br>            var oldfn = window.onload;<br>            if(typeof window.onload != ‘function’){<br>                window.onload = fn;<br>            }else{<br>                window.onload = function(){<br>                    oldfn();<br>                    fn();<br>                };<br>            }<br>        }<br>    }</pre><br>简单的来解析一下，这个自定义的 addLoadListener 函数，传递一个 函数名称 作为参数。它首先判断浏览器是否支持相关的 监听器，如果支持 监听器，就使用 监听器 监听 window 对象的 onload 事件，然后处理这个函数。这段代码使用 if 语句判断了所有浏览器的监听事件，是跨浏览器兼容的。</p>
-<p>我们把这段代码放在 JavaScript 代码段的最上面，然后在下面定义相关函数，然后使用下面语句来加载 JavaScript 函数了。</p>
-<p><pre>addLoadListener(func);<br>function func() {…}</pre><br>这样，有什么 JavaScript 函数是需要在页面加载完成之后处理的，直接使用 addLoadListener 函数即可，而且可以使用多个。通常来说，所有的 JavaScript 最好都使用 onload 事件加载，以避免意外情况发生。</p>
-<h2 id="引用和补充资料"><a href="#引用和补充资料" class="headerlink" title="引用和补充资料"></a>引用和补充资料</h2><ul>
-<li>这段代码来自《JavaScript 精粹（修订版）》 一书</li>
-<li><a href="http://baike.baidu.com/view/2965912.htm" target="_blank" rel="noopener">addEventListener 百度百科介绍</a></li>
-<li><a href="http://parkmy.iteye.com/blog/431306" target="_blank" rel="noopener">addEventListener 和 attachEvent用法</a></li>
-<li><a href="http://www.cnblogs.com/yihai/articles/2234592.html" target="_blank" rel="noopener">道听途说之JavaScript事件监听器</a></li>
-<li><a href="http://www.candoudou.com/archives/523" target="_blank" rel="noopener">javascript中addEventListener方法和removeEventListener方法</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1850.html" data-id="ckgcma39s000haa2au5uxv8xy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1850" data-title="使用原生 JavaScript 在页面加载完成后处理多个函数" data-url="http://www.qianxingzhem.com/post-1850.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e5-b0-86-wordpress-e5-8d-9a-e5-ae-a2-e4-bb-8e-sae-e8-bf-81-e5-87-ba-e6-90-ac-e5-9b-9e-justhost" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1846.html" class="article-date">
-  <time datetime="2013-03-31T15:24:14.000Z" itemprop="datePublished">Apr 1 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1846.html">将 WordPress 博客从 SAE 迁出搬回 JustHost</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前几天不知道为什么，SAE 老是抽风，然后打开很慢甚至无法打开，然而 ping 确实可以 ping 的通。不通过顶级域名而是直接使用 SAE 提供的二级域名也无法打开。</p>
-<p>我一直以为 SAE 是非常正规、高质量的，可能偶尔遇到几次抽风问题，事实上这是我第一次遇到。写了一篇文章，结果等了一个下午也没有发表出去。期间，我找了一些网友进行测试，发现不是我个人网络的问题，他们也都打不开。然后 哼哼猪 跟我说，我的博客经常遇到这种很慢的情况。难道是我之前都没有怎么管理导致的吗？</p>
-<p>我打算再等等看，第二天恢复正常了。然后第三天一大清早的，又是这种问题。我上网搜索了一下其他放在 SAE 上面的网站，没有这个问题。我开始忍受不了了，忍受不了这种影响用户体验的问题存在。于是打算从 SAE 迁出去。</p>
-<p>跟 <a href="www.x-berry.com">软矿</a> 的博主 MK 聊了一下，跟我推荐了几个 VPS，我看了半个下午的 VPS 套餐，确定下来之后发现人家卖完了，很无语。于是晚上将博客数据什么的搬回了之前的 JustHost 暂时用一下待日后再解决主机问题。虽然访问速度比较慢，但是至少不会出现那种打不开的抽风问题，使用 又拍云 进行静态文件加速，应该也不会慢到受不了。</p>
-<h2 id="WordPress-迁出-SAE-的步骤"><a href="#WordPress-迁出-SAE-的步骤" class="headerlink" title="WordPress 迁出 SAE 的步骤"></a>WordPress 迁出 SAE 的步骤</h2><p>这段虽然比较水，但是还是大体说一下，因为搬出来的时候遇到了一些小插曲，可供后来者参考使用。</p>
-<p>WordPress 搬家步骤有很多，我个人比较喜欢的是：导出数据》》在目的主机安装 WordPress 》》导入数据。</p>
-<p>这时候，强大的资源外链的作用体现出来了，因为图片等都用外链，所以根本不用管那些资源，直接把数据库内容转移即可。看起来步骤非常简单，但实际上从 SAE 迁移到 JustHost 的过程中遇到了很多问题，折腾了一个下午。</p>
-<h2 id="SAE-的数据导出问题"><a href="#SAE-的数据导出问题" class="headerlink" title="SAE 的数据导出问题"></a>SAE 的数据导出问题</h2><p>导出 WordPress 的数据有两种方式，第一种是在后台使用“工具”里面的“导出”，导出为 xml 文件，然后在新博客的后台直接导入即可。当然，这是一种不完全的导入方式，虽然说是博客全部的数据，但实际上只有文章、页面、简单的配置数据，一些博客名称什么的内容，还需要自己在新博客后台细微调整。</p>
-<p>因为这种方式比较傻瓜，所以优先考虑。这时候出现问题了，SAE 上的 WordPress 无法导出所有的数据，只能导出 34kb 的 xml 数据文件。原因不详，看后台提示可能是因为 SAE 限制了数据查询次数还是其他乱七八糟的东西，反正导不出所有数据。不得已，我拿出前天导出的备份 xml 文件，大约 3M 左右大小。这时候要上传新博客的时候，发现服务商把 php 的上传限制在了 2M 大小。好吧，这种方法还得看你的主机参数配置，所以不是好办法。</p>
-<p>SAE 上面也附带了 PHPMyAdmin 那就使用它直接把 MySQL 的数据库内容导出，然后在 JustHost 后台的 PHPMyAdmin 中导入好了。SAE 上的东西肯定都是阉割版的，不知道 PHPMyAdmin 是什么版本的，把数据库导出之后，在 JustHost 后台无法导入，因为某些语句出错。后来经过搜索，发现也有网友迁移的时候，遇到了这种问题。</p>
-<p>SAE 还提供了一个他们自己开发的数据库管理服务 <a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=196" target="_blank" rel="noopener">Deferred Jobs</a> 可以用来导入导出 MySQL 数据库。因为使用这个服务需要排队等，不是立即生效的，所以官方推荐 4M 一下的数据库用 PHPMyAdmin 导入导出，4M 以上的使用这个服务。不管了，直接用了，其实没过多久就直接导出完毕。</p>
-<p>下载下来 sql 文件有 3M 多，而使用 PHPMyAdmin 导出的才有 2M 多一点，我怀疑没有完全导出，难道又是被 SAE 阉割限制了？这次的 sql 文件非常正常，使用 JustHost 的后台 PHPMyAdmin 直接上传导入就可以了。</p>
-<p>再全面的检查一下，增加一下固定链接伪静态，把主题文件、插件上传到新博客，这样搬家完成了，顺带升级成了最新版的 WordPress，SAE 上用的是 3.2.1 阉割版的 WordPress 大家都懂的。</p>
-<h2 id="感谢-SAE"><a href="#感谢-SAE" class="headerlink" title="感谢 SAE"></a>感谢 SAE</h2><p>我从2012年10月16号左右，把 WordPress 博客从 JustHost 迁移到了 SAE，后来总结写了<a href="http://www.qianxingzhem.com/post-1387.html">《WordPress 迁移 SAE 完全操作攻略》</a> 这篇文章，下面虽然有评论说看到很多人进去又出来了，但是我觉得我不会。因为我对 SAE 的服务挺有好感的，一直以为 新浪 是大公司，放在上面很安全，不会丢失数据也不会轻易被黑客攻击，可以安心写文章。以至于后面的这段时间，我连数据都没有备份过几次。</p>
-<p>截止到今年3月份，博客在 SAE 上面已经5个多月了，这段时间内访问速度还是挺不错的，当然是相对于 JustHost 来说。对于小型的博客来说，花费非常少，我也做了很多优化，消耗资源很少，所以截止到现在的5个月的使用，算起来只花了2块钱的短信验证费，其他都是实名认证送的云豆。</p>
-<p>同时通过 SAE，还学到了一些简单的 SVN 使用等。总之，虽然搬出了 SAE 还是要感谢它，日后一些小应用的开发什么的，说不定还会放在上面。感谢 SAE ！</p>
-<h2 id="为什么不要用-SAE"><a href="#为什么不要用-SAE" class="headerlink" title="为什么不要用 SAE"></a>为什么不要用 SAE</h2><p>在刚开始使用 SAE 的时候，对 SAE 充满了好感，曾经强烈推荐周围的朋友试用 SAE，也曾建议 多说 他们使用 SAE 或者 阿里云 主机，这样可以减少成本、人力消耗。因为他们的服务器都是自己购买，自己维护的，如果使用第三方稳定的服务，就可以仅仅专注于 多说 的开发了。但是他们拒绝了，我现在明白了。</p>
-<p>东西只有掌握在自己手里，才是最安全的。SAE 或许比一些低端主机靠谱的多，但是为了开发或者资源限制，功能什么的阉割的太严重了。开发、修改等，都得按照他们的套路来，而放在自己的主机或者服务器上，想怎么处理就怎么处理（当然，你得有相关技术），无论是备份还是什么，都是很方便的。我想，多说团队之所以自己维护服务器，就是这个原因吧。</p>
-<p>对我个人来说，可能也不会在 SAE 上寄放博客了，因为我本身要折腾 WordPress 所以在自己的主机上折腾比较方便，SAE 上的是早期阉割版本的 WordPress。</p>
-<h2 id="博客未来的发展"><a href="#博客未来的发展" class="headerlink" title="博客未来的发展"></a>博客未来的发展</h2><p>JustHost 虽然便宜，但是速度实在是比较慢，之前也是因为经常抽风宕机所以才想搬到 SAE 上面的。但是最近手头太紧，买好点的 VPS 又没有足够的资金，此外还有几个筹划中的网站项目等待上线。所以先暂时使用 JustHost，多写一些文章，等访问量大了，也有足够的资金，就会更换好点的主机，例如 linode 啥的。暂时先忍忍吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1846.html" data-id="ckgcma3bk0020aa2ay9itri91" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1846" data-title="将 WordPress 博客从 SAE 迁出搬回 JustHost" data-url="http://www.qianxingzhem.com/post-1846.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post-wordpress-e5-ad-90-e4-b8-bb-e9-a2-98-e5-8a-9f-e8-83-bd-e4-b8-ba-wordpress-e5-a2-9e-e5-8a-a0-e5-88-86-e7-b1-bb-e6-90-9c-e7-b4-a2-e5-8a-9f-e8-83-bd-e5-b9-b6-e7-be-8e-e5-8c-96" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1843.html" class="article-date">
-  <time datetime="2013-03-27T17:15:07.000Z" itemprop="datePublished">Mar 28 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1843.html">WordPress 子主题功能 + 为 WordPress 增加分类搜索功能并美化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期关于 WordPress 方面主要写了两篇文章，分别是 <a href="http://blog.wpjam.com/article/child-themes/" target="_blank" rel="noopener">使用 WordPress 的子主题（Child Themes）功能快速制作自己的主题</a> 和 <a href="http://blog.wpjam.com/m/search-by-category/" target="_blank" rel="noopener">为 WordPress 增加按分类搜索功能并自定义外观</a> 。</p>
-<p>之后，关于 WordPress 的文章，我直接首发在 <a href="http://blog.wpjam.com" target="_blank" rel="noopener">我爱水煮鱼 </a>上面，在 潜行者m 博客就不转发了，只对一些比较好点的文章做一个链接。欢迎大家关注 <a href="http://blog.wpjam.com" target="_blank" rel="noopener">我爱水煮鱼</a>，国内最专业的 WordPress 技术平台。</p>
-<h2 id="子主题功能"><a href="#子主题功能" class="headerlink" title="子主题功能"></a>子主题功能</h2><p>如果你想修改一个 WordPress 最好的方法并不是直接上去修改，而是通过 WordPress 的子主题功能进行修改。这样修改之后，不会影响到原来主题文件，原来主题升级覆盖之后，也不会影响你修改的内容。</p>
-<p>结合着官方文档，并且动手实践了一下，写出了这篇文章：<a href="http://blog.wpjam.com/article/child-themes/" target="_blank" rel="noopener">使用 WordPress 的子主题（Child Themes）功能快速制作自己的主题</a>。</p>
-<h2 id="增加分类搜索功能并定义外观"><a href="#增加分类搜索功能并定义外观" class="headerlink" title="增加分类搜索功能并定义外观"></a>增加分类搜索功能并定义外观</h2><p>对于一个比较大型类门户的博客来说，按照分类搜索功能是必不可少的，这篇文章就介绍了如何增加这个功能。同时对输出的 select 分类选择下拉列表进行了美化。<br>这篇文章中，提供并用 jQuery 实现了模拟下拉列表的功能，想要围观请看这里：<a href="http://blog.wpjam.com/m/search-by-category/" target="_blank" rel="noopener">为 WordPress 增加按分类搜索功能并自定义外观</a>。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1843.html" data-id="ckgcma3el009laa2ajf292shf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1843" data-title="WordPress 子主题功能 + 为 WordPress 增加分类搜索功能并美化" data-url="http://www.qianxingzhem.com/post-1843.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1801.html" class="article-date">
-  <time datetime="2013-03-23T12:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
-<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
-<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
-<h2 id="id-和-class-的区别"><a href="#id-和-class-的区别" class="headerlink" title="id 和 class 的区别"></a>id 和 class 的区别</h2><p>有经验的朋友可以略过这一部分。</p>
-<h3 id="唯一性和重复可用性"><a href="#唯一性和重复可用性" class="headerlink" title="唯一性和重复可用性"></a>唯一性和重复可用性</h3><p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
-<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
-<h3 id="CSS-中优先级不同"><a href="#CSS-中优先级不同" class="headerlink" title="CSS 中优先级不同"></a>CSS 中优先级不同</h3><p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
-<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
-<h3 id="跳转功能"><a href="#跳转功能" class="headerlink" title="跳转功能"></a>跳转功能</h3><p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
-<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="noopener">http://baike.baidu.com/view/371.htm#8</a></p>
-<h2 id="为什么使用-class-而不是-id"><a href="#为什么使用-class-而不是-id" class="headerlink" title="为什么使用 class 而不是 id"></a>为什么使用 class 而不是 id</h2><p>使用 class 究竟有什么好处？</p>
-<h3 id="减少命名"><a href="#减少命名" class="headerlink" title="减少命名"></a>减少命名</h3><p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
-<h3 id="高度重复使用"><a href="#高度重复使用" class="headerlink" title="高度重复使用"></a>高度重复使用</h3><p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
-<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
-<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
-<h3 id="优先级低"><a href="#优先级低" class="headerlink" title="优先级低"></a>优先级低</h3><p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
-<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
-<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
-<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
-<h2 id="id-也是必须有的"><a href="#id-也是必须有的" class="headerlink" title="id 也是必须有的"></a>id 也是必须有的</h2><p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
-<h3 id="锚标记跳转"><a href="#锚标记跳转" class="headerlink" title="锚标记跳转"></a>锚标记跳转</h3><p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
-<h3 id="用在-input-中"><a href="#用在-input-中" class="headerlink" title="用在 input 中"></a>用在 input 中</h3><p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
-<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
-<h2 id="最佳的使用组合"><a href="#最佳的使用组合" class="headerlink" title="最佳的使用组合"></a>最佳的使用组合</h2><p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
-<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
-<p>欢迎讨论交流。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ckgcma3do007eaa2aqnotmxeh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1801" data-title="为什么使用 class 属性来标注 HTML 元素而不是 id 属性" data-url="http://www.qianxingzhem.com/post-1801.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -916,7 +1159,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -925,7 +1168,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -934,7 +1177,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -943,7 +1186,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

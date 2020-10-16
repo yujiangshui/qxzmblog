@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e6-b5-8f-e8-a7-88-e5-99-a8-e7-9a-84-e4-b8-8d-e5-85-bc-e5-ae-b9-e9-97-ae-e9-a2-98-e5-87-ba-e5-9c-a8css-e4-bb-a3-e7-a0-81-e4-b8-8a-e9-9d-a2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-jquery-lazyload-js-e7-a9-b6-e7-ab-9f-e8-a6-81-e6-80-8e-e4-b9-88-e4-bd-bf-e7-94-a8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-719.html" class="article-date">
-  <time datetime="2012-02-20T01:50:16.000Z" itemprop="datePublished">Feb 20 2012</time>
+    <a href="/post-1192.html" class="article-date">
+  <time datetime="2012-08-25T00:06:28.000Z" itemprop="datePublished">Aug 25 2012</time>
 </a>
     
   <div class="article-category">
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-719.html">浏览器的显示效果不同的问题出在CSS代码上面</a>
+      <a class="article-title" href="/post-1192.html">Jquery.lazyload.js究竟要怎么使用</a>
     </h1>
   
 
@@ -89,23 +89,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近受到<a href="http://blog.3qsami.info/485" target="_blank" rel="noopener">Sami大叔</a>的激励，努力花了一天的功夫，又把<a href="http://www.qianxingzhem.com/mytheme">博客模板</a>改版了一下，升级了一下，几乎把所有的css代码又重新写了一遍。我发现，实践真的是最好的老师之一，通过实践，可以让你的技术层次更深一步增加。这一次的升级，让我得到了非常多的经验，例如本文要说的。</p>
-<p>浏览器都是不同的，解析用的内核也是不同的（这里的浏览器不算360、搜狗等借用其他浏览器内核的浏览器）。这样就出现了不兼容的问题。例如，一行css代码，在这个浏览器可能会正常解析，而在那一个浏览器，却无法解析或者进行了加粗等等。这样就出现了一个很头疼的问题，一个页面，可能在火狐浏览器中显示很好很正常，但是到了IE浏览器下面，却错位，严重影响版面。</p>
-<p>面对这个兼容的问题，大多数人都选择了进行修补，但是通过这次，我发现了，<strong>这种不兼容的原因，大部分还是因为你编写的css代码上。</strong>下面请看<a href="http://www.qianxingzhem.com">潜行者m</a>在升级模板的时候，发现的两个案例：</p>
-<p><strong>1，显示文章摘要的框，在火狐浏览器等都是正常的，而在IE浏览器中，却莫名的增高了。</strong>重写css代码的时候，发现，在定义文章摘要框的时候，由于演示边框效果，临时定义了高160px。在整个定义整个文章框的时候，又强制定义了高度，由于类的优先性，这样就把文章摘要框的过高部分截掉了。所以就忽视了当时临时定义的高度属性。在火狐等浏览器中，都正常解释。但是在IE早期的版本，可能无法处理这种叠加效果，所以就全部显示出来了。导致每一个文章框的高度都很高。问题的解决方法，删掉对于文章摘要框的高度定义即可。</p>
-<p><strong>2，当我设计完这套模板的时候，在其他浏览器中均显示正常，但是在IE5.5和IE6中的“文章模块”显示中，边栏却错位。</strong>在“页面模块”显示中，却没有错位。由于“页面模块”是由“文章模块”衍生出来的，肯定是“文章模块”中某个地方的原因，导致边栏错位。经过仔细的对比观察发现，在文章下面的“文章信息”这一个块中，由于添加了两个虚线，导致整体宽度是642px，而文章内容是640px。正是由于多出了这2px的宽度，把边栏挤下去了。修改方法，设置“文档信息”的宽度为638px。</p>
-<p>通过这两个例子，不得不让我思考，网页错位等原因，究竟是什么造成的？很显然，是由不完善的css代码造成的，是人为造成的。浏览器确实针对某些css样式的解释不同，显示的效果不同。但是绝大多数浏览器对于基础的css样式解释是没有问题的，比如：width:900px;绝对没有一个浏览器会把这条语句中的900px的宽度，显示成1000px的宽度。所以说，对于常用的常见的css样式规则，浏览器全部都完美支持，只是有部分比较生僻的标签样式或者某些高级的样式应用技巧，对于某些比较旧的浏览器来说，显示不出来应有的效果，仅此而已。所以，如果你的网页中，出现了不应该出现的显示效果，请仔细检查你的css代码，看看是不是有一些低级的错误。</p>
-<p>对于一个人编写的css样式表来说，这种错误会很容易避免，因为css代码比较少，一个人去写，风格也能统一。但是对于一个比较大型的网站，对于一个需要团队共同维护的css样式表来说，麻烦就来了。每个人的编写风格都不同，而且代码很多，出现错误不易检查。所以，本人总结出了几条针对不兼容问题的应对方法：</p>
-<p><strong>1，尽量使用最低级，最简单的样式。因为这种基础样式在所有浏览器中的显示效果都是一样的。</strong></p>
-<p><strong>2，统一编写风格，细化样式控制，尽量避免在一个区块叠加多个样式，意思就是说，对于一个div或者区域，就用一个样式去控制，不要再添加多个样式，让这个div继承其他样式。这样，哪一个区域出现问题，可以迅速的查找原因，而且不会出现其他继承样式优先级等导致的意外情况。</strong></p>
+        <p>Jquery.lazyload.js 这个jquery插件，是用来缓冲加载图片的插件。如果一篇文章很长有很多图片的话，下载图片就需要很多时间。而这款插件，会检测你的滚动情况，只有你要看到那个图片的时候，它才会从后台请求下载图片，然后显示出来。使用这个插件，可以在需要显示图片的时候，才下载图片，所以可以减少服务器的压力，避免不必要的资源下载。一个简单的例子，如果一个人不看下面的图片，那加载下面的图片就是一种浪费。</p>
+<p>但是现在，很多javascript大牛分析得出，这个插件其实并没有真正的缓加载效果。确实，官方也已经给出了说明和解决方法了。</p>
+<pre>插件原理：修改目标的src属性为orginal属性，从而中断图片的加载。检测滚动状态，然后把视野中的目标src属性还原，制造缓冲加载的效果。
+原因：在新版的浏览器中，即使你删除了javascript控制的src属性，浏览器仍然会去加载这个图像。
+解决方法：修改html的结构，在img标签中添加新的属性，把src属性的值指向占位图片，添加data-original属性，让其指向真正的图像地址。
+例如：&lt;img data-original=“img/example.jpg” src=“img/grey.gif”&gt;</pre>
+这样我们就需要判断一下，我们究竟还要不要使用这个插件。
+
+## 使用：
+
+1.  必须按照这种结构才有实际作用，需要对输出进行定义。
+2.  可以节约服务器资源，并且有较好的用户体验。
+3.  如果图片很大，当用户滚动到目标位置，需要较长时间下载。
+
+## 不使用：
+
+1.  增加服务器压力，浪费系统资源。
+究竟使用不使用，还是要看你自己的实际需求。如果你图片比较少，就不必使用了，如果你图片比较多，可以考虑一下。但是，使用的话，你可能需要把每一个img标签上自己加上这个属性，会稍微麻烦一点。潜行者m博客上，就用了这个插件，不过没用使用官方说的那种结构，要的只是一个缓冲加载的效果。
+
+## 如何使用：
+
+如何使用这个插件呢？
+
+第一步：加载相关文件。
+
+很明显，你要加载jquery和这个插件。你可以使用以下代码，加载这几个文件：
+<pre>&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery.lazyload.js" type="text/javascript"&gt;&lt;/script&gt;</pre>
+第二步：定义图片结构。
+
+按照官方的建议，定义你的img结构：
+<pre>&lt;img class="lazy" src="img/grey.gif" data-original="img/example.jpg" width="640" heigh="480"&gt;</pre>
+第三步：触发这个插件，生效。
+
+激活以下，你就可以在目标中使用了。
+<pre> $("img.lazy").lazyload();</pre>
+
+<h2 id="高级使用方法："><a href="#高级使用方法：" class="headerlink" title="高级使用方法："></a>高级使用方法：</h2><h3 id="更周全的做法"><a href="#更周全的做法" class="headerlink" title="更周全的做法"></a>更周全的做法</h3><p>我们不得不思考这样一个问题。我们定义了这样一个结构，那么网页中，就不会加载源图像了。只有当javascript执行，才会显示这个源图像。如果用户的浏览器不支持或者用户关掉了支持javascript的选项，那么我们的这个图像就无法显示出来。也就是说，没有javascript的支持，我们的图像就无法显示出来。</p>
+<p>应对这个问题，我们需要引入noscript标签。大体思路如下：用noscript包含真实的图像位置，当浏览器不支持javascript，直接显示图像。对现有图像，隐藏处理，使用show（）方法触发显示。这样，如果浏览器不支持javascript，我们自定义的img就不会出现，而显示noscript里面的图像。具体实现代码如下：</p>
+<pre>&lt;img class="lazy" src="img/grey.gif" data-original="img/example.jpg"  width="640" heigh="480"&gt;
+&lt;noscript&gt;&lt;img src="img/example.jpg" width="640" heigh="480"&gt;&lt;/noscript&gt;
+.lazy {
+  display: none;
+}
+$("img.lazy").show().lazyload();</pre>
+
+<h3 id="提前加载"><a href="#提前加载" class="headerlink" title="提前加载"></a>提前加载</h3><p>默认的情况是，当你滚动到图片位置的时候，插件开始加载。这样，用户可能首先看到的是一个空白图像，然后再缓慢出现。如果你想在用户滚动之前，提前加载这个图像，你可以配置一下参数。</p>
+<pre>$("img.lazy").lazyload({ threshold : 200 });</pre>
+threshold这个参数，就是用来提前加载的。上面这个语句的意思是，当距离图片还有200像素的时候，就开始加载图片。
+
+### 自定义触发事件
+
+默认的触发事件，是滚动，当你滚动的时候，就会检查然后加载。你可以使用event属性，设置你自己的加载事件，之后你可以自定义触发这个事件的条件，然后去加载图像。
+<pre>$("img.lazy").lazyload({ 
+    event : "click"
+});</pre>
+
+<h3 id="自定义显示效果"><a href="#自定义显示效果" class="headerlink" title="自定义显示效果"></a>自定义显示效果</h3><p>默认的图片实现效果，就是没有效果，下载完成之后，直接显示出来。这样的用户体验并不好，你可以设置effect属性，来控制显示图片的效果。例如</p>
+<pre>$("img.lazy").lazyload({ 
+    effect : "fadeIn"
+});</pre>
+fadeIn的效果就是，改变图片的透明度，渐现的方式出现。效果： [effect demo page](http://www.appelsiini.net/projects/lazyload/enabled_fadein.html)
+
+### 把图像插入某个容器
+
+大家如果使用智能手机的话，经常去应用网站下载应用，他们通常使用一个横着的容器，放一些手机截图。使用container属性，能很轻松在容器中实现缓冲加载。首先，我们需要用css定义这个容器，然后用这个插件进行加载。效果： [vertical](http://www.appelsiini.net/projects/lazyload/enabled_wide_container.html)
+<pre>#container {
+    height: 600px;
+    overflow: scroll;
+}</pre>
+<pre>$("img.lazy").lazyload({         
+     container: $("#container")
+});</pre>
+
+<h3 id="加载不可见图像"><a href="#加载不可见图像" class="headerlink" title="加载不可见图像"></a>加载不可见图像</h3><p>有部分图像是不可见的，我们对其加上类似display：none等属性的图像。默认的情况下，这个插件是不会加载隐藏的不可见图像。如果我们需要它加载不可见图像，我们需要使用skip_invisible属性，对其赋予false</p>
+<p><pre>$(“img.lazy”).lazyload({<br>    skip_invisible : false<br>});</pre><br>官方说明：<a href="http://www.appelsiini.net/projects/lazyload" target="_blank" rel="noopener">http://www.appelsiini.net/projects/lazyload</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-719.html" data-id="ckgcma3c10030aa2atyscwdyz" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1192.html" data-id="ckgcnrub500ci1d2a35xcj4ru" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
 
     </footer>
   </div>
@@ -113,7 +180,7 @@
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="719" data-title="浏览器的显示效果不同的问题出在CSS代码上面" data-url="http://www.qianxingzhem.com/post-719.html"></div>
+  <div class="ds-thread" data-thread-key="1192" data-title="Jquery.lazyload.js究竟要怎么使用" data-url="http://www.qianxingzhem.com/post-1192.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -132,10 +199,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e4-bd-bf-e7-94-a8css-reset" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e5-a6-82-e4-bd-95-e9-ab-98-e5-ba-a6-e8-87-aa-e5-ae-9a-e4-b9-89qq-e9-82-ae-e4-bb-b6-e5-88-97-e8-a1-a8-e5-a4-96-e8-a7-82-e6-a0-b7-e5-bc-8f" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-610.html" class="article-date">
-  <time datetime="2012-02-15T02:27:03.000Z" itemprop="datePublished">Feb 15 2012</time>
+    <a href="/post-1093.html" class="article-date">
+  <time datetime="2012-08-24T02:49:08.000Z" itemprop="datePublished">Aug 24 2012</time>
 </a>
     
   <div class="article-category">
@@ -150,7 +217,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-610.html">网页设计为什么要使用 CSS reset</a>
+      <a class="article-title" href="/post-1093.html">如何高度自定义 QQ 邮件列表外观样式</a>
     </h1>
   
 
@@ -158,18 +225,358 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="先来简单的介绍一些-css-reset"><a href="#先来简单的介绍一些-css-reset" class="headerlink" title="先来简单的介绍一些 css reset"></a>先来简单的介绍一些 css reset</h2><p>从字面意思中，我们可以看出，css reset的功能就是把网页标签样式使用 css 重置。学过 html 的朋友都知道，html 标签是有它默认的样式的，例如：&lt;h*&gt;标签表示标题，通常会对文字进行加粗，并且会让文字变大；&lt;p&gt;是段落标签，表示一个段落，通常会与其他文字空开一段距离。</p>
-<p>那我们为什么要把网页的标签样式进行重置呢？原因很简单，<a href="http://www.qianxingzhem.com/post-612.html">内核不同的浏览器，它对于网页标签的解析是不同的。</a>举个不恰当的例子，某浏览器对于&lt;h1&gt;标签，可能会对文字进行加粗，并且调整文字大小为24px，之后在屏幕中输出。但是另一个浏览器，可能不会这样解析，它可能不会对文字进行加粗，文字大小也可能是20px。这样，同一个网页，在不同浏览器的浏览下，就会发生较大的区别，可能在某浏览器中是正常的，在另一个浏览器中，就错位了不正常了。潜行者m之前写过比较一篇关于几个主流浏览器的区别，有兴趣的可以看一下  <a href="http://www.qianxingzhem.com/post-612.html">firefox、chrome、opera和IE 7的区别</a> 。</p>
-<p>但是，所有的主流浏览器，对于css的支持都是不错的，所以我们可以使用css reset来解决上面的问题。我们使用css来控制页面标签的样式，比如把&lt;h*&gt;标题的加粗、扩大、边距等样式清除，让它和普通文字一样；把&lt;ul&gt;等列表标签的前面标志、空格等清除。这样，把所有的标签样式清除了，当我们需要某一种样式的时候，只需要在css文件中，对其进行控制即可。这样的好处就是，能够尽量的消除各个浏览器对于页面标签样式的解析，尽量使网页在各个浏览器中显示效果一样。</p>
-<h2 id="那么css-reset如何编写"><a href="#那么css-reset如何编写" class="headerlink" title="那么css reset如何编写"></a>那么css reset如何编写</h2><p>目前在网络上，已经有很多关于css reset的框架，例如雅虎的 YUI 等，我们可以下载下来看看他们是怎么写的，是怎么处理的。同时也可以直接在网页中引用。但是对于小的页面，潜行者m并不推荐这种做法，那些大的框架，适合大型网站使用，里面几乎对所有的html标签进行了css reset，而我们制作的小页面，并不需要太多的标签，如果使用那么多无用的css reset代码，会导致页面体积变大。所以我推荐的做法是，根据自己页面用到的标签，去寻找相应的css reset代码。下面，是我从《编写高质量代码—web前端开发修炼之道》一书中，提取出来的一段css reset代码，大家可以根据自己的需要，选择引用：</p>
-<p><pre id="line1">/<em>CSS reset</em>/<br>html{color:#000;background:#fff;}<br>body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,<br>form,fieldset,legend,input,button,textarea,p,blockquote,<br>th,td{margin:0;padding:0;}table{border-collapse:collapse;<br>border-spacing:0;}fieldset,img{border:0;}address,caption,<br>cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;<br>font-weight:inherit;}del,ins{text-decoration:none;}<br>li{list-style:none;}caption,th{text-align:left;}h1,h2,<br>h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,<br>q:after{content:’’;}abbr,acronym{border:0;font-variant:normal;}<br>sup{vertical-align:baseline;}sub{vertical-align:baseline;}<br>legend{color:#000;}input,button,textarea,select,optgroup,<br>option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}<br>input,button,textarea,select{*font-size:100%;}input,button,select,<br>textarea{outline:none;}a {outline: 0;}</pre><br>上面就是一段还不错的css reset代码，在文章的后面，我补充了一些css reset资源。</p>
-<h2 id="关于-margin-0-padding-0"><a href="#关于-margin-0-padding-0" class="headerlink" title="关于*{margin:0;padding:0}"></a>关于*{margin:0;padding:0}</h2><p><em>{margin:0;padding:0}这就是一段非常简洁的css reset代码，有一些人仅仅使用这一句代码，表示将所有标签的内边距和外边距清除，达到css reset的效果。但是潜行者m不推荐使用。原因很简单，这一行代码不能算作是css reset代码，它仅仅清除了标签的内边距和外边距而已，而我们要的css reset效果，是要把ol和ul的列表样式、th的加粗、h标签的变大加粗等样式都清除，全部重置。之后，根据自己的设计需要来进行css的控制。而这句</em>{margin:0;padding:0}，没有把所有的样式清除。</p>
-<p>PS：补充一个资源 <a href="http://sofish.de/736" title="Permanent Links to 10款浏览器CSS Reset的方法" target="_blank" rel="noopener">10款浏览器CSS Reset的方法</a></p>
+        <p>2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。</p>
+<p>首先先来了解一下 QQ 邮件列表是什么。</p>
+<blockquote>
+<p><strong>QQ**</strong>邮件列表<strong>是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你</strong>写博客<strong>，它能自动将最新的博客文章发给读者。如果你</strong>开网店<strong>，可以用它批量通知顾客店铺的最新优惠。 如果你正</strong>管理一个组织**，通过它，能快速向组织成员发布公告。使用 QQ 邮件列表，让您的邮件发得更多、更快、更准！<br>总之，这是一个让帅哥更帅，让美女更美，让垃圾邮件正常群发的腾讯唯一几个免费的服务。很多网站上，都有 QQ 列表，你可以输入邮箱来订阅网站内容，站长就可以发一些资讯到你的邮箱里。</p>
+</blockquote>
+<p>我们知道，添加这个服务，就需要申请代码，然后把代码放到网站上。但是，它生成的外观样式，并不一定符合我们网站的风格样式，本文潜行者 m 就要跟大家一起分析一下他们的代码，然后进行自定义修改，来符合自己网站的风格。获取代码有两种形式，一种是图片的形式，另一种是一个文本输入框，直接填写上邮箱提交。下面潜行者 m 一一分析。</p>
+<h2 id="图片形式："><a href="#图片形式：" class="headerlink" title="图片形式："></a>图片形式：</h2><p>图片形式，他们允许定义一些简单的参数：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" alt="" title="111"></a></p>
+<p>我们看一下生成的代码</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;&lt;a target="_blank" href="http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74"&gt;
+&lt;img alt="填写您的邮件地址，订阅我们的精彩内容：" border="0" src="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png"/&gt;&lt;/a&gt;</pre>
+
+<p>从代码中，就可以看出，很简单的两个标签。使用了一个 a 标签，包裹了一个 img。而这个 img 指向的图片地址就是<a href="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。" target="_blank" rel="noopener">http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。</a></p>
+<h2 id="代码方式："><a href="#代码方式：" class="headerlink" title="代码方式："></a>代码方式：</h2><p>代码方式要稍微麻烦一点，但是省下很多功夫，因为用户不用再打开一个页面去填写邮箱了。<a href="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" alt="" title="222"></a></p>
+<p>我们再来看看代码：</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;
+&lt;script &gt;
+var nId = "3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435",nWidth="auto",sColor="light",sText="填写您的邮件地址，订阅我们的精彩内容：" ;;
+&lt;/script&gt;
+&lt;script src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js" charset="gb18030"&gt;&lt;/script&gt;</pre>
+
+<p>这段代码里，上面那一句是定义了几个参数，其中 nID 参数，是你这个订阅频道独有的，要传输到下面的 qfcode.js 使用。那这个 qfcode.js 文件的内容是什么呢？直接打开<a href="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：" target="_blank" rel="noopener">http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：</a></p>
+<pre>"&lt;div class="rssbook ",sColor,
+" " style="width:",nWidth," "&gt;&lt;p class="info"&gt;",sText,"&lt;/p&gt;",
+"&lt;div class="mailInput"&gt;",
+"&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target='_blank' method='post'&gt;",
+"&lt;input type="hidden" name="t" value="qf_booked_feedback"&gt;",
+"&lt;input type="hidden" name="id" value="",nId,""&gt;",
+"&lt;input  id="to" name="to" type="text" class="rsstxt" value=""/&gt;",
+"&lt;div class="rssbutton"&gt;&lt;input type="submit" value="订阅"&gt;&lt;/div&gt;",
+"&lt;/form&gt;",
+"&lt;/div&gt;&lt;/div&gt;"].join(""));</pre>
+
+<p>这些代码的意思，就是说，在页面中输出了一个表单（form），它提交的地址就是<a href="http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。</a></p>
+<p>好，弄清楚了这个，我们就按照自己的风格，动手做一个表单，然后根据它的这个表单，填写上参数，进行提交就可以了。目前，从这个代码中，潜行者 m 提取出以下几个信息：nID 3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435 、 POST <a href="http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。</a></p>
+<pre>&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" method="post"&gt;
+&lt;input type="hidden" name="t" value="qf_booked_feedback" /&gt;
+&lt;input type="hidden" name="id" value="3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435" /&gt;
+&lt;input type="text" id="to" name="to" value="" placeholder="输入你的邮箱" /&gt;
+&lt;input type="submit" value="订阅" /&gt;&lt;/form&gt;</pre>
+
+<p>这样就可以了,我们只要填写上,点击订阅,就会订阅了。我们自己写出了这个表单，然后再对其应用 css 修改它的样式，来符合我们网站的风格，这样就大功告成了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-610.html" data-id="ckgcma3ci0042aa2a1kj1tzw5" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1093.html" data-id="ckgcnru8x005x1d2aujhfmh0t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1093" data-title="如何高度自定义 QQ 邮件列表外观样式" data-url="http://www.qianxingzhem.com/post-1093.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8jquery-e6-8f-92-e4-bb-b6coin-slider-e8-bd-bb-e6-9d-be-e6-89-93-e9-80-a0-e5-b9-bb-e7-81-af-e7-89-87-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1085.html" class="article-date">
+  <time datetime="2012-08-20T12:00:40.000Z" itemprop="datePublished">Aug 21 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1085.html">使用jquery插件coin-slider轻松打造幻灯片教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天为了做一个模板，来收集幻灯片插件，最终确定了两款比较合适的。coin-slider和nivoslider，为此，研究了一下午，从各个方面来实验这两款插件，究竟哪款比较适合、比较好。</p>
+<p>当然，聪明的你看题目就已经知道了。我必须要吐槽一下nivoslider这个jquery插件。这两款插件，在看官方的demo时，这个插件的效果要比coin-slider好一些。看了一下教程，可以自定义的参数较多，貌似功能要更强大一下。于是我就首先研究了一下这款插件的使用方法。由于网上教程比较少，大部分都是直接复制的官方教程，我就直接拿官方的demo代码来看了。这一看，直接晕死。加载了N个css文件，以及各种图片文件，当场晕死。demo里面的代码，也是很多很乱，不是怕多、乱的代码，就怕引用的各种文件各种效果的叠加，分析起来累死个人。</p>
+<p>干脆自己按照步骤，自己写个小demo，看一下这款插件的易用性怎么样。按照官方的步骤，写好了图片链接，加载了需要的javascript文件等。打开一看，立刻没有了官方demo的美观和强大，上面的翻页等，都是需要css定义，这个暂时没有管理，所以难看就难看吧。图片切换也算正常，不正常的地方就是，在某个地方，出现了下一张图片的一大堆图片块。这种切换的原理很简单，生成很多div，每个div用css中的background-position属性，把整体的图片切成块，然后对每块进行透明度等的变化，显示的效果就是你看到的那种。但是现在，在旁边出现了一堆块都是乱的，直接无语。具体什么情况，我已经删了，也不截图了。估计是某块css没有定义好，当我打开官方demo的css时，又怵头了，这么多，这么乱的代码。功能的强大，必定面临使用的难度提升，估计这个是给专家级用户使用的，我等小白还是趁早溜走吧。研究了两三个小时，无疾而终。转身向coin-slider走去。</p>
+<p>先在网上搜索一下相关资料，某前辈已经写出了一个教程，并且自己做了一个demo，下载下来看了下，效果挺好，代码挺少。同时也下载了官方的demo，打开官方demo，下面的说明，说的清清楚楚的。简而言之就是：加载必备组件=》你自己写图片链接=》执行那个操作。实事也是如此，可能我之前研究nivoslider，而coin-slider和它的原理和操作类似，所以我很快就上手并且做出了自己想要的效果。下面来依次讲解：</p>
+<p><strong>1，加载必备组件</strong></p>
+<p>这个coin-slider是jquery的一个插件，当然离不开jquery了。所以我们要加载三个项目：jquery、coin-slider和coin-slider-styles.css这三个。后面两个就是这个插件包，最后的那个css文件，是用来格式化幻灯片的相关样式。我估计nivoslider就是因为缺少了一个这个，所以才导致的乱，也有可能是我没有发现这个东西。代码如下：</p>
+<p><pre>&lt;script type=”text/javascript” src=”jquery.js”&gt;&lt;/script&gt;<br>&lt;script type=”text/javascript” src=”coin-slider.min.js”&gt;&lt;/script&gt;<br>&lt;link rel=”stylesheet” href=”coin-slider-styles.css” type=”text/css” /&gt;</pre><br><strong>2，编写你的图片链接</strong></p>
+<p>我们首先需要指定一个带有id的div标签，这样在第三步执行的时候，插件才能找到我们想要播出的图片。它的图片的写法，也有几个特点，就是如果你想点击图片跳转到某链接，在外面加上a标签；在img标签后面，新建一个span标签，里面的内容，将会作为图片的说明文字出现。直接看代码：</p>
+<p><pre>&lt;div id=”coin-slider”&gt;<br>    &lt;a href=”#” &gt;<br>        &lt;img src=”images/walle.jpg” &gt;<br>        &lt;span&gt;<br>            Description for nem&lt;br /&gt;oDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemo<br>        &lt;/span&gt;<br>    &lt;/a&gt;<br>    &lt;a href=”#111”&gt;<br>        &lt;img src=’images/nemo.jpg’ &gt; //加载的图片<br>        &lt;span&gt; //图片对应的说明<br>            Description for nemo<br>        &lt;/span&gt;<br>    &lt;/a&gt;<br>&lt;/div&gt;</pre><br>这个代码的大体框架,是我从官方的demo中提取出来的,这里我又要吐槽一下了,官方的demo文件,写的实在是太不规范了，html标签都用的是大写，而且从上面的img的src就可以看出来，他们竟然用了单引号！css文件里也是这样，患有代码强迫症的潜行者m，花了好几分钟，才把大部分代码变成小写，添加合适的换号，真无语。看了一下开发时间，2010年的作品，那时候xhtml应该普及了，为什么还用大写的写法，无语了。</p>
+<p><strong>3，执行操作</strong></p>
+<p>确保上面两个步骤完成之后，就需要触发它的方法，来实现幻灯片的功能了。方法当然是</p>
+<p><pre>    $(document).ready(function() {<br>        $(‘#coin-slider’).coinslider({ height:248 }); //使用各种参数配置来扩充他的功能<br>    });</pre><br>当然，你也可以使用window.onload，那样可以确保幻灯片图片被完全下载下来之后，再出现幻灯片。</p>
+<p>很显然，还可以配置很多参数，让幻灯片的功能更加强大。在上面的代码中，我添加了一个参数height：248，因为我的照片高度是248px。下面介绍一下其他参数，我在官方注释后面，小小的翻译了一下，不准确的话，还望见谅。</p>
+<p><pre>width: 565, // width of slider panel 幻灯片的宽度<br>height: 290, // height of slider panel 幻灯片的高度<br>spw: 7, // squares per width 幻灯片切出小方框的宽度<br>sph: 5, // squares per height 幻灯片切出小方框的高度<br>delay: 3000, // delay between images in ms 切换图片的时间，毫秒单位<br>sDelay: 30, // delay beetwen squares in ms 小方框变化的时间，毫秒单位（这两个尽量不要改，官方说改了容易出现过度问题）<br>opacity: 0.7, // opacity of title and navigation 图片下面的说明文字背景的透明度<br>titleSpeed: 500, // speed of title appereance in ms 标题消失的速度，毫秒单位<br>effect: ‘’, // random, swirl, rain, straight 变换样式，随机，漩涡，下雨，连续（自己试试就知道效果）<br>navigation: true, // prev next and buttons 是否显示前个、后个按钮<br>links : true, // show images as links  是否把图片当做一个链接<br>hoverPause: true // pause on hover 你把鼠标放上去的时候，图片是否继续变化</pre><br>我们只需要像这样，填上自己定义的参数即可：</p>
+<p><pre>$(‘#coin-slider’).coinslider({ width: 900, navigation: false, delay: 5000 });</pre><br><strong>4，高级用法</strong></p>
+<p>在具体的使用过程中，它的默认样式，肯定不符合我的模板需求，所以我需要对它进行更加细致的修正。那就是通过css，官方的css文件里，你可以直接修改，你也可以新建css文件，对它进行定义。在火狐浏览器中，可以方便观看这个插件生成了些什么div标签，以及相应的id和class。既然你是高级用户，当然难不倒你，我只是在这里提一个思路，具体的就要靠你自己去修改了。</p>
+<p>最后，打包一下本教程的资源，放上来。<strong>点击下载：</strong><a href="http://pan.baidu.com/share/link?shareid=90714&amp;uk=706095745" target="_blank" rel="noopener">coin-slider</a></p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1085.html" data-id="ckgcnru85003s1d2asgfx0bdz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1085" data-title="使用jquery插件coin-slider轻松打造幻灯片教程" data-url="http://www.qianxingzhem.com/post-1085.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-89-8d-e7-ab-af-e8-ae-be-e8-ae-a1-e7-a9-b6-e7-ab-9f-e8-a6-81-e4-b8-8d-e8-a6-81-e6-94-be-e5-bc-83ie6-ef-bc-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1034.html" class="article-date">
+  <time datetime="2012-08-10T13:53:03.000Z" itemprop="datePublished">Aug 11 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1034.html">前端设计究竟要不要放弃 IE6？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于前端的工作者来说，IE6 就是一场噩梦。它拥有一定的用户量，同时它是过去很多年的产品，它无法适应现在的新技术。所以如果网站要面向全部用户，则需要去针对 IE6 进行单独的 CSS hack 处理。这平白无故的就增加了成本和时间。有过经验的人都知道，为了迎合 IE6 的口味，往往还需要付出巨大的努力，一点一点的寻找 hack 的方法。</p>
+<p>正是因为这样，业界频发 Kill IE6 的呼唤。</p>
+<p>但实际情况不容乐观，关于 IE6 为什么不消失，潜行者 m 之前写过一篇文章《<a href="http://www.qianxingzhem.com/post-956.html">IE6 在中国消失还需要一段时间</a>》。这样，我们面对一个问题：前端设计要不要放弃 IE6？本文将结合客观的数据，对放弃与不放弃进行一个对比，以供大家的参考。</p>
+<p>客观准确的数据很重要。只是说用户很多很少，根本没有权威性和参考性。本文引用的数据是 CNZZ 数据中心的统计数据，CNZZ 是提供网站统计代码服务的网站，他们会统计用户访问网站时使用的浏览器。所以这个数据是非常准确的。</p>
+<h2 id="放弃论："><a href="#放弃论：" class="headerlink" title="放弃论："></a>放弃论：</h2><p>1，针对 IE6 的兼容，需要做大量的 css hack，写这些代码，需要时间和精力，要付出成本。你不仅要学习各种 hack 方法，还要掌握各种新技术的代替方法，以求 IE6 中，能和其他浏览器显示相似效果。</p>
+<p>2，IE6 严重制约了国内技术的进步。很多网站追求兼容 IE6，而不敢使用各种新型技术，仍然使用老旧技术，导致技术落后。因此，有言论称，如果新浪等大型网站，拒绝对 IE6 的支持和兼容，逼迫用户去升级用户的浏览器，很快这种现状就会解决。这种方法，有一定的道理，但那些大型网站，往往不愿意得罪用户，而继续保持兼容的做法。</p>
+<p>总结：放弃 IE6，我们就可以节约一些成本，同时可以使用最新的技术，打造更好的用户体验，进行创作。但是这样，我们就丢掉了一部分用户。</p>
+<p>这部分用户究竟有多少呢？我们来看一下具体的最新数据（<a href="http://brow.data.cnzz.com）" target="_blank" rel="noopener">http://brow.data.cnzz.com）</a></p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/934.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/934.png" alt="浏览器份额数据" title="Unnamed QQ Screenshot20120811093934"></a></p>
+<p>IE6 仍然有竟然的 20%的占有率，同时需要注意，360 浏览器等使用的是其他浏览器的内核，如果是 XP 系统默认 IE6 浏览器，那么 360 浏览器等他们使用的 IE 内核为 IE6，仍然相当于使用 IE6，所以这个数据应该还要高一些。简而言之，综合性的网站，五个浏览者，一个就用 IE6。</p>
+<h2 id="不弃论："><a href="#不弃论：" class="headerlink" title="不弃论："></a>不弃论：</h2><p>1，我的网站有大量的 IE6 用户，我如果不兼容，我将损失这部分用户。像新浪等大型门户网站，他们为了照顾这五分之一的用户，不得不去做兼容。毕竟用户就是钱。</p>
+<p>总结：兼容 IE6 的最主要原因，还是在于照顾 IE6 的用户。</p>
+<h2 id="最终方案："><a href="#最终方案：" class="headerlink" title="最终方案："></a>最终方案：</h2><p>这里本人思考了一下我的应对方案，以供大家参考。</p>
+<p>1，分析网站的用户，针对用户份额确定是否兼容 IE6。如果是一个有关前端技术的网站，那么完全可以使用最新技术，因为浏览者大都是有经验的，一般不会使用 IE6。但是想淘宝、新浪等综合性网站，用户浏览器比较杂乱，则需要考虑兼容。</p>
+<p>2，对于小的、实验性的、个人的项目，则完全没有必要拿出精力去做兼容，毕竟访问的人不多，只需要给出个提示即可。但是对于正规的项目，则要考虑一下 IE6 的兼容。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1034.html" data-id="ckgcnru8d004j1d2aimmgnapu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1034" data-title="前端设计究竟要不要放弃 IE6？" data-url="http://www.qianxingzhem.com/post-1034.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e9-aa-8c-e8-af-81-e7-bd-91-e9-a1-b5-e5-8f-91-e7-8e-b0-e7-9a-84-e5-87-a0-e7-82-b9-e7-9f-a5-e8-af-86-e7-82-b9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1017.html" class="article-date">
+  <time datetime="2012-07-25T21:48:28.000Z" itemprop="datePublished">Jul 26 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1017.html">验证网页发现的几点知识点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天,重新做了一下自己的个人介绍页面(<a href="http://www.yujiangshui.com),由于忙,一直没有验证,今天验证了一下,果然不小心出现了几处错误" target="_blank" rel="noopener">www.yujiangshui.com),由于忙,一直没有验证,今天验证了一下,果然不小心出现了几处错误</a>.</p>
+<p>在修正网页不规范的过程中,又学到了几个平时不注意的小细节,写这篇文章与大家分享一下.</p>
+<p><strong>1,&lt;span&gt;标签中,不能放&lt;h*&gt;标题标签.</strong></p>
+<p>&lt;span&gt;标签和&lt;div&gt;标签的区别,一个是行内元素,不换行而div默认是占正行的.一直以来,只注意到了这个区别,而把这两个标签都用来布局了.这是错误的,它们俩的语义不同.&lt;div&gt;是区域的意思,这个才是布局用到的元素.而&lt;span&gt;只是一个比&lt;p&gt;还小的一篇文章中一句话,当然不能包含一个比&lt;p&gt;还大的 &lt;h*&gt;标题标签了.</p>
+<p>所以正确的做法是,用div布局,如果需要行内效果,使用css的display:inline;.</p>
+<p><strong>2,&lt;script&gt;标签已经不需要任何属性了.</strong></p>
+<p>在很久以前,应用在网页中的脚本其实有两种,一种是javascript另一种是微软的vbscript,所以网页中的&lt;script&gt;标签中,必须加上一个属性language,属性值就是javascript或者vbscript,用来区别.</p>
+<p>当然,现在几乎没有几个人在网页中使用vbscript,甚至很多人都不知道.今天在验证的时候,w3c给出的建议是:&lt;script&gt;标签的language属性以及被废除,你可以非常放心的去掉它了.</p>
+<p>也就是说,以后要使用javascript,只需要写&lt;script&gt;javascript代码&lt;/script&gt;就可以了.</p>
+<p>验证页面规范,真的有很多好处,可以让你发现平时注意不到的不规范的地方.但是,不需要刻意的强调错误的修正.你可以验证一下淘宝,首页有1000多个错误,就连非常简单的百度首页,也查出了几个错误.这些大网站,有实力非常雄厚的前端团队,结果还有错误的存在.这说明,还是以网站的实际效果为主,多少个不规范的地方也无所谓.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1017.html" data-id="ckgcnrua900ab1d2acl9uaot5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1017" data-title="验证网页发现的几点知识点" data-url="http://www.qianxingzhem.com/post-1017.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-ba-8c-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1005.html" class="article-date">
+  <time datetime="2012-05-18T02:24:46.000Z" itemprop="datePublished">May 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1005.html">潜行者m的CSS2笔记（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接上面的文章，<a href="http://www.qianxingzhem.com/post-994.html">潜行者m的CSS2笔记（一）</a>。</p>
+<p>21，使用line-height属性来控制行高，使文字居中，控制文字排版。</p>
+<p>22，使用&lt;label&gt;标签，可以让人点击文本选中相应单选复选，提高网站交互性。例子&lt;label for=”c1”&gt;点击此文本&lt;/label&gt;&lt;input type=”checkbox” name=”c1” id=”c1” value=”ckbox”/&gt;</p>
+<p>23，对于文本下划线，可以使用border-bottom来实现丰富的定义。</p>
+<p>24，li{width:120px;text-overflow:ellipsis;}当内容超出对象宽度时，显示为省略号。clip将不显示。必须使用word-break:keep-all;使其被强制不能换行。</p>
+<p>25，em是一种相对弹丸。text-indent:2em;表示空出两个字符的距离，em长度相当于本行中字符的倍数，这个单位非常实用。</p>
+<p>26，首字下沉使用css伪类。p:first-letter{font-size:2em;float:left;}。first-line伪类对第一行进行设置。</p>
+<p>27，在布局中，出现布局的错位等，可以使用相对定位。尽量避免绝对定位。</p>
+<p>28，剪切图像可以使用clip。使用div overflow属性进行剪切图像，用img margin移动剪切区域。</p>
+<p>29，图片代替文本，内含不显示文本，表明图像的内容，非alt属性。两种实现方法：display:none;text-indent:-99999px;</p>
+<p>30，a:link只会对拥有href=“”的a发生作用。</p>
+<p>31，使用图片代替文本，对搜索引擎有利，有利seo。</p>
+<p>32，使用导航等，显示边框的时候，最好加上一个背景边框，防止错位。</p>
+<p>33，pimg{float:left;padding:10px;}设置图片浮动方式，可以将图片嵌入文字流。</p>
+<p>34，如果想要添加图片说明，将文字与img放在一个div中，之后对文字等进行设置。</p>
+<p>35，表格布局对table、tr、td进行定位，border-collapse：collapse;属性表示将表格中单元格之间线条合并。border-collapse：separate:则将使各单元格的边框独立存在。</p>
+<p>36，@import导入命令是将目的文件包含进来。例如：@import url(“home.css”);<br>还可以指定一个设备类型，指明当前的样式表用于什么操作，例如：<br>@import url(“pageprint.css”) print;表示在打印文件的时候，使用pageprint.css这个样式表。</p>
+<p>37，提高css效率的方法：<br>1，按照功能划分css文件。<br>2，在需要这方面功能的页面，引用相应的样式表文件。引用用上面的import</p>
+<p>38，用css制造进度条等，使用行间样式。</p>
+<p>整本书大部分的内容，都已经吸收同化进潜行者m的身体中，对于这38条笔记的内容，掌握的还不是很熟悉，所以做成笔记，以便在日后进行翻阅。</p>
+<p>在随后的一段时间内，我将继续公布潜行者m的个人笔记，包括seo、html5、css3、php、javascript等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1005.html" data-id="ckgcnru9j007z1d2ade0rlfoc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -180,7 +587,296 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="610" data-title="网页设计为什么要使用 CSS reset" data-url="http://www.qianxingzhem.com/post-610.html"></div>
+  <div class="ds-thread" data-thread-key="1005" data-title="潜行者m的CSS2笔记（二）" data-url="http://www.qianxingzhem.com/post-1005.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-b8-80-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-994.html" class="article-date">
+  <time datetime="2012-05-14T05:03:11.000Z" itemprop="datePublished">May 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-994.html">潜行者m的CSS2笔记（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。</p>
+<p><strong>注意，这份笔记不适合新手，这里面的知识点，不是系统的基础的，而是经常不小心忽略掉但是又常用的。</strong>有经验的朋友，可以看一下，里面的知识点你忽略了多少。</p>
+<p>1，相同类型的css定义，默认执行后面的一个，可以用！important语法修改优先性。例如：background-color:red;!important</p>
+<p>2，标注某些css hack的地方，使用hack；没完成的地方使用todo。（在大型的工程中，用注释标注一下，方便查询修改）</p>
+<p>3，block块状对象占据整行，其他的都移到下一行；in-line行间（内联）允许与下一对象共享一行。</p>
+<p>4，尽量减少div的嵌套，会增加浏览器解析的难度。</p>
+<p>5，最终宽度=左外边距+左边框+左内边距+宽度+右内边距+右边框+右外边距，最终高度也是如此，需要精确计算，放置错位。</p>
+<p>6，重叠的margin会叠加显示，以大值为准。当两个div设定float之后，就不会叠加了。</p>
+<p>7，浮动的清理（clear）。使用clear属性来拒绝某个方向上的浮动，这样就不会浮动到上一层了。（这个最好实践一下）</p>
+<p>8，父position:relative;子position:absolute。子在父中绝对定位，将以父位置为基准。</p>
+<p>9，div应当重点放在大面积区域上，对于简单的导航等，用ul解决。</p>
+<p>10，下拉菜单等，可以通过伪类选择器以及display属性来控制。display:none;表示隐藏当前元素。（通常使用javascript来实现下拉菜单，但是现在用纯css也可以实现的很好）</p>
+<p>11，css hack:*html—这种方式仅被IE浏览器支持解析，是最常用的css hack之一。</p>
+<p>12，div是一个块，用来整体布局设计——block<br>span是一个范围，用来区别内容——in-line</p>
+<p>13，background-attachment:scroll/fixed;设置背景图片的滚动方式。</p>
+<p>14，background-color:transparent;透明模式，显示背景。</p>
+<p>15，background-position:左对齐方式 上对齐方式 ;用它可以对图像进行精确的定位，同时实现css sprites功能。例如：background-position:0px -27px;</p>
+<p>16，ul/ol属性：<br>list-style-image:none/url;设置图片作为列表中的项目。<br>list-style-position:inside/outside;设置项目符号的放置位置。<br>list-style-type:none/disc/……;设置li的表现形式（没有/点状/圆圈/方块等等）</p>
+<p>17，display属性：<br>block：将对象显示成盒状，后一个对象换行显示。<br>none：隐藏/不显示对象。<br>inline：行间内联样式，将对象排列成一行。<br>inline-block：对象显示成块状，但呈现内联样式。<br>list-item：将对象作为列表项显示</p>
+<p>18，float:left;更适合对象布局，但是浮动多了，容易造成浏览器解析混乱。希望让信息显示为段落，最好使用display:inline;（通常设置一个原子类fl{float:left;display:inline;}，元素浮动的时候，加上class=”fl”)</p>
+<p>19，text-indent:value;用于控制段落文本的首行缩进想过。text-indent:20px;表示对象首行缩进20px。如果想要比其他提前一些，可以使用负数值来实现。text-indent:-88888px;设置超大的数值，还可以起到隐藏文本的效果。</p>
+<p>20，对于表单样式的控制最基本的方法就是使用border以及background-color。即对表单元素的背景、边框进行设置优化，消除默认难看的样式。</p>
+<p>先打这么多，剩下的留在<strong>潜行者m的CSS2笔记（二）</strong>中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-994.html" data-id="ckgcnru9h007r1d2a9e346d0w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="994" data-title="潜行者m的CSS2笔记（一）" data-url="http://www.qianxingzhem.com/post-994.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e7-9a-84-e4-b8-80-e8-88-ac-e6-ad-a5-e9-aa-a4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-961.html" class="article-date">
+  <time datetime="2012-04-19T19:36:43.000Z" itemprop="datePublished">Apr 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-961.html">网页设计的一般步骤</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看到这个题目，如果你说，网页设计非常简单，根本不需要什么步骤，直接打开dreamweaver软件，然后设计编写即可。那么我只能说，你太不专业了。网页设计是要有一定的步骤的，有了这一些步骤，你的设计过程会更加高效、紧凑，这个是经验。</p>
+<p>首先，<strong>网页有三层，内容层、表现层、交互层。这三层分别对应的技术是，html、css、javascript。</strong>html是储存数据用的，它的作用就是储存并且显示数据；css是用来排版表现，修饰html中的数据，让它显示更加美观更加合理；javascript脚本就是提高页面交互性，提供一些特效，增加了页面的功能等。既然这样，我们就需要一定的步骤，来分别完成这三层的工作。以下就是潜行者m的个人设计经验，以一个用html5构建博客模板为例。</p>
+<p><strong>第一步：设计并且画出原稿（非必须）</strong></p>
+<p>在动手编写之前，最好想好画出原稿，这样就能照着原稿进行编写，可以提高效率并且不会丢失主题。但这一步不是必须的，如果你大脑已经想好了要怎么设计，那么不必画出，直接开始设计吧。</p>
+<p><strong>第二步：规定内容的展示与元素的命名（必须）</strong></p>
+<p>确定需要展示的内容，并且进行命名。一个博客，往往需要在头部放置一个logo，那么我就需要在&lt;body&gt;中添加&lt;header&gt;&lt;div id=”logo”&gt;&lt;/div&gt;&lt;/header&gt;，即在头部，添加一个id为logo的div。还往往需要使用文章分类，做一个网站导航，我就需要在&lt;body&gt;中添加&lt;nav&gt;&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;即在nav标签中，使用ul标签来做成一个网站导航。</p>
+<p>在使用css去布局网页之前，你必须要先想好网页中要显示什么内容，然后使用对应的html标签，来规划，并且命名一个通俗易懂的名字，这样使用css去布局就变得容易多了，有利于提高效率。所以这一步是非常重要的。</p>
+<p><strong>第三步：为html增添css样式（必须）</strong></p>
+<p>到了设计最重要的一步，为已经规划好的html元素，赋予相应的样式。比如，让log宽300px，#logo {width:300px;}；取消li标签默认的圆点，同时让它横过来变成导航，nav li{list-style-type:none;display:inline;}。由于在第二步，你已经对相应内容进行了合理的规划和命名，所以这一步，就要简单的多了，只需要按照对应功能添加相应样式即可。</p>
+<p><strong>第四步：添加javascript代码（非必须）</strong></p>
+<p>如果你想在页面中，添加一些动态交互的行为，或者是一些特效，那么你需要添加一些javascript代码，但这步不是网页设计所必须的。对于设计的工作，我们已经在上两步完成了，这步只是完善页面而已。</p>
+<p>以上就是我的设计经验，我以前的设计，是边添加内容，边进行css样式添加，导致非常的混乱和低效。但是现在不同了，希望新手能理解并且应用，希望老手能够留言给出自己的更加合理的经验！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-961.html" data-id="ckgcnru9w00931d2atdtvqvfi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="961" data-title="网页设计的一般步骤" data-url="http://www.qianxingzhem.com/post-961.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-ie6-e5-9c-a8-e4-b8-ad-e5-9b-bd-e6-b6-88-e5-a4-b1-e8-bf-98-e9-9c-80-e8-a6-81-e4-b8-80-e6-ae-b5-e6-97-b6-e9-97-b4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-956.html" class="article-date">
+  <time datetime="2012-04-18T10:37:36.000Z" itemprop="datePublished">Apr 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-956.html">IE6在中国消失还需要一段时间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近网络上，对Kill IE6的呼声越来越强，连微软官方都出来了一个干掉IE6倒计时的网站，来促进IE6的消失。但是在中国，干掉IE6还是需要一定时间的。</p>
+<p>首先，微软推广自己浏览器，使用的方法就是与操作系统捆绑，windows xp就与IE6进行了捆绑，在2001年左右推出。一经推出，就立刻在全球范围内流行起来，以其简单易用，美观的特性，被很多人使用。直到十年后的今天，还有很多人在用windows xp系统，同时在用IE6。就像我的母亲，给她装上其他浏览器，都不习惯，就习惯IE6。</p>
+<p>在现在的电脑上，大都预装了windows 7系统，WIN7系统中内置的浏览器是IE9，可喜的是，IE8、9正在不断的取代IE6。但是，windows xp系统，在中国实在是流行，现在还到处在安装xp，有些人买电脑甚至特别要求重装成xp系统，同时这些xp系统，大都是盗版的。微软对于IE等微软软件的升级，都会验证系统的合法性，但凡是盗版系统，就不可能升级IE6，这样xp系统用户，除非使用其他内核的浏览器，他的IE内核版本就是6，即使是使用傲游、世界之窗等IE内核浏览器，其调用的系统IE内核版本还是IE6。所以IE6的使用者，在中国还是有不少的，要想让它在中国消失，还是需要一段时间的。所以，我们设计网页等，还是要尽量考虑到IE6，至少不能在里面显示错位。</p>
+<h2 id="对于促进IE6的消失，我想了几个解决方案："><a href="#对于促进IE6的消失，我想了几个解决方案：" class="headerlink" title="对于促进IE6的消失，我想了几个解决方案："></a>对于促进IE6的消失，我想了几个解决方案：</h2><p>1，加深对网民的宣传，让网民知道IE6已经过时了，让他们想办法更换浏览器或者升级IE。例如像<a href="http://www.ie6countdown.cn这类网站，就生动的告诉人们，扔掉IE6。" target="_blank" rel="noopener">www.ie6countdown.cn这类网站，就生动的告诉人们，扔掉IE6。</a></p>
+<p>2，遨游、搜狗等浏览器，创造性的提出了双核的概念，即使用两种浏览器核心来解析网页，可以随时更换。可不可以在调用IE内核的时候，从IE9等浏览器中，提取出最新版本的IE内核，来使用，而不是简单的调用系统目前内置的内核？通过各种数据得知，360浏览器、遨游浏览器等，现有的使用率是非常高的，如果他们这样做了，绝对有利于IE6的消失。</p>
+<p>3，firefox、chrome、opera等其他内核浏览器，加大发展力度。比如firefox浏览器，不兼容网银，可以联系银行开发相应的插件。让这些浏览器不断的完善自己的功能，然后大力宣传，挤占IE的市场占有率。大家都知道，IE浏览器，在众多浏览器中，算是比较烂的。对于速度，chrome是最快的；对于功能和兼容性，firefox是最强大的。IE的市场占有率，仅仅是因为捆绑了windows系统。</p>
+<p>4，废除windows xp系统，xp系统也已经过时，要使用win7、win8或者linux系统等，取代xp系统。</p>
+<p>让我们大家共同努力，<strong>Kill IE6，结束前端设计的噩梦！</strong></p>
+<p>PS:文章中的网站打错了，有两个比较好的网站，一个是<a href="http://www.theie6countdown.cn/，比较有创意的中国IE6倒计时网站。另一个是官方的http://www.ie6countdown.com/" target="_blank" rel="noopener">http://www.theie6countdown.cn/，比较有创意的中国IE6倒计时网站。另一个是官方的http://www.ie6countdown.com/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-956.html" data-id="ckgcnrub200cc1d2aa2wqmafs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="956" data-title="IE6在中国消失还需要一段时间" data-url="http://www.qianxingzhem.com/post-956.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-css-e4-b8-adclass-e7-a9-b6-e7-ab-9f-e6-98-af-e9-b8-a1-e8-82-8b-e8-bf-98-e6-98-af-e9-b8-a1-e8-82-89-ef-bc-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-952.html" class="article-date">
+  <time datetime="2012-04-16T05:59:52.000Z" itemprop="datePublished">Apr 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-952.html">css中class究竟是鸡肋还是鸡肉？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学习完了《html5与css3权威指南》，特别是css3部分，体验到了css3的超级强大。特别是一个比较常用的内容：选择器。</p>
+<p>css3中，提供了新型的，可以使用通配符的选择方法。例如：[id=^sec]{ }，表示将此样式，应用在所有id以sec开头的html元素，比如id为section、sec3等的元素都会受到这些规则的影响。这样，我们就可以通过元素命名，来区别不同功能区域，并且使用通配符选择器来统一样式。而这一点，和class的功能类似。class与id的区别就在于，id一个网页中，只能有一个，而class可以有多个，这样可以让多个元素使用相同的样式。</p>
+<p>因此，作者在书中说，不推荐使用class，class最终会消失。然而在另一本前端著作《编写高质量代码Web前端开发修炼之道》中，却推荐使用原子类的方法，来提高css样式的重用程度。之前，本人也写过<a href="http://www.qianxingzhem.com/post-939.html">一篇关于创建和使用原子类的文章</a>，并且在现在的设计中应用原子类，感觉非常方便灵活性非常强大。在这里，潜行者m不禁思考，class究竟可取不可取？是鸡肉还是鸡肋？</p>
+<h2 id="class和id的区别"><a href="#class和id的区别" class="headerlink" title="class和id的区别"></a>class和id的区别</h2><p>html中class和id属性，是用来标记元素、区别元素，这样就可以用css来精确控制样式，也可以使用javascript来控制元素。但class和id是有明显区别的，在网页中，id属性的值只能有一个，但是class的值是可以重复的。比如，我定义一个div的id为a，那么网页中不能再出现一个html元素的id为a；但是我定义一个div的class属性为b，我可以再其他的元素中，定义class属性为b。这样，就可以实现代码的重用，比如两个div都是红色背景，只需写出一个class（.r{background-color:#ff0000;})，然后在两个div中都指定class属性为 r 即可，而要使用id控制，则需要在两个div中，都写上background-color:#ff0000;。同时，id和class的优先级也是不同的，id的优先级要高于class，如果对同一个元素，分别用id和class指定同一属性不同的值，浏览器会优先解析id的值。</p>
+<h2 id="鸡肉说："><a href="#鸡肉说：" class="headerlink" title="鸡肉说："></a>鸡肉说：</h2><p>class可以极大的提高代码的重用，特别是使用原子类，既方便维护，又方便应用。而使用id，必须指定id然后指定大量重复的样式。css3中，虽然升级的强大的选择规则，但是仍然比较混乱，不利于维护。同时，存在即合理，w3c制定出class和id是有他们的道理的，负责不同的工作，class仍然会不断的被使用。</p>
+<h2 id="鸡肋说："><a href="#鸡肋说：" class="headerlink" title="鸡肋说："></a>鸡肋说：</h2><p>css3中，强大的id选择规则，已经可以对相近元素指定相同的样式，达到重用的目的。它已经完全可以取代class的作用，而且对于javascript来说，只能使用id来控制，说不定以后class就会消失了。</p>
+<p>亲，你怎么看？你觉得是鸡肋还是鸡肉？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-952.html" data-id="ckgcnruak00b41d2a4zwl49ka" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="952" data-title="css中class究竟是鸡肋还是鸡肉？" data-url="http://www.qianxingzhem.com/post-952.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -201,7 +897,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/post-category/前端相关/page/2/">&laquo; Prev</a><a class="page-number" href="/post-category/前端相关/">1</a><a class="page-number" href="/post-category/前端相关/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/post-category/前端相关/page/2/">&laquo; Prev</a><a class="page-number" href="/post-category/前端相关/">1</a><a class="page-number" href="/post-category/前端相关/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/post-category/前端相关/page/4/">4</a><a class="extend next" rel="next" href="/post-category/前端相关/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -212,7 +908,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -221,7 +917,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -230,7 +926,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -239,7 +935,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

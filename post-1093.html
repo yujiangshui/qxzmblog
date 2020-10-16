@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何高度自定义 QQ 邮件列表外观样式 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。 首先先来了解一下 QQ 邮件列表是什么。  QQ**邮件列表是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你写博客，它能自">
+<meta name="keywords" content="CSS,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何高度自定义 QQ 邮件列表外观样式">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1093.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。 首先先来了解一下 QQ 邮件列表是什么。  QQ**邮件列表是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你写博客，它能自">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg">
+<meta property="og:updated_time" content="2020-10-16T19:09:06.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何高度自定义 QQ 邮件列表外观样式">
+<meta name="twitter:description" content="2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。 首先先来了解一下 QQ 邮件列表是什么。  QQ**邮件列表是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你写博客，它能自">
+<meta name="twitter:image" content="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e5-a6-82-e4-bd-95-e9-ab-98-e5-ba-a6-e8-87-aa-e5-ae-9a-e4-b9-89qq-e9-82-ae-e4-bb-b6-e5-88-97-e8-a1-a8-e5-a4-96-e8-a7-82-e6-a0-b7-e5-bc-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1093.html" class="article-date">
+  <time datetime="2012-08-24T02:49:08.000Z" itemprop="datePublished">Aug 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何高度自定义 QQ 邮件列表外观样式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。</p>
+<p>首先先来了解一下 QQ 邮件列表是什么。</p>
+<blockquote>
+<p><strong>QQ**</strong>邮件列表<strong>是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你</strong>写博客<strong>，它能自动将最新的博客文章发给读者。如果你</strong>开网店<strong>，可以用它批量通知顾客店铺的最新优惠。 如果你正</strong>管理一个组织**，通过它，能快速向组织成员发布公告。使用 QQ 邮件列表，让您的邮件发得更多、更快、更准！<br>总之，这是一个让帅哥更帅，让美女更美，让垃圾邮件正常群发的腾讯唯一几个免费的服务。很多网站上，都有 QQ 列表，你可以输入邮箱来订阅网站内容，站长就可以发一些资讯到你的邮箱里。</p>
+</blockquote>
+<p>我们知道，添加这个服务，就需要申请代码，然后把代码放到网站上。但是，它生成的外观样式，并不一定符合我们网站的风格样式，本文潜行者 m 就要跟大家一起分析一下他们的代码，然后进行自定义修改，来符合自己网站的风格。获取代码有两种形式，一种是图片的形式，另一种是一个文本输入框，直接填写上邮箱提交。下面潜行者 m 一一分析。</p>
+<h2 id="图片形式："><a href="#图片形式：" class="headerlink" title="图片形式："></a>图片形式：</h2><p>图片形式，他们允许定义一些简单的参数：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" alt="" title="111"></a></p>
+<p>我们看一下生成的代码</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;&lt;a target="_blank" href="http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74"&gt;
+&lt;img alt="填写您的邮件地址，订阅我们的精彩内容：" border="0" src="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png"/&gt;&lt;/a&gt;</pre>
+
+<p>从代码中，就可以看出，很简单的两个标签。使用了一个 a 标签，包裹了一个 img。而这个 img 指向的图片地址就是<a href="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。" target="_blank" rel="noopener">http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。</a></p>
+<h2 id="代码方式："><a href="#代码方式：" class="headerlink" title="代码方式："></a>代码方式：</h2><p>代码方式要稍微麻烦一点，但是省下很多功夫，因为用户不用再打开一个页面去填写邮箱了。<a href="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" alt="" title="222"></a></p>
+<p>我们再来看看代码：</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;
+&lt;script &gt;
+var nId = "3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435",nWidth="auto",sColor="light",sText="填写您的邮件地址，订阅我们的精彩内容：" ;;
+&lt;/script&gt;
+&lt;script src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js" charset="gb18030"&gt;&lt;/script&gt;</pre>
+
+<p>这段代码里，上面那一句是定义了几个参数，其中 nID 参数，是你这个订阅频道独有的，要传输到下面的 qfcode.js 使用。那这个 qfcode.js 文件的内容是什么呢？直接打开<a href="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：" target="_blank" rel="noopener">http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：</a></p>
+<pre>"&lt;div class="rssbook ",sColor,
+" " style="width:",nWidth," "&gt;&lt;p class="info"&gt;",sText,"&lt;/p&gt;",
+"&lt;div class="mailInput"&gt;",
+"&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target='_blank' method='post'&gt;",
+"&lt;input type="hidden" name="t" value="qf_booked_feedback"&gt;",
+"&lt;input type="hidden" name="id" value="",nId,""&gt;",
+"&lt;input  id="to" name="to" type="text" class="rsstxt" value=""/&gt;",
+"&lt;div class="rssbutton"&gt;&lt;input type="submit" value="订阅"&gt;&lt;/div&gt;",
+"&lt;/form&gt;",
+"&lt;/div&gt;&lt;/div&gt;"].join(""));</pre>
+
+<p>这些代码的意思，就是说，在页面中输出了一个表单（form），它提交的地址就是<a href="http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。</a></p>
+<p>好，弄清楚了这个，我们就按照自己的风格，动手做一个表单，然后根据它的这个表单，填写上参数，进行提交就可以了。目前，从这个代码中，潜行者 m 提取出以下几个信息：nID 3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435 、 POST <a href="http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。</a></p>
+<pre>&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" method="post"&gt;
+&lt;input type="hidden" name="t" value="qf_booked_feedback" /&gt;
+&lt;input type="hidden" name="id" value="3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435" /&gt;
+&lt;input type="text" id="to" name="to" value="" placeholder="输入你的邮箱" /&gt;
+&lt;input type="submit" value="订阅" /&gt;&lt;/form&gt;</pre>
+
+<p>这样就可以了,我们只要填写上,点击订阅,就会订阅了。我们自己写出了这个表单，然后再对其应用 css 修改它的样式，来符合我们网站的风格，这样就大功告成了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1093.html" data-id="ckgcnru8x005x1d2aujhfmh0t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1192.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Jquery.lazyload.js究竟要怎么使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1089.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">近期入手K450,记录一下感受</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1093" data-title="如何高度自定义 QQ 邮件列表外观样式" data-url="http://www.qianxingzhem.com/post-1093.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

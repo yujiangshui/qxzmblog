@@ -63,6 +63,95 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--e8-ae-be-e8-ae-a1-e4-b8-ad-e9-bb-98-e8-ae-a4-e6-a0-b7-e5-bc-8f-e7-9a-84-e5-bc-ba-e5-a4-a7-e5-a8-81-e5-8a-9b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1230.html" class="article-date">
+  <time datetime="2012-08-30T21:36:01.000Z" itemprop="datePublished">Aug 31 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1230.html">设计中默认样式的强大威力</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>默认样式，就是最原生态的样式。就像大家经常用的按钮或者蓝色有下划线的超链接。本文，潜行者 m 将从两个元素来讨论默认样式在设计中的应用。</p>
+<h2 id="超链接的默认样式"><a href="#超链接的默认样式" class="headerlink" title="超链接的默认样式"></a>超链接的默认样式</h2><p>超链接的默认样式 超链接是网页中最常用最基础的元素，可以说是必不可少的。我们设置超链接，也是希望人们去点击，去使用它。那么我们拿什么让人们知道，这是一个超链接呢？你可以在旁边说，这里有个超链接，快来点击我。但是，当人们看到这几个字的时候，是需要思考的，实际情况下，人们是不想思考的。所以，我们设计的目的，就是让人们一看上去，就觉得这是一个可以点击的超链接。这里几个超链接，我分别为他们加上了样式，请看下图：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/902.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/902.jpg" alt="" title="Unnamed QQ Screenshot20120829094902"></a></p>
+<p>请你告诉我，这里面究竟哪一个才是可以点击的超链接？很显然，第一个超链接是默认样式，这种蓝色下划线的样式，已经深入人心，任何一个经常上网的朋友，看到这个就知道它是一个可以点击的超链接。但是有个非常明显的问题，这种蓝色下划线的样式实在是太丑了。而且和我的设计风格不相似。那么，我们就可能会考虑后面三种。</p>
+<p>现在，我们的任务就变成了，如何让后面的这三个超链接，变得让人以为这是一个可以点击的超链接。这时，我们需要结合具体的文境来说。请看下面这张图，我已经把上面这三个超链接加入了文章中：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/903.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/903.jpg" alt="" title="Unnamed QQ Screenshot20120829095946"></a></p>
+<p>这是比较常见的文章环境，当超链接在文章中时，我们就会发现一些东西。现在请你告诉我，这四个链接的位置以及究竟哪一个链接可以点击？很显然，第一个下划线的可以点击。然后红色、蓝色链接也可以轻易找到，但是黑色的却不见了。因为它的样式和文章的一样。</p>
+<p>当我们抛开第一个，请你再告诉我，究竟哪个是可以点击的超链接？很显然，是红色后面的蓝色超链接，因为蓝色是超链接的默认颜色，是标志性的颜色，所以我们会认为蓝色是可以点击超链接。如果排除蓝色链接，你还会点击什么？这时候，你会发现文中突然黑字里面出现了一个红色超链接。这是你的大脑会进行短暂的思考，这个红色超链接是什么，为什么别的都是黑色的，它是红色的？它是不是有特殊的功能，是不是可以点击？要不我把鼠标移动上去，看看吧。</p>
+<p>当我们把鼠标移动上去之后，发现鼠标变成了小手状，红色还变了色，而且还加了下划线。OK，这个就是可以点击的超链接了。</p>
+<p>至于黑色超链接，潜行者 m 就直接找不到了，碰巧鼠标移动到什么，可能会变成小手。但是一般人是无法注意到了。</p>
+<p>通过这个案例，我们可以分析出，超链接应当如何定义：</p>
+<ol>
+<li>尽可能的使用默认的蓝色，甚至加上下划线。如果与风格不符，请使用与其他文字差别较大的色彩来表示，这是一段与众不同的文字，它有特殊的含义。</li>
+<li>当鼠标移动上去的时候，请定义：hover，让其进行变色，并且加上下划线，因为这是一个超链接默认的样式，经过这样处理之后，能够让人深信不疑的认为这是一个超链接。</li>
+<li>如果你无法合理的配色或者你的作品无法使用多种色彩，请尝试让字体变大或者变小或者倾斜，让超链接变得与众不同，这样就会让人产生疑问。</li>
+<li>如果你无法比较合理的完成上面三条，请不要使用默认样式。</li>
+</ol>
+<h2 id="按钮的默认样式"><a href="#按钮的默认样式" class="headerlink" title="按钮的默认样式"></a>按钮的默认样式</h2><p>按钮也是使用比较广泛的网页元素，通常用于表单提交，或者其他需要点击的地方。通常有以下三种形式的定义</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWQAAAB2CAIAAABwEH5TAAAFTElEQVR4nO3d346yRgCG8blkT4i3YD0xxgtr2jRN06YnxgNjbbrAIAbU7QGp4QMZXl0chq/PL3uA7CQ7GfFZ/2M+AUBgxp4AgGkgFgAkxAKAhFgAkBALABJiAUBCLABIiAUACbEAICEWACTEAoCEWACQEAsAEmIBQEIsAEiIBQAJsQAgIRYAJMQCgIRYAJAQCwASYgFAQiwASIgFAAmxACAhFgAkxAKAhFgAkBALABJiAUBCLABIiAUACbEAICEWACTEAoCEWACQEAsAEmIBQEIsAEiIBQAJsQAgIRYAJMTinYzhR/15SVmWeZ5ba5MkieP447sTx3GSJNbaPM/Lshz28HxWz5W02Wzm8/kMLfP5fLPZ9K2uGftgm4YXYnE+n7/LOrjFcXw+n59dq6G4rqQflsv1er3f7y9o2e/36/X6h+XSubrEQvJULIqiSJJk7CmPKUmSoij0FRuK60qKouhwOFTXDRqKojgcDlEUOVeXWEj0WPw/71C0xXGc5/ntdtNv6l/nupJms9nlchn7Vhmuy+Uym82cq0ssJGIsTqfT2DMNS5ZlT93av6gnFmVZxuhQliWxGIQSi/P5PPY0Q5Tn+bO3+ZcRi9cRi6H0xqIoirHnGC5vz1/0x2LspQgXsRiKOxbX69VaO/Ycw2WtvV6vr93+n9Ifi3/QgVgMxR0LHoD08vN6KrF4HbEYijsWMS9/9EmS5LXb/1N6YlEUxd9+GWMcFx07/SuKIsxYmG//rnk0jYc7x+KIxVgPhCe3hh7e39kfi6Nfxhh9j2nxMcX/TCUW7j3tNfQxxW85YpHnuf/5fExwDT28LBJuLBwhaOxpb/gRfiwcB3FjT3vDJ0csxnpqc3JraK19uQKi/lj85Uv9+qguNn7b2FB+9VYBxqJxTJuO+9Luf5Lvn2aTIxZpmnqezETXME3Tlysg6onF6XT60y9jjONiteeuMaY9+K1Op1Nosah0Hd/1PUH9V3TEYqxnNye3hnEcv1wB0fRi4RhDLCq9B7pjDLGoTG4Ng4jFH35Vqb5v1NXH1Ac/HONByLG434VuqI+pD344xpugHoZUJreGQTwM+d2X+0LX9zQ26sOqnQ/H+xFgLNwHdHvY/fbQHu9TUE9wTnQNx3+C02csKr2x6BrTHvZuAcai0nugd41pD/Mj8JdOJ7GG4790mmXZb34ZYxoXG3saY7q2PciyLPxYfNTuUXeNGf1An8SbsgJfw/HflJVl2a9+GWPa2/Wd1cWHv2oMe7dJxMLxX7Hr3vX7J9gU4Nu9p7WGHp7d/AwtFvcK1HNw/1Vj23TwNtswY1F/FN17t7lrDT3PObQPkk1uDYP4IJm19hd0sNYGGIsp6v2I+liviUxCmqZBfETdWvszOhCLofDlN18RypffEAsHYjEU5Wv1xnpZJHABfa1emqY/oUOapsRiEOIX9mZZNvZMwxLQF/ZGUbTdbo/H449oOR6P2+2WUwEMQozF7XbL85zvwvn4CO9UAMvlcrVa7Xa7FC273W61Wi05ydAQOMnQU5IATzL0+fm5WCyiKHrD2f8mL4qixWLRt7rEQsLpC0VxsKcvxFeNfrbhCf28hBMj+0QsAEiIBQAJsQAgIRYAJMQCgIRYAJAQCwASYgFAQiwASIgFAAmxACAhFgAkxAKAhFgAkBALABJiAUBCLABIiAUACbEAICEWACTEAoCEWACQEAsAEmIBQEIsAEiIBQAJsQAgIRYAJMQCgIRYAJAQCwASYgFAQiwASIgFAAmxACAhFgAkxAKAhFgAkBALABJiAUBCLABIiAUACbEAICEWACTEAoDkXxx7kqATMuh3AAAAAElFTkSuQmCC" alt=""></p>
+<p>第一种就是默认情况下的，而第二种只是简单的个边框，使其去掉默认样式平面化，第三中则可以代表使用图片背景的自定义按钮。</p>
+<p>当你第一眼看到这三个按钮的时候，很显然，第一个是最想按钮，并且可以让人产生点击欲望的按钮。除了第一个之外的后面两个呢？这里需要注意一下，第三个是有一个变色处理的，当鼠标移动到上面，会变成这样：</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAABTCAIAAACpq6OqAAAFbUlEQVR4nO3dwWvqSBzA8fzJuUj/hT4vRXrqQUEqBaGHSqGXgqdetGq7ZVmWXRapFFpcl31rtDxiintI100zyRhtnIz9fT/0kIxTOoR8a7TvGWcJQBKn6AUAMIrmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXm8+Y4fGX92srz8/Pt7e3l5WWz2azVaidfTq1Wazabl5eXnU7n+fk539Nzmdj88fHxwcGBC8XBwcHx8fG6I+p8RwabNh8EwcPDw+npadFJmlav1+/u7oIg2Ohw6c7Q2P63crlSqby8vARQvLy8VCqVb+Wy9ojSfCYbNT8cDs/Ozoqur0iNRmM4HG4eeNIZGtsvlUrj8dj3/SkUvu+Px+NSqaQ9ojSfScbm397e+v3+l7yG31StVuv1er7vb137+xka23ddNwiCouOyVxAErutqjyjNZ5Kx+Zubm6Jbs0u73d669vczNLbvuu5isfgHKRaLBc3nIkvz/X6/6MRs1Ov1aN4cms/L2uaHw2HRcdnrM6/tk5sv+nywF83nRd+853mtVqvosuzVarU8z8uz+b+Rgubzom/+/v6+6Kxsd39/T/Mm0Hxe9M0L/Dv8phqNRm7N+77/l1mO42h2NYPm+b5vZ/POx5/rJC0jcbAomuZHo1EhFS2XS82uZrAoo9Eot+YnZjmOk33EUZhY4n/2pXn9iHoMTSzxI03znU6nkITUnjUj6rJNLPGjbre7efKWNa/pOTaibphhf/OanmMj6oZJmuavrq7M93OSrefYiLph0tXV1Qatr87Q2H7Y/J+mRE/NcDf2aGwjy0M7ZWHzsbzTLvL1T/u7X2acpvnz83PD8UR/+kn6Rb4adrHNn5+f59P86+vrH2Y5jqPZDUdWYnPUyTv1+vpqW/OhtNSjI/vyPF/UG3hpqUdHor8aTopu/vT09Ms2r5lD86G1zWvm0HxobfOaOXvf/O9mhU8+q42o6Jzo5MQ5Btjc/OraPiY6Jzo5cY4xVl3bh8KffrLu9Xx0cuIcY/K8tv/NlNU5Fx2JbUSnhYOJ882wsHl92+o0R3nZb1vz5t/DU7tdJj2BRxepPmRqsf/L7T08k82H1jafNkedtmsWNh9a23zaHHWaGZb/rS6x+bQ56jQzOp1OPs3P5/NfzXIcJ7YbG4nNSds2YD6f29/898ilftocm5t/fHw0389JUt5qyVY1//j4mFvzv5jlOI66HR0MdxMfik3btb1oXvM8n3bZv/sFxun/7W29XjefUGLDml8ExTZfr9e3CN6K5lcxR6tePRTbVt98Ur9rp+xsPvoqfe31fNoxNLxmffODwcBwQquYo1WvHoptpy3b5IIHg8H6vhPP0Ni+67qz2exnpJjNZhY2v4/0zU+n04uLC5MJ7ZdWqzWdTvNs/gEpaD4vfGbGZ+T8mRk0r0Hzecny2Vi9Xq/ouGy03X+t0TXved5PSOF5Hs3nIuNnYLbb7aITs8v19fXb29vWwS8TP+t6NBpNJpM7KCaTyWg04rOuc5Gxed/3e71etVoturXiVavVbrf748ePrWt/P0Nj++Vy+ejo6OnpyYPi6enp6OiozD0t8sA9LTayw3taLJfLw8PDUqm0m7s/7bdSqXR4eLjuiNJ8Jty7KqOd37sKn1X4jR/36Gsr3KPyk2gekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpCF5gFZaB6QheYBWWgekIXmAVloHpDlXxzEKrxxX6WyAAAAAElFTkSuQmCC" alt=""></p>
+<p>默认的按钮样式以及满足不了我们网站的风格，所以我们目前的任务，就是让后面两个按钮，变得像可以点击的按钮。我们主要来分析一下，为什么后面两个按钮不像前面那个可以点击的按钮，有什么特点和区别。</p>
+<p>1，外观要像一个按钮，其中第三个要比第二个更像按钮，因为它是圆角、椭圆形的，它要比直来直去的方框更容易给人以按钮的感觉。</p>
+<p>2，要有 3d 突出感，按钮是一个突出的东西，给人一种 3d 突出的感觉更让人容易相信这是一个可以点击的按钮，例如淘宝购买按钮</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT8AAABSCAIAAACt2UTMAAAOp0lEQVR4nO2dvWsb2RrGFewmLFuYpEiKkOaCwCSQwrAEUrlc7D/g1saGxbhR4ZjgJivMQhynUJCDKocs2HjdaFlYG9IZ1DiVfVVlhfBiEFnBlRhbSMP1zLy3eM68c+ZDshxNHE38PrwIfZw5ZyTN7zzv+ZCdori1tfnbf/tQpVL59OnT2dlp7CfQW5VKpZ/T29r87YpPTCS6rFKx17i1+du3EbF/MiJRvIqfXpFIdDUSekWipEroFYmSKqFXJEqqhF6RKKkSekWipEroFYmSKqFXJEqqhF6RKKkSekWipEroFYmSKqFXJEqqhF6RKKkSekWipEroFYmSKqFXJEqqhF6RKKkSekWipEroFYmSqvjpNcq79usnpz+nJK4m7NdPjPLu4F/cfrUzuUN3ChJXFJM7tF/tDPKVxUxvu2MaL+7SakriKsN4cbfdMQf84sbffv0L+rrF+Fsa5IuLmd6W0Tj9+etfzdctTn9OtYzGgF/cV7+Ur2cM8sXFTG+9Xhd6vwq99Xp9wC/uq1/H1zMG+eLip9dY/vpX83ULY1noTWoIvdc9hN7khtB73UPoTW5cP3qXU3SpVnqXz6Yo20cNmUs2+s3RO7lDs0U7V7I2j1TkStZs0e5zneneKt1b/fyrfJBjufULKwmXuWy7l32bw0VvY/GLo2ttLzl7a5Tpq7zz9La1veQUpqPZy6ScwrT9+ol6FZTqsTBCyynn6W27emBtL3UFePmScWF/cZloLH5xenMla7/aOaw5hzXnuGkhDmvOfrWzX+3kSlbvC3pqw8mVrKkN5zMgBA+Z930dy5SG47Dm9K6Ez3M8r54Zz9OlTvvequrgxvP9MnzN6M2ksDnBXJ/vykDW4+R8ZYKIWkbDeXrbxw+8dGGEiOzqAR7ar5/Y1YNAUCZlbS8RkVHepYzr1bpjux1K/9Fn1/N16cUK8GzRBrfHTat+dt4yGu2OicB9xni2aPNRgWs6V7KIKFeyws4WiEgkDmsOEW0eBQ+PxA8ng44GdwB/jxq4dZznbNHmLoOo344D9WD9dmrD6bNv+qbpzUYYl4+lsKdlU7Qw4hSmOezqARE5e2veM6+f4KFHLzy2ME1EZuMjuFVrcQsjXn+xMEILI87T27ijYM6k0MQltDASo/3GSy/wY3TBLUCNPLbdMTePLJhwAODxtz4qQC9TOp6n2aIdCM/33npIMMA6/3oruvURETqUw5qDc763qnY1MZaB/gL1H9acAL3HTYuI4L3dDtQDh6OP6BaBcx4+erOxhbmY1jlEgN6W0Qi/ZD9/yBD2kLO3hlvn6W0K0evsrQFOMAn37loPe/jCCC2MWNtL1vYSQw4zVw0tjKBdo7xLCyOqb4ojYqH3+1cGc4u4U6DDmlM/O3e2Ru3ig/81d7g8LvRcyQJU+9XO5pFVPzs/rDlcAy7uzHsHWTeK4SjklrjWAwKfXAPu3Ful8bxna+EC3FOAXu4mcHpTG063N84l+U1xE6iq3TEBdiB0XPsX+gU+4e9fGcNF76efvouN3kwKl3v/Ak7O09uK5701IjIbHwOQm+vzxJRG0kuk0mb3oVHe1VNfuLGiN6tyhPOVCdi1Ud41F9MYVBPjujCCV89XJrw0IY749NN3cdGrowsg2x3TKO/axQd28QFvDMqVrMx7B2RyJe2OWT873zyy7heaTB34CQvjQyLKvHfgukhTdXoDZKL8frWjA+DrcfIKuc0ji0jZKerEk9x3YO7Nay6vzh9my1k37pPLMBEdNy32cx7lInAstxJojvssvX/8punVvNdcnw87LVsxZ8XmYppZcp7eNhsfiQgZslHeVVAFPPYieltGo2U0zPV5VT6TYiw9el37NRfTALtlNNRsmduQz3jj+4jipZevrckd70olIuvDM7v4wPrwrN0xzcbHXMn65fezX34/y5UsfD4IADC543lmOHPm7JTvcBZNWm4cSATurSomcch4PgJgpPoUohejdPQ1fEp6c+g4MBWHA3HnuGlxMZTBUIKIVBeT99XGnsxlwmmzftrfOL2YXoJVqus+o805ZVI8KLW2l9STft9WbuwOaGnOz55ObyaaXjzjZdHLUfS6vYP9/CHy55bRMMq7ejFzMe3sraH7GFp6OXIlSx/otowG8udu0d7/sb3/IxG1O2au5NmvbpuY/gnTO54P0hvpvXw+bL99ei+q5Sw63BzK66cE40V+gTv8EsDWs3ceIeO96PTqbyQQdwrfPL3ZFC2n7OcPiahlNOCQ+kvmYhpN+9JRd5aYx8Zgz1yfV+PPML0BqjV67ecPcQIK/rloejnJd/bWaC5lLqaBMQWGx3GjGzu9j7fofqG5eWQFpqna+z86W6O9g9xJrAC9jMdn0AssQRG7IttvoFgkvVMbDoa+x03lvYHmGEg+JczD6dNdqBP1wGMD706frIr03vAJXwN6syGD1WwZeCj8uPxcKvyTV90JPfZmxugiemlmjCFUT85FZc6ZlLk+j5GhXT1Q417N/+P/WNzPIXZ6v39l4ILWZX14dgG9bv913LS+f2U83vKub1zNQC6SXk56MTgMXOVMEXtgwH5706uvGPGck94clnn1DF8fD4N5jCN4fkunF9LntNDxhSe6kkDvZbcuXBhu8qww4+fn1FKNlzZz+cU0pqDZhM3FtOfAl6QXfYH9/CHf8bl3JqU8eS6FwkZ5Fw/V5FZh2ivguneMn8+XoDe8PmSUd638TSt/k96krfxNZ2sUd+hNGvTyQKPdMSPpRdZ6ofcG6XVfAjxslZn3TreSYXoB/9SGw3d8zeXVWrH+c3kgjTKwXHQZFKI3PCMt9PpjLoUpqPOVCR708k4MH9IcbuIKdL1JI905u9NrlHf1FSOUQYWB6Shreym8x0NfMQ4/r1aVhpjesPca5V1naxTchm+drSkuGfZenqftSu/brvTqi70gjSeZOB1VbfnphdOSP93lcazeXOa9o7/fzSOL8UaXgQrRX5BG7+Mtb+JKjx6ZM38s14teLwvFdc/OtrcWpDfjlcfQlznXF3KC9LrjYV4owh20ghUj5b3VA33NqQe9aDRB9D7eUuPe8B9tsT48g/dGhr5fZb/auV9ooqrxt/6xYj5iiijSexlIFDtuelTf03ZfRdLLtHMxclebeR1IX6Di5Wge5Y7nfQ6PWWvk2Pp76bYlA+2GC+Cd4mzRS14PehdGfE6b8earAKQPXTfXbXdMczFtP38ID+RtGNH0LqdoZoxXiXnJB55P7h4sryqkxNgLHUiM53xjbzUXrb8aH7qUiY1evqoevTuN2Ifw57+t/M1+asuVrEfvThW9Ln4gTR8D9/ZeHAvGuBjXyRswOH/WAQauWCXiWWJy92AhEeBOBERhhwanyrx4y90NToy9nd9LZERmzoc1J9DdDCW9MQ7q3D1MIMRsfFRrtq61qhGmv5g3cH3+kNEl2CAomhlTi8MBejNeis7lzcX0+coEzYwBPN9uDQxouddYViSfr0yo+erqAdemOou4B70xei/YeLxFkzs0uRMq9CZNqyl6kw5HYHPb5A5xVd1WU5he/FBJfwhK7xS8nUz8JPcv+latgF1zi0TU7piYcMaQmxef8Rsp0joF3efBP0jzOb8/QfhsevnDGUp647ou51Lddmg4hWkwCXvUA4xZ20uYK2ar5DGwzwb94169U/CVD7mrRy9mrdwC5vq8brnAlU+jZTQ8hofSe5neQPJsVw967bX+899cEstF4D989XNG2mOnJIrxq4ErnhlmVyR3pKo/ia1O5AIMvDl31RN43dIDyTyfg9qe6fdhrjB8q2fOgVv9XQwdvfXp0eCGis+7zSi0Lq2ZMeTG+p4nD2lOiTULVfS66JqNjwBMt3dzfd6uHoBqrplmxsA8nmSTV6tTSAoyqptw9taY4fOViYidJ597W58ejZ3ewMyz/foJZUNXy5t04Ml2x7z1sgZ0wUP97Jy0ISgqxIRTD+/VsQyj6zEcKomH3FnwiBdJONyPR78Yyuo9gk4vp9/cAfHej6kNp9spId1gensUGzp6W0ZD0RtL9PTebqFz6A04uUJsVNYyPeyCxFFIdNUhSMIL04pkf3KItJwdW/0IqfHR2Vs7X5nwloX8bwf7KFW2H9en9GXondxRo1/jn7+Nf/42Xtw1XtzFyf9V/BV3qqv/ws8weJskRrxM79SGUz87Bzy81rpf7fDS0WHNYffDj/vYezHJdCEAqEeNJ/NqOwfqx6uBWTHWYc3hYpHeixNGGU598Tuq3mele2+S6FXeuxzfpRk1G3RBII+dGVPguTuTgxXOjKnQj9Ir4fJ8hw/Rj3Kb08fGXd9OZBMDR316dMC/CBtJLwNcr9eNf/4+OTmxqweVSoVvATa4bRkNbJDEX9vQp5cYJA5+9cKHva/+QMlwE+FigQiUwUKRXlv4wH7Oh3/tmCR6Y/bewcm/sEyA7UGCf/F7xfEFvJcBni3aj96d3siecIIaqc0j60b25NG709mi/cMfvlmr5MaA74KX3xJDrzfulbjCiMV7b2RP2HL1gJdiIgojRuwZPG5aSG5nizZeRclEx+Ot2Crpp6ob2ZMhone4vPfaRCze241eYAkyH707vV9o3npZu5E9ufWydr/QxCgXBeC6Ev3HcNEr3vtN0ju5Qz/8Qfwbej0YbAmhV2JI6ZUQeiWEXokhp1fftyjxpUPoTWwMJb2BjccSXzTm4plzvvWyxhstJK4gHr07vfWyNkT0tozGX8Vf69OjElcZfxV/Hfz/9+ZKFiaTJa4mbr2s4W/6ffa3FjO97Y55cnJSqVT+Uy5LXE1UKpWTk5NB/gU7EbWMhnxxifviYqaXiLBpri66KvX4LwfyxQ2zBv/i4qdXJBJdjYRekSipEnpFoqRK6BWJkiqhVyRKqoRekSipEnpFoqRK6BWJkiqhVyRKqoRekSipEnpFoqRK6BWJkiqhVyRKqoRekSipEnpFoqRK6BWJkiqhVyRKqoRekSipEnpFoqQqZYhEomRKvFckSqqEXpEoqRJ6RaKkSugViZKq/wPylvC1kjw9PQAAAABJRU5ErkJggg==" alt=""></p>
+<p>可以通过添加阴影或者渐变等,制造这种突出的效果。</p>
+<p>3，要有变换特效，及时的和浏览者沟通，告诉他们，这是一个可以点击的按钮。</p>
+<p>4，如果你的设计，无法很好的完成上面说的三点，请使用默认样式。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1230.html" data-id="ckgcnrua3009q1d2abhmqmqq7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计/">设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1230" data-title="设计中默认样式的强大威力" data-url="http://www.qianxingzhem.com/post-1230.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
     <article id="post-thinksaas-e5-b8-b8-e7-94-a8-e6-95-b0-e6-8d-ae-e8-a1-a8-e7-bb-93-e6-9e-84" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1226.html" class="article-date">
@@ -114,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1226.html" data-id="ckgcma3dl0073aa2af2bdenig" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1226.html" data-id="ckgcnrub900ct1d2ae6xhjbm6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a></li></ul>
@@ -185,7 +274,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1223.html" data-id="ckgcma3dg006oaa2auv3p70b9" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1223.html" data-id="ckgcnrub700cp1d2avkytof52" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -264,7 +353,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1220.html" data-id="ckgcma3ar000vaa2atfmslzw4" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1220.html" data-id="ckgcnru8800421d2amxqm3wc0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
@@ -348,7 +437,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1211.html" data-id="ckgcma39m000baa2ah9dtxb5b" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1211.html" data-id="ckgcnru7s002u1d2aa4bcb6yn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
@@ -360,6 +449,157 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1211" data-title="人们究竟怎么去看你博客里的文章" data-url="http://www.qianxingzhem.com/post-1211.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-ba-b2-e8-87-aa-e6-89-93-e9-80-a0-e5-b1-9e-e4-ba-8e-e8-87-aa-e5-b7-b1-e7-bd-91-e7-ab-99-e9-a3-8e-e6-a0-bc-e7-9a-84-e5-b7-a5-e5-85-b7-e8-be-b9-e6-a0-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1196.html" class="article-date">
+  <time datetime="2012-08-26T01:30:55.000Z" itemprop="datePublished">Aug 26 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1196.html">亲自打造属于自己网站风格的工具边栏</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先请允许潜行者 m 介绍一下自创的名词“工具边栏”。现在大家在浏览网站的时候，经常会发现一些浮动的条状栏，通常具有向上向下的功能，当你点击一下，就可以方便的回到顶部或者前往底部。其实打造这样一个工具边栏，并不是很难，使用 jquery 很容易就可以做出来。下面，你跟随我的步骤，一步一步的做一下，就可以做出来了，然后你可以根据这个代码，进行一些修改，自定义一些东西。</p>
+<p>废话不多说，先说一下我做的这个工具边栏。这个工具边栏是符合我自己做的模板“Q21”，Q21 模板的特点是黑白对比，所以这个工具边栏要突出黑白变化。经过构思之后，我决定这个边栏的样式是这样的：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/toolsidebar.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/toolsidebar.jpg" alt="" title="toolsidebar"></a></p>
+<p>当鼠标移动到“分享”按钮上之后，会自动滑出一个黑条，然后黑条上是各个分享按钮。具体的演示效果，你可以下载最后代码包查看。下面我们来开始动手一步一步的制作。</p>
+<h2 id="建立-html-结构"><a href="#建立-html-结构" class="headerlink" title="建立 html 结构"></a>建立 html 结构</h2><p>用 span 标签也行，不过我还是喜欢用 div，所以就用 div 来建立 html 结构。结构很明确了吧，一个大 div 包含三个小 div，分别是上中下三个按钮，其中分享按钮中，还需要再包含一个 div，用来滑出分享按钮。好了，结构就建好了。</p>
+<pre>&lt;div id="tooltip" &gt;
+    &lt;div id="toolt"&gt;▲&lt;/div&gt;
+    &lt;div id="toolc" &gt;
+        &lt;div id="sharetxt"&gt;分享&lt;/div&gt;
+        &lt;div id="shareit" class="none"&gt;这里是分享代码&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="toolb"&gt;▼&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+<p>注意，向上向下按钮，我使用的是字符，而不是图片。如果是图片的话，需要加载，而且动态变化，需要替换图片更加的不方便。至于如何打出这个上下两个三角号，就靠你的搜狗输入法了，如下图：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/812.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/812.jpg" alt="" title="Unnamed QQ Screenshot20120826125812"></a></p>
+<p>好了，有了 html 结构，我们再来定义一些 css。</p>
+<h2 id="CSS-代码"><a href="#CSS-代码" class="headerlink" title="CSS 代码"></a>CSS 代码</h2><h3 id="首先定义全局的字体"><a href="#首先定义全局的字体" class="headerlink" title="首先定义全局的字体"></a>首先定义全局的字体</h3><pre>:root{font-family:"5FAE8F6F96C59ED1",helvetica,Arial;}</pre>
+
+<p>经测试，这个边栏，在微软雅黑的字体下效果最好，所以要规定网页使用微软雅黑。上面这句代码，：root 表示选择 html 根，对所有文档中的元素生效，其中 5FAE8F6F96C59ED1 表示的就是微软雅黑，至于为什么这样写而不写成“微软雅黑”，如果用户电脑是英文的，那肯定找不到微软雅黑这个字体，这样写法，只要有微软雅黑字体，就可以使用。</p>
+<h3 id="定位工具条位置"><a href="#定位工具条位置" class="headerlink" title="定位工具条位置"></a>定位工具条位置</h3><pre>div[id="tooltip"]{
+    width:40px;
+    height:120px;
+    position:fixed;
+    bottom:50%;
+    right:20px;
+    }</pre>
+
+<p>这几句 css 定义了工具边栏的高度和宽度，同时 position：fixed 表示让它固定在页面中，不会根据滚动条的滚动而移动。bottom：50%，让它保持在页面中部位置，right：20px 表示让它距离右边 20 个像素。</p>
+<h3 id="响应操作"><a href="#响应操作" class="headerlink" title="响应操作"></a>响应操作</h3><pre>div[id^="tool"]{
+    font-size:38px;
+    cursor:pointer;
+    color:#000000;
+    }
+div[id^="tool"]:hover{
+    color:#999999;
+    }</pre>
+
+<p>响应操作可以让工具更加人性化，例如上图效果，当我们把鼠标移动到箭头的时候，它会变成灰色，表示你已经把箭头移动到上面了。在这里，我使用了新型的选择器 div[id^=”tool”]它的意思是，选取所有以 tool 开头的 div 标签。定义字体大小为 38px，调整三角形成为合适大小。设定 cursor：pointer 属性，当你鼠标移动到上面的时候，会显示成手指形状，让你误以为是一个可以点击的链接。下面的语句，当你鼠标移动到上面的时候，颜色变成#999999。这是响应操作，提高用户体验。</p>
+<h3 id="中部-CSS-代码"><a href="#中部-CSS-代码" class="headerlink" title="中部 CSS 代码"></a>中部 CSS 代码</h3><pre>div[id="toolc"]{
+    font-size:22px;
+    float:right;
+    width:40px;
+    height:70px;
+    overflow:hidden;
+     }
+
+div[id="sharetxt"]{
+    width:26px;
+    margin-right:8px;
+     float:right;
+     height:70px;
+     display:inline;
+    margin-top:4px;
+    }
+div[id="shareit"]{
+    width:304px;
+    height:62px;
+    float:right;
+    height:30px;
+    margin:15px 0px;
+    }
+.none{
+    display:none;
+    }
+.inline{
+    display:inline;
+    }</pre>
+
+<p>比较简单，没有什么亮点，自己看看就行了。重点在于如何实现滑动出现分享按钮。我采用的方法是，定义两个 div，浮动放置，其中分享按钮那个 div 默认是隐藏的，只有鼠标移动上去触发之后，它才会显示出来。</p>
+<h2 id="Jquery-代码"><a href="#Jquery-代码" class="headerlink" title="Jquery 代码"></a>Jquery 代码</h2><p>在添加 jquery 代码之前，我们需要彻底理清滑出分享按钮的实现方式。jquery 并没有提供横向滑动出现的方法，那要怎么实现呢？可以这样实现，先把底色变成黑色，让装载分享按钮的 div 框出现，但是这时候由于宽度不够显示分享按钮 div，所以你暂时看不到。使用 jquery 的 animate 方法，让宽度逐渐变宽，直到完全显示分享按钮 div。这样就会造成一个假象，黑色滑出，然后出现分享按钮。</p>
+<h3 id="具体的实现代码如下"><a href="#具体的实现代码如下" class="headerlink" title="具体的实现代码如下"></a>具体的实现代码如下</h3><pre>$(function(){
+    $("#toolc").mouseenter(function(){  //这里使用mouseenter方法来触发,当鼠标移动上去之后,触发这个方法
+        $("#toolc").css({"color":"#ffffff","backgroundColor":"#000000"}); //先对中部添加背景,并且把文字变成白色
+        $("#shareit").removeClass("none").addClass("inline"); //去掉shareit的none,让它显示出来,但由于宽度不够,无法显示
+        $("#toolc").animate({width:"350px"},200); //使用animate方法,动态的改变宽度,直到显示出来分享按钮
+    }).mouseleave(function(){ //当鼠标从目标区域中移走,就触发下面这个事件
+        $("#toolc").css({"color":"#000000","backgroundColor":"#ffffff"}); //同反
+        $("#shareit").removeClass("inline").addClass("none"); //同反
+        $("#toolc").animate({width:"40px"},200); //同反,你懂的
+    });
+    $("#toolt").click(function(){
+        $("html,body").animate({scrollTop:"-=900px"},200); //每点击一下,就向上滑动900px
+    });
+    $("#toolb").click(function(){
+        $("html,body").animate({scrollTop:"+=900px"},200); //每点击一下,就向下滑动900px
+    });
+});</pre>
+
+<p>注释我已经写在上面代码中了，仔细耐心看一下。这里,我想说的是向上向下滑动 900px。我并没有让它点击直接到顶部或者底部。因为我觉得，如果文章比较长，浏览者并不一定想直接滑动到底部，而是想看看下面的内容。如果他真想滑动到底部，也只需要点两次或者三次按钮即可。这也是一个用户体验的细节。</p>
+<h2 id="当然，你还需要申请分享代码"><a href="#当然，你还需要申请分享代码" class="headerlink" title="当然，你还需要申请分享代码"></a>当然，你还需要申请分享代码</h2><p>可以去 bshare jiathis 百度分享那里，申请一下代码，粘贴到 shareit div 中就可以了。怎么样，其实原理也非常简单，动一下脑子就可以了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1196.html" data-id="ckgcnru7r002r1d2a3u0y4pwi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1196" data-title="亲自打造属于自己网站风格的工具边栏" data-url="http://www.qianxingzhem.com/post-1196.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -484,7 +724,7 @@ fadeIn的效果就是，改变图片的透明度，渐现的方式出现。效�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1192.html" data-id="ckgcma3de006laa2abrryn90g" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1192.html" data-id="ckgcnrub500ci1d2a35xcj4ru" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
@@ -496,6 +736,108 @@ fadeIn的效果就是，改变图片的透明度，渐现的方式出现。效�
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1192" data-title="Jquery.lazyload.js究竟要怎么使用" data-url="http://www.qianxingzhem.com/post-1192.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e9-ab-98-e5-ba-a6-e8-87-aa-e5-ae-9a-e4-b9-89qq-e9-82-ae-e4-bb-b6-e5-88-97-e8-a1-a8-e5-a4-96-e8-a7-82-e6-a0-b7-e5-bc-8f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1093.html" class="article-date">
+  <time datetime="2012-08-24T02:49:08.000Z" itemprop="datePublished">Aug 24 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1093.html">如何高度自定义 QQ 邮件列表外观样式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2012/12/10 日补充: 这种方法目前已经失效，由于腾讯采用了某些方法，导致 nid 的值是动态变换的，使用这种方法，无法正确的订阅你的频道。具体的解决方法，正在测试中，暂时不要使用下面这种方式。</p>
+<p>首先先来了解一下 QQ 邮件列表是什么。</p>
+<blockquote>
+<p><strong>QQ**</strong>邮件列表<strong>是一项免费的群发邮件服务。通过它，您可以在网站上加入订阅入口，来获取您的订户用户订阅后，就能方便的给他们群发邮件了。如果你</strong>写博客<strong>，它能自动将最新的博客文章发给读者。如果你</strong>开网店<strong>，可以用它批量通知顾客店铺的最新优惠。 如果你正</strong>管理一个组织**，通过它，能快速向组织成员发布公告。使用 QQ 邮件列表，让您的邮件发得更多、更快、更准！<br>总之，这是一个让帅哥更帅，让美女更美，让垃圾邮件正常群发的腾讯唯一几个免费的服务。很多网站上，都有 QQ 列表，你可以输入邮箱来订阅网站内容，站长就可以发一些资讯到你的邮箱里。</p>
+</blockquote>
+<p>我们知道，添加这个服务，就需要申请代码，然后把代码放到网站上。但是，它生成的外观样式，并不一定符合我们网站的风格样式，本文潜行者 m 就要跟大家一起分析一下他们的代码，然后进行自定义修改，来符合自己网站的风格。获取代码有两种形式，一种是图片的形式，另一种是一个文本输入框，直接填写上邮箱提交。下面潜行者 m 一一分析。</p>
+<h2 id="图片形式："><a href="#图片形式：" class="headerlink" title="图片形式："></a>图片形式：</h2><p>图片形式，他们允许定义一些简单的参数：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/111.jpg" alt="" title="111"></a></p>
+<p>我们看一下生成的代码</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;&lt;a target="_blank" href="http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74"&gt;
+&lt;img alt="填写您的邮件地址，订阅我们的精彩内容：" border="0" src="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png"/&gt;&lt;/a&gt;</pre>
+
+<p>从代码中，就可以看出，很简单的两个标签。使用了一个 a 标签，包裹了一个 img。而这个 img 指向的图片地址就是<a href="http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。" target="_blank" rel="noopener">http://rescdn.list.qq.com/zh_CN/htmledition/images/qunfa/manage/picMode_light_l.png。这样，我们修改这个图片地址成我们自己准备好的地址就可以了。同时我们还可以加上一些css代码等等。只需要a标签中的href属性为http://list.qq.com/cgi-bin/qf_invite?id=55c8d4cfd86c2322b0da011d72769e61e8a471a03fa52b74即可，因为这个地址是我们订阅的填写页面。</a></p>
+<h2 id="代码方式："><a href="#代码方式：" class="headerlink" title="代码方式："></a>代码方式：</h2><p>代码方式要稍微麻烦一点，但是省下很多功夫，因为用户不用再打开一个页面去填写邮箱了。<a href="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/08/222.jpg" alt="" title="222"></a></p>
+<p>我们再来看看代码：</p>
+<pre>&lt;!--QQ邮件列表订阅嵌入代码--&gt;
+&lt;script &gt;
+var nId = "3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435",nWidth="auto",sColor="light",sText="填写您的邮件地址，订阅我们的精彩内容：" ;;
+&lt;/script&gt;
+&lt;script src="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js" charset="gb18030"&gt;&lt;/script&gt;</pre>
+
+<p>这段代码里，上面那一句是定义了几个参数，其中 nID 参数，是你这个订阅频道独有的，要传输到下面的 qfcode.js 使用。那这个 qfcode.js 文件的内容是什么呢？直接打开<a href="http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：" target="_blank" rel="noopener">http://list.qq.com/zh_CN/htmledition/js/qf/page/qfcode.js这个文件看一下就知道了。由于代码比较多，我把关键代码提出来：</a></p>
+<pre>"&lt;div class="rssbook ",sColor,
+" " style="width:",nWidth," "&gt;&lt;p class="info"&gt;",sText,"&lt;/p&gt;",
+"&lt;div class="mailInput"&gt;",
+"&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target='_blank' method='post'&gt;",
+"&lt;input type="hidden" name="t" value="qf_booked_feedback"&gt;",
+"&lt;input type="hidden" name="id" value="",nId,""&gt;",
+"&lt;input  id="to" name="to" type="text" class="rsstxt" value=""/&gt;",
+"&lt;div class="rssbutton"&gt;&lt;input type="submit" value="订阅"&gt;&lt;/div&gt;",
+"&lt;/form&gt;",
+"&lt;/div&gt;&lt;/div&gt;"].join(""));</pre>
+
+<p>这些代码的意思，就是说，在页面中输出了一个表单（form），它提交的地址就是<a href="http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send，表单里面有三个input元素，其中两个是隐藏的，用来发送参数的，有一个是发送填写的邮箱的。这两个隐藏表单中发送的内容，就是你的nID等。</a></p>
+<p>好，弄清楚了这个，我们就按照自己的风格，动手做一个表单，然后根据它的这个表单，填写上参数，进行提交就可以了。目前，从这个代码中，潜行者 m 提取出以下几个信息：nID 3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435 、 POST <a href="http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。" target="_blank" rel="noopener">http://list.qq.com/cgi-bin/qf_compose_send。那现在我们自己写一个提交表单。</a></p>
+<pre>&lt;form action="http://list.qq.com/cgi-bin/qf_compose_send" target="_blank" method="post"&gt;
+&lt;input type="hidden" name="t" value="qf_booked_feedback" /&gt;
+&lt;input type="hidden" name="id" value="3105746ef562384a0ffbc67926fa2810b331ea5d6a5eb435" /&gt;
+&lt;input type="text" id="to" name="to" value="" placeholder="输入你的邮箱" /&gt;
+&lt;input type="submit" value="订阅" /&gt;&lt;/form&gt;</pre>
+
+<p>这样就可以了,我们只要填写上,点击订阅,就会订阅了。我们自己写出了这个表单，然后再对其应用 css 修改它的样式，来符合我们网站的风格，这样就大功告成了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1093.html" data-id="ckgcnru8x005x1d2aujhfmh0t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1093" data-title="如何高度自定义 QQ 邮件列表外观样式" data-url="http://www.qianxingzhem.com/post-1093.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -557,7 +899,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1089.html" data-id="ckgcma3ds007taa2aqh0nx84u" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1089.html" data-id="ckgcnrua6009z1d2ad7cwxk9x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
@@ -635,7 +977,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1085.html" data-id="ckgcma3aq000taa2awpl77iwn" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1085.html" data-id="ckgcnru85003s1d2asgfx0bdz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
@@ -647,263 +989,6 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1085" data-title="使用jquery插件coin-slider轻松打造幻灯片教程" data-url="http://www.qianxingzhem.com/post-1085.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e8-a7-a3-e5-86-b3iconv-e5-92-8cmb-convert-encoding-e5-87-bd-e6-95-b0-e7-9a-84-e6-b1-89-e5-ad-97-e4-b9-b1-e7-a0-81-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1078.html" class="article-date">
-  <time datetime="2012-08-19T22:02:55.000Z" itemprop="datePublished">Aug 20 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1078.html">解决iconv和mb_convert_encoding函数的汉字乱码问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近期在做一个小应用，就是填上信息，然后输出wordpress模板标准的style.css文件，当然，这个文件包含了CSSreset 和本人常用的原子类，这样可以大大缩小制作的难度和时间。</p>
-<p>于是就遇到了一个编码问题，因为wordpress的编码是UTF-8，所以我们模板的css文件编码最好也是UTF-8。因为在早期的浏览器中，如果编码和文档中声明的不同，会读取不出来。IE6就是这样，在其他浏览器中没有出现类似的情况，不过还是建议使用UTF-8编码，如果你的模板要面向全世界的用户，你必须用这个编码，因为国外的电脑上没有装GBK、GB2312这类中文编码，就会出现乱码，或者出现一些其他的意外情况。</p>
-<p>那么，我使用php接受字符串，并且输出的时候，需要使用编码相关的函数。经过搜索，找到了标题上面的两款函数。iconv和mb_convert_encoding，这两个函数，可以把字符串进行编码，然后配合file_put_contents这个函数，可以输出你指定的编码。我这个工具的原理很简单，就是获取表单内容，读取已经保存的写好的文件，然后混合编码，输出。</p>
-<p><pre>$add_string = $add_string.$fpr; //$fpr变量是读取之前写好的UTF-8编码的style.css文件模板<br>$add_string = iconv(“utf-8”,”utf-8”,$add_string); //由于读取的style.css文件是utf-8编码,所以这里用了utf-8编码转换utf-8编码<br>file_put_contents($new_filename,$add_string);</pre><br>但是问题就出现了，出现在中文上了。由于iconv是php默认安装的模块，所以先使用的iconv函数。编写完成之后，输入中文信息，输出中断，查看输出文件，在中文的地方，输出了一个DZ，之后就断掉了。经过搜索，说这是iconv的一个bug，遇到“-”这样的符号，就出问题，可以使用“GBK”编码或者是加上“//IGNORE”参数解决。实验了一下，还是没有效果，加上了//IGNORE参数，中文全被过滤，只输出英文。</p>
-<p>疯狂的在网上查找相关资料，没有找到，我找了一段网上编写的，有这个函数的应用，把代码运行了一下，结果发现，还是没有。蛋碎，别人写的可以用的代码，在自己电脑上还是不能支持中文。我phpinfo了一下，这个模块正常啊，我还把代码上传到远程服务器上，执行还是不行。</p>
-<p>没办法，我考虑使用同样的功能的mb_convert_encoding函数，来试一下。结果还是不行，仍然出现乱码。这个时候，我突然想，不要把utf-8转换成utf-8 了，把GBK转换成utf-8试试怎么样啊。试了一下，表单部分在utf-8文件中，显示正常，但是模板（style.css模板用的utf-8编码）中的中文，全都变乱码了。研究一晚上这个问题了，已经到了0点了，果断关机睡觉。</p>
-<p>在床上，翻来覆去的思考这个问题。最后的这个尝试，给了我一个思路。然后我就想明白了，我们用浏览器输入内容，我们也没有规定编码是什么，那系统得到我们输入的内容，它的编码是什么呢？那就只有GB2312 了，因为我中文系统默认的编码就是这样。所以，我对字符串的处理，应该是由GBK、GB2312来转换成UTF-8编码才对。这就是为什么最后，表单内容正常，而源css模板不正常了。我用utf-8保存的css模板，却用GBK的方式去读，然后转换成utf-8编码，读出来的时候，已经是乱码了，再把乱码转换成utf-8，那不更乱了。</p>
-<p>不仅感叹一句，有多少问题，是在床上解决的，别想歪了哦 ^-^</p>
-<p>今天早上起来，立刻按照昨晚想的思路写了一下，果然可以成功输出汉字。最终代码：</p>
-<p><pre>    $add_string = iconv(“GBK”,”utf-8”,$add_string);//先把表单内容转成utf-8<br>    $add_string = $add_string.$fpr; //再与utf-8编码的css模板文件结合<br>    file_put_contents($new_filename,$add_string); //输出</pre><br>就这样,变化一下顺序,这个问题就完美解决了。今天写这篇文章时，发现这是一个多么简单的逻辑问题，却研究尝试了一个晚上，自己也真够笨的。不过最终解决了就好。我们平时都看书，太重于理论，到实践的时候，却发现，出现好多书上没有的错误。但是有了这个经历，以后遇到编码问题，就再也不用怕了。</p>
-<p>另附这两个函数的用法：</p>
-<p>iconv(“UTF-8”,”GB2312//IGNORE”,$data); //意思是把$data字符串由utf-8编码转成gb2312编码,刚开始就被这个误导了</p>
-<p>mb_convert_encoding($data, “UTF-8”, “GBK”); //这个意思是把$data字符串,由gbk转成utf-8编码,注意顺序与iconv相反</p>
-<p>至于gbk和gb2312,都是中文编码,区别在于,你想多打字,就打gb232,想少打字就打gbk.</p>
-<p>此外,上面这两个函数,需要配合file_put_contents这个函数输入才有效,这个函数的用法和其他输出函数都一样.不再赘述.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1078.html" data-id="ckgcma3cj0045aa2a2rwhnszd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1078" data-title="解决iconv和mb_convert_encoding函数的汉字乱码问题" data-url="http://www.qianxingzhem.com/post-1078.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post-thinksaas-e6-95-b0-e6-8d-ae-e5-ba-93-e7-bb-93-e6-9e-84-e6-95-b0-e6-8d-ae-e8-a1-a8-e7-bb-93-e6-9e-84" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1061.html" class="article-date">
-  <time datetime="2012-08-19T02:57:56.000Z" itemprop="datePublished">Aug 19 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1061.html">ThinkSAAS 数据库结构 -&gt; 数据表结构</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>注:这段时间,要用来研究一套系统ThinkSAAS,一个目前还不是很成熟的轻量化论坛系统.</p>
-<p>看到很多app都需要数据库的操作,再看了一下,好像没有关于数据库结构的文章,然后我就整理了一下.</p>
-<p>这是第一篇文章,关于数据表的结构,之后会陆续把一些app开发常用的数据表的结构整理出来.</p>
-<p>完全是音译,有部分还是不理解功能是什么,还望邱君和高手把这部分用处说一下,不确定的后面有”???”</p>
-<p>+——————————————————————-+</p>
-<p>| ts_anti_email                                =&gt; 阻止邮件名单</p>
-<p>| ts_anti_ip                                      =&gt; 禁止IP</p>
-<p>| ts_anti_word                                =&gt;禁止关键词</p>
-<p>| ts_area                                          =&gt;用户区域</p>
-<p>| ts_area_city                                  =&gt;用户居住城市</p>
-<p>| ts_area_province                         =&gt;用户居住省</p>
-<p>| ts_article                                       =&gt;文章列表</p>
-<p>| ts_article_cate                              =&gt;文章目录</p>
-<p>| ts_article_comment                    =&gt;文章评论</p>
-<p>| ts_attach                                      =&gt;附件列表</p>
-<p>| ts_feed                                         =&gt;订阅列表</p>
-<p>| ts_group                                      =&gt;小组列表</p>
-<p>| ts_group_cates                           =&gt;小组分类</p>
-<p>| ts_group_options                       =&gt;小组配置</p>
-<p>| ts_group_topics                          =&gt;小组帖子</p>
-<p>| ts_group_topics_add                  =&gt;添加小组主题???</p>
-<p>| ts_group_topics_collects           =&gt;收藏主题?</p>
-<p>| ts_group_topics_comments     =&gt;小组主题评论</p>
-<p>| ts_group_topics_type                =&gt;小组主题类别</p>
-<p>| ts_group_users                          =&gt;小组成员</p>
-<p>| ts_home_info                             =&gt;首页信息</p>
-<p>| ts_mail_options                         =&gt;邮件配置就是系统发邮件的配置</p>
-<p>| ts_message                                =&gt;消息</p>
-<p>| ts_photo                                     =&gt;照片列表</p>
-<p>| ts_photo_album                         =&gt;相册列表</p>
-<p>| ts_photo_comment                    =&gt;照片评论</p>
-<p>| ts_photo_options                        =&gt;照片选项</p>
-<p>| ts_session                                    =&gt;session 你懂得</p>
-<p>| ts_system_options                      =&gt;系统配置</p>
-<p>| ts_tag                                           =&gt;标签列表</p>
-<p>| ts_tag_article_index                    =&gt;文章标签指数???</p>
-<p>| ts_tag_group_index                   =&gt;小组标签指数???</p>
-<p>| ts_tag_photo_index                  =&gt;图片标签指数???</p>
-<p>| ts_tag_topic_index                    =&gt;主题标签指数???</p>
-<p>| ts_tag_user_index                      =&gt;用户标签指数???</p>
-<p>| ts_user                                          =&gt;用户列表</p>
-<p>| ts_user_follow                             =&gt;用户关注跟随</p>
-<p>| ts_user_gb                                  =&gt;用户留言</p>
-<p>| ts_user_info                                   =&gt;用户信息</p>
-<p>| ts_user_invites                            =&gt;邀请用户</p>
-<p>| ts_user_open                              =&gt;第三方登录</p>
-<p>| ts_user_options                           =&gt;用户选项</p>
-<p>| ts_user_role                               =&gt;用户参与任务</p>
-<p>| ts_user_scores                          =&gt;用户积分</p>
-<p>+———————————————————————-+</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1061.html" data-id="ckgcma3di006saa2aztlucjnc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1061" data-title="ThinkSAAS 数据库结构 -&gt; 数据表结构" data-url="http://www.qianxingzhem.com/post-1061.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e7-94-b5-e5-95-86-e5-a4-a7-e6-88-98-e6-ad-a3-e5-9c-a8-e8-bf-9b-e8-a1-8c-e6-97-b6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1051.html" class="article-date">
-  <time datetime="2012-08-16T16:11:42.000Z" itemprop="datePublished">Aug 17 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/其他/">其他</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1051.html">电商大战正在进行时</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近日，由于京东SEO的一番豪言，终于引发了中国电商大战。</p>
-<p>最突出当属京东VS苏宁。当然和苏宁相似的国美也打进来，之后当当看不下去了，随后其他的比较小的电商网站也打进来。</p>
-<p>截止到目前，已经有如下的网站正在开打：</p>
-<p><img src="data:image/png;base64,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" alt=""></p>
-<h2 id="怎么打？"><a href="#怎么打？" class="headerlink" title="怎么打？"></a>怎么打？</h2><ol>
-<li>首先是口水战，各方SEO都发表微博等消息，声称自己的价格策略，怎么对抗对方。</li>
-<li>其次是价格战，都有一定降价或者是促销方式。当然，价格战打得不如口水战。<br>令人遗憾的是，亚马逊、X猫却十分淡定，没有什么行动。特别是X猫的老大马云，还指挥旗下产品一淘，趁机揭短，推广人们使用它去搜索商品。（请看=&gt;<a href="http://www.etao.com/pk/report.html" target="_blank" rel="noopener">http://www.etao.com/pk/report.html</a>)</li>
-</ol>
-<p>现在打得真是好热闹。各位网友，如果有家电大件想要入手，现在抓紧行动吧，因为这场大战过去之后，就没有这么好的机会了。</p>
-<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>在这场电商大战之中，各个电商都在拼。京东SEO已经召开过股东会，股东们都放出了豪言：我们除了钱什么都没有，你尽管去打吧。</p>
-<p>所以，这场战争之后，肯定会消亡一批电商。那么剩下的电商，就处在了垄断地位。这打得过程中，他们损失的钱，会在垄断时期，迅速的收回。这或许就是京东的目的。</p>
-<p>这个事件会载入中国互联网史册的，故赶紧在这里发表一篇博文记录一下。</p>
-<div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1051.html" data-id="ckgcma3c5003eaa2arcmec9o4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1051" data-title="电商大战正在进行时" data-url="http://www.qianxingzhem.com/post-1051.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -935,7 +1020,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -944,7 +1029,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -953,7 +1038,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -962,7 +1047,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【基础篇】8，添加博客边栏功能 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="通常的博客都有边栏功能，边栏通常放置文章分类、友情链接等等信息。本节课讲解如何添加博客的边栏相关功能。在 WordPress 系统中，不得不提到的一个强大的功能，那就是 “小工具” ，即在后台中，找到 “外观” 选项下面的 “小工具”。当一款主题支持小工具的时候，我们只需要配置一下小工具，把需要的模块拖动进去，就可以在博客中显示出来。  对于初学者来说，本文暂时不讲解复杂的边栏相关的函数使用，而是">
+<meta name="keywords" content="wp 主题制作教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【基础篇】8，添加博客边栏功能">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1556.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="通常的博客都有边栏功能，边栏通常放置文章分类、友情链接等等信息。本节课讲解如何添加博客的边栏相关功能。在 WordPress 系统中，不得不提到的一个强大的功能，那就是 “小工具” ，即在后台中，找到 “外观” 选项下面的 “小工具”。当一款主题支持小工具的时候，我们只需要配置一下小工具，把需要的模块拖动进去，就可以在博客中显示出来。  对于初学者来说，本文暂时不讲解复杂的边栏相关的函数使用，而是">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar1.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar2.png">
+<meta property="og:image" content="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar3.png">
+<meta property="og:updated_time" content="2020-10-16T19:06:26.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【基础篇】8，添加博客边栏功能">
+<meta name="twitter:description" content="通常的博客都有边栏功能，边栏通常放置文章分类、友情链接等等信息。本节课讲解如何添加博客的边栏相关功能。在 WordPress 系统中，不得不提到的一个强大的功能，那就是 “小工具” ，即在后台中，找到 “外观” 选项下面的 “小工具”。当一款主题支持小工具的时候，我们只需要配置一下小工具，把需要的模块拖动进去，就可以在博客中显示出来。  对于初学者来说，本文暂时不讲解复杂的边栏相关的函数使用，而是">
+<meta name="twitter:image" content="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-918-ef-bc-8c-e6-b7-bb-e5-8a-a0-e5-8d-9a-e5-ae-a2-e8-be-b9-e6-a0-8f-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1556.html" class="article-date">
+  <time datetime="2012-11-18T04:44:58.000Z" itemprop="datePublished">Nov 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【基础篇】8，添加博客边栏功能
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通常的博客都有边栏功能，边栏通常放置文章分类、友情链接等等信息。本节课讲解如何添加博客的边栏相关功能。在 WordPress 系统中，不得不提到的一个强大的功能，那就是 “小工具” ，即在后台中，找到 “外观” 选项下面的 “小工具”。当一款主题支持小工具的时候，我们只需要配置一下小工具，把需要的模块拖动进去，就可以在博客中显示出来。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar0.png" alt="" title="WordPress 小工具"></a></p>
+<p>对于初学者来说，本文暂时不讲解复杂的边栏相关的函数使用，而是直接介绍如何为主题添加“小工具”这个功能的支持。这样就可以实现快速定义博客的边栏。</p>
+<p>为主题添加小工具功能，需要两个步骤：1，<strong>在 functions.php 文件中声明注册这个功能</strong>。2，<strong>在主题模板的相应位置，添加对边栏的调用</strong>。</p>
+<h2 id="在-functions-php-文件中声明这个功能"><a href="#在-functions-php-文件中声明这个功能" class="headerlink" title="在 functions.php 文件中声明这个功能"></a>在 functions.php 文件中声明这个功能</h2><p>需要用到 <a href="http://codex.wordpress.org/Function_Reference/register_sidebar" target="_blank" rel="noopener">register_sidebar</a> 这个函数。这个函数用于注册一个边栏小工具，当然还有一个函数 <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebars </a>与之类似，但是可以注册多个边栏小工具。但是如果你想在主题中，加入多个边栏小工具，我更推荐的是 <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebar</a> 函数，因为它可以自己定义更多的输出信息，注册多个，只需要复制几遍即可，更加灵活。</p>
+<p>下面介绍一下这个函数的相关参数：</p>
+<pre>'name'          =&gt; __( 'Sidebar name', 'theme_text_domain' ),
+'id'            =&gt; 'unique-sidebar-id',
+'description'   =&gt; '',
+'class'         =&gt; '',
+'before_widget' =&gt; '&lt;li id="%1$s"&gt;',
+'after_widget'  =&gt; '&lt;/li&gt;',
+'before_title'  =&gt; '&lt;h2&gt;',
+'after_title'   =&gt; '&lt;/h2&gt;' );</pre>
+
+<ul>
+<li><strong>name</strong>：设置这个边栏的名称，在之后的主题中的数据调用中，会用到这个名称。</li>
+<li><strong>id</strong> ：用于在 WordPress 内部对这个特定的边栏小工具进行标记，必须是唯一的值，同主题不能有两个相同的 id。</li>
+<li><strong>description</strong>：这个边栏小工具的描述，填写之后，在后台小工具选项配置的时候，可以看到当前工具的描述。</li>
+<li><strong>class</strong>：当前边栏小工具在生成的时候，在 HTML 结构中，加入的 class 属性，这样可以自定义接口，方便 CSS 对其样式的控制。</li>
+<li><strong>before_widget</strong>：在小工具生成的内容前面加上什么？默认加上 li 标签。</li>
+<li><strong>after_widget</strong>：同上。</li>
+<li><strong>before_title</strong>：在后台小工具设置中，添加小工具之后，可以设置小工具的标题，这个属性是为设置的标题包裹什么标签？默认 h2.</li>
+<li><strong>after_title</strong>：同上。<br>这个函数还是比较简单的，参数也都容易理解。那么在主题中，想声明一个边栏，就可以编写下面代码：<br><pre>if ( function_exists(‘register_sidebar’) ){ //先判断当前 WordPress 是否支持边栏小工具功能<pre><code>register_sidebar(array( //以数组的方式，传递参数
+&apos;name&apos; =&amp;gt; &apos;小工具&apos;,
+&apos;id&apos; =&amp;gt; &apos;sidebar1&apos;,
+&apos;description&apos; =&amp;gt; &apos;拖动小工具会在边栏显示出来&apos;,
+</code></pre>));<br>}</pre><br>你也可以编写更多的参数，例如制定元素包裹的标签等等，但是在这里，为了演示，其他属性均保持默认。</li>
+</ul>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar1.png" alt="" title="添加 小工具 声明代码"></a></p>
+<p>添加到 functions.php 文件之后，我们登录后台会发现小工具已经可以用了，并且显示出来了设置的信息。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar2.png" alt="" title="配置小工具功能"></a></p>
+<p>这时，我们就可以把左边的内容拖动到右边去，即可显示出相应的功能。例如拖动“搜索”会生成一个搜索框，拖动“链接”会生成一个有情链接列表。但是刷新主题之后，并没有出现，因为这时候我们还没有在主题中调用这个边栏数据。</p>
+<h2 id="在主题中调用边栏数据"><a href="#在主题中调用边栏数据" class="headerlink" title="在主题中调用边栏数据"></a>在主题中调用边栏数据</h2><p>声明完成之后，我们找到主题，在相应的位置使用 下面一句代码即可调用某边栏数据：</p>
+<pre>&lt;?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('小工具') ) : ?&gt;&lt;?php endif; ?&gt;</pre>
+
+<p>这句代码的意思就是：首先检测是否存在边栏小工具功能，如果存在，检测是否有 “name” 为 “小工具” 的小工具。如果有（即在 functions.php 声明过了）就调用它的数据。即后面的单引号中的内容，就是在 functions.php 文件中声明的 sidebar 的 name 参数值。</p>
+<p>在本系列教程的演示主题 myTheme 中，我们需要添加到 id 为   sidebar 的元素中，添加在下面。要注意的是，由于采用了默认的参数，所以每个小工具将会以 li 标签标记，为了符合 W3C 的标准，我们需要在外面加上 ul 标签。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/11/1556/sidebar3.png" alt="" title="配置小工具"></a></p>
+<p>在后台拖动小工具到边栏，配置一下，然后刷新首页就可以看到添加好的小工具内容了。这样，我们的边栏功能就实现了。</p>
+<h2 id="为主题添加多个小工具功能"><a href="#为主题添加多个小工具功能" class="headerlink" title="为主题添加多个小工具功能"></a>为主题添加多个小工具功能</h2><p>再扩展的多说一些。小工具这个功能非常的使用，而且功能很多。我们可以在主题中添加多个小工具功能，这样修改主题的相关内容，直接在后台编辑小工具即可。例如：在底部添加小工具功能，想修改底部版权文字等，直接通过后台小工具进行编辑就可以了。</p>
+<p>前面也说过，添加多个小工具可以使用   <a href="http://codex.wordpress.org/Function_Reference/register_sidebars" title="Function Reference/register sidebars" target="_blank" rel="noopener"> register_sidebars </a> 但是我更推荐的是复制多遍 <a href="http://codex.wordpress.org/Function_Reference/register_sidebar" target="_blank" rel="noopener">register_sidebar</a> 这个函数，因为它可以对每个边栏都进行描述，让别人更容易看懂。</p>
+<p>我们只需要把上面的代码，复制一遍：</p>
+<pre>if ( function_exists('register_sidebar') ){
+    register_sidebar(array(
+    'name' =&gt; '小工具',
+    'id' =&gt; 'sidebar1',
+    'description' =&gt; '拖动小工具会在边栏显示出来',
+));
+   register_sidebar(array(
+    'name' =&gt; '底部',
+    'id' =&gt; 'footer',
+    'description' =&gt; '这里是底部的小工具',
+));
+}</pre>
+
+<p>然后重新配置一下参数，特别要注意的是，name 和 id 一定不能和其他小工具相同，否则会产生数据调用冲突。之后像上面一样，在相应的位置，加上调用代码即可，当然要修改后面单引号里面的内容为要调用数据的 name 参数值。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=133909&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-8) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1556.html" data-id="ckgcnru7m002a1d2amrlgc0ws" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1561.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          学会在互联网的海量信息中学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1551.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【基础篇】7，制作博客的搜索模块</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1556" data-title="【基础篇】8，添加博客边栏功能" data-url="http://www.qianxingzhem.com/post-1556.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

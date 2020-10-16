@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e4-ba-ba-e4-bb-ac-e7-a9-b6-e7-ab-9f-e6-80-8e-e4-b9-88-e5-8e-bb-e7-9c-8b-e4-bd-a0-e5-8d-9a-e5-ae-a2-e9-87-8c-e7-9a-84-e6-96-87-e7-ab-a0" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-916-ef-bc-8c-e4-bd-bf-e7-94-a8-e4-b8-bb-e5-be-aa-e7-8e-af-e8-b0-83-e7-94-a8-e6-98-be-e7-a4-ba-e6-97-a5-e5-bf-97-e6-91-98-e8-a6-81-e7-ad-89-e6-95-b0-e6-8d-ae" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1211.html" class="article-date">
-  <time datetime="2012-08-27T23:22:31.000Z" itemprop="datePublished">Aug 28 2012</time>
+    <a href="/post-1502.html" class="article-date">
+  <time datetime="2012-10-26T18:38:36.000Z" itemprop="datePublished">Oct 27 2012</time>
 </a>
     
   <div class="article-category">
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1211.html">人们究竟怎么去看你博客里的文章</a>
+      <a class="article-title" href="/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a>
     </h1>
   
 
@@ -89,38 +89,304 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这篇文章是我建博一年多以来一个观察和总结。阅读本文章，你也可以根据你博客的实际情况，对你博客的内容排版等做出调整，更有利于发挥你博客的能力。</p>
-<p>首先要说明一点，这里说的博客，并不是生活记录类的博客。因为那类的博客，看的大多是朋友或者家人。这里说的是像<a href="http://www.qianxingzhem.com">潜行者m博客</a>那样的，具有一定方向的博客，写的文章具有一定的应用价值的博客。因为这种博客，才能吸引大量网络上的有这方面需求的人来看。</p>
-<h2 id="从网址直接进入"><a href="#从网址直接进入" class="headerlink" title="从网址直接进入"></a>从网址直接进入</h2><h3 id="浏览者的想法分析"><a href="#浏览者的想法分析" class="headerlink" title="浏览者的想法分析"></a>浏览者的想法分析</h3><p>从网址直接进入的朋友，可以能是记住了，或者是添加到了收藏夹里，也有可能是通过评论，回访进来的。但是就本人的博客而言，首页仅仅显示八篇文章，剩下的就需要继续翻页或者点击标签、目录分类才可以看到。通过这种方式进来的人，通常只会看第一页，仅仅是看到首页里面的八篇文章，而懒的继续点击看其他文章。也有个特例，如果访问者看到你首页的文章质量非常不错，可能就会收藏网站以便下次继续访问，也有可能会点击自己感兴趣的分类，查看更多文章。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ol>
-<li>设置醒目的目录链接等，吸引有兴趣的用户点击，这样可以看到更多的相关文章。</li>
-<li>提高文章质量是重中之重，浏览者来看了，但只有文章质量提升上去了，浏览者才会留下来，之后继续观看。</li>
-<li>在文章中增加相关性较强的文章链接，当浏览者观看文章的时候，可以继续看自己感兴趣的文章。</li>
+        <p>在前面的教程中，我们已经做出来了一个简单的头部，包括 CSS 文件的引入、文档的声明、添加网站标题副标题等。今天的教程，将要讲解如何以列表的方式显示博客中的文章。</p>
+<h2 id="认识-WordPress-的-主循环"><a href="#认识-WordPress-的-主循环" class="headerlink" title="认识 WordPress 的 主循环"></a>认识 WordPress 的 主循环</h2><p>我们想要达到的目的和效果，就是在博客的首页中，显示出来博客中现有的文章的标题、摘要、文章相关信息。通过前面的学习，我们了解到了 <a href="http://www.qianxingzhem.com/post-1251.html">Wordpress 的函数机制</a>，即使用函数调用数据库中的各种信息。可想而知，对于文章的标题、摘要、相关信息等，肯定也是通过函数来调用的。</p>
+<p>但是现在就出来了一个问题。这类的函数不同于其他的函数，例如调用网站标题的函数，它只会返回一个确定的值，那就是数据库中的博客标题。但是这些调用文章标题等信息的函数不同。因为每个博客的文章数据都有很多，如果我添加了一个调用文章主题的函数，那么系统会显示众多文章中的哪一篇文章的相关数据呢？</p>
+<p>所以 WordPress 系统有一个主循环机制。主循环机制就是为了解决这个问题，我们把显示文章的 HTML 结构、调用相关内容的函数等，写进主循环中，执行后查看源文件会发现，写进主循环的内容，会被重复很多遍（具体显示多少，在后台进行配置），但是在原先调用函数的位置会把文章数据调用插入进去。</p>
+<p>于是可以这样认识主循环：<strong>循环调用数据库中的每一篇文章，把定义在主循环的内容，复制一下，把当前循环到的文章的相应数据插入到调用函数中，完成这第一篇文章之后，就继续按照这个步骤循环下一篇文章。这样就形成了一个文章列表。</strong></p>
+<h2 id="主循环的结构和用法"><a href="#主循环的结构和用法" class="headerlink" title="主循环的结构和用法"></a>主循环的结构和用法</h2><p>主循环的结构实际上就是一段简单的 PHP 判断和循环代码：</p>
+<pre>&lt;?php if(have_posts()) : ?&gt;
+    &lt;?php while(have_posts()) : the_post(); ?&gt;
+        主循环里面的循环内容以及各种数据调用函数
+    &lt;?php endwhile; ?&gt;
+&lt;?php else: ?&gt;
+    文章调用出错的处理
+&lt;?php endif; ?&gt;</pre>
+
+<p>上面的代码比较乱，因为保留了 PHP 的标签，现在我将它整理一下，仅仅保留 PHP 的语句：</p>
+<pre>if(have_posts()):
+    while(have_posts()) : the_post();
+        主循环里面的循环内容以及各种数据调用函数
+    endwhile;
+else:
+    文章调用出错的处理
+endif;</pre>
+
+<p>懂一点点编程基础的人，一看就可以看出来，这就是一个简单的 if 判断语句，里面有一个 while 循环语句，然后不断的循环调用文章数据。这里面有两个重要的函数：<strong>have_posts()</strong>、<strong>the_post()</strong>。</p>
+<p>其实从名字中，就可以看出来，第一个函数是判断这个博客是否有符合调用条件的文章，使用 if 语句来判断，如果有符合条件的文章的时候，才会调用主循环来进行下一步的操作。如果没有的话，直接跳到后面进行错误处理。</p>
+<p>在下面的 while 语句中，再次进行了测试，当有文章的时候，才进行循环。之后的 the_post() 函数，就是调用了当前循环到的文章数据，表示下面的代码，都会对这个当前循环到的文章数据，进行数据调用显示。</p>
+<h2 id="应用主循环输出文章的信息"><a href="#应用主循环输出文章的信息" class="headerlink" title="应用主循环输出文章的信息"></a>应用主循环输出文章的信息</h2><p>上面介绍了主循环的原理和结构，下面就要应用到我们的主题 myTheme 中。在这个演示的主题中，要循环的结构有一个 class 属性 article，所以要在这里和它的父结构之间，插入这段主循环的起始代码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop0.png" alt="" title="Loop Code Begin"></a></p>
+<p>在这个 class 为 article 的 div 元素的结尾，加上主循环的结束代码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop1.png" alt="" title="Loop Code End"></a></p>
+<p>这样，就会把包裹在主循环中的数据重复显示。在之前设计主题的阶段，我添加了两个文章摘要，现在我已经把第一个使用主循环包裹起来了，所以第二个可以直接删掉了。下面我们要使用对应的数据调用函数，替换掉里面的演示数据。这里，我直接给出相应的函数，关于函数功能的解释，在后面说。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop2.png" alt="" title="Loop function"></a></p>
+<p>具体代码如下：</p>
+<pre>            &lt;?php if(have_posts()) : ?&gt;&lt;?php while(have_posts()) : the_post(); ?&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/h1&gt;
+                    &lt;div&gt;&lt;?php the_excerpt(); ?&gt;&lt;/div&gt;
+                    &lt;div&gt;作者 : &lt;?php  the_author(); ?&gt; 时间 : 20&lt;?php the_time('y年m月d日') ?&gt; 文章分类 : &lt;?php the_category(', '); ?&gt;
+                     &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;?php endwhile; ?&gt;
+            &lt;?php else: ?&gt;
+                &lt;?php echo '系统没有找到相应的文章!!'; ?&gt;
+            &lt;?php endif; ?&gt;</pre>
+
+<p>将代码修改成这样之后，再打开我们的本地的 WordPress 就可以看到效果了：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop3.png" alt="" title="New Index"></a></p>
+<p>如果在浏览器中随便输入几个参数，这样 WordPress 就无法查询到相应的文章。于是就出现错误信息。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1502/loop4.png" alt="" title="New Error"></a></p>
+<h2 id="上例中涉及的函数解析"><a href="#上例中涉及的函数解析" class="headerlink" title="上例中涉及的函数解析"></a>上例中涉及的函数解析</h2><p><strong>the_permalink()</strong></p>
+<p>这个函数用来输出当前文章的 “固定链接”，输出的是链接地址。将其加入 a 中的 href 属性，即可创建跳转到本文内容的超链接。</p>
+<p><strong>the_title()</strong></p>
+<p>这个函数用来输出当前文章的 文章名称。可以配合上一个函数，做成超链接，点击打开相应文章。</p>
+<p><strong>the_excerpt()</strong></p>
+<p>这个函数用来输出当前文章的摘要信息。在 WordPress 后台编写文章的时候，是可以设置摘要内容的（你需要打开右上方的“显示选项”，启用摘要功能），它会显示当前文章的摘要。如果当前文章没有设置摘要，那么将会截取 前 55 个字符 作为摘要内容，并且在后面加上省略号。更加具体的用法，可以<a href="http://codex.wordpress.org/Template_Tags/the_excerpt" target="_blank" rel="noopener">查看官方的文档</a>。此外，这个函数可能会在某些版本中失效或者显示出全文，如果你遇到我说的这种情况，可以查看我之前写过的文章：<a href="http://www.qianxingzhem.com/post-330.html">解决 wp 首页无法显示摘要而显示全文的方法</a></p>
+<p><strong>the_author()</strong></p>
+<p>这个函数用来输出当前文章的作者名称。</p>
+<p><strong>the_category()</strong></p>
+<p>这个函数用来输出当前文章所在的分类目录。通常配合多个参数使用。在上面的代码中，添加了参数 ‘，’。功能是，当本文存在多个 分类目录 的时候，将使用 ‘，’ 来分割当前目录。如果想了解更多的参数，可以百度搜索，或者<a href="http://codex.wordpress.org/Template_Tags/the_category" target="_blank" rel="noopener">查看官方文档</a>。</p>
+<p><strong>the_time()</strong></p>
+<p>这个函数用来输出当前文章的发布时间。在上例中，使用了参数 ‘y 年 m 月 d 日’ 表示输出的信息格式为：XX 年 XX 月 XX 日。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=96950&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-6) 主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a><div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
+</li>
 </ol>
-<h2 id="通过搜索引擎进入"><a href="#通过搜索引擎进入" class="headerlink" title="通过搜索引擎进入"></a>通过搜索引擎进入</h2><h3 id="浏览者的想法分析-1"><a href="#浏览者的想法分析-1" class="headerlink" title="浏览者的想法分析"></a>浏览者的想法分析</h3><p>这种方法得到的浏览者质量最好，但是要求博客文章的质量也要好。这一点比较适用于技术类博客，大家在搜索某个函数或者某个插件的时候，前面几个往往是独立博客，针对这个插件的介绍和使用方法等。一般不会有人去搜索某某心情，然后看到你博客上面，写你最近的心情如何。但是，浏览者往往看完文章，学到知识就走人了，而不会去看其他文章。</p>
-<h3 id="解决方法：-1"><a href="#解决方法：-1" class="headerlink" title="解决方法："></a>解决方法：</h3><ol>
-<li>在文章的底部等，添加相关文章显示，浏览者可能会发现有很多他喜欢的文章，而继续看下去或者收藏一下。</li>
-<li>提高文章质量，让浏览者明白，你的博客是一个质量非常高的博客，在你博客里，可以学到很多有用的知识。</li>
-</ol>
-<h2 id="从外链进入"><a href="#从外链进入" class="headerlink" title="从外链进入"></a>从外链进入</h2><h3 id="浏览者的想法分析-2"><a href="#浏览者的想法分析-2" class="headerlink" title="浏览者的想法分析"></a>浏览者的想法分析</h3><p>这种外链进入，并非是上面说的第一条，这里的外链，主要是指在其他地方发表文章留下的版权链接、他人转载文章留下的原文链接、他人在文章中引用文章留下的链接等。这中方式进入的和第二条，通过搜索引擎进入的有异曲同工之妙。浏览者往往是为了好奇或者是扩充知识等，来到你的文章，但是一旦看完，就觉得没有什么必要继续看下去。</p>
-<h3 id="解决方法：-2"><a href="#解决方法：-2" class="headerlink" title="解决方法："></a>解决方法：</h3><ol>
-<li>同第二条的解决方法。</li>
-</ol>
-<h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><p>理论永远只是理论，能实践的理论才是好理论。现在就说一下本人的实际应用方案。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1502.html" data-id="ckgcnru7k00241d2a1ud1wxvt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1502" data-title="【基础篇】6，使用主循环调用显示日志摘要等数据" data-url="http://www.qianxingzhem.com/post-1502.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e7-bc-96-e7-a0-81-e5-b0-b1-e6-98-af-e9-82-a3-e7-82-b9-e4-ba-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1499.html" class="article-date">
+  <time datetime="2012-10-22T10:03:13.000Z" itemprop="datePublished">Oct 22 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1499.html">网页编码就是那点事</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>编码一直是让新手头疼的问题，特别是 GBK、GB2312、UTF-8 这三个比较常见的网页编码的区别，更是让许多新手晕头转向，怎么解释也解释不清楚。但是编码又是那么重要，特别在网页这一块。如果你打出来的不是乱码，而网页中出现了乱码，绝大部分原因就出在了编码上了。此外除了乱码之外，还会出现一些其他问题（例如：IE6 的 CSS 加载问题）等等。<a href="http://www.qianxingzhem.com">潜行者 m</a> 写出本文的目的，就是要彻底解释清楚这个编码问题！如果你遇到了类似的问题，那就要仔细的看看这篇文章。</p>
+<h2 id="ANSI、GBK、GB2312、UTF-8、GB18030-和-UNICODE"><a href="#ANSI、GBK、GB2312、UTF-8、GB18030-和-UNICODE" class="headerlink" title="ANSI、GBK、GB2312、UTF-8、GB18030 和 UNICODE"></a>ANSI、GBK、GB2312、UTF-8、GB18030 和 UNICODE</h2><p>这几个编码关键词是比较常见的，虽然我把我们放在了一起说，但并不意味这这几个东西是平级的关系。本部分的内容，引用自网络略有修改，不知原文出处，故无法署名。</p>
+<p>很久很久以前，有一群人，他们决定用 8 个可以开合的晶体管来组合成不同的状态，以表示世界上的万物，他们把这称为”字节”。再后来，他们又做了一些可以处理这些字节的机器，机器开动了，可以用字节来组合出很多状态，状态开始变来变去，他们就把这机器称为”计算机”。</p>
+<p>开始计算机只在美国用。八位的字节一共可以组合出 256(2 的 8 次方)种不同的状态。他们把其中的编号从 0 开始的 32 种状态分别规定了特殊的用途，一但终端、打印机遇上约定好的这些字节被传过来时，就要做一些约定的动作。遇上 00×10, 终端就换行，遇上 0×07, 终端就向人们嘟嘟叫，例好遇上 0x1b, 打印机就打印反白的字，或者终端就用彩色显示字母。他们看到这样很好，于是就把这些 0×20 以下的字节状态称为”控制码”。</p>
+<p>他们又把所有的空格、标点符号、数字、大小写字母分别用连续的字节状态表示，一直编到了第 127 号，这样计算机就可以用不同字节来存储英语的文字 了。大家看到这样，都感觉很好，于是大家都把这个方案叫做 <strong>ANSI</strong> 的”<strong>Ascii</strong>”编码（American Standard Code for Information Interchange，美国信息互换标准代码）。当时世界上所有的计算机都用同样的<strong>ASCII</strong>方案来保存英文文字。</p>
+<p>后来计算机发展越来越广泛，世界各国为了可以在计算机保存他们的文字，他们决定采用 127 号之后的空位来表示这些新的字母、符号，还加入了很多画表格时需要用下到的横线、竖线、交叉等形状，一直把序号编到了 最后一个状态 255。从 128 到 255 这一页的字符集被称”扩展字符集”。但是原有的编号方法，已经再也放不下更多的编码。</p>
+<p>等中国人们得到计算机时，已经没有可以利用的字节状态来表示汉字，况且有 6000 多个常用汉字需要保存呢。于是国人就自主研发，把那些 127 号之后的奇异符号们直接取消掉。规定：一个小于 127 的字符的意义与原来相同，但两个大于 127 的字符连在一起时，就表示一个汉字，前面的一个字节（他称之为高字节）从 0xA1 用到 0xF7，后面一个字节（低字节）从 0xA1 到 0xFE，这样我们就可以组合出大约 7000 多个简体汉字了。在这些编码里，我们还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在 127 号以下的那些就叫”半角”字符了。</p>
+<p>中国人民看到这样很不错，于是就把这种汉字方案叫做 “GB2312″。<strong>GB2312</strong> 是对 <strong>ASCII</strong> 的中文扩展。</p>
+<p>但是中国的汉字太多了，后来还是不够用，于是干脆不再要求低字节一定是 127 号之后的内码，只要第一个字节是大于 127 就固定表示这是一个汉字的开始，不管后面跟的是不是 扩展字符集里的内容。结果扩展之后的编码方案被称为 <strong>GBK</strong> 标准，GBK 包括了 GB2312 的所有内容，同时又增加了近 20000 个新的汉字（包括繁体字）和符号。后来少数民族也要用电脑了，于是我们再扩展，又加了几千个新的少数民族的字，<strong>GBK</strong> 扩成了 <strong>GB18030</strong>。从此之后，中华民族的文化就可以在计算机时代中传承了。</p>
+<p>因为当时各个国家都像中国这样搞出一套自己的编码标准，结果互相之间谁也不懂谁的编码，谁也不支持别人的编码。当时的中国人想让电脑显示汉字，就必须装上一个”汉字系统”，专门用来处理汉字的显示、输入的问题，装错了字符系统，显示就会乱了套。这怎么办？就在这时，一个叫 <strong>ISO</strong> （国际标谁化组织）的国际组织决定着手解决这个问题。他们采用的方法很简单：废了所有的地区性编码方案，重新搞一个包括了地球上所有文化、所有字母和符号的编码！他们打算叫它”Universal Multiple-Octet Coded Character Set”，简称 UCS, 俗称 “<strong>UNICODE</strong>”。</p>
+<p>UNICODE 开始制订时，计算机的存储器容量极大地发展了，空间再也不成为问题了。于是 ISO 就直接规定必须用两个字节，也就是 16 位来统一表示所有的字符，对于 ascii 里的那些”半角”字符，UNICODE 包持其原编码不变，只是将其长度由原来的 8 位扩展为 16 位，而其他文化和语言的字符则全部重新统一编码。由于”半角”英文符号只需要用到低 8 位，所以其高 8 位永远是 0，因此这种大气的方案在保存英文文本时会多浪费一倍的空间。</p>
+<p>但是，UNICODE 在制订时没有考虑与任何一种现有的编码方案保持兼容，这使得 GBK 与 UNICODE 在汉字的内码编排上完全是不一样的，没有一种简单的算术方法可以把文本内容从 UNICODE 编码和另一种编码进行转换，这种转换必须通过查表来进行。UNICODE 是用两个字节来表示为一个字符，他总共可以组合出 65535 不同的字符，这大概已经可以覆盖世界上所有文化的符号。</p>
+<p>UNICODE 来到时，一起到来的还有计算机网络的兴起，UNICODE 如何在网络上传输也是一个必须考虑的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，<strong>UTF8</strong> 就是每次 8 个位传输数据，而<strong> UTF16</strong> 就是每次 16 个位，只不过为了传输时的可靠性，从 UNICODE 到 UTF 时并不是直接的对应，而是要过一些算法和规则来转换。</p>
+<p>看完这些，相信你对于这几个编码关系等，了解的比较清楚了吧。我再来简单的总结一下：</p>
+<ul>
+<li>中国人民通过对 ASCII 编码的中文扩充改造，产生了 GB2312 编码，可以表示 6000 多个常用汉字。</li>
+<li>汉字实在是太多了，包括繁体和各种字符，于是产生了 GBK 编码，它包括了 GB2312 中的编码，同时扩充了很多。</li>
+<li>中国是个多民族国家，各个民族几乎都有自己独立的语言系统，为了表示那些字符，继续把 GBK 编码扩充为 GB18030 编码。</li>
+<li>每个国家都像中国一样，把自己的语言编码，于是出现了各种各样的编码，如果你不安装相应的编码，就无法解释相应编码想表达的内容。</li>
+<li>终于，有个叫 ISO 的组织看不下去了。他们一起创造了一种编码 UNICODE ，这种编码非常大，大到可以容纳世界上任何一个文字和标志。所以只要电脑上有 UNICODE 这种编码系统，无论是全球哪种文字，只需要保存文件的时候，保存成 UNICODE 编码就可以被其他电脑正常解释。</li>
+<li>UNICODE  在网络传输中，出现了两个标准 UTF-8 和 UTF-16，分别每次传输 8 个位和 16 个位。<br>于是就会有人产生疑问，UTF-8 既然能保存那么多文字、符号，为什么国内还有这么多使用 GBK 等编码的人？因为 UTF-8 等编码体积比较大，占电脑空间比较多，如果面向的使用人群绝大部分都是中国人，用 GBK 等编码也可以。但是目前的电脑来看，硬盘都是白菜价，电脑性能也已经足够无视这点性能的消耗了。所以推荐所有的网页使用统一编码：<strong>UTF-8</strong>。</li>
+</ul>
+<h2 id="关于记事本无法单独保存“联通”的问题"><a href="#关于记事本无法单独保存“联通”的问题" class="headerlink" title="关于记事本无法单独保存“联通”的问题"></a>关于记事本无法单独保存“联通”的问题</h2><p>当你新建一个 文本文档 之后，在里面输入 “联通” 两个字，然后保存。当你再次打开的时候，原来输入的 “联通” 会变成两个乱码。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1499/char1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1499/char1.png" alt="" title="记事本无法编写 联通"></a></p>
+<p>这个问题就是因为 GB2312 编码与 UTF8 编码产生了编码冲撞造成的。从网上引来一段从 UNICODE 到 UTF8 的转换规则：</p>
+<blockquote>
+<p>UTF-8</p>
+<p>0000 – 007F</p>
+<p>0xxxxxxx</p>
+<p>0080 – 07FF</p>
+<p>110xxxxx 10xxxxxx</p>
+<p>0800 – FFFF</p>
+<p>1110xxxx 10xxxxxx 10xxxxxx<br>例如”汉”字的 Unicode 编码是 6C49。6C49 在 0800-FFFF 之间，所以要用 3 字节模板：1110xxxx 10xxxxxx 10xxxxxx。将 6C49 写成二进制是：0110 1100 0100 1001，将这个比特流按三字节模板的分段方法分为 0110 110001 001001，依次代替模板中的 x，得到：1110-0110 10-110001 10-001001，即 E6 B1 89，这就是其 UTF8 的编码。</p>
+</blockquote>
+<p>而当你新建一个文本文件时，记事本的编码默认是 ANSI, 如果你在 ANSI 的编码输入汉字，那么他实际就是 GB 系列的编码方式，在这种编码下，”联通”的内码是：</p>
+<p>c1 1100 0001</p>
+<p>aa 1010 1010</p>
+<p>cd 1100 1101</p>
+<p>a8 1010 1000</p>
+<p>注意到了吗？第一二个字节、第三四个字节的起始部分的都是”110″和”10″，正好与 UTF8 规则里的两字节模板是一致的，于是再次打开记事本 时，记事本就误认为这是一个 UTF8 编码的文件，让我们把第一个字节的 110 和第二个字节的 10 去掉，我们就得到了”00001 101010″，再把各位对齐，补上前导的 0，就得到了”0000 0000 0110 1010″，不好意思，这是 UNICODE 的 006A，也就是小写的字母”j”，而之后的两字节用 UTF8 解码之后是 0368，这个字符什么也不是。这就 是只有”联通”两个字的文件没有办法在记事本里正常显示的原因。</p>
+<p>由这个问题，可以发散出很多问题。比较常见的一个问题就是：我已经把文件保存成了 XX 编码，为什么每次打开，还是原来的 YY 编码？！原因就在于此，你虽然保存成了 XX 编码，但是系统识别的时候，却误识别为了 YY 编码，所以还是显示为 YY 编码。为了避免这个问题，微软公司弄出了一个叫 <strong>BOM</strong> 头的东西。</p>
+<h2 id="关于文件-BOM-头的问题"><a href="#关于文件-BOM-头的问题" class="headerlink" title="关于文件 BOM 头的问题"></a>关于文件 BOM 头的问题</h2><p>当使用类似 WINDOWS 自带的记事本等软件，在保存一个以 UTF-8 编码的文件时，会在文件开始的地方插入三个不可见的字符（0xEF 0xBB 0xBF，即 BOM）。它是一串隐藏的字符，用于让记事本等编辑器识别这个文件是否以 UTF-8 编码。这样就可以避免这个问题了。对于一般的文件，这样并不会产生什么麻烦。</p>
+<p>这样做，也<a href="https://qxzm-cdn.sapi.work、包含或者引用这些文件时，会把BOM作为该文件开头正文" target="_blank" rel="noopener">https://qxzm-cdn.sapi.work、包含或者引用这些文件时，会把BOM作为该文件开头正文</a> 的一部分。根据嵌入式语言的特点，这<a href="https://qxzm-cdn.sapi.workpadding" target="_blank" rel="noopener">https://qxzm-cdn.sapi.workpadding</a> 设置为 0，也无法让整个网页紧贴浏览器顶部，因为在 html 一开头有这 3 个字符。如果你在网页中，发现了由未知的空白等，很有可能就是由于文件有 BOM 头造成的。遇到这种问题，把文件保存的时候，不要带有 BOM 头！</p>
+<h2 id="如何查看和修改某文档的编码"><a href="#如何查看和修改某文档的编码" class="headerlink" title="如何查看和修改某文档的编码"></a>如何查看和修改某文档的编码</h2><p><strong>1，直接使用记事本查看和修改。</strong>我们可以用记事本打开文件，然后点击左上角的 “文件” =》“另存为”，这时候就会弹出一个保存的窗口。在下面选择好编码之后，点击保存就可以了。</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char2.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char2.png" alt="" title="使用记事本查看文档编码"></a></p>
+<p>但是这种方<a href="https://qxzm-cdn.sapi.work使用下面的方法。https://qxzm-cdn.sapi.work" target="_blank" rel="noopener">https://qxzm-cdn.sapi.work使用下面的方法。https://qxzm-cdn.sapi.work</a></p>
+<p><strong>2，使用其他文本编辑器（例如：notepad ++）来查看修改。</strong>几乎所有的成熟的文本编辑器（例如：Dreamweaver、Emeditor 等），都可以快速查看或修改文件编码。这一点尤其体现在 notepad++ 上面。</p>
+<p>打开一个文<a href="https://qxzm-cdn.sapi.workhttps://qxzm-cdn.sapi.work" target="_blank" rel="noopener">https://qxzm-cdn.sapi.workhttps://qxzm-cdn.sapi.work</a></p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char3.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char3.png" alt="" title="使用notepad++ 查看文档编码"></a></p>
+<p>点击上面菜单栏中的 “encoding” 即可把当前文档转换成其他编码</p>
+<p><a href="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char4.png" target="_blank" rel="noopener"><img src="http://qxzm-img.b0.upaiyun.com/blog/2012/10/1499/char4.png" alt="" title="使用 notepad++ 修改文档编码"></a></p>
+<h2 id="IE6-的加载-CSS-文件-BUG"><a href="#IE6-的加载-CSS-文件-BUG" class="headerlink" title="IE6 的加载 CSS 文件 BUG"></a>IE6 的加载 CSS 文件 BUG</h2><p>当 HTML 文件的编码 与想要加载 CSS 的文件不一致的时候，IE6 将无法读取 CSS 文件，即 HTML 文件没有样式。就本人的观察，这个问题从未在其他浏览器中出现过，只在 IE6 中出现过。只需要把 CSS 文件，保存成 HTML 文件的编码即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1499.html" data-id="ckgcnru9t008u1d2alltitzhq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1499" data-title="网页编码就是那点事" data-url="http://www.qianxingzhem.com/post-1499.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e8-bf-81-e7-a7-bb-sae-e5-ae-8c-e5-85-a8-e6-93-8d-e4-bd-9c-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1387.html" class="article-date">
+  <time datetime="2012-10-19T18:24:52.000Z" itemprop="datePublished">Oct 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1387.html">WordPress 迁移 SAE 完全操作攻略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近终于算是忙完了大部分工作了，同时也有更多的时间来写写文章，或者做点其他的事情了。现在吃喝不愁，没有多少繁忙的事情，可以学学东西，做点东西，写点文章等等。同时，博客要提高文章质量，更新速度大约在两到三天左右。</p>
+<h2 id="SAE-是什么"><a href="#SAE-是什么" class="headerlink" title="SAE 是什么"></a>SAE 是什么</h2><p>在迁移 SAE 之前，有必要先简单的了解一下 SAE 是什么。SAE 的全称是 Sina App Engine，翻译过来就是 新浪应用平台。这个平台提供了一些方便开发的组件、优质高速的硬件等，方便开发者进行应用的开发。狭义的讲，就是一个网站空间，可以把网站放上去，但是和普通的虚拟主机、VPS 等又有很多不同的地方。在后面你会了解到。它的地址：<a href="http://sae.sina.com.cn" target="_blank" rel="noopener">http://sae.sina.com.cn</a></p>
+<h3 id="为什么要迁移-SAE"><a href="#为什么要迁移-SAE" class="headerlink" title="为什么要迁移 SAE"></a>为什么要迁移 SAE</h3><p>之所以迁移到 SAE 上，是因为 SAE 有以下几个优点。</p>
 <ol>
-<li>首先要提高整体的博客文章质量和素质，文章要是给别人看的，如果写的没有质量和水平，谁去看。</li>
-<li>由于<a href="http://www.qianxingzhem.com/post-1048.html">那次robots文件事件</a>，导致百度收录全清，结果完全没有搜索引擎的流量。加强一了下SEO，现在百度每天一收。</li>
-<li>在之前的文章中，仍然有很多精品文章，但由于百度收录没有，如果想要别人看到，则要在新写的文章中，不时地提一下之前写的文章，给出一个连接，让浏览者可以点击查看之前的精品文章。</li>
-<li>为了增加对以前文章的收录，潜行者m还整理了一下以前的精品文章，加上原文链接，将其转载到其他博客或者网站上，这样，百度可以收录较早的文章，而其他博客平台或者网站上的用户，也可以看到之前的精品文章。<br>计划就是这些，希望本文能给你一些启示和帮助。</li>
+<li>硬件质量高，网站访问速度快。</li>
+<li>专业，不用怕数据丢失或者服务商跑路。</li>
+<li>按照你使用的资源进行收费，收费合理，性价比高。<br>最看重的是 SAE 平台的<strong>稳定、高速和性价比</strong>，与原来的美国空间、香港空间相比，低价高质量。</li>
+</ol>
+<h3 id="开通-SAE"><a href="#开通-SAE" class="headerlink" title="开通 SAE"></a>开通 SAE</h3><p>开通 SAE 只需要打开 SAE ，然后点击右上方的注册即可，它使用新浪微博作为账号。其中还要区分几个概念，包括安全邮箱、安全密码等等。此外，SAE 平台使用 SVN 的方式上传文件，它的使用要比传统的 FTP 上传方便简单，但是需要学习和适应，这点官方文档写的非常详细。你需要花费一点时间，查看一下他们的帮助文档，这些很简单，也不是本文要说的重点。帮助文档：<a href="http://sae.sina.com.cn/?m=devcenter" target="_blank" rel="noopener">http://sae.sina.com.cn/?m=devcenter</a></p>
+<h2 id="迁移-WordPress"><a href="#迁移-WordPress" class="headerlink" title="迁移 WordPress"></a>迁移 WordPress</h2><p>本文的重点不是 SAE 的注册和开通，而是在于如何合理正确高效的把 WordPress 博客，从之前的主机中迁移到 SAE 中。</p>
+<h3 id="安装-WordPress-应用"><a href="#安装-WordPress-应用" class="headerlink" title="安装 WordPress 应用"></a>安装 WordPress 应用</h3><p>SAE 之所以高速、稳定，是因为它限制了部分功能。例如：出于完全考虑，SAE 禁止了 I/O 读写操作，这样，就无法使用传统的函数，进行生成或者读取操作等。</p>
+<p>所以，官方原版的 WordPress 是不能直接安装上去的，因为里面的一些功能（例如：在线安装主题）是 SAE 平台所不支持的。但是 WordPress 这么流行的系统，当然有团队修改里面的代码，把不支持的功能，进行改写做成了 WordPress for SAE 版本，同时还上架到 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="noopener">应用仓库</a> 中，这样只需要点几下鼠标，就可以在你的应用空间中，安装上 WordPress 。</p>
+<p>1，创建一个应用。登陆之后，在 <a href="http://sae.sina.com.cn/?m=myapp" target="_blank" rel="noopener">我的应用</a> 页面中，找到右上方的 “安装应用” 。会出现如下的配置窗口。SAE 的应用安装，基于安装包（zip 格式）安装，可以直接填写网上的安装包，也可以本地上传。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/1.png" alt="" title="创建应用"></a></p>
+<p>2，在 <a href="http://sae.sina.com.cn/?m=appstore" target="_blank" rel="noopener">应用仓库</a> 中，找到 <a href="http://sae.sina.com.cn/?m=apps&amp;a=detail&amp;aid=1" target="_blank" rel="noopener">WordPress for SAE</a> 的安装包地址，可以把地址填写到上面的 安装应用 表单中。其实，也可以点击右上方的 “安装应用”，直接进行安装。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/2.png" alt="" title="从应用仓库中安装"></a></p>
+<p>3，输入一个 二级域名 和 验证码 之后，点击创建，就会告诉你已经创建成功了。现在你就可以管理这个应用了。根据提示，进行应用的初始化，就是安装 WordPress 时配置安装信息。</p>
+<p>配置完成之后，系统会提示你安装完成。WordPress 系统就算安装完成了。你可以进入后台看一下相关配置，这个版本的 WordPress 是比较老的 ，截止到本文写作时，版本为 3.2.1。所以在安装插件的时候，需要注意插件是否支持这个版本。其中内置了几个比较常用的插件以及三个主题。下面就要进行博客数据的迁移。</p>
+<h3 id="转移文章等数据"><a href="#转移文章等数据" class="headerlink" title="转移文章等数据"></a>转移文章等数据</h3><p>文章等数据的迁移是整个迁移工作中，最简单的一个步骤。很多文章写道需要把数据库里的数据导入等等，其实不用这么麻烦，使用 WordPress 内置的工具（导入、导出）即可完成。</p>
+<ol>
+<li>首先在原先的博客中，点击 “工具” -》 “导出” ，选择 “全部内容” ，点击导出。会弹出一个 xml 文件的下载。这个文件就记录了你博客上面的文章、评论、页面等等数据。</li>
+<li>在 SAE 的博客上面，点击 “工具” -》 “导入” ，选择列表中的 “WordPress”。然后上传这个 xml 文件，将作者名等修改一下即可。注意，不要勾选 “下载远程附件” 这个项目，因为 SAE 不支持 读写操作，所以选择这个会报错。<br>这个时候，文章等数据迁移完毕，打开应用首页，你已经可以看到你的文章数据了。</li>
+</ol>
+<h3 id="配置后台网站信息与之前网站完全一致"><a href="#配置后台网站信息与之前网站完全一致" class="headerlink" title="配置后台网站信息与之前网站完全一致"></a>配置后台网站信息与之前网站完全一致</h3><p>采用上面这种方法，只能迁移文章、页面、评论等数据，而无法迁移原有 WordPress 的后台设置。所以我们要打开 SAE 上的 WordPress 后台中的 “设置” 标签，把下面的内容依次重新设置一下，把它们设置的和原先博客中设置的一样。</p>
+<h3 id="对于图片-网站附件的处理"><a href="#对于图片-网站附件的处理" class="headerlink" title="对于图片/网站附件的处理"></a>对于图片/网站附件的处理</h3><p>数据迁移通常分为两种：<strong>内容迁移</strong>和<strong>资源迁移</strong>。内容迁移很简单，上面已经完成。令人头痛的是资源迁移，即 图片资源、附件资源等。<a href="http://www.qianxingzhem.com">潜行者 m</a> 搜寻了很多资料来解决这个资源迁移的问题。</p>
+<p><strong>1，直接使用 SVN 的方式，上传到原有博客的 upload 目录中。</strong></p>
+<p>这是最简单的一种方式，但是有很多问题。首先，SAE 的应用代码空间，只有 100M 大小。上面通常存放代码、基础的图片等资源，不适合存储附件等。潜行者 m 博客光图片资源以及超过 100M 大小，肯定无法使用 SVN 的方式上传到 代码空间。但是对于图片附件比较少的博客来说，可以直接使用这种方法。</p>
+<p><strong>2，使用 SAE 的 Storage 服务</strong></p>
+<p>Storage 服务，是 SAE 为应用提供的专门用于存储文件的空间。容量大，下载速度快。当你使用 WordPress for SAE 写文章上传附件的时候，会自动上传到这个空间中，然后进行调用。这就相当于外链的空间了。</p>
+<p>所以我们首先要把 资源文件 上传到这个应用的 Storage 空间中，然后修改文章中对于资源的引用，把外链修改上。上传有两种方法：</p>
+<p>第一种手动创建目录，然后依次上传。打开应用页面，在左下方找到 “Storage”，打开之后，点击 “管理” ，然后就可以创建目录、上传文件等操作。然后，将原来文章中的资源外链修改一下，Storage 空间的外链通常为 XXX-wordpress.stor.sinaapp.com 加上目录。其中 XXX 为你的应用名称。</p>
+<p>第二种是使用工具上传。如果附件很多，上传的工作量可想而知。所以有人就写出了上传的程序。经过搜索，找到了一个工具 <a href="http://www.shootsoft.net/149" target="_blank" rel="noopener">SAE Mutiple Uploads 0.2</a> 。具体的介绍和使用说明，打开他们的官方教程好了，上面说的很详细了。但是我在操作的时候，不知道为什么，没有成功。工具显示上传成功，但是我在 Storage 空间中，并没有发现我上传的资源。提供一个思路，你可以尝试一下，说不定是我的人品问题。</p>
+<p><strong>补充(2012.10.22)</strong>：<a href="http://sypopo.com/" target="_blank" rel="noopener">信仰飘扬</a> 提醒，可以使用 Cyberduck 这个软件方便进行 storage 空间的管理。**<br>**</p>
+<p><strong>3，使用第三方外链服务(又拍云/华为网盘等)</strong></p>
+<p>只有在迁移的时候，才感觉出来外链的重要性，因为无论怎么迁移，外链是不会变的。因此，我考虑将所有资源放在外链上，然后以后就用外链链接资源。据了解，免费的网盘有部分支持图片外链，例如华为等。收费的比较好的有又拍云。最后我选择了又拍云，购买了又拍云的服务。</p>
+<p>又拍云具体的操作流程我就不多说了，速度非常快。上传资源之后，在网上偶然发现了 <a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="noopener">荒野无灯</a> 写的又拍云上传插件：<a href="http://ihacklog.com/post/hacklog-remote-attachment-upaiyun-version.html" target="_blank" rel="noopener">Hacklog Remote Attachment Upyun(又拍云版)</a>。果断激动了一下，因为这个插件，可以让你上传文件的时候，自动上传到远程的又拍云服务器上，同时还有一个非常重要的功能，可以修改数据库，将数据库里面的原有的失效资源连接，自动修正成又拍云的外链。</p>
+<p>但是安装用了一下，还是出错，问了一下灯哥，原来是这个版本太低了，出现了这个错误。所以这个方法就留给以后的人看了，等 SAE 上的 WordPress for SAE 升级之后，就能用了。</p>
+<p>如果想要批量修改原有失效的资源连接，可能只有像荒野无灯写的插件那样，对数据库进行修改。否则只能一篇文章一篇文章的进行修改。如果你有更好的办法，希望能回复交流！</p>
+<p><strong>补充（2012.10.21）</strong>：Denis 提供了一个解决这类问题的好方法，即使用插件 <a href="http://fairyfish.net/2010/05/31/search-and-replace/" target="_blank" rel="noopener">Search &amp; Replace </a> 批量对数据库里面的图片链接进行修改。</p>
+<h3 id="在-WordPress-for-SAE-中安装主题和插件"><a href="#在-WordPress-for-SAE-中安装主题和插件" class="headerlink" title="在 WordPress for SAE 中安装主题和插件"></a>在 WordPress for SAE 中安装主题和插件</h3><p>由于 SAE 禁止了读写操作，所以安装主题和插件，无法向以前那样，直接在后台进行上传或者远程安装。必须要通过 SVN 的方式上传。默认的安装了 WordPress for SAE 之后，并没有开启 SVN 服务，因为开启 SVN 服务，需要花费一些资源，所以要消耗一些云豆。我们在后台左侧找到 “代码管理” 然后点击 “创建 SVN 库” 就开启了 SVN 服务，之后根据 SAE 的<a href="http://sae.sina.com.cn/?m=devcenter&amp;catId=212" target="_blank" rel="noopener">说明文档</a>使用即可。安装主题和插件，只需要把主题和插件复制到相应的目录，然后 SVN 上传一下即可，和使用 FTP 一样。但是要注意，主题和插件中的功能不能有 读写操作 等 SAE 不支持的功能，否则可能出现意外情况。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/10/1387/3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/10/1387/3.png" alt="" title="SAE 安装 wordpress 插件主题"></a></p>
+<h3 id="将域名解析到-SAE"><a href="#将域名解析到-SAE" class="headerlink" title="将域名解析到 SAE"></a>将域名解析到 SAE</h3><p>现在文章等内容、图片等资源都已经迁移过来了。现在要检查一下迁移之后的网站和原先的网站还有什么地方不同。所有的地方都必须丝毫不差才可以。特别是 “固定链接” 等等，如果有不同，会导致收录等问题。</p>
+<p>当你觉得完全相同，在迁移之后，就要把域名解析到 SAE 中。在管理后台找到左侧的 <strong>“应用管理”</strong> 打开之后，在下面会有独立域名设置。由于 SAE 比较特殊，所以它暂时不支持备案，如果你的域名是备案过的，那么需要填写备案表格，向 SAE 提交申请。如果你的域名没有备案，SAE 支持绑定到国外的合作伙伴那里，然后做一个跳转。比较简单，所以不再多说。</p>
+<p>这两种方案区别很大，备案域名直接接入服务器，ping 值只有 50MS 左右，响应速度和 百度 差不多，下载速度也非常快。绑定到国外的未备案域名，通过香港节点访问，ping 值有 160 MS 左右，下载速度略慢，相当于高质量的香港空间，但是要消耗两倍的流量，也就是交两倍的钱。</p>
+<h3 id="转移之后的-SAE-优化"><a href="#转移之后的-SAE-优化" class="headerlink" title="转移之后的 SAE 优化"></a>转移之后的 SAE 优化</h3><p>鉴于大部分的同学的网站都是没有备案的，但是要花两倍的钱，所以我们就要进行优化。优化的重点就是减少 SAE 流量的损耗。一般通过三个方法进行优化：</p>
+<ol>
+<li>开启 gzip。开启 SAE 的 gzip 教程，请看这里：<a href="http://www.hiadmin.org/blog-seo/wordpress-sae-gzip" target="_blank" rel="noopener">开启 SAE 的 Gzip 压缩为 WordPress 提速</a></li>
+<li>压缩图片、CSS、JavaScript 等文件，尽量使用外链。<br>完成这些步骤之后，可以尽量的避免系统资源的消耗，这样就可以节省云豆。同时，你还可以开发应用，进行开发者认证，这样每月都会送你一些云豆。如果你流量不大的话，这样几乎都成了免费的了。</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1211.html" data-id="ckgcma39m000baa2ah9dtxb5b" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1387.html" data-id="ckgcnrubo00e61d2auwyg1ihb" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
 
     </footer>
   </div>
@@ -128,7 +394,7 @@
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1211" data-title="人们究竟怎么去看你博客里的文章" data-url="http://www.qianxingzhem.com/post-1211.html"></div>
+  <div class="ds-thread" data-thread-key="1387" data-title="WordPress 迁移 SAE 完全操作攻略" data-url="http://www.qianxingzhem.com/post-1387.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -147,10 +413,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-jquery-lazyload-js-e7-a9-b6-e7-ab-9f-e8-a6-81-e6-80-8e-e4-b9-88-e4-bd-bf-e7-94-a8" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e4-bd-bf-e7-94-a8-html5-e6-ad-a3-e7-a1-ae-e5-90-88-e7-90-86-e7-9a-84-e9-87-8d-e6-9e-84-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1192.html" class="article-date">
-  <time datetime="2012-08-25T00:06:28.000Z" itemprop="datePublished">Aug 25 2012</time>
+    <a href="/post-1313.html" class="article-date">
+  <time datetime="2012-09-29T20:29:39.000Z" itemprop="datePublished">Sep 30 2012</time>
 </a>
     
   <div class="article-category">
@@ -165,7 +431,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1192.html">Jquery.lazyload.js究竟要怎么使用</a>
+      <a class="article-title" href="/post-1313.html">使用 HTML5 正确合理的重构你的网页</a>
     </h1>
   
 
@@ -173,90 +439,18 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Jquery.lazyload.js 这个jquery插件，是用来缓冲加载图片的插件。如果一篇文章很长有很多图片的话，下载图片就需要很多时间。而这款插件，会检测你的滚动情况，只有你要看到那个图片的时候，它才会从后台请求下载图片，然后显示出来。使用这个插件，可以在需要显示图片的时候，才下载图片，所以可以减少服务器的压力，避免不必要的资源下载。一个简单的例子，如果一个人不看下面的图片，那加载下面的图片就是一种浪费。</p>
-<p>但是现在，很多javascript大牛分析得出，这个插件其实并没有真正的缓加载效果。确实，官方也已经给出了说明和解决方法了。</p>
-<pre>插件原理：修改目标的src属性为orginal属性，从而中断图片的加载。检测滚动状态，然后把视野中的目标src属性还原，制造缓冲加载的效果。
-原因：在新版的浏览器中，即使你删除了javascript控制的src属性，浏览器仍然会去加载这个图像。
-解决方法：修改html的结构，在img标签中添加新的属性，把src属性的值指向占位图片，添加data-original属性，让其指向真正的图像地址。
-例如：&lt;img data-original=“img/example.jpg” src=“img/grey.gif”&gt;</pre>
-这样我们就需要判断一下，我们究竟还要不要使用这个插件。
-
-## 使用：
-
-1.  必须按照这种结构才有实际作用，需要对输出进行定义。
-2.  可以节约服务器资源，并且有较好的用户体验。
-3.  如果图片很大，当用户滚动到目标位置，需要较长时间下载。
-
-## 不使用：
-
-1.  增加服务器压力，浪费系统资源。
-究竟使用不使用，还是要看你自己的实际需求。如果你图片比较少，就不必使用了，如果你图片比较多，可以考虑一下。但是，使用的话，你可能需要把每一个img标签上自己加上这个属性，会稍微麻烦一点。潜行者m博客上，就用了这个插件，不过没用使用官方说的那种结构，要的只是一个缓冲加载的效果。
-
-## 如何使用：
-
-如何使用这个插件呢？
-
-第一步：加载相关文件。
-
-很明显，你要加载jquery和这个插件。你可以使用以下代码，加载这几个文件：
-<pre>&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script src="jquery.lazyload.js" type="text/javascript"&gt;&lt;/script&gt;</pre>
-第二步：定义图片结构。
-
-按照官方的建议，定义你的img结构：
-<pre>&lt;img class="lazy" src="img/grey.gif" data-original="img/example.jpg" width="640" heigh="480"&gt;</pre>
-第三步：触发这个插件，生效。
-
-激活以下，你就可以在目标中使用了。
-<pre> $("img.lazy").lazyload();</pre>
-
-<h2 id="高级使用方法："><a href="#高级使用方法：" class="headerlink" title="高级使用方法："></a>高级使用方法：</h2><h3 id="更周全的做法"><a href="#更周全的做法" class="headerlink" title="更周全的做法"></a>更周全的做法</h3><p>我们不得不思考这样一个问题。我们定义了这样一个结构，那么网页中，就不会加载源图像了。只有当javascript执行，才会显示这个源图像。如果用户的浏览器不支持或者用户关掉了支持javascript的选项，那么我们的这个图像就无法显示出来。也就是说，没有javascript的支持，我们的图像就无法显示出来。</p>
-<p>应对这个问题，我们需要引入noscript标签。大体思路如下：用noscript包含真实的图像位置，当浏览器不支持javascript，直接显示图像。对现有图像，隐藏处理，使用show（）方法触发显示。这样，如果浏览器不支持javascript，我们自定义的img就不会出现，而显示noscript里面的图像。具体实现代码如下：</p>
-<pre>&lt;img class="lazy" src="img/grey.gif" data-original="img/example.jpg"  width="640" heigh="480"&gt;
-&lt;noscript&gt;&lt;img src="img/example.jpg" width="640" heigh="480"&gt;&lt;/noscript&gt;
-.lazy {
-  display: none;
-}
-$("img.lazy").show().lazyload();</pre>
-
-<h3 id="提前加载"><a href="#提前加载" class="headerlink" title="提前加载"></a>提前加载</h3><p>默认的情况是，当你滚动到图片位置的时候，插件开始加载。这样，用户可能首先看到的是一个空白图像，然后再缓慢出现。如果你想在用户滚动之前，提前加载这个图像，你可以配置一下参数。</p>
-<pre>$("img.lazy").lazyload({ threshold : 200 });</pre>
-threshold这个参数，就是用来提前加载的。上面这个语句的意思是，当距离图片还有200像素的时候，就开始加载图片。
-
-### 自定义触发事件
-
-默认的触发事件，是滚动，当你滚动的时候，就会检查然后加载。你可以使用event属性，设置你自己的加载事件，之后你可以自定义触发这个事件的条件，然后去加载图像。
-<pre>$("img.lazy").lazyload({ 
-    event : "click"
-});</pre>
-
-<h3 id="自定义显示效果"><a href="#自定义显示效果" class="headerlink" title="自定义显示效果"></a>自定义显示效果</h3><p>默认的图片实现效果，就是没有效果，下载完成之后，直接显示出来。这样的用户体验并不好，你可以设置effect属性，来控制显示图片的效果。例如</p>
-<pre>$("img.lazy").lazyload({ 
-    effect : "fadeIn"
-});</pre>
-fadeIn的效果就是，改变图片的透明度，渐现的方式出现。效果： [effect demo page](http://www.appelsiini.net/projects/lazyload/enabled_fadein.html)
-
-### 把图像插入某个容器
-
-大家如果使用智能手机的话，经常去应用网站下载应用，他们通常使用一个横着的容器，放一些手机截图。使用container属性，能很轻松在容器中实现缓冲加载。首先，我们需要用css定义这个容器，然后用这个插件进行加载。效果： [vertical](http://www.appelsiini.net/projects/lazyload/enabled_wide_container.html)
-<pre>#container {
-    height: 600px;
-    overflow: scroll;
-}</pre>
-<pre>$("img.lazy").lazyload({         
-     container: $("#container")
-});</pre>
-
-<h3 id="加载不可见图像"><a href="#加载不可见图像" class="headerlink" title="加载不可见图像"></a>加载不可见图像</h3><p>有部分图像是不可见的，我们对其加上类似display：none等属性的图像。默认的情况下，这个插件是不会加载隐藏的不可见图像。如果我们需要它加载不可见图像，我们需要使用skip_invisible属性，对其赋予false</p>
-<p><pre>$(“img.lazy”).lazyload({<br>    skip_invisible : false<br>});</pre><br>官方说明：<a href="http://www.appelsiini.net/projects/lazyload" target="_blank" rel="noopener">http://www.appelsiini.net/projects/lazyload</a></p>
+        <p>这可能是我在建博之后到现在为止，写过的最长的一篇文章，不过也是在这个博客里面，文章最短的。什么意思呢？</p>
+<p>这里的这篇文章，我就写这么几个字。但是这篇文章，我写了大约两天，包括构思，查阅资料，排版等等。</p>
+<p>denis 的水煮鱼博客，不知道编辑器抽了风，编辑起来好麻烦。</p>
+<p>好了，直接给出地址：<a href="http://fairyfish.net/article/designing-with-html5/" target="_blank" rel="noopener">http://fairyfish.net/article/designing-with-html5/</a> ，我懒得复制过来排版了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1192.html" data-id="ckgcma3de006laa2abrryn90g" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1313.html" data-id="ckgcnru82003j1d2av6eafijq" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
 
     </footer>
   </div>
@@ -264,7 +458,7 @@ fadeIn的效果就是，改变图片的透明度，渐现的方式出现。效�
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1192" data-title="Jquery.lazyload.js究竟要怎么使用" data-url="http://www.qianxingzhem.com/post-1192.html"></div>
+  <div class="ds-thread" data-thread-key="1313" data-title="使用 HTML5 正确合理的重构你的网页" data-url="http://www.qianxingzhem.com/post-1313.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -283,161 +477,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e8-bf-91-e6-9c-9f-e5-85-a5-e6-89-8bk450-e8-ae-b0-e5-bd-95-e4-b8-80-e4-b8-8b-e6-84-9f-e5-8f-97" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-915-e3-80-81-e5-88-b6-e4-bd-9c-e4-b8-bb-e9-a2-98-e7-9a-84-e5-a4-b4-e9-83-a8-e5-8c-ba-e5-9f-9f" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1089.html" class="article-date">
-  <time datetime="2012-08-21T21:26:42.000Z" itemprop="datePublished">Aug 22 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/其他/">其他</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1089.html">近期入手K450,记录一下感受</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学校的枯燥生活,有点音乐会更美。</p>
-<p>有了音乐，还需要有个好耳机才更完美。</p>
-<p>这半年来，从刚开始40块的漫步者h180，我第一次感受到好耳机与普通耳机的区别。后来有买了一个声籁EM300，也是40块左右，但是便携式的耳机，比耳塞要大很多，低音也更好。但是一分钱一分货，它的音质在同等价位最好，但是线材太细，用了大约三个月，接口处的外皮已经磨烂了，里面的金属丝都露出来了，不过还能用，就是摘耳机的时候，会划一下脸。不过现在再用，右耳朵有点电磁声。</p>
-<p>后来就开始认真的关注耳机，变成了一个耳机准发烧友。一直看着K420不错，因为不是太贵。那次，赚了人生中第一个300块钱，打算出手买一个，结果那天中国银行短信系统抽风，验证短信怎么也收不到。当然，幸亏那次抽风，否则现在我可能就没有K450了。</p>
-<p>再后来几天，在京东上看到akg的k314p降价70，只卖130。看到之后，二话不说就买下了。其实我从来不知道这个耳机，但是看在降70只是130，又缺个耳机子，就买上了。后来又搜了一下，京东搞促销之前，果然都是提很多价格。不过这个价格也算是最低了，X猫上一般都140，还要邮费。</p>
-<p>K314P有个致命伤，就是直接没有低音效果，耳塞嘛，毕竟不如耳机听起来效果好。又开始盼望着K420、K450。</p>
-<p>之前K450是不敢想的，毕竟600多块钱，一个月的生活费。但是K420的话，已经有个K314p了，音质好一点的话，就有点重复了。然而，看评论K450音质比K420提升了很多，肯定，价格也贵了一倍。</p>
-<p>迟迟不敢下手，打算等到个促销之类的。但是，这个价格不想联想产品那么水，几个月了都是固定在658不变。</p>
-<p>后来在天猫买了台电脑，赶上活动，返了300块。这300可以随便花。再然后就是老一套，向老妈硬磨软泡，最终申请下来了400块钱梦想基金^_^。找了一家，VIP价格只有620还包邮，送礼包，果断入手。</p>
-<p>然后两天就来了。初听，声音好浑浊啊，低音低的太吓人了。再听，已经好了很多了。还送了煲机碟，不过我没打算怎么煲，直接小音量听就行了。要是耳机非得煲鸡多少个小时才好，那么厂家早就把耳机先煲它个几百小时，再包装出来卖了。</p>
-<p>这有几天了，音质也之间好多了，低音比较好，细节比较清晰，当然需要ape无损格式咯。我妈也要听，听了一会就不行了，说听得头晕。。</p>
-<p>这个耳机子，可以坚持我用一年多了吧，下次再升级，就要靠自己赚的钱咯。</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1089.html" data-id="ckgcma3ds007taa2aqh0nx84u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1089" data-title="近期入手K450,记录一下感受" data-url="http://www.qianxingzhem.com/post-1089.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e4-bd-bf-e7-94-a8jquery-e6-8f-92-e4-bb-b6coin-slider-e8-bd-bb-e6-9d-be-e6-89-93-e9-80-a0-e5-b9-bb-e7-81-af-e7-89-87-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1085.html" class="article-date">
-  <time datetime="2012-08-20T12:00:40.000Z" itemprop="datePublished">Aug 21 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1085.html">使用jquery插件coin-slider轻松打造幻灯片教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天为了做一个模板，来收集幻灯片插件，最终确定了两款比较合适的。coin-slider和nivoslider，为此，研究了一下午，从各个方面来实验这两款插件，究竟哪款比较适合、比较好。</p>
-<p>当然，聪明的你看题目就已经知道了。我必须要吐槽一下nivoslider这个jquery插件。这两款插件，在看官方的demo时，这个插件的效果要比coin-slider好一些。看了一下教程，可以自定义的参数较多，貌似功能要更强大一下。于是我就首先研究了一下这款插件的使用方法。由于网上教程比较少，大部分都是直接复制的官方教程，我就直接拿官方的demo代码来看了。这一看，直接晕死。加载了N个css文件，以及各种图片文件，当场晕死。demo里面的代码，也是很多很乱，不是怕多、乱的代码，就怕引用的各种文件各种效果的叠加，分析起来累死个人。</p>
-<p>干脆自己按照步骤，自己写个小demo，看一下这款插件的易用性怎么样。按照官方的步骤，写好了图片链接，加载了需要的javascript文件等。打开一看，立刻没有了官方demo的美观和强大，上面的翻页等，都是需要css定义，这个暂时没有管理，所以难看就难看吧。图片切换也算正常，不正常的地方就是，在某个地方，出现了下一张图片的一大堆图片块。这种切换的原理很简单，生成很多div，每个div用css中的background-position属性，把整体的图片切成块，然后对每块进行透明度等的变化，显示的效果就是你看到的那种。但是现在，在旁边出现了一堆块都是乱的，直接无语。具体什么情况，我已经删了，也不截图了。估计是某块css没有定义好，当我打开官方demo的css时，又怵头了，这么多，这么乱的代码。功能的强大，必定面临使用的难度提升，估计这个是给专家级用户使用的，我等小白还是趁早溜走吧。研究了两三个小时，无疾而终。转身向coin-slider走去。</p>
-<p>先在网上搜索一下相关资料，某前辈已经写出了一个教程，并且自己做了一个demo，下载下来看了下，效果挺好，代码挺少。同时也下载了官方的demo，打开官方demo，下面的说明，说的清清楚楚的。简而言之就是：加载必备组件=》你自己写图片链接=》执行那个操作。实事也是如此，可能我之前研究nivoslider，而coin-slider和它的原理和操作类似，所以我很快就上手并且做出了自己想要的效果。下面来依次讲解：</p>
-<p><strong>1，加载必备组件</strong></p>
-<p>这个coin-slider是jquery的一个插件，当然离不开jquery了。所以我们要加载三个项目：jquery、coin-slider和coin-slider-styles.css这三个。后面两个就是这个插件包，最后的那个css文件，是用来格式化幻灯片的相关样式。我估计nivoslider就是因为缺少了一个这个，所以才导致的乱，也有可能是我没有发现这个东西。代码如下：</p>
-<p><pre>&lt;script type=”text/javascript” src=”jquery.js”&gt;&lt;/script&gt;<br>&lt;script type=”text/javascript” src=”coin-slider.min.js”&gt;&lt;/script&gt;<br>&lt;link rel=”stylesheet” href=”coin-slider-styles.css” type=”text/css” /&gt;</pre><br><strong>2，编写你的图片链接</strong></p>
-<p>我们首先需要指定一个带有id的div标签，这样在第三步执行的时候，插件才能找到我们想要播出的图片。它的图片的写法，也有几个特点，就是如果你想点击图片跳转到某链接，在外面加上a标签；在img标签后面，新建一个span标签，里面的内容，将会作为图片的说明文字出现。直接看代码：</p>
-<p><pre>&lt;div id=”coin-slider”&gt;<br>    &lt;a href=”#” &gt;<br>        &lt;img src=”images/walle.jpg” &gt;<br>        &lt;span&gt;<br>            Description for nem&lt;br /&gt;oDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemoDescription for nemo<br>        &lt;/span&gt;<br>    &lt;/a&gt;<br>    &lt;a href=”#111”&gt;<br>        &lt;img src=’images/nemo.jpg’ &gt; //加载的图片<br>        &lt;span&gt; //图片对应的说明<br>            Description for nemo<br>        &lt;/span&gt;<br>    &lt;/a&gt;<br>&lt;/div&gt;</pre><br>这个代码的大体框架,是我从官方的demo中提取出来的,这里我又要吐槽一下了,官方的demo文件,写的实在是太不规范了，html标签都用的是大写，而且从上面的img的src就可以看出来，他们竟然用了单引号！css文件里也是这样，患有代码强迫症的潜行者m，花了好几分钟，才把大部分代码变成小写，添加合适的换号，真无语。看了一下开发时间，2010年的作品，那时候xhtml应该普及了，为什么还用大写的写法，无语了。</p>
-<p><strong>3，执行操作</strong></p>
-<p>确保上面两个步骤完成之后，就需要触发它的方法，来实现幻灯片的功能了。方法当然是</p>
-<p><pre>    $(document).ready(function() {<br>        $(‘#coin-slider’).coinslider({ height:248 }); //使用各种参数配置来扩充他的功能<br>    });</pre><br>当然，你也可以使用window.onload，那样可以确保幻灯片图片被完全下载下来之后，再出现幻灯片。</p>
-<p>很显然，还可以配置很多参数，让幻灯片的功能更加强大。在上面的代码中，我添加了一个参数height：248，因为我的照片高度是248px。下面介绍一下其他参数，我在官方注释后面，小小的翻译了一下，不准确的话，还望见谅。</p>
-<p><pre>width: 565, // width of slider panel 幻灯片的宽度<br>height: 290, // height of slider panel 幻灯片的高度<br>spw: 7, // squares per width 幻灯片切出小方框的宽度<br>sph: 5, // squares per height 幻灯片切出小方框的高度<br>delay: 3000, // delay between images in ms 切换图片的时间，毫秒单位<br>sDelay: 30, // delay beetwen squares in ms 小方框变化的时间，毫秒单位（这两个尽量不要改，官方说改了容易出现过度问题）<br>opacity: 0.7, // opacity of title and navigation 图片下面的说明文字背景的透明度<br>titleSpeed: 500, // speed of title appereance in ms 标题消失的速度，毫秒单位<br>effect: ‘’, // random, swirl, rain, straight 变换样式，随机，漩涡，下雨，连续（自己试试就知道效果）<br>navigation: true, // prev next and buttons 是否显示前个、后个按钮<br>links : true, // show images as links  是否把图片当做一个链接<br>hoverPause: true // pause on hover 你把鼠标放上去的时候，图片是否继续变化</pre><br>我们只需要像这样，填上自己定义的参数即可：</p>
-<p><pre>$(‘#coin-slider’).coinslider({ width: 900, navigation: false, delay: 5000 });</pre><br><strong>4，高级用法</strong></p>
-<p>在具体的使用过程中，它的默认样式，肯定不符合我的模板需求，所以我需要对它进行更加细致的修正。那就是通过css，官方的css文件里，你可以直接修改，你也可以新建css文件，对它进行定义。在火狐浏览器中，可以方便观看这个插件生成了些什么div标签，以及相应的id和class。既然你是高级用户，当然难不倒你，我只是在这里提一个思路，具体的就要靠你自己去修改了。</p>
-<p>最后，打包一下本教程的资源，放上来。<strong>点击下载：</strong><a href="http://pan.baidu.com/share/link?shareid=90714&amp;uk=706095745" target="_blank" rel="noopener">coin-slider</a></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1085.html" data-id="ckgcma3aq000taa2awpl77iwn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery插件/">jQuery插件</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1085" data-title="使用jquery插件coin-slider轻松打造幻灯片教程" data-url="http://www.qianxingzhem.com/post-1085.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e8-a7-a3-e5-86-b3iconv-e5-92-8cmb-convert-encoding-e5-87-bd-e6-95-b0-e7-9a-84-e6-b1-89-e5-ad-97-e4-b9-b1-e7-a0-81-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1078.html" class="article-date">
-  <time datetime="2012-08-19T22:02:55.000Z" itemprop="datePublished">Aug 20 2012</time>
+    <a href="/post-1304.html" class="article-date">
+  <time datetime="2012-09-25T22:52:55.000Z" itemprop="datePublished">Sep 26 2012</time>
 </a>
     
   <div class="article-category">
@@ -452,7 +495,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1078.html">解决iconv和mb_convert_encoding函数的汉字乱码问题</a>
+      <a class="article-title" href="/post-1304.html">【基础篇】5、制作主题的头部区域</a>
     </h1>
   
 
@@ -460,211 +503,48 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>近期在做一个小应用，就是填上信息，然后输出wordpress模板标准的style.css文件，当然，这个文件包含了CSSreset 和本人常用的原子类，这样可以大大缩小制作的难度和时间。</p>
-<p>于是就遇到了一个编码问题，因为wordpress的编码是UTF-8，所以我们模板的css文件编码最好也是UTF-8。因为在早期的浏览器中，如果编码和文档中声明的不同，会读取不出来。IE6就是这样，在其他浏览器中没有出现类似的情况，不过还是建议使用UTF-8编码，如果你的模板要面向全世界的用户，你必须用这个编码，因为国外的电脑上没有装GBK、GB2312这类中文编码，就会出现乱码，或者出现一些其他的意外情况。</p>
-<p>那么，我使用php接受字符串，并且输出的时候，需要使用编码相关的函数。经过搜索，找到了标题上面的两款函数。iconv和mb_convert_encoding，这两个函数，可以把字符串进行编码，然后配合file_put_contents这个函数，可以输出你指定的编码。我这个工具的原理很简单，就是获取表单内容，读取已经保存的写好的文件，然后混合编码，输出。</p>
-<p><pre>$add_string = $add_string.$fpr; //$fpr变量是读取之前写好的UTF-8编码的style.css文件模板<br>$add_string = iconv(“utf-8”,”utf-8”,$add_string); //由于读取的style.css文件是utf-8编码,所以这里用了utf-8编码转换utf-8编码<br>file_put_contents($new_filename,$add_string);</pre><br>但是问题就出现了，出现在中文上了。由于iconv是php默认安装的模块，所以先使用的iconv函数。编写完成之后，输入中文信息，输出中断，查看输出文件，在中文的地方，输出了一个DZ，之后就断掉了。经过搜索，说这是iconv的一个bug，遇到“-”这样的符号，就出问题，可以使用“GBK”编码或者是加上“//IGNORE”参数解决。实验了一下，还是没有效果，加上了//IGNORE参数，中文全被过滤，只输出英文。</p>
-<p>疯狂的在网上查找相关资料，没有找到，我找了一段网上编写的，有这个函数的应用，把代码运行了一下，结果发现，还是没有。蛋碎，别人写的可以用的代码，在自己电脑上还是不能支持中文。我phpinfo了一下，这个模块正常啊，我还把代码上传到远程服务器上，执行还是不行。</p>
-<p>没办法，我考虑使用同样的功能的mb_convert_encoding函数，来试一下。结果还是不行，仍然出现乱码。这个时候，我突然想，不要把utf-8转换成utf-8 了，把GBK转换成utf-8试试怎么样啊。试了一下，表单部分在utf-8文件中，显示正常，但是模板（style.css模板用的utf-8编码）中的中文，全都变乱码了。研究一晚上这个问题了，已经到了0点了，果断关机睡觉。</p>
-<p>在床上，翻来覆去的思考这个问题。最后的这个尝试，给了我一个思路。然后我就想明白了，我们用浏览器输入内容，我们也没有规定编码是什么，那系统得到我们输入的内容，它的编码是什么呢？那就只有GB2312 了，因为我中文系统默认的编码就是这样。所以，我对字符串的处理，应该是由GBK、GB2312来转换成UTF-8编码才对。这就是为什么最后，表单内容正常，而源css模板不正常了。我用utf-8保存的css模板，却用GBK的方式去读，然后转换成utf-8编码，读出来的时候，已经是乱码了，再把乱码转换成utf-8，那不更乱了。</p>
-<p>不仅感叹一句，有多少问题，是在床上解决的，别想歪了哦 ^-^</p>
-<p>今天早上起来，立刻按照昨晚想的思路写了一下，果然可以成功输出汉字。最终代码：</p>
-<p><pre>    $add_string = iconv(“GBK”,”utf-8”,$add_string);//先把表单内容转成utf-8<br>    $add_string = $add_string.$fpr; //再与utf-8编码的css模板文件结合<br>    file_put_contents($new_filename,$add_string); //输出</pre><br>就这样,变化一下顺序,这个问题就完美解决了。今天写这篇文章时，发现这是一个多么简单的逻辑问题，却研究尝试了一个晚上，自己也真够笨的。不过最终解决了就好。我们平时都看书，太重于理论，到实践的时候，却发现，出现好多书上没有的错误。但是有了这个经历，以后遇到编码问题，就再也不用怕了。</p>
-<p>另附这两个函数的用法：</p>
-<p>iconv(“UTF-8”,”GB2312//IGNORE”,$data); //意思是把$data字符串由utf-8编码转成gb2312编码,刚开始就被这个误导了</p>
-<p>mb_convert_encoding($data, “UTF-8”, “GBK”); //这个意思是把$data字符串,由gbk转成utf-8编码,注意顺序与iconv相反</p>
-<p>至于gbk和gb2312,都是中文编码,区别在于,你想多打字,就打gb232,想少打字就打gbk.</p>
-<p>此外,上面这两个函数,需要配合file_put_contents这个函数输入才有效,这个函数的用法和其他输出函数都一样.不再赘述.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1078.html" data-id="ckgcma3cj0045aa2a2rwhnszd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1078" data-title="解决iconv和mb_convert_encoding函数的汉字乱码问题" data-url="http://www.qianxingzhem.com/post-1078.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post-thinksaas-e6-95-b0-e6-8d-ae-e5-ba-93-e7-bb-93-e6-9e-84-e6-95-b0-e6-8d-ae-e8-a1-a8-e7-bb-93-e6-9e-84" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1061.html" class="article-date">
-  <time datetime="2012-08-19T02:57:56.000Z" itemprop="datePublished">Aug 19 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1061.html">ThinkSAAS 数据库结构 -&gt; 数据表结构</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>注:这段时间,要用来研究一套系统ThinkSAAS,一个目前还不是很成熟的轻量化论坛系统.</p>
-<p>看到很多app都需要数据库的操作,再看了一下,好像没有关于数据库结构的文章,然后我就整理了一下.</p>
-<p>这是第一篇文章,关于数据表的结构,之后会陆续把一些app开发常用的数据表的结构整理出来.</p>
-<p>完全是音译,有部分还是不理解功能是什么,还望邱君和高手把这部分用处说一下,不确定的后面有”???”</p>
-<p>+——————————————————————-+</p>
-<p>| ts_anti_email                                =&gt; 阻止邮件名单</p>
-<p>| ts_anti_ip                                      =&gt; 禁止IP</p>
-<p>| ts_anti_word                                =&gt;禁止关键词</p>
-<p>| ts_area                                          =&gt;用户区域</p>
-<p>| ts_area_city                                  =&gt;用户居住城市</p>
-<p>| ts_area_province                         =&gt;用户居住省</p>
-<p>| ts_article                                       =&gt;文章列表</p>
-<p>| ts_article_cate                              =&gt;文章目录</p>
-<p>| ts_article_comment                    =&gt;文章评论</p>
-<p>| ts_attach                                      =&gt;附件列表</p>
-<p>| ts_feed                                         =&gt;订阅列表</p>
-<p>| ts_group                                      =&gt;小组列表</p>
-<p>| ts_group_cates                           =&gt;小组分类</p>
-<p>| ts_group_options                       =&gt;小组配置</p>
-<p>| ts_group_topics                          =&gt;小组帖子</p>
-<p>| ts_group_topics_add                  =&gt;添加小组主题???</p>
-<p>| ts_group_topics_collects           =&gt;收藏主题?</p>
-<p>| ts_group_topics_comments     =&gt;小组主题评论</p>
-<p>| ts_group_topics_type                =&gt;小组主题类别</p>
-<p>| ts_group_users                          =&gt;小组成员</p>
-<p>| ts_home_info                             =&gt;首页信息</p>
-<p>| ts_mail_options                         =&gt;邮件配置就是系统发邮件的配置</p>
-<p>| ts_message                                =&gt;消息</p>
-<p>| ts_photo                                     =&gt;照片列表</p>
-<p>| ts_photo_album                         =&gt;相册列表</p>
-<p>| ts_photo_comment                    =&gt;照片评论</p>
-<p>| ts_photo_options                        =&gt;照片选项</p>
-<p>| ts_session                                    =&gt;session 你懂得</p>
-<p>| ts_system_options                      =&gt;系统配置</p>
-<p>| ts_tag                                           =&gt;标签列表</p>
-<p>| ts_tag_article_index                    =&gt;文章标签指数???</p>
-<p>| ts_tag_group_index                   =&gt;小组标签指数???</p>
-<p>| ts_tag_photo_index                  =&gt;图片标签指数???</p>
-<p>| ts_tag_topic_index                    =&gt;主题标签指数???</p>
-<p>| ts_tag_user_index                      =&gt;用户标签指数???</p>
-<p>| ts_user                                          =&gt;用户列表</p>
-<p>| ts_user_follow                             =&gt;用户关注跟随</p>
-<p>| ts_user_gb                                  =&gt;用户留言</p>
-<p>| ts_user_info                                   =&gt;用户信息</p>
-<p>| ts_user_invites                            =&gt;邀请用户</p>
-<p>| ts_user_open                              =&gt;第三方登录</p>
-<p>| ts_user_options                           =&gt;用户选项</p>
-<p>| ts_user_role                               =&gt;用户参与任务</p>
-<p>| ts_user_scores                          =&gt;用户积分</p>
-<p>+———————————————————————-+</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1061.html" data-id="ckgcma3di006saa2aztlucjnc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1061" data-title="ThinkSAAS 数据库结构 -&gt; 数据表结构" data-url="http://www.qianxingzhem.com/post-1061.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"qxzm"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-
-  
-    <article id="post--e7-94-b5-e5-95-86-e5-a4-a7-e6-88-98-e6-ad-a3-e5-9c-a8-e8-bf-9b-e8-a1-8c-e6-97-b6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/post-1051.html" class="article-date">
-  <time datetime="2012-08-16T16:11:42.000Z" itemprop="datePublished">Aug 17 2012</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/post-category/其他/">其他</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/post-1051.html">电商大战正在进行时</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>近日，由于京东SEO的一番豪言，终于引发了中国电商大战。</p>
-<p>最突出当属京东VS苏宁。当然和苏宁相似的国美也打进来，之后当当看不下去了，随后其他的比较小的电商网站也打进来。</p>
-<p>截止到目前，已经有如下的网站正在开打：</p>
-<p><img src="data:image/png;base64,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" alt=""></p>
-<h2 id="怎么打？"><a href="#怎么打？" class="headerlink" title="怎么打？"></a>怎么打？</h2><ol>
-<li>首先是口水战，各方SEO都发表微博等消息，声称自己的价格策略，怎么对抗对方。</li>
-<li>其次是价格战，都有一定降价或者是促销方式。当然，价格战打得不如口水战。<br>令人遗憾的是，亚马逊、X猫却十分淡定，没有什么行动。特别是X猫的老大马云，还指挥旗下产品一淘，趁机揭短，推广人们使用它去搜索商品。（请看=&gt;<a href="http://www.etao.com/pk/report.html" target="_blank" rel="noopener">http://www.etao.com/pk/report.html</a>)</li>
+        <p>上节课的时候，我们了解接触到了第一个函数。在这节课中，我将会讲解更多的有关头部的 WordPress 函数，并且教你打造一个完整、规范的头部。</p>
+<p>这里的头部，主要分为两部分：</p>
+<ol>
+<li>HTML 文档中的 &lt;head&gt; 区域</li>
+<li>主题中的顶部（通常包含博客名称、描述、导航等内容）</li>
 </ol>
-<p>现在打得真是好热闹。各位网友，如果有家电大件想要入手，现在抓紧行动吧，因为这场大战过去之后，就没有这么好的机会了。</p>
-<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><p>在这场电商大战之中，各个电商都在拼。京东SEO已经召开过股东会，股东们都放出了豪言：我们除了钱什么都没有，你尽管去打吧。</p>
-<p>所以，这场战争之后，肯定会消亡一批电商。那么剩下的电商，就处在了垄断地位。这打得过程中，他们损失的钱，会在垄断时期，迅速的收回。这或许就是京东的目的。</p>
-<p>这个事件会载入中国互联网史册的，故赶紧在这里发表一篇博文记录一下。</p>
-<div><embed id="ciba_grabword_plugin" width="0" height="0" type="application/ciba-grabword-plugin" hidden="true"></div>
+<h2 id="HTML-文档的-lt-head-gt-区域"><a href="#HTML-文档的-lt-head-gt-区域" class="headerlink" title="HTML 文档的 &lt;head&gt; 区域"></a>HTML 文档的 &lt;head&gt; 区域</h2><p>众所周知，HTML 文档中，&lt;head&gt; 区域用来描述这个文档的各种信息，大部分的内容，都是看不见的，只有一个&lt;title&gt;元素，在标题栏上可以看见。但是并不是它不重要，这里 面包含文档声明，也是很重要的地方。与这块有关的，有很多函数等，在【基础篇】，我直说几个简单的，可以满足基本功能即可。在后面的【中级篇】教程中，我会更详细的讲解更多的函数和相关用法。</p>
+<p>将以下代码复制进 head 标签内</p>
+<pre>&lt;title&gt;&lt;?php bloginfo('name');  ?&gt; &lt;?php  bloginfo( 'description' ); ?&gt;&lt;/title&gt;
+ &lt;meta http-equiv="Content-Type" content="text/html; charset=&lt;?php bloginfo( 'charset' ); ?&gt;" /&gt;
+ &lt;link rel="stylesheet" type="text/css" href="&lt;?php bloginfo( 'stylesheet_url' ); ?&gt;" /&gt;</pre>
+
+<p>简单的介绍一下相关功能。</p>
+<p><strong>&lt;title&gt;标签：</strong></p>
+<p>作为网页的标题，我们通常使用博客标题和博客描述作为博客首页的标题。所以我们使用了&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数。但是在实际应用中，你会发现一个问题，如果就这样做了，所有的博客页面，全部都是相同的“博客标题 博客描述”。关于这个问题，我会单独拿出来在后面进行讨论。</p>
+<p><strong>&lt;meta&gt;标签：</strong></p>
+<p>声明文档的编码，WordPress 默认的编码就是 utf-8 ，所以我们尽可以大胆写上 utf-8。但是在官方主题中，还是用了&lt;?php bloginfo( ‘charset’ ); ?&gt;这个函数，来获取博客编码。所以我们需要这样写。</p>
+<p><strong>&lt;link&gt;标签：</strong></p>
+<p>加载必须的 style.css 文件。&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;这个函数在之前的文章中，提到过，在这里不再赘述。</p>
+<h2 id="主题中的顶部"><a href="#主题中的顶部" class="headerlink" title="主题中的顶部"></a>主题中的顶部</h2><p>在本系列的 demo 主题，顶部只有一个网站标题和网站的副标题描述。所以我们就需要使用&lt;?php bloginfo(‘name’);  ?&gt; &lt;?php  bloginfo( ‘description’ ); ?&gt;这两个函数，替换掉之前我们的文本，即</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120925214017.jpg" alt="" title="zhuanhuanhead"></a></p>
+<p>这里还有个细节需要注意，在博客名称的地方，我使用了一个超链接，指向的是一个“#”，现在要把它修改成博客首页，则需要使用这个</p>
+<pre>&lt;?php bloginfo('siteurl'); ?&gt;</pre>
+
+<p>用它替换 href 属性中的 # 。</p>
+<p>好了，头部的处理就这样完成了，我们可以在浏览器中访问一下。这时候，就可以看到标题、网站标题、网站描述变了。你在后台中修改相应的信息，刷新之后，相应的也会变。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=67876&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-5) 本节课主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1051.html" data-id="ckgcma3c5003eaa2arcmec9o4" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1304.html" data-id="ckgcnru7j00211d2a4ic7pfn1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
 
     </footer>
   </div>
@@ -672,7 +552,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1051" data-title="电商大战正在进行时" data-url="http://www.qianxingzhem.com/post-1051.html"></div>
+  <div class="ds-thread" data-thread-key="1304" data-title="【基础篇】5、制作主题的头部区域" data-url="http://www.qianxingzhem.com/post-1304.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -691,10 +571,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-9c-a8-e6-90-ac-e5-ae-b6-e7-9a-84-e6-97-b6-e5-80-99-e9-9a-8f-e6-97-b6-e6-b3-a8-e6-84-8f-e5-a5-bd-e4-bd-a0-e7-9a-84robots" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e5-9c-a8-e4-b8-bb-e9-a2-98-e4-b8-ad-e6-b7-bb-e5-8a-a0-adminbar-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1048.html" class="article-date">
-  <time datetime="2012-08-15T19:21:10.000Z" itemprop="datePublished">Aug 16 2012</time>
+    <a href="/post-1297.html" class="article-date">
+  <time datetime="2012-09-24T00:34:48.000Z" itemprop="datePublished">Sep 24 2012</time>
 </a>
     
   <div class="article-category">
@@ -709,7 +589,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1048.html">在搬家的时候随时注意好你的robots</a>
+      <a class="article-title" href="/post-1297.html">在主题中添加 AdminBar 功能</a>
     </h1>
   
 
@@ -717,24 +597,28 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先先来说一下robots这个文件.</p>
-<p>简单的说,这个文件是控制搜索引擎收录网站的.搜索引擎会派出蜘蛛在网络中爬行，但是有的时候，我们的网站或者网站的某个目录并不想被搜索引擎爬行到并且收录。例如一些后台文件，配置文件等等。搜索引擎也思考到了这一点，就弄出了一条规则，爬行一个网站的时候，先读取网站的robots文件，查看哪些被允许爬行，哪些不允许。之后再进行爬行收录。</p>
-<p>在seo中，这是一个很重要的东西，它告诉搜索引擎哪些可以收录等，同时弄的不好，也会对网站收录造成致命伤害。这次就是一次血的教训。</p>
-<p>在上次网站搬家之后，新主机还没有开启rewrite模块，所以博客链接无法伪静态写成以前的样子。之后又发生了一些事情，没有上网管理网站。以前的朋友都知道，我有三个月没有更新博客，也当然没有管理，就把这个事情忘了。</p>
-<p>后来，听了很多站长朋友，在骂百度更新算法，把他的网站K掉了。我也没在意，检测一下我网站的收录，突然发现，以前很多的收录，现在只剩一个6月份的首页快照。坏了，我被百度K了。然后就在百度那里进行投诉。因为潜行者m的博客，文章都是精心构思原创手写的，SEO等方面也稍微做了一些，怎么会直接全K呢？查看了一下网站权重，跟以前没变，怎么收录没了？</p>
-<p>前天，在后台清理的时候，发现服务器的rewrite开启了，然后就填上了以前的伪静态规则。这时，我猛的想起来了一件事，我曾经写的robots规则。</p>
-<p>打开robots文件一看，果然，里面有条规则，把wordpress默认的链接形式屏蔽。此举是为了修改了伪静态规则之后，防止被检测成重复内容。结果那段时间，网站的链接全部都是wordpress的默认链接。我查询了一下谷歌的收录，结果也为0。原来，我的网站并不是被K了，而是被自己编写的robots规则，清掉了搜索引擎的索引。</p>
-<p>修改了之后，搜索引擎又开始重新收录了，可以之前一年的积累，全化为了乌有。以后真的多注意一下。</p>
-<p><img src="data:image/png;base64,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" alt=""></p>
-<p>&nbsp;</p>
+        <p>首先，你必须的知道，什么叫做 AdminBar 。这是 WordPress 中的一个非常方便的功能，当管理员或者有管理权限的用户访问页面的时候，就会看到最上面有一个黑色的条条，上面有各种快捷链接。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/Unnamed-QQ-Screenshot20120924122559.jpg" alt="adminbar" title="adminbar"></a></p>
+<p>不知道为什么，竟然还有很多人写如何去掉这个功能。但是很少有人写如何增加这个功能。</p>
+<p>这个功能需要增加？对，没错。在早期我制作主题的时候，就出现了没有 AdminBar 的情况。要想在主题中，增加这个功能，必须要用到两个函数：</p>
+<pre>&lt;?php wp_head(); ?&gt;、&lt;?php wp_footer(); ?&gt;</pre>
+
+<p>这两个函数，是实现 WordPress 中某些功能而使用的。例如本文写的 AdminBar 的功能，就是使用这两个函数。新手制作主题的时候，往往会看到或者使用到 wp_head() 这个函数，但是会忽视 wp_footer() 这个函数。所以，AdminBar 不会显示，但是会空出那么高的高度。</p>
+<p>这两个函数的位置也需要注意。</p>
+<ul>
+<li>wp_head() —— 通常放在&lt;/head&gt;上面的一行</li>
+<li>wp_footer() —— 通常放在最下面的&lt;/body&gt;的上面一行<br>只有准确放置了这两个函数，AdminBar 才会出现。</li>
+</ul>
+<p><span style="color: #ff0000;">注意：</span></p>
+<p>忽略了一个地方，在现在的版本中，用户可以自定义在浏览博客的时候，是否显示最上面这个工具条。在 “用户”-》“我的个人资料” 中可以设置。在以前的版本中，记得好像没有这个选项。感谢 “<a href="http://www.linyousai.cn/" target="_blank" rel="noopener">鬼娃娃</a>” 提醒。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1048.html" data-id="ckgcma3bh001saa2agt25mq3l" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1297.html" data-id="ckgcnru8l00571d2a2ch1t2k1" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a></li></ul>
 
     </footer>
   </div>
@@ -742,7 +626,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1048" data-title="在搬家的时候随时注意好你的robots" data-url="http://www.qianxingzhem.com/post-1048.html"></div>
+  <div class="ds-thread" data-thread-key="1297" data-title="在主题中添加 AdminBar 功能" data-url="http://www.qianxingzhem.com/post-1297.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -761,14 +645,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e9-aa-8c-e8-af-81-e7-bd-91-e9-a1-b5-e5-8f-91-e7-8e-b0-e7-9a-84-e5-87-a0-e7-82-b9-e7-9f-a5-e8-af-86-e7-82-b9" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-wordpress-e7-9a-846-e7-a7-8d-e5-9b-ba-e5-ae-9a-e8-bf-9e-e6-8e-a5-e4-bc-98-e7-bc-ba-e7-82-b9-e5-af-b9-e6-af-94" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1017.html" class="article-date">
-  <time datetime="2012-07-25T21:48:28.000Z" itemprop="datePublished">Jul 26 2012</time>
+    <a href="/post-1240.html" class="article-date">
+  <time datetime="2012-09-11T05:17:07.000Z" itemprop="datePublished">Sep 11 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -779,7 +663,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1017.html">验证网页发现的几点知识点</a>
+      <a class="article-title" href="/post-1240.html">WordPress的6种固定连接优缺点对比</a>
     </h1>
   
 
@@ -787,24 +671,98 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前几天,重新做了一下自己的个人介绍页面(<a href="http://www.yujiangshui.com),由于忙,一直没有验证,今天验证了一下,果然不小心出现了几处错误" target="_blank" rel="noopener">www.yujiangshui.com),由于忙,一直没有验证,今天验证了一下,果然不小心出现了几处错误</a>.</p>
-<p>在修正网页不规范的过程中,又学到了几个平时不注意的小细节,写这篇文章与大家分享一下.</p>
-<p><strong>1,&lt;span&gt;标签中,不能放&lt;h*&gt;标题标签.</strong></p>
-<p>&lt;span&gt;标签和&lt;div&gt;标签的区别,一个是行内元素,不换行而div默认是占正行的.一直以来,只注意到了这个区别,而把这两个标签都用来布局了.这是错误的,它们俩的语义不同.&lt;div&gt;是区域的意思,这个才是布局用到的元素.而&lt;span&gt;只是一个比&lt;p&gt;还小的一篇文章中一句话,当然不能包含一个比&lt;p&gt;还大的 &lt;h*&gt;标题标签了.</p>
-<p>所以正确的做法是,用div布局,如果需要行内效果,使用css的display:inline;.</p>
-<p><strong>2,&lt;script&gt;标签已经不需要任何属性了.</strong></p>
-<p>在很久以前,应用在网页中的脚本其实有两种,一种是javascript另一种是微软的vbscript,所以网页中的&lt;script&gt;标签中,必须加上一个属性language,属性值就是javascript或者vbscript,用来区别.</p>
-<p>当然,现在几乎没有几个人在网页中使用vbscript,甚至很多人都不知道.今天在验证的时候,w3c给出的建议是:&lt;script&gt;标签的language属性以及被废除,你可以非常放心的去掉它了.</p>
-<p>也就是说,以后要使用javascript,只需要写&lt;script&gt;javascript代码&lt;/script&gt;就可以了.</p>
-<p>验证页面规范,真的有很多好处,可以让你发现平时注意不到的不规范的地方.但是,不需要刻意的强调错误的修正.你可以验证一下淘宝,首页有1000多个错误,就连非常简单的百度首页,也查出了几个错误.这些大网站,有实力非常雄厚的前端团队,结果还有错误的存在.这说明,还是以网站的实际效果为主,多少个不规范的地方也无所谓.</p>
+        <p>有人说 WordPress 的 SEO 做的比较好，我想这个和 WordPress 可以方便的自定义文章的固定链接有分不开的联系。在众多的 WordPress 博客中，有很多种的固定连接，本文就是把这些固定链接的形式和效果跟大家分析一下，然后根据你自己的需求，选择适合你博客的固定连接。</p>
+<h2 id="默认固定链接样式"><a href="#默认固定链接样式" class="headerlink" title="默认固定链接样式"></a>默认固定链接样式</h2><p>没有在后台的 “设置-》》固定链接” 中设置链接样式的话，就属于默认的固定连接样式，它的形式如下</p>
+<pre>http://www.qianxingzhem.com/?p=123</pre>
+
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接短小</li>
+<li>移植性好，当 WordPress 搬家时，新主机万一不支持 Rewrite 模块，你不需要进行301定向</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>缺乏语义性，对搜索引擎收录稍稍有影响，但是不大</li>
+</ol>
+<h2 id="日期、月份和名称链接样式"><a href="#日期、月份和名称链接样式" class="headerlink" title="日期、月份和名称链接样式"></a>日期、月份和名称链接样式</h2><p>这是官方默认的链接样式，分日期、月份和名称两种，形式如下</p>
+<pre>http://www.qianxingzhem.com/2012/09/11/sample-post/</pre>
+<pre>http://www.qianxingzhem.com/2012/09/sample-post/</pre>
+
+<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性增强，增加了文章发布时间和文章名称</li>
+<li>文章发布时间和文章名称在链接中，有利于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>生成的链接长度太长，不利于发送等</li>
+<li>文章标题直接显示在连接中，有的时候并不希望这样</li>
+</ol>
+<h2 id="名称型样式"><a href="#名称型样式" class="headerlink" title="名称型样式"></a>名称型样式</h2><p>直接加一个文章名称，形式如下</p>
+<pre>http://www.qianxingzhem.com/sample-post/</pre>
+
+<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性强，文章名称在链接中，便于搜索引擎理解</li>
+</ol>
+<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>生成链接长度过长，中文链接会被编码，链接乱且长</li>
+</ol>
+<h2 id="关键词类型链接样式"><a href="#关键词类型链接样式" class="headerlink" title="关键词类型链接样式"></a>关键词类型链接样式</h2><p>将文章中的关键词提取出来，然后自定义固定连接，用“-”链接关键词，很多高手博客使用这种链接，样式如下</p>
+<pre>http://fairyfish.net/m/limit-login-attempts/</pre>
+
+<h3 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>语义性强，便于搜索引擎理解</li>
+<li>生成链接长度合适</li>
+</ol>
+<h3 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>需要博主有一定的英语水平和耐心</li>
+<li>对中文博客的效果不大，几乎没有中国人会搜索一个英文单词来看你的中文文章</li>
+</ol>
+<h2 id="数字型链接样式"><a href="#数字型链接样式" class="headerlink" title="数字型链接样式"></a>数字型链接样式</h2><p>直接把文章的ID写在链接中，样式如下</p>
+<pre>http://www.qianxingzhem.com/123</pre>
+
+<h3 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接极短</li>
+</ol>
+<h3 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>没有任何语义性</li>
+</ol>
+<h2 id="数字型语义增强版链接样式"><a href="#数字型语义增强版链接样式" class="headerlink" title="数字型语义增强版链接样式"></a>数字型语义增强版链接样式</h2><p>不仅仅是文章 ID 还增加一些英文单词，例如：post、archives等，形式如下</p>
+<pre>http://www.qianxingzhem.com/archives/123</pre>
+<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+
+<h3 id="优点-5"><a href="#优点-5" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>链接较短</li>
+<li>增加了关键词，便于搜索引擎理解这个页面是一篇文章</li>
+</ol>
+<h3 id="缺点-5"><a href="#缺点-5" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>语义性不是非常明确<br>目前，潜行者m博客用的就是这种 数字型语义增强版 固定链接样式。</li>
+</ol>
+<h2 id="如何自定义博客固定链接"><a href="#如何自定义博客固定链接" class="headerlink" title="如何自定义博客固定链接"></a>如何自定义博客固定链接</h2><h3 id="了解结构标签"><a href="#了解结构标签" class="headerlink" title="了解结构标签"></a>了解结构标签</h3><p>WordPress 设置了一系列的固定链接结构标签，来让你定义固定链接，具体标签及功能如下</p>
+<ul>
+<li>%year% 文章发表的年份，四位数，如 2004</li>
+<li>%monthnum% 月份，如 05</li>
+<li>%day% 天，如 28</li>
+<li>%hour% 小时，如 15</li>
+<li>%minute% 分钟，如 43</li>
+<li>%second% 秒，如 33</li>
+<li>%postname% 文章标题的别名 (编辑文章/页面时的别名栏)</li>
+<li>%post_id% 文章的唯一ID，如 423</li>
+<li>%category% 分类的别名 (新建/编辑分类时的别名栏)</li>
+<li>%tag% 标签的别名(新建/编辑标签时的别名栏)</li>
+<li>%author% 作者的别名<br>之后，我们需要打开后台 “固定链接设置” 页面，找到 “自定义链接结构” 根据自己的需求，写上链接结构，加上结构标签。例如潜行者m博客用的链接样式<pre>http://www.qianxingzhem.com/post-1268.html</pre>
+在后台自定义链接结构时，需要定义成
+<pre>/post-%post_id%.html</pre>
+
+</li>
+</ul>
+<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a>其他注意事项</h2><p>固定链接在 WordPress 博客中非常重要，强烈建议在建博初期就确定下来，而且之后不要再更换。如果你更换了固定链接，之前的固定链接打开之后，就会出现404错误，影响搜索引擎收录。</p>
+<p>当然，如果你迫不得已更换博客的固定链接，请安装相应的 301链接重定向 插件，使用插件将之前的固定链接重定向到更新后的固定链接上。这类的插件比较多，这里我推荐几个：Simple 301 Redirects、Redirection等。</p>
+<p>关于 WordPress 固定链接更详细的说明，请看官方文档 ：<a href="http://codex.wordpress.org/zh-cn:%E4%BD%BF%E7%94%A8%E5%9B%BA%E5%AE%9A%E9%93%BE%E6%8E%A5" target="_blank" rel="noopener">zh-cn:使用固定链接</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1017.html" data-id="ckgcma3cw0051aa2a4cab8vm2" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1240.html" data-id="ckgcnrubn00e01d2aiwuvwurx" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WordPress/">WordPress</a></li></ul>
 
     </footer>
   </div>
@@ -812,7 +770,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1017" data-title="验证网页发现的几点知识点" data-url="http://www.qianxingzhem.com/post-1017.html"></div>
+  <div class="ds-thread" data-thread-key="1240" data-title="WordPress的6种固定连接优缺点对比" data-url="http://www.qianxingzhem.com/post-1240.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -831,14 +789,14 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-ba-8c-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-914-e3-80-81-e5-ae-89-e8-a3-85-e4-b8-bb-e9-a2-98-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-1005.html" class="article-date">
-  <time datetime="2012-05-18T02:24:46.000Z" itemprop="datePublished">May 18 2012</time>
+    <a href="/post-1268.html" class="article-date">
+  <time datetime="2012-09-09T21:01:50.000Z" itemprop="datePublished">Sep 10 2012</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
   </div>
 
   </div>
@@ -849,7 +807,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-1005.html">潜行者m的CSS2笔记（二）</a>
+      <a class="article-title" href="/post-1268.html">【基础篇】4、安装主题文件</a>
     </h1>
   
 
@@ -857,35 +815,55 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>接上面的文章，<a href="http://www.qianxingzhem.com/post-994.html">潜行者m的CSS2笔记（一）</a>。</p>
-<p>21，使用line-height属性来控制行高，使文字居中，控制文字排版。</p>
-<p>22，使用&lt;label&gt;标签，可以让人点击文本选中相应单选复选，提高网站交互性。例子&lt;label for=”c1”&gt;点击此文本&lt;/label&gt;&lt;input type=”checkbox” name=”c1” id=”c1” value=”ckbox”/&gt;</p>
-<p>23，对于文本下划线，可以使用border-bottom来实现丰富的定义。</p>
-<p>24，li{width:120px;text-overflow:ellipsis;}当内容超出对象宽度时，显示为省略号。clip将不显示。必须使用word-break:keep-all;使其被强制不能换行。</p>
-<p>25，em是一种相对弹丸。text-indent:2em;表示空出两个字符的距离，em长度相当于本行中字符的倍数，这个单位非常实用。</p>
-<p>26，首字下沉使用css伪类。p:first-letter{font-size:2em;float:left;}。first-line伪类对第一行进行设置。</p>
-<p>27，在布局中，出现布局的错位等，可以使用相对定位。尽量避免绝对定位。</p>
-<p>28，剪切图像可以使用clip。使用div overflow属性进行剪切图像，用img margin移动剪切区域。</p>
-<p>29，图片代替文本，内含不显示文本，表明图像的内容，非alt属性。两种实现方法：display:none;text-indent:-99999px;</p>
-<p>30，a:link只会对拥有href=“”的a发生作用。</p>
-<p>31，使用图片代替文本，对搜索引擎有利，有利seo。</p>
-<p>32，使用导航等，显示边框的时候，最好加上一个背景边框，防止错位。</p>
-<p>33，pimg{float:left;padding:10px;}设置图片浮动方式，可以将图片嵌入文字流。</p>
-<p>34，如果想要添加图片说明，将文字与img放在一个div中，之后对文字等进行设置。</p>
-<p>35，表格布局对table、tr、td进行定位，border-collapse：collapse;属性表示将表格中单元格之间线条合并。border-collapse：separate:则将使各单元格的边框独立存在。</p>
-<p>36，@import导入命令是将目的文件包含进来。例如：@import url(“home.css”);<br>还可以指定一个设备类型，指明当前的样式表用于什么操作，例如：<br>@import url(“pageprint.css”) print;表示在打印文件的时候，使用pageprint.css这个样式表。</p>
-<p>37，提高css效率的方法：<br>1，按照功能划分css文件。<br>2，在需要这方面功能的页面，引用相应的样式表文件。引用用上面的import</p>
-<p>38，用css制造进度条等，使用行间样式。</p>
-<p>整本书大部分的内容，都已经吸收同化进潜行者m的身体中，对于这38条笔记的内容，掌握的还不是很熟悉，所以做成笔记，以便在日后进行翻阅。</p>
-<p>在随后的一段时间内，我将继续公布潜行者m的个人笔记，包括seo、html5、css3、php、javascript等等。</p>
+        <p>在前面的几个教程中，我们已经设计出了主题的模板、样式，同时也添加了模拟数据，现在我们要做的就是把现有模板文件安装到 WordPress 中，这样有两个好处</p>
+<ol>
+<li>添加函数调用之后，刷新即可显示相应数据，方便对数据的规划。</li>
+<li>还有其他各种好处。<br>到了这个步骤，你就会发现 远程调试 和 本地调试 的区别了。远程调试，需要不断的在远程服务器上修改文件，然后刷新速度还要看网速等；本地调试直接复制，然后使用文本编辑器直接打开编辑即可，刷新加载速度也非常快。所以推荐在本地进行调试。</li>
+</ol>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>WordPress 主题安装相信大家都不陌生，我们只需要把上节课只做好的 “myTheme” 文件夹复制到 “wp-contentthemes” 文件目录下面，然后把 Html 文件后缀修改成 PHP 即 index.php，一个文件夹有了 index.php 和 style.css 这两个文件，才能被系统识别。之后我们登录后台，找到 “外观-》主题” 就可以看到我们的 “myTheme” 主题了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/themelist.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/themelist.jpg" alt="" title="themelist"></a></p>
+<p>你会发现你制作的这个主题显示和其他下载的主题显示的不同，标准主题中，需要在 style.css 文件中添加一些信息，同时还要生成缩略图。关于这一部分，将会在 【中级篇】 中进行讲解。</p>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>点击启用之后，我们再访问我们博客的首页，就可以发现，已经显示出来我们之前的模拟数据了。但是完全没有 CSS 的样式效果。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/blogindex.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/blogindex.jpg" alt="" title="blogindex"></a></p>
+<p>原因很简单，我们之前的模板中，引用 style.css 文件的时候，直接用的相对目录</p>
+<pre>&lt;link rel="stylesheet" type="text/css" href="style.css" /&gt;</pre>
+
+<p>href 属性直接指向了 style.css 文件，指向的是 主题 文件下面的 style.css 文件，当我们访问博客首页的时候，就无法加载到这个 style.css 文件了。</p>
+<p>正确的做法是，使用 绝对链接 到你的 style.css 。这里，我们需要将原来模板中的 &lt;link&gt;标签的 href 属性改成 <a href="http://localhost/cms/wp/wp-content/themes/myTheme/style.css" target="_blank" rel="noopener">http://localhost/cms/wp/wp-content/themes/myTheme/style.css</a> 。这里包含你的网址和 CSS 文件的绝对地址。这样就正常了，但是这样做有很多问题：</p>
+<ul>
+<li>使用你的模板的时候，需要修改这个属性的值，把前面的网址改成你的博客网址。</li>
+<li>修改模板名称的时候，我们同样需要修改这个属性的值。</li>
+<li>以及其他麻烦。<br>你懂这种代码，修改起来还比较容易，但是面对不懂的用户呢？你让他们如何修改？所以我们就需要想出解决方法。</li>
+</ul>
+<p>如果说，我可以使用某种东西，然后它就自动得到当前网站的地址，加上当前主题的目录名，自动的生成这个地址，那么这些问题都会迎刃而解。</p>
+<p>WordPress 的主题机制以及为我们准备好了这样的东西，那就是 <strong>WordPress 主题函数</strong>。WordPress 以及帮我们准备好了大量的函数，来调用这些数据。我们只需要插入主题文件中即可。</p>
+<h2 id="style-css-文件调用函数"><a href="#style-css-文件调用函数" class="headerlink" title="style.css 文件调用函数"></a>style.css 文件调用函数</h2><p>我们只需要在原来模板的 href 属性中，将原来的 “style.css” 换成 “&lt;?php bloginfo( ‘stylesheet_url’ ); ?&gt;” 就可以了。</p>
+<p>下面，潜行者 m 带着你简单分析一下这个函数</p>
+<pre>&lt;?php bloginfo( 'stylesheet_url' ); ?&gt;</pre>
+
+<p>首先，WordPress 是 PHP 开发的，所以执行函数的时候，都需要用 PHP 标签括起来，例如：</p>
+<pre>&lt;?php ........ ?&gt;</pre>
+
+<p>其次，这里面的函数名是 bloginfo(); 这是 WordPress 内置的函数，其功能就是调用各种博客相关数据的，这些数据通常在 “WordPress 后台 》 设置 》 常规” 里面进行设置。这个函数有很多参数，例如上面的那个参数   “stylesheet_url” ，就是调用了 style.css 的绝对地址。所以我们插入这个函数之后，WordPress 的主题机制会运行这些函数，将博客数据替换出来。</p>
+<p>这是我们学习的第一个函数，我这里只是简单的讲解一下，在后面的教程中，我将会更加详细的对参数以及用法进行解析。如果你想超前学习，可以看一下本人之前的关于 bloginfo(); 函数的常用参数文章：<a href="http://www.qianxingzhem.com/post-364.html">wordpress 中 bloginfo()函数详解</a></p>
+<p>添加修改之后，我们可以看到，页面已经恢复正常了</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/cssurl.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/cssurl.png" alt="" title="cssurl"></a></p>
+<h2 id="学习重点"><a href="#学习重点" class="headerlink" title="学习重点"></a>学习重点</h2><p>经过这一个小事情之后，我们可以明确一下学习重点。那就是各种常用 WordPress 函数的参数以及使用方法，之后插入模板文件中，就可以显示 WordPress 的数据了，也就达到了制作主题的目的了。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p>myTheme 主题下载地址 : <a href="http://pan.baidu.com/share/link?shareid=32228&amp;uk=706095745" target="_blank" rel="noopener">&gt;&gt;点击这里</a></p>
+<h2 id="之前的系列文章"><a href="#之前的系列文章" class="headerlink" title="之前的系列文章"></a>之前的系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1005.html" data-id="ckgcma3c10033aa2ax595u43a" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1268.html" data-id="ckgcnru7i001x1d2a1ryduelk" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
 
     </footer>
   </div>
@@ -893,7 +871,201 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="1005" data-title="潜行者m的CSS2笔记（二）" data-url="http://www.qianxingzhem.com/post-1005.html"></div>
+  <div class="ds-thread" data-thread-key="1268" data-title="【基础篇】4、安装主题文件" data-url="http://www.qianxingzhem.com/post-1268.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-913-e3-80-81-e8-ae-be-e8-ae-a1-e5-88-b6-e4-bd-9c-e4-bd-a0-e7-9a-84html-e4-b8-bb-e9-a2-98-e6-96-87-e4-bb-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1259.html" class="article-date">
+  <time datetime="2012-09-09T01:46:41.000Z" itemprop="datePublished">Sep 9 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这已经好多天没有写文章了，最近我的 wlan 账号出了一点问题，所以这些天我没怎么上网。今天宿舍网线终于扯上了，又有网可以上了。</p>
+<p>新学期的食堂饭菜又贵了，一般贵个五毛或者一块，没有涨价的，质量下降了。今天中午吃的面，4 块的，量只有去年 3 块 5 的，加的料子根本没有多少，去年直接加 1/4 多。坑爹啊，再也不在那吃了。没钱吃饭了，吃饭就吃穷了。无语。好了，牢骚发完了，看文章</p>
+<p>================================================</p>
+<p>制作主题之前，你必须使用 HTML 和 CSS 来制作出一个模板，确定博客主题的整体风格。这样，需要你有一定的 HTML 和 CSS 基础。</p>
+<p>在这里，为了教程演示，潜行者 m 制作了一个比较简单的小模板，结构简单、CSS 样式也不多，方便新手学习，下面简单说一下模板的结构以及重要的 CSS 样式，仅供新手学习。如果你有一定的 HTML 和 CSS 基础，可以略过这一部分。如何制作模板网页，如果新手的话，可以稍微看一下我的这篇文章 <a href="http://www.qianxingzhem.com/post-961.html">网页设计的一般步骤</a></p>
+<h2 id="模板文件结构"><a href="#模板文件结构" class="headerlink" title="模板文件结构"></a>模板文件结构</h2><p>新建一个文件夹，命名为 “myTheme” 。在里面要添加至少两个文件，一个是 index.html  另一个是 style.css 。此外，为了之后的制作，我们还应当添加两个文件夹，分别是 /images  和 /js ，分别用来存放主题需要的图片和 Javascript  文件。</p>
+<h2 id="模板文件内容"><a href="#模板文件内容" class="headerlink" title="模板文件内容"></a>模板文件内容</h2><p>我做了一个比较简单的模板，具体演示效果如下图</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/1.jpg" alt="" title="1"></a></p>
+<p>现在还没有添加任何的数据，只是一个大体的框架，在下面我将会添加数据，然后整体效果就会出来了。</p>
+<p>这个文件在文章后面可以下载到。</p>
+<h2 id="为模板添加模拟数据"><a href="#为模板添加模拟数据" class="headerlink" title="为模板添加模拟数据"></a>为模板添加模拟数据</h2><p>从上图大家就可以看到各个部分的功能等。下面，我要在模板中添加模拟数据，之后使用  CSS  对其进行外观定义。之后，我们就可以对照数据，添加  WordPress  相应的调用数据的函数，完成主体制作。</p>
+<p>添加模拟数据，并且定义了外观 CSS 之后的模板文件如下图</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/6.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/6.jpg" alt="" title="bloginfo"></a></p>
+<p>在下图中，我对添加的数据作了一个说明</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/09/7.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/09/7.jpg" alt="" title="bloginfo"></a></p>
+<p>这样，我们的模板文件就算是做好了，对应数据以及相应的 CSS 都已经编写好了。你现在已经看到了一个简单的博客页面。根据前面说的 WordPress  的大体制作步骤，我们现在只需要使用相应的函数调用相应的数据就可以了。</p>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><div><br><br>我是新手，不会做这种模板怎么办？<br><br>1.  制作主题等，需要一定的   Html  和  CSS  基础，如果你没有基础，请寻找相应资料，先学习一下  Html  和  CSS ，否则后面的学习会比较吃力。<br>2.  你也可以在网上下载  Html  模板或者下载我做好的教程模板，先不管如何去设计制作模板，先使用现有资源进一步学习。<br></div>
+
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p>myTheme 模板文件下载地址 : <a href="http://pan.baidu.com/share/link?shareid=30204&amp;uk=706095745" target="_blank" rel="noopener">&gt;&gt;点击这里</a></p>
+<h2 id="之前的系列文章"><a href="#之前的系列文章" class="headerlink" title="之前的系列文章"></a>之前的系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1259.html" data-id="ckgcnru7h001u1d2aakyr0ok9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1259" data-title="【基础篇】3、设计制作你的 HTML 主题文件" data-url="http://www.qianxingzhem.com/post-1259.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-912-e3-80-81wordpress-e7-9a-84-e4-b8-bb-e9-a2-98-e6-9c-ba-e5-88-b6" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1251.html" class="article-date">
+  <time datetime="2012-09-04T10:23:27.000Z" itemprop="datePublished">Sep 4 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1251.html">【基础篇】2、WordPress 的主题机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在制作 WordPress 主题之前，先要大体了解一下 WordPress 的主题机制，这样才能将自己设计的 HTML 模板等，转换成 WordPress 所能识别的主题文件。在这篇文章中，有一些概念会比较抽象，在随后的教程中，你会亲身感受到这些概念，就明白了。所以，你只需要记住下面三个大标题即可，如果不懂不用怕，在后面的基础教程中，你会理解的。</p>
+<p>经过<a href="http://www.qianxingzhem.com">潜行者 m</a>思考总结，WordPress 主要有以下三个显而易见的主题机制：<strong>函数调用数据机制</strong>、<strong>缺失文件替换机制</strong>、<strong>分离文件分块调用机制</strong>。</p>
+<h2 id="一个-WordPress-主题默认的文件目录"><a href="#一个-WordPress-主题默认的文件目录" class="headerlink" title="一个 WordPress 主题默认的文件目录"></a>一个 WordPress 主题默认的文件目录</h2><p>这是来自官方的说明，一个主题中需要包含以下文件。当然对于新手和比较简单的模板，我们并不需要设计生成这么多的文件，如果做比较专业的主题，则需要设计生成更多的文件，这个将会在【中级篇】的文章中深入介绍。</p>
+<ul>
+<li>404 错误页 = 404.php</li>
+<li>存档页 = archive.php</li>
+<li>存档索引页 = archives.php</li>
+<li>评论页 = comments.php</li>
+<li>底部 = footer.php</li>
+<li>头部 = header.php</li>
+<li>链接 = links.php</li>
+<li>首页 = index.php</li>
+<li>静态页 = page.php</li>
+<li>弹出式评论页 = comments-popup.php</li>
+<li>单篇博文页 = single.php</li>
+<li>搜索表单 = searchform.php</li>
+<li>搜索 = search.php</li>
+<li>侧栏 = sidebar.php</li>
+<li>样式表 = style.css</li>
+</ul>
+<h2 id="函数调用数据机制"><a href="#函数调用数据机制" class="headerlink" title="函数调用数据机制"></a>函数调用数据机制</h2><p>首先你要明白，一个主题，要展示输入的文章等数据，它会需要一种代码来从数据库中提取数据，然后结合你自己编写的 HTML 文件，生成供浏览者观看的页面。</p>
+<p>在 WordPress 中，官方团队为你写好了一系列的数据调用函数，使用这些函数以及相应的参数，就可以调用相应的博客数据并且显示出来。这样，当我们设计好了我们的 HTML 模板之后，只需要在相应的地方，加上调用相应数据的函数，就可以显示出来了。</p>
+<p>在随后的教程中，我们就会遇到那些常用的函数，以及函数的参数和使用方法、效果。</p>
+<h2 id="缺失文件替换机制"><a href="#缺失文件替换机制" class="headerlink" title="缺失文件替换机制"></a>缺失文件替换机制</h2><p>从上面的标准主题的文件列表里面，我们可以清晰的看到每个文件都有每个文件的功能，例如 sidebar.php 是边栏文件； single.php 是用来显示文章的文件。同时，<a href="http://www.qianxingzhem.com">潜行者 m</a>还说了，如果是比较简单的主题，并不需要这么多的文件。这里，你会不会产生一种疑问：如果缺少了某个功能文件，WordPress 会怎样处理？</p>
+<p>这就是 WordPress 的缺失文件替换机制要处理的。WordPress 主题里面，最重要的只有两个文件：index.php、style.css 这两个文件。一个是模板文件，另一个是 CSS 定义样式用的。而其他的 single.php 等文件，则是 index.php 的下级文件。WordPress 发现没有相对应的功能文件（例如显示文章的 single.php），它就会使用上级文件来代替显示缺失文件的内容（缺失 single.php，就使用 index.php 来显示文章内容）。</p>
+<p>具体关系如下图：</p>
+<p><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wpstruct.png" alt="" title="文件等级关系"></p>
+<h2 id="分离文件分块调用机制"><a href="#分离文件分块调用机制" class="headerlink" title="分离文件分块调用机制"></a>分离文件分块调用机制</h2><p>制作主题的时候，通常先制作 index.php 文件，来做出整体的效果。做完 index.php 文件之后，我们通常会把顶部的信息、边栏、底部的信息，分离出来，分别生成 header.php、sidebar.php、footer.php 这三个文件。之后，在 index.php 以及其他的主题文件中，使用相应的函数来调用这三个文件。</p>
+<p>为什么？因为头部、边栏和底部的内容，通常是不变化的，变化最多的就是博客的主体。所以将这几块分离出来，提高代码的重用，同时也提高修改和二次开发的效率，这点是非常科学的，你将会慢慢体会到。</p>
+<h2 id="本节课的总结"><a href="#本节课的总结" class="headerlink" title="本节课的总结"></a>本节课的总结</h2><p>通过本节课，我们了解到了 WordPress 主体的标准文件列表，同时我们了解了三种 WordPress 的主题机制。其中，缺失文件替换机制，让我们了解到，比较简单的模板，并不需要设计生成标准文件列表里面的文件，我们只需要设计主要的文件即可，因为缺失的其他功能文件，WordPress 系统会使用 index.php 的文件内容来显示。所以，在【基础篇】，我们要做的主题文件列表如下：</p>
+<ul>
+<li>index.php = 主体文件</li>
+<li>header.php = 头部文件</li>
+<li>sidebar.php = 边栏文件</li>
+<li>footer.php = 底部文件</li>
+<li>single.php = 文章显示文件</li>
+<li>page.php = 页面显示文件<br>同时，我们还确定了我们制作主题的大体流程：</li>
+</ul>
+<ol>
+<li>制作 index.html 和 style.css 文件，确定主题的整体风格。</li>
+<li>放入 WordPress 主题目录中，修改成 index.php。</li>
+<li>对 index.php 进行文件分割，分离出内容不变的 header.php、footer.php、sidebar.php 文件。</li>
+<li>由 index.php 文件，生成 single.php 文章页面，并进行简单改造。</li>
+<li>由 single.php 文件生成 page.php 文件，因为文章和页面的布局比较像。</li>
+<li>在各种主题文件中，插入 WordPress 数据调用函数，然后显示博客数据。<br>随后的【基础篇】教程，<a href="http://www.qianxingzhem.com">潜行者 m</a>将围绕这几个大体流程来依次讲解，直到最后做出一个比较简单的主题。</li>
+</ol>
+<h2 id="之前的系列文章"><a href="#之前的系列文章" class="headerlink" title="之前的系列文章"></a>之前的系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a><br>&nbsp;</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1251.html" data-id="ckgcnru7g001q1d2auh15bnrh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1251" data-title="【基础篇】2、WordPress 的主题机制" data-url="http://www.qianxingzhem.com/post-1251.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -914,7 +1086,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2012/">&laquo; Prev</a><a class="page-number" href="/archives/2012/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2012/page/3/">3</a><a class="page-number" href="/archives/2012/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2012/page/6/">6</a><a class="extend next" rel="next" href="/archives/2012/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/archives/2012/">&laquo; Prev</a><a class="page-number" href="/archives/2012/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2012/page/3/">3</a><a class="page-number" href="/archives/2012/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2012/page/10/">10</a><a class="extend next" rel="next" href="/archives/2012/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -925,7 +1097,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -934,7 +1106,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -943,7 +1115,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -952,7 +1124,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

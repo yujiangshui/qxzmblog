@@ -63,10 +63,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post--e7-bd-91-e7-ab-99-e6-90-ac-e5-ae-b6-e7-9a-84-e4-b8-80-e8-88-ac-e6-ad-a5-e9-aa-a4" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e6-95-99-e8-82-b2-e5-9f-b9-e8-ae-ad-e7-b1-bb-e7-bd-91-e7-ab-99-e7-9a-846-e4-b8-aa-e6-8e-a8-e5-b9-bf-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-369.html" class="article-date">
-  <time datetime="2012-01-19T23:39:07.000Z" itemprop="datePublished">Jan 20 2012</time>
+    <a href="/post-971.html" class="article-date">
+  <time datetime="2012-04-24T05:13:22.000Z" itemprop="datePublished">Apr 24 2012</time>
 </a>
     
   <div class="article-category">
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-369.html">网站搬家的一般步骤</a>
+      <a class="article-title" href="/post-971.html">教育培训类网站的6个推广方法</a>
     </h1>
   
 
@@ -89,24 +89,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前些天，准备给我这个博客（qianxingzhem.com）搬家来着，结果域名被绑定到justhost空间上了，动不了于是准备了半天没有搬成。关于网站搬家，有很多新站长可能感觉无从下手，结果搬完之后的网站，就像重新建设的一样，乱七八糟的而且还有数据丢失。今天，我就结合以前学的SEO中关于网站搬家部分的知识以及前些天搬家的实践来总结一下网站搬家的一般步骤。</p>
-<p>首先，网站搬家的原则是：<strong>不丢失任何文件以及链接，保持和搬家前网站一致。</strong><br><strong>第一步：备份并且下载所搬网站的内容</strong><br>做什么事之前，要养成一个备份的习惯，如果出现意外，可以防止丢失。此外，我所说的网站的内容不仅仅是你看到的服务器上的网站源码文件。就像我的这个是用wordpress搭建的博客网站，其博客数据都储存在mysql数据库中，而重要的部分也是这个。我们不仅仅要下载网站的源码文件，还要是用网站后台的导出数据的功能，把数据库里面的网站数据导出来。<br><strong>第二步：上传网站文件到新空间</strong><br>这一点不用多说，把传下来的东西再传到新的服务器上。但是要注意，这个传是有技巧的。对于普通的html页面和是用asp+access数据库的网站，可以直接上传。但是是用php+mysql数据库以及类似的数据库与主机空间分离的网站，直接上传是会出现数据库连接问题的。原因很简单，网站文件中，有个文件是配置数据库连接的。它配置的是你现在使用的数据库的相关信息，比如数据库地址、用户名、密码等。数据库的地址一般就是本机，通常为localhost，而你上传上去之后，新主机的并没有那种配置，所以就会出现数据库连接出错。</p>
-<p>而你根据新服务器的数据库配置来修改你的数据库连接文件，也是不可以的，因为你的数据库里面没有任何数据，即使连接上了，也不会调用出来东西。这样，可以通过多种方法，比较常用的有这两种：第一种就是使用phpmyadmin等数据库操作软件或者登陆数据库管理页面，把你原网站导出的数据库文件导入进去。然后根据新数据库的信息修改数据库连接文件，之后就可以访问了。第二种我比较喜欢，就是把你的网站重新在新服务器上安装一遍。比如我的这个wp博客，就可以把一套新的wp程序上传上去，根据他们的数据库信息重新配置安装一遍，然后把原网站导出的数据从后台导入进去，最好把上面所有非数据库配置文件都删掉，然后把原网站的非数据库配置文件上传上去就行了。一般来说就这两种方法，大家可以根据情况操作。<br><strong>第三步：调整并且修改新空间上的网站</strong><br>完全上传上去之后，可能会有一些冗杂数据和错误等。冗杂数据删掉就可以了，而错误，就需要多方面考虑。出现的错误，有以下几种原因：1，可能是由服务器的配置造成的。很简单的例子，有些服务器支持伪静态，网站使用伪静态方式的可以正常使用，而转移到一个不支持伪静态的服务器上，伪静态页面就无法使用了。2，可能由网站的配置造成的。比如在网站后台的配置中，一般需要配置你的网址。它的用处一般是来链接模板、以及网站其他资源的，而搬了新空间但是没有把域名转接上，就无法正常访问网站资源造成网站显示不正常。一切按照原网站的样子调整修改，并且确认无误。<br><strong>第四步：修改dns设置绑定域名到新空间</strong><br>当你把搬过去的网站彻底的修改调整好了和原网站已经没有什么区别了之后，之后要做的就是把你的域名解析到新的空间上面，让你的域名指向你搬过去的地方。注意，只有当和原网站一样之后，在进行转接。如果过早的转接，会导致用户访问时看到你的网站是一个有错误不完善的网站，而且会有部分连接出错。而我们的目标是让搬家之前访问的用户和搬家之后再次访问的用户感觉不到有什么变化。<br><strong>第五步：清除原网站内容及数据</strong><br>搬完就完事了？不，你还要把原先网站的内容全部清空。这只是一个好习惯，防止出现一些特殊的意外，比如数据泄露。就像前不久csdn泄露的600万份用户的账号资料。这本来就是一个过期的备份，本来应该及时删掉的，结果留在那里了，于是就被下载了。所以，清空原来服务器上的数据。</p>
-<p><strong>这样的五步，你的网站就成功的搬完家了。</strong></p>
+        <p>不久前，有个网友联系我，想咨询一下如何对他的网站进行推广。我看了一下，他的网站是某地区的教育培训类网站，于是就给他写了一个推广分析报告，分析一下有几种比较有效的推广方法。</p>
+<p>1，<strong>SEO</strong>。这类网站最适合的推广方法，就是seo了，当人们想要得到某地区的培训，首先会用搜索引擎搜索一下，定向流量比较高。但是SEO的难度也是比较大的，前期付出的成本也比较高，但是利益也比较大。</p>
+<p>2，<strong>制作视频教程</strong>。利用手头的教育教学资源，做一部分免费的公益教程的，然后对外在比较大型的教育类门户网站或者论坛发布。有充足的老师和教育资源，这样做一些简单的教程、简单的介绍一下课程的学习目标以及重要性，可以让人们对课程加深了解，从而增加报名率。可以考虑与教育类门户等合作，在视频教程中，添加上他们的链接表示合作推出，这样那些大型门户甚至会帮你推广一下。当然，前提是，教程必须要有价值，不能全都是广告，只能稍微提一下自己的培训中心，否则其他网站可能不会同意和你合作。</p>
+<p>3，<strong>写软文</strong>。有专业的老师等，可以组织些一些比较基础的考试培训类的指南，比如XX证考试指南，在文章中穿插进自己的培训中心名称或者链接。例如XX培训中心新推出了一份复习资料等等等等。发布在考试论坛或者考试门户网站上，甚至可以考虑去付费发布。</p>
+<p>4，<strong>编写资源帖</strong>。组织现有的资源，在压缩包里面加上自己的信息，然后组织成一个帖子，例如“XX考试XX本电子复习资料大全”等有吸引力的名字。将其发布在考试类论坛上。要注意的是，帖子里面的资源，必须真实可靠有效，一般这种帖子在论坛里面都很火，而且经常被别人转载，可以制造大量外链。</p>
+<p>5，<strong>邮件营销</strong>。通过上面的几个推广方法，我们可以在下面加上“邮件订阅”，使用QQ列表服务，让对此培训有兴趣的人，通过邮件订阅最新的考试培训信息等。可以使用一些吸引性的文字，来吸引提交邮箱。比如每月提供一些免费的考试培训资料，提供最新的考试相关的信息等等，然后在后面添加上自己培训中心的广告。一段时间之后，收订的人会看到你的实力，会大大提高报名率。</p>
+<p>6，<strong>本地推广</strong>。既然是一个培训中心，而且又有地区性，所以应当在本地进行推广。可以按照自己培训的类型，针对性的进行广告传单等推广。比如向中学、高校等，发放传单，开讲座等。以网站作为实力展示的地方，进行推广。</p>
+<p>以上就是潜行者m关于教育类网站推广方法的总结与分析，如果你有更多更好的推广方法，请与我交流！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-369.html" data-id="ckgcma3cc003raa2aj6c0wlz1" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-971.html" data-id="ckgcnru9a00731d2aw45q1ohe" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
+
     </footer>
   </div>
   
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="369" data-title="网站搬家的一般步骤" data-url="http://www.qianxingzhem.com/post-369.html"></div>
+  <div class="ds-thread" data-thread-key="971" data-title="教育培训类网站的6个推广方法" data-url="http://www.qianxingzhem.com/post-971.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -125,10 +131,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-wordpress-e4-b8-adbloginfo-e5-87-bd-e6-95-b0-e8-af-a6-e8-a7-a3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e8-ae-b0-e8-bf-99-e6-ac-a1-e8-a2-ab-e7-99-be-e5-ba-a6k-e6-8e-89-e7-9a-84-e6-81-a2-e5-a4-8d-e7-bb-8f-e5-8e-86" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-364.html" class="article-date">
-  <time datetime="2012-01-18T23:56:45.000Z" itemprop="datePublished">Jan 19 2012</time>
+    <a href="/post-876.html" class="article-date">
+  <time datetime="2012-03-20T01:08:29.000Z" itemprop="datePublished">Mar 20 2012</time>
 </a>
     
   <div class="article-category">
@@ -143,7 +149,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-364.html">wordpress中bloginfo()函数详解</a>
+      <a class="article-title" href="/post-876.html">记这次被百度K掉的恢复经历</a>
     </h1>
   
 
@@ -151,19 +157,21 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>bloginfo()函数，顾名思义，是用来显示博客相关信息的函数。常用的有如下几种：</p>
-<p><strong>&lt;?php bloginfo(‘name’); ?&gt;</strong> 输出博客名称，例如“潜行者M”，在后台设置常规里面可以设置；<br><strong>&lt;?php bloginfo(‘stylesheet_url’); ?&gt;</strong> 输出模板style.css文件的地址，使用如下语句来加载模板的css样式表：&lt;link rel=”stylesheet” href=”&lt;?php bloginfo(‘stylesheet_url’); ?&gt;” type=”text/css” media=”screen” /&gt;；<br><strong>&lt;?php bloginfo(‘url’); ?&gt;</strong> 输出博客的网址，在后台设置常规里面可以设置；<br><strong>&lt;?php bloginfo(‘template_url’); ?&gt;</strong> 输出博客模板的位置；<br><strong>&lt;?php bloginfo(‘rss2_url’); ?&gt;</strong> 输出博客RSS2.0 feed地址；<br><strong>&lt;?php bloginfo(‘charset’); ?&gt;</strong> 输出博客所采用的编码；<br><strong>&lt;?php bloginfo( ‘description’ ); ?&gt;</strong> 输出博客的描述，即副标题，在后台设置常规里面可以设置。</p>
-<p>此外，与此函数相近的函数有get_bloginfo()，它的用法与此函数相同，区别在于get_bloginfo()函数用来输出到变量中。<br>用法：<strong>&lt;?php $bloginfo = get_bloginfo( $show ); ?&gt;</strong>更多的用法请参考：<br><a href="http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-bloginfo%28%29.html" target="_blank" rel="noopener">http://www.wordpress.la/codex-%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE-bloginfo%28%29.html</a></p>
-<p>此外，本人总结了一些<a href="http://www.qianxingzhem.com/post-354.html"> wordpress模板开发常用的函数</a></p>
-<p>本人正在写wordpress模板制作教程，详情可以查看：<a href="http://www.qianxingzhem.com/post-tag/wp%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91">wordpress模板开发</a></p>
+        <p>从一开始，我博客网站的固定连接，就觉得不是很好看。后来一直做着思想上的斗争，如果换了新的伪静态策略的话，以前收录的就白弄了，会出现大量404，还要大量的301转向。但是后来一想，如果不换，就一直这样，以后文章越来越多了，再更换损失就会越大。所以就狠下心，换了。</p>
+<p>换了伪静态规则之后，由于那段时间比较忙，结果忘了对重要的页面进行301转向。后来想到的时候，已经是几天之后了，抓紧用百度搜索了一下我独特的关键词“潜行者m”，结果排名一下子到了第二页了，果断被百度K掉了。然后就开始寻找恢复的策略，现总结如下：</p>
+<h2 id="百度K站的诱发因素："><a href="#百度K站的诱发因素：" class="headerlink" title="百度K站的诱发因素："></a>百度K站的诱发因素：</h2><p>网站改版，大量页面链接的改变。百度对这种情况的惩罚还是比较轻微的，只是把我的网站放到了第二页。特别是新站，搜索引擎发现大量改版的现象时，都会给予一定的警惕。因为垃圾网站就有这种特点，经常更改网站内容和链接。所以搜索引擎要K掉你网站一段时间，来观察一下。</p>
+<p>除此之外，百度K站的原因还有大量垃圾外链以及其他的作弊手法等。因为这种原因造成的K站，一般是比较难以恢复的，需要很多时间。或者，直接永远无法恢复。做垃圾站、站群的，自己做好心理准备。</p>
+<h2 id="被百度K掉的解决方法："><a href="#被百度K掉的解决方法：" class="headerlink" title="被百度K掉的解决方法："></a>被百度K掉的解决方法：</h2><p>被K掉之后，一般没有什么解决方法，除非你是百度内部的人，可以轻易的将你的网站从百度那边观察列表上清除。百度K你的，是因为你的网站具有他们认为是垃圾网站的特征，所以，如果是一个正规网站的话，大可不必担心。百度K你，只是考验你的网站是不是垃圾网站，你只需要继续和平常一样，发表原创文章，匀速的做高质量外链。当百度看到你网站在继续正常的运营，他们就会思考是不是自己判断错了，于是排名就会慢慢爬上来。</p>
+<p>就像我的博客，发现被K之后，仍然写原创文章等，过了不到半个月，特殊关键词“潜行者m”现在又重新恢复到第一位了。</p>
+<p>&nbsp;</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-364.html" data-id="ckgcma3dn007baa2a0pezfsli" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-876.html" data-id="ckgcnrua2009m1d2a2nwhxpc8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP主题函数/">WP主题函数</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li></ul>
 
     </footer>
   </div>
@@ -171,7 +179,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="364" data-title="wordpress中bloginfo()函数详解" data-url="http://www.qianxingzhem.com/post-364.html"></div>
+  <div class="ds-thread" data-thread-key="876" data-title="记这次被百度K掉的恢复经历" data-url="http://www.qianxingzhem.com/post-876.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -190,10 +198,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post-wordpress-e6-a8-a1-e6-9d-bf-e5-bc-80-e5-8f-91-e5-b8-b8-e7-94-a8-e7-9a-84-e5-87-bd-e6-95-b0" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e5-8f-8b-e6-83-85-e9-93-be-e6-8e-a5-e5-bb-ba-e7-ab-8b-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-354.html" class="article-date">
-  <time datetime="2012-01-18T23:31:55.000Z" itemprop="datePublished">Jan 19 2012</time>
+    <a href="/post-865.html" class="article-date">
+  <time datetime="2012-03-10T11:25:37.000Z" itemprop="datePublished">Mar 11 2012</time>
 </a>
     
   <div class="article-category">
@@ -208,7 +216,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-354.html">wordpress模板开发常用的函数</a>
+      <a class="article-title" href="/post-865.html">友情链接建立完全攻略</a>
     </h1>
   
 
@@ -216,39 +224,30 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近自己研究设计了这个你现在看到的模板。设计的过程，也是一个学习的过程，通过各方面查找资料，一步一步的组合成了这个模板。用本文梳理以下用到的wp函数，以方便日后开发其他模板。</p>
-<h3 id="全局整体："><a href="#全局整体：" class="headerlink" title="全局整体："></a>全局整体：</h3><p><strong>&lt;?php get_header(); ?&gt;</strong> ：得到头部代码函数。wp模板将一个页面分为header、sidebar、footer、body四个部分。并且将header、sidebar、footer这三个部分分割出去，作为独立文件方便重用。使用这个函数，表示把header.php这个文件包含进了本文件。</p>
-<p><strong>&lt;?php get_sidebar(); ?&gt;</strong>：得到边栏代码函数，用法同上。</p>
-<p><strong>&lt;?php get_footer(); ?&gt;</strong> ：得到底部代码函数，用法同上。</p>
-<p><strong>&lt;?php wp_title(‘&amp;laquo;’, true, ‘right’); ?&gt;</strong>：当访问一篇文章（或页面）的时候，网页标题将显示文章的标题。常在header.php编写如下语句：&lt;title&gt;&lt;?php wp_title(‘&amp;laquo;’, true, ‘right’); ?&gt;&lt;?php bloginfo(‘name’); ?&gt;&lt;/title&gt;。</p>
-<p><strong>&lt;?php echo mb_strimwidth(strip_tags(apply_filters(‘the_content’,$post-&gt;post_content)), 0, 400,”…”); ?&gt;</strong>：使用本语句，截取本文章制定的前400个字符，用于首页显示文章摘要，具体请看：<a href="http://www.qianxingzhem.com/post-330.html">解决wp首页无法显示摘要而显示全文的方法</a>。</p>
-<p><strong>&lt;?php previous_posts_link(); ?&gt;</strong>：当文章为列表时，且一页存放不开时，使用此函数，会显示“上一页”。</p>
-<p><strong>&lt;?php next_posts_link(); ?&gt;</strong>：同上功能，会显示“下一页”。</p>
-<p><strong>&lt;?php bloginfo(); ?&gt;</strong> ：顾名思义，这是一个显示博客信息的函数。具体请看：<a href="http://www.qianxingzhem.com/post-364.html">wordpress中bloginfo()函数详解</a></p>
-<p><strong>&lt;?php home_url(); ?&gt;</strong>：输出博客首页地址。</p>
-<p><strong>&lt;?php _e(‘Not Found’); ?&gt;</strong>：_e();函数是根据本地汉化包的对应内容显示相应信息的，比如：_e(‘Not Found’);如果我的wordpress是英文版的，则会显示“Not Found”，如果是中文版的，汉化包内对应的是“没有发现”，则显示“没有发现”。</p>
-<h3 id="文章相关："><a href="#文章相关：" class="headerlink" title="文章相关："></a>文章相关：</h3><p><strong>&lt;?php the_category(‘ , ‘) ?&gt;</strong>：显示文章所在分类。</p>
-<p><strong>&lt;?php the_title(); ?&gt;</strong>：显示文章的标题。</p>
-<p><strong>&lt;?php  the_author(); ?&gt;</strong>：显示本文的作者。</p>
-<p><strong>&lt;?php the_content(); ?&gt;</strong>：显示本文的内容。</p>
-<p><strong>&lt;?php if (has_tag()) the_tags(‘’, ‘,’,’’); ?&gt;</strong>：判断本文是否有标签，如果有就显示出来，多个标签用“，”分割。</p>
-<p><strong>&lt;?php edit_post_link(‘Edit’, ‘’); ?&gt;</strong>：如果你有编辑文章的权限，且登陆，会在添加此函数的地方发现“edit”链接，点击可以快速跳转后台，对此文章内容进行编辑。</p>
-<p><strong>&lt;?php the_time(‘y年m月d日’) ?&gt;</strong>：显示此文章的发布时间，括号内可以自定义时间格式。</p>
-<p><strong>&lt;?php previous_post_link(); ?&gt;</strong>：上一篇文章的链接，显示上一篇文章的名字以及链接，注意区别前面的“上一页”函数。</p>
-<p><strong>&lt;?php next_post_link(); ?&gt;</strong>：下一篇文章的链接，功能同上。</p>
-<p><strong>&lt;?php comments_template(); ?&gt;</strong>：调用评论模板函数，使用此函数，会显示评论模板的内容。</p>
-<p>以上就是WP模板开发中，最常遇到的调用信息的函数。特别需要注意的一点是，调用显示日志的函数必须包含在日志主循环中，即：</p>
-<p>&lt;?php if(have_posts()) : ?&gt;<br>&lt;?php while(have_posts()) : the_post(); ?&gt;<br>&lt;?php endwhile; ?&gt;<br>&lt;?php else : ?&gt;<br>&lt;?php endif; ?&gt;</p>
-<p>这段函数使用了一个if判断语句，中间包含了while循环语句，意思是如果有文章的话，就开始循环的the_post()，这样就能使用上面的调用相应文章作者、发布日期、文章分类、文章标签等内容。</p>
-<p>目前<a href="http://www.qianxingzhem.com">潜行者m</a>在编写一套比较<a href="http://www.qianxingzhem.com/post-tag/wp%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91">简单基础的wordpress模板制作教程</a>，有兴趣的朋友可以关注这里：<a href="http://www.qianxingzhem.com/post-tag/wp%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91">http://www.qianxingzhem.com/post-tag/wp%E6%A8%A1%E6%9D%BF%E5%BC%80%E5%8F%91</a></p>
+        <p>友情链接是一个完整的网站必不可少的一部分，而友情链接也不是随便就可以添加建立的，里面有很多需要注意的地方。下面，就由<a href="http://www.qianxingzhem.com">潜行者m</a>为大家讲解一下如何建立合理有效的友情链接。</p>
+<h2 id="友情链接的作用"><a href="#友情链接的作用" class="headerlink" title="友情链接的作用"></a>友情链接的作用</h2><p>建立友情链接，可以建立你和对方的友情，这是网站友情链接的社会作用。有了友情链接之后，可以增进双方的友情。建立友情链接，可以增加一些流量。这些流量通常还是比较少的，因为很少有人回去关注网站友情链接，更少人去点击访问。建立友情链接，可以增加网站的相关性、网站权重等，友情链接，往往相当于一个高质量的外链，具有一定的seo的价值。这才是友情链接的重要作用。</p>
+<h2 id="寻找友情链接"><a href="#寻找友情链接" class="headerlink" title="寻找友情链接"></a>寻找友情链接</h2><p>寻找友情链接的方法有很多种，比如说，有很多链接交换平台，上面有很多交换友情链接的信息，你可以选择自己合适的进行交换。同时在站长qq群或者一些其他的地方，都可以发现有交换友情链接的站长。但是我不推荐这种方式。一个好的友情链接，是自己花时间去寻找发现的，我推荐的交换友情链接的方式是这样的：经常关注与自己网站类型相关的网站，看看他们的页面上，是否有没有申请友情链接等字样，看一下对方有没有交换友情链接的意向。如果有的话，就提交申请友情链接。还要观察他们的网站友情链接，因为一个比较好的网站，他的友情链接质量也是很高的，和他网站内容也是相关的，换句话说我们也可以和他交换友情链接。如果遇到好的，可以进行提交申请。潜行者m认为这种方式找到的友情链接的质量是最好的。</p>
+<h2 id="衡量友情链接质量"><a href="#衡量友情链接质量" class="headerlink" title="衡量友情链接质量"></a>衡量友情链接质量</h2><p>网站友情链接的方式，通常有三种，一种就是直接在首页下面显示友情链接，另一种就是建立一个专门用于放置友情链接的页面，在首页中链接这个页面，还有就是这两种结合起来的。通常来说，直接放在首页的友情链接质量是最高的，放在内页的要差很多。如果对方是一个大型的权重很大的网站，为了网站版面等，把你的链接放在内页，也有情可原，如果是小网站主动找上门来的还把你放在内页，说明对方根本不重视你，直接无视掉即可。</p>
+<p>此外链接的pr值也是比较重要的，虽然pr值作用已经削减，但是谷歌的判断通常是不会错的，pr值高的网站，说明网站质量要好。需要特别注意的是，要看一下网站的历史，不要被表面的情况迷惑了，看一下这个网站以前曾经做过什么，有没有被搜索引擎k掉。如果这个网站之前被惩罚过，那么和这种网站友情链接是很危险的。如果对方网站是一个充满垃圾的采集网站，那么和这这种网站链接是没有前途的。</p>
+<p>查看对方网站友情链接的数量和质量，我曾经接到过一个网页游戏网站的友情链接申请，他们网站友情链接在下面有上百个，有各种各样的网站。如果对方链接很多的话，每个链接分到的pr值等就会很少得到的利益就会很少，更别提会给你带来点击流量了。相反的，你网站友情链接少，会给他很多的好处。而且对方链接很杂乱，说明这个网站并不是一个质量很好的正规网站，和他们链接是没有任何好处的，所以应当尽量避免此类链接。</p>
+<h2 id="友情链接中的花招"><a href="#友情链接中的花招" class="headerlink" title="友情链接中的花招"></a>友情链接中的花招</h2><p>有很多素质比较低的站长，会使用一些友情链接的花招，来让他得到的利益最大化。</p>
+<p>1，过段时间悄悄的删掉链接。本来和你说的很好，和你建立友情链接，之后过段时间就偷偷删掉。这种情况很常见，一般来说，清除友情链接，应该要提前和对方站长沟通说一声。应对这种情况，我们就要经常看一下友情链接中的网站，是不是还链接着你的网站，如果没有了，问一下出现了什么问题，如果是人为有意的，那么你就可以毫不客气的撤下链接，与这种人断绝来往。</p>
+<p>2，各种方法阻止链接传递权重。比如加上nofollow属性，使用javascript来输出你的链接。这样可以控制权重不向你的网页还有很多中作弊的花招，在这里就不再赘述了。大家在检查友情链接的时候，不要仅仅看外表，一定要看一下相应的源代码。如果有不是最简单的a标签的话就要注意了。很有可能会动过一些手脚。</p>
+<h2 id="接受别人的友情链接"><a href="#接受别人的友情链接" class="headerlink" title="接受别人的友情链接"></a>接受别人的友情链接</h2><p>如果你的网站想要得到友情链接，并且允许申请友情链接的话，请在网站的底部或者其他地方新建<a href="http://www.qianxingzhem.com/friendlink">一个友情链接页面</a>。页面的锚文字可以是“申请友链?”之类的文字，让别人一看就知道是一个申请友情链接的页面，从而让别人知道你想要接受友情链接。在这一个页面中，你应该说明你要添加的友情链接的相关要求，比如要求对方pr多少，对方收录多少，对方网站更新频率多少等等。这样做一个要求之后，如果遇到一些不太好的友情链接申请，你就可以有个比较好的理由回绝对方。</p>
+<h2 id="申请友情链接的礼仪"><a href="#申请友情链接的礼仪" class="headerlink" title="申请友情链接的礼仪"></a>申请友情链接的礼仪</h2><p>在申请友情链接中，有许多需要注意的地方，要礼貌注重礼仪一些，这样得到对方友情链接的几率就会大一些。</p>
+<p>1，在申请对方友情链接的时候，一定要真诚的请求，并且在自己的网站上，提前加上对方的网站链接。这样会让对方感到你是真的很想和他链接。</p>
+<p>2，提前看清对方友情链接的标准，如果自己的网站达不到这个标准，就尽量不要去申请。申请也没有用处，对方一般不会同意的，而且还搞得比较尴尬。</p>
+<p>3，如果对方的网站经常打不开，或者有一些不良的信息等，你不想和他继续交换友情链接了。请提前和对方站长联系一下，说明自己不想做友情链接了，说明对方网站有哪一些地方不符合自己的友情链接的要求，告知对方要撤下链接。不要不通知就私自撤下链接，这是一种非常不礼貌的行为。潜行者m不久前就遇到这种情况，发现后，直接撤下，以后永远不会和这个站长友情链接了。</p>
+<h2 id="申请友情链接的误区"><a href="#申请友情链接的误区" class="headerlink" title="申请友情链接的误区"></a>申请友情链接的误区</h2><p>1，有些人认为，友情链接越多越好，从而只要是网站就去申请友情链接。这是错误的，假如一个生物科技论坛和一个游戏论坛做友情链接，这是没有多少用处的。得到高质量的网站友情链接，必须是相关的网站，例如网络营销网站的话，可以与一些网站建设类网站链接，这样的效果和质量都要好很多。同时，友情链接尽量要控制在20个左右，不要太多了。如果太多了，会被搜索引擎当成链接工厂，而且每个链接的权重也会降低。</p>
+<p>2，pr等指标越高，这个友情链接就越好。这又是一个seo的误区，很多人认为，一个网站的pr值越高，与他链接，得到的好处就越多。于是就有很多人卖pr值高的网站链接，有些人就买。对于pr值来说，不要和自己网站差距太大，相仿、低点、高点都可以。举一个简单的例子，一个pr为1的网站，却有一个pr8的网站链接。搜索引擎发现了，会怎么想？一个pr8的网站为什么要去链接一个pr1的网站？会不会是购买的链接？如果搜索引擎真的这样想，就麻烦了，因为搜索引擎是反感购买链接这类活动的。所以，与自己pr相仿或者高点的网站链接是最好的了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-354.html" data-id="ckgcma3dp007jaa2a635511et" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-865.html" data-id="ckgcnru8g004t1d2asnommlv6" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WP主题函数/">WP主题函数</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
 
     </footer>
   </div>
@@ -256,7 +255,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="354" data-title="wordpress模板开发常用的函数" data-url="http://www.qianxingzhem.com/post-354.html"></div>
+  <div class="ds-thread" data-thread-key="865" data-title="友情链接建立完全攻略" data-url="http://www.qianxingzhem.com/post-865.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -275,10 +274,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-85-b3-e4-ba-8ejusthost-e7-a9-ba-e9-97-b4-e6-88-91-e7-9a-84-e5-bb-ba-e8-ae-ae" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e4-bb-8eseo-e7-9a-84-e8-a7-92-e5-ba-a6-e6-9d-a5-e8-b0-88-e7-bd-91-e7-ab-99-e6-90-ac-e5-ae-b6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-345.html" class="article-date">
-  <time datetime="2012-01-17T19:20:52.000Z" itemprop="datePublished">Jan 18 2012</time>
+    <a href="/post-863.html" class="article-date">
+  <time datetime="2012-03-03T19:45:11.000Z" itemprop="datePublished">Mar 4 2012</time>
 </a>
     
   <div class="article-category">
@@ -293,7 +292,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-345.html">关于justhost空间我的建议</a>
+      <a class="article-title" href="/post-863.html">从seo的角度来谈网站搬家</a>
     </h1>
   
 
@@ -301,31 +300,21 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我从去年（2011）七月份开始使用justhost空间，到现在，不知不觉已经过去了半年。网站主机这一块，一直是很混乱的。特别是国内，你用搜索引擎搜索到的信息，80%都是枪手制造的虚假信息。无论是什么主机提供商，后面都有一屁股骂他垃圾的，甚至有些人，看准这个市场，建设主机评论网站。上面的东西更加虚假，上面“最好的主机”，是给他们广告费的。于是，就有了这句话：关于质量好不好，用过才知道。我使用justhost也差不多半年了，我应该有发言权评论关于justhost主机。于是，我开设了justhost分类目录，用于存放我关于justhost的看法以及使用经验等。</p>
-<p>而今天，是关于justhost的建议，一些不同于现在网络上的东西。</p>
-<p><strong>1，注册时，要免费域名。</strong></p>
-<p>很多人说，不能要，因为justhost空间，如果买了之后你要退款的话，需要交一定的钱来补这个域名注册费。确实，顶级域名的注册是需要花钱的而且不能退货，既然你不用justhost空间了，justhost没有义务为你的域名付款。</p>
-<p>大家请注意，这个的前提条件是你想要退款。我个人觉得justhost空间挺好，不需要退款。那这样呢，就需要他的免费域名了。为什么呢？是这样的。美国的服务器是非常发达的，像justhost这种虚拟主机提供商，他的每个虚拟主机都需要一个唯一的东西标记，以便能找到它。什么意思呢？就像国内，开通虚拟空间的时候，服务商都会提供一个很长的三级域名，可以访问到你开通的空间。而justhost不用他们自己的三级域名，而是让你提供域名绑定到他们的虚拟主机空间上作为虚拟主机的标记。这样，你提供的域名就成了他们的虚拟主机上的标记，只要这个justhost还能用，你的这个域名就一直标记着这个justhost虚拟空间，只能绑定到这里而不能绑定出去。用自己的域名来绑定justhost空间有什么好处呢？就是退款的话，不用域名扣费。有什么坏处呢？在你justhost空间使用期间内，你的这个域名一直是他们控制的，你自己无法转移绑定（如果可以的话，你的虚拟主机靠什么标记？）。</p>
-<p>简单的说，就是你的这个域名只能用在那个justhost空间上。这两天，我觉得justhost空间的速度不如香港空间的，于是便购买了香港空间准备搬家，把这个网站搬到香港空间上。等一切都准备就绪，就等着更新域名解析的时候才发现，我的这个域名（qianxingzhem.com）已经成了我的justhost空间的一部分，无法绑定到新的空间上。当然，这是不好的，对于justhost来说这种情况是有解决方法的，而且我也在网上找到了。就是联系他们的客服帮你更换主域名，当然不免费，需要15美元左右。花费如此之高，所以我没有搬家，还是把这个网站留在了美国。</p>
-<p>而我们要了免费域名呢？我们的免费域名可以随便注册，因为它无论今后续费还是怎么着，都是非常不方便的。我们要它就是来标记我们的justhost空间的。之后，我们再通过绑定功能，把我们的正式的域名绑定上。这样呢，如果我们想更换空间，域名可以随时抽出绑定到其他空间上。而justhost的域名，我们本来也没打算用，连justhost一起扔了就可以了。</p>
-<p><strong>2，看清justhost的版本</strong></p>
-<p>justhost还有版本？没错，这里的版本的意思是不同类型的产品。在网上，justhost提供两种产品JustPlan 和 JustPlan Premium，后者就是比前者多几个域名而已。如果想更详细的了解这两个产品，可以看一下百度百科：<a href="http://baike.baidu.com/view/2345535.htm。现在还有一个版本，justhost经销版。我的这个空间就是经销版的，一年139块钱，远远低于上面的那两个产品。经销版不送域名，而且不能扩展购买独立IP，其他的基本和上面的产品一样。购买的时候，一定要看清楚。我现在在淘宝上搜索的时候，就发现很多拿着justhost经销版卖justplan价的。justplan价格一般一年280左右，这两个之间相差140块钱，所以一定要擦亮眼睛看好你买的究竟是什么产品。" target="_blank" rel="noopener">http://baike.baidu.com/view/2345535.htm。现在还有一个版本，justhost经销版。我的这个空间就是经销版的，一年139块钱，远远低于上面的那两个产品。经销版不送域名，而且不能扩展购买独立IP，其他的基本和上面的产品一样。购买的时候，一定要看清楚。我现在在淘宝上搜索的时候，就发现很多拿着justhost经销版卖justplan价的。justplan价格一般一年280左右，这两个之间相差140块钱，所以一定要擦亮眼睛看好你买的究竟是什么产品。</a></p>
-<p><strong>3，justhost 经销版 好不好</strong></p>
-<p>在上面提到了<strong>justhost经销版</strong>，在justhost官方有两种方案，统称为大众版。而justhost给经销商服务器，让经销商自主管理，于是就出现了经销版。经销版与大众版的区别，一般在于是否赠送顶级域名。<a href="http://www.qianxingzhem.com">潜行者m</a>一个用的都是justhost经销版，感觉在很多方面，经销版要比大众版好很多。例如：</p>
-<p>1，经销版是由经销商控制的，经销商可以控制justhost服务器，如果你的网站出现了问题，可以直接联系他。如果是大众版的话，则需要用英文等去联系沟通。</p>
-<p>2，经销商可以进行一些优化。例如我现在用的justhost经销版空间，经销商就进行了优化，限制每个账号只能建设5个网站、一共有5个数据库、而且不能存放违法网站等。这样我的网站就比较稳定，没出现过什么问题。</p>
-<p>需要注意的是，经销版也分为两种，一种是普通版，一种是高级版。普通版大约135元左右，和大众版差不多就是没有域名什么的。高级版大约200左右，经销商可以直接控制的。</p>
-<p>推荐一下，我目前用的justhost高级经销版是由<a href="http://s.click.taobao.com/t_8?e=7HZ5x%2BOzdswrmRCHxj9otV7y%2BQ%3D%3D&amp;p=mm_28073254_0_0" target="_blank" rel="noopener">尤尤网络</a>提供的，具体是这一款 <a href="http://s.click.taobao.com/t_8?e=7HZ6jHSTZPHnIL4nq%2FBd8NKJPqKNF8ISvzEX0l4iPuI%3D&amp;p=mm_28073254_0_0" target="_blank" rel="noopener">justhost “高级”CloudLinux经销版</a>。</p>
-<p>（未完待续）</p>
-<p><strong>订正：</strong>在本文第一条中，有错误，绑定到justhost空间上的域名，并非无法控制。主要是因为当时修改dns配置之后，会有一定的延迟，在这个延迟中，我草率的判断，这个域名是绑定到了justhost成了一部分。事实上不是这样的，绑定到justhost的域名可以使任何的域名，只是作为一个标记。如果你想要这个绑定的域名指向justhost空间，你需要修改DNS，设置一个域名的 A记录指向justhost空间所在的服务器IP。如果你想让域名指向其他的空间，只需要在DNS中，将主域的A记录等修改成其他新服务器的IP即可。所以，域名绑定之后，不一定要使用justhost的DNS服务，可以使用第三方服务指向justhost服务器IP即可！推荐使用DNSpod.cn的免费解析服务！</p>
+        <p>网站搬家，顾名思义就是转移网站更换网站的服务器。在一个网站的运营发展中，必不可少的过程就是转移服务器，可能是由于续费、更换主机服务商或者网站规模增大需要更强配置的服务器等，都需要进行网站搬家。前些天，我看到过一篇不错的关于网站搬家的文章，是潜行者m写的《<a href="http://www.qianxingzhem.com/post-369.html">网站搬家的一般流程</a>》，上面介绍了一下网站搬家的原则和实现的具体步骤，并没有涉及太多的关于seo方面的。在这里本人就从seo的角度来谈谈网站搬家。<br>网站搬家，注定是要更换服务器，通常的说，<strong>将一个网站转移到另一个服务器上，是不会对排名造成影响的</strong>。至于有些人发现排名下降了，那可能是由于你搬到了一台之前被搜索引擎惩罚的服务器上，或者是你搬家的方法不当，导致搬家过程中，搜索引擎发现大量的错误等等。如果操作得当，网站搬家对排名是没有影响的。</p>
+<p>第一步：<strong>确定你真的要进行非常有必要的网站搬家。</strong>我周围就有很多朋友，总是不停的购买主机然后不停的把网站放来放去。这样既麻烦，又有可能造成文件数据丢失，导致排名受损。再说，如果搜索引擎检测到你的网站经常的更换服务器，那么它就会疑惑你的网站究竟是一个什么网站，为什么要经常转移网站，对排名很有可能也有一定的影响。</p>
+<p>第二步：<strong>备份网站的所有资源。</strong>网站搬家的原则就是，不能丢失任何的数据和资源。包括你的数据库和图片等资源，都要全部复制下来。</p>
+<p>第三步：<strong>把所有下载下来的网站资源，按照原先的目录结构等上传到新网站空间，保证文件名和目录一致，将数据等导入数据库。</strong>之后，我们就要进行检测和观察。对比原和转移之后的网站结构、数据等，进行适当的修改。比如有个文件缺失了，无法访问，就下载补上；如果有数据丢失文章不见了，再重新添加上。要多打开几个页面，多看一下，搬家之后的网站是不是和原来的网站有什么变化。如果有变化的话，就修改成原来网站的样子。</p>
+<p>第四步：<strong>修改dns设置，使其生效。</strong>经过第三步，如果你发现已经没有什么问题了，那么就可以进行域名转接了。修改dns，将域名指向新网站空间的ip地址，并且修改一下ttl设置，把它设置成最短。ttl表示dns的缓存时间，短了可以即时的让域名转接生效。过几分钟之后，我们可以ping一下自己的网站域名，就可以发现域名已经指向了新的服务器。这时候，要看看网站和以前有没有什么不同，如果不同的话，请抓紧进行修改。</p>
+<p>第五步：<strong>一段时间将原网站文件数据等删除。</strong>搬家过程已经完成，但是我们的旧网站仍然需要再放一会。如果新的网站空间不行的话，我们可以直接修改dns把域名转接回老网站。我们需要在旧网站上面添加一个新的统计代码，看一下还又没有人访问，通常经过几天，搜索引擎对网站进行正常的收录之后，我们就可以把原网站数据删掉。这也是为了安全的需要，防止原网站数据被下载等。</p>
+<p>这样，网站搬家就算是完成了。还需要注意以下几点：<br>1，过段时间，需要把ttl设置调高。在第一时间告诉isp和搜索引擎你网站换服务器之后，就可以把ttl重新设置的高一些。因为网站的地址不会轻易的变化，所以不需要很短的缓存生效时间。调高之后，可以减少对dns服务器的请求，可以提高网站访问速度。<br>2，如果网站是一个更新速度很快的网站，而且主要的更新者是用户（例如论坛），那么出于防止数据丢失的考虑，我们需要在搬家之前，关掉网站相关功能，显示网站正在升级等。搬家之后，立刻开启功能，这样就不会丢失用户发布的新内容了。<br>3，一定要仔细检查网站文件是否丢失，网站结构是否变化。有些网站使用了伪静态功能重写了url，一定要按照之前的格式，重写，如果url发生了变化，就麻烦了。<br>4，在网站搬家的过程中网站一直可以正常访问，所以不会对搜索引擎的爬行、排名等造成影响。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-345.html" data-id="ckgcma3b80015aa2an3144w6v" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-863.html" data-id="ckgcnru7t002z1d2a0gir10xz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustHost/">JustHost</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
 
     </footer>
   </div>
@@ -333,7 +322,7 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="345" data-title="关于justhost空间我的建议" data-url="http://www.qianxingzhem.com/post-345.html"></div>
+  <div class="ds-thread" data-thread-key="863" data-title="从seo的角度来谈网站搬家" data-url="http://www.qianxingzhem.com/post-863.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -352,10 +341,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-8a-a8-e6-80-81-e7-bd-91-e7-ab-99-e4-b8-8e-e9-9d-99-e6-80-81-e7-bd-91-e7-ab-99-e7-9a-84-e5-8c-ba-e5-88-ab" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e6-9c-80-e6-9c-89-e6-95-88-e7-9a-8415-e7-a7-8d-e7-bd-91-e7-ab-99-e6-8e-a8-e5-b9-bf-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-202.html" class="article-date">
-  <time datetime="2011-07-06T00:26:06.000Z" itemprop="datePublished">Jul 6 2011</time>
+    <a href="/post-779.html" class="article-date">
+  <time datetime="2012-02-24T09:24:59.000Z" itemprop="datePublished">Feb 24 2012</time>
 </a>
     
   <div class="article-category">
@@ -370,7 +359,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-202.html">动态网站与静态网站的区别详解</a>
+      <a class="article-title" href="/post-779.html">最有效的15种网站推广方法</a>
     </h1>
   
 
@@ -378,34 +367,54 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果你是建网站的，那么你经常会遇到动态网站和静态网站这两个名词。如果你是菜鸟，那么你经常搞不明白，动态网站、静态网站究竟是什么，有什么区别。有些人认为，网页上有flash动画，一动一动的，于是就是动态网站。这样说出去，是会贻笑大方的！今天，潜行者M就来为大家讲讲啥是动态网站啥是静态网站，动态网站与静态网站有什么区别。</p>
-<h3 id="静态网站"><a href="#静态网站" class="headerlink" title="静态网站"></a>静态网站</h3><p>我们先来讲静态网站。静态网站，就是网站全是html文件，页面是html编写的，当然也包含css、javascript等脚本。它的特点是不会“变”，就是内容，不随着某一事件的发生而改变。在你当初设计html页面的时候，你怎么设计的，那个页面就会怎么样。静态网站就是由html文件构成。</p>
-<p><strong>优点：</strong></p>
-<p>1，独立的文件，移植方便，只需要复制过去就行。<br>2，制作方便，不需要复杂的编程功底。<br>3，不需要数据库等支持，页面执行速度快。<br>4，有利于搜索引擎抓取内容，收录。</p>
-<p><strong>缺点：</strong></p>
-<p>1，后期维护工作量大，必须重新制作。<br>2，对于内容很多的静态网站，会需要大量html文件。<br>3，功能简单，无法实现更多的功能。</p>
-<p><strong>用途：静态网站通常用于不用经常更新的企业类、学校类或个人网站，它制作简单，有利于搜索引擎优化。</strong></p>
-<h3 id="动态网站"><a href="#动态网站" class="headerlink" title="动态网站"></a>动态网站</h3><p>动态网站，就是指那些应用脚本编程语言来。常见的脚本编程语言有：asp、php（国内以这两种为主）、jsp、aspx等。如果网站的页面以这些名字为后缀，那么我们可以说，这个网站就是动态网站。与静态网站相对的是，动态网站内容是会“动”的。通常，动态网站会有类似这样的链接“asp？id=”，id后面通常是数字，添加上不同的数字，页面显示的数据是也是不一样的。因为动态网站使用了数据库技术，通过代码调用数据库来显示、输出数据库当中的内容。</p>
-<p><strong>优点：</strong></p>
-<p>1，能够实现很多、很强的功能。<br>2，内容维护简单方便，通常有网站后台，在网站后台即可操作。<br>3，使用了数据库技术，不需要大量文件。</p>
-<p><strong> 缺点：</strong></p>
-<p>1，应用数据库技术，通常需要数据库环境支持，增加成本。<br>2，需要学习编程技术。<br>3，执行代码需要时间，当访问量大时，访问页面会变慢。<br>4，在SEO（搜索引擎优化）领域中，通常认为，动态网站会不利于搜索引擎的收录。</p>
-<p><strong>用途：动态网站的应用十分广泛，基本上95%的网站都采用了动态网站。通常像论坛、门户网站，都是动态网站。</strong></p>
-<p>动态网站与静态网站的区别很简单，动态网站运用了脚本编程，技术含量高，网站维护方便、功能强大；静态网站仅仅是html文件，访问快速简单，但是维护不方便、功能弱小。</p>
+        <p>一个网站，仅仅有好的内容是无法变大的，因为即使有了好的内容，别人不上去看，也没有作用。所以一个好的网站，不仅要有好的内容，还要有好的推广方法。下面，潜行者m就为大家总结了14种目前来说最有效的网站推广方法以及推广技巧。</p>
+<p><strong>1，搜索引擎优化推广法</strong></p>
+<p>也就是<a href="http://www.qianxingzhem.com/post-tag/seo-2">传说中的SEO优化</a>，把你的网站优化好了，让搜索的人很方便就找到你的网站。这种方法来的IP质量也是最高的。具体的就不多说了。</p>
+<p><strong>2， 软文推广法</strong></p>
+<p>这也是目前比较常用的方法，但是要有一定的软文编写功底。一篇好的软文，会让别人看不出这是一个广告，而且会不停的转载，自动为你宣传。至于说怎么写软文，你去A5上看看就会了，上面全是软文，看的多了，自然就会了。</p>
+<p><strong>3，自建博客推广法</strong></p>
+<p>博客推广是一种很有效的方法，例如在百度空间之类的博客，发文章可以增加外链。如果博客文章不违反相关规定的话，是不会被删除的，这样效果就会更持久。我们还可以悄悄的利用一些工具，到别的博客中去踩。这样，能吸引到很多的人来，这里面是有很多技巧的。</p>
+<p><strong>4，门户网站投稿推广法</strong></p>
+<p>如果你写了一些比较好的文章，不妨到某些可以投稿的比较大的门户投稿。例如网站建设类的文章，可以投稿到chinaz.com等门户网站，如果被发表了之后，就会有很多人看到，被很多人转载。当然，最好要把你的网站链接融入到文章中，因为转载你文章的朋友，百分之九十不会把最下面的你的版权声明复制上。</p>
+<p><strong>5，论坛网站推广法</strong></p>
+<p>去相关的论坛进行推广，一定要注意，要适当的进行推广，比如添加签名然后去发帖、顶贴等。推广前，最好先看清论坛的规则，就目前来说，很多论坛，都禁止发带连接的帖子，对于新注册的会员限制也比较大。</p>
+<p><strong>6，qq群推广法</strong></p>
+<p>目前在网上，你可以搜索到各行各业很多的qq群，你可以依次加上他们。这里面是有很多注意事项的，在加入之前，发送请求的时候，一定要输入一些相关文字，向管理员表明你不是批量申请，而是一个有需求的。进去之后，一定要先打声招呼。这样做有两个好处，第一个是让管理员注意到你是一个正常的用户，第二个就是，这让你不会在短期内被踢出去。有些qq群会不定期的踢人，就是看这个人进入群之后，有没有发帖等。此外，对于qq群来说，可以有三种方法推广：1，群邮件，一定不要发广告发的太过于明显。2，在群里发。3，依次打开群成员发临时消息。最后一种效果最好，风险也最大。qq群推广最好要经常在群中聊天，和管理员等树立良好的关系，这样你发广告，他也就睁一只眼闭一只眼了。</p>
+<p><strong>7，网摘推荐网站推广法</strong></p>
+<p>现在社会化的网站很多，这类网站发展很迅速。例如各种文章推荐，微博推荐等等。你一定要在网站上加上收藏分享链接，浏览者如果看到你的这篇文章写的不错，想收藏起来能够很方便。请你记住，当一个人收藏之后，可能会有很多他的好友看到你这篇文章，也有可能会收藏、分享。</p>
+<p><strong>8，昵称网站推广法</strong></p>
+<p>比较老的方法，例如qq，你可以在外面公开你的qq，让很多有需要帮助的人加你的qq，这样你可以修改qq签名、信息或者发微博等，主动加你qq的人，通常都会关注你，那么你的目的就达到了。对于潜行者m来说，就经常翻开qq上面的好友，看看他们的信息，如果发现了网址等，总是好奇的打开来看一下。</p>
+<p><strong>9，订阅邮件推广法</strong></p>
+<p>邮件营销永远是非常有效的营销方式，很多网站添加了邮箱订阅功能。当用户订阅你的邮箱之后，会自动的把你网站上的文章，发给用户。这样，可以拉来很多的回头客。腾讯公司提供的“邮箱列表”服务很好，可以利用它来收集订阅用户，进行群发邮件。</p>
+<p><strong>10，自动回复邮件推广法</strong></p>
+<p>我们可以设置邮箱自动回复，回复内容可以是，我收到了之类的。在邮件的下面设置自己的网站链接，名字要起得有诱惑力一些。在外面的时候，要推广自己的邮箱，例如发送邮件到我的邮箱，可以收到某某资料之类的。当他们发送邮件的时候，就会自动收到带有你网站链接的回复邮件。</p>
+<p><strong>11，交换友情链接推广法</strong></p>
+<p>最古老的方法，在这里不再赘述。多说一点，看到某SEO博客写文章说，买链接的时候，不要仅仅的追求pr值高。他说，友情链接最好是pr值相当的，稍大点的。如果差距太大了，也不好，如果搜索引擎发现一个pr值为7的网站，在首页却链接了一个pr值为1的你的网站，它会怎么想？具体怎么说的，我忘了，仅供参考！</p>
+<p><strong>12，自问自答推广法</strong></p>
+<p>最典型的就是百度知道上，注册多个账号，自问自答。威客网站上有的是这种任务。但是我个人不推荐，因为麻烦半天，竞争对手只要在投诉页面，发上你的链接，一天之后，你这个问题就消失了。而且百度知道控制的力度也很大。我们可以转向其他问答平台，除了百度知道，还有很多问答平台。</p>
+<p><strong>13，百科类网站推广法</strong></p>
+<p>最常见的还是百度百科，很多百科词条下面，都有相关链接。有的是补充链接，有的是广告链接，如果你的网站能出现在相关词条下面，如果这个词条很火的话，无疑会给你网站带来很多流量。但问题是，一般无法通过，我试过好几次都不行，除非你的网站是一个比较大的、比较权威的、而且与词条相关程度非常高。</p>
+<p><strong>14，文库类网站推广法</strong></p>
+<p>百度文库、豆丁网等，都是这种，上传文档的网站。我们可以把自己的文章，复制下来，加上自己的链接，上传上去。特别是百度文库，排名很靠前，而且还能获得外链。这是很早以前就出现的推广方法，不过现在来说，百度百科的审核力度非常大，在文章加个版权链接，都被判断成广告，禁止发布。可以考虑其他类似的网站。</p>
+<p><strong>15，出版电子书推广法</strong></p>
+<p>电子书推广法是非常好的一种方法。你可以把自己网站相关程度比较高的一些文章整合一下，编成一本电子书，对外开放下载等。这里面的东西，可都是完全由你自己进行控制的，想加多少链接加多少，想怎么样就怎么样。不过一定要质量好，不然没人去看，没人下载。</p>
+<p>以上就是潜行者m总结的15个现在来说，比较常用比较有效的网站推广方法，也是目前本人在用的。关于更详细的推广方法，可以去看本人的博客，我会不断写出自己的经验的。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-202.html" data-id="ckgcma3b90016aa2a59y1ib98" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-779.html" data-id="ckgcnru9d007d1d2agdkq0yzi" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/推广运营/">推广运营</a></li></ul>
+
     </footer>
   </div>
   
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="202" data-title="动态网站与静态网站的区别详解" data-url="http://www.qianxingzhem.com/post-202.html"></div>
+  <div class="ds-thread" data-thread-key="779" data-title="最有效的15种网站推广方法" data-url="http://www.qianxingzhem.com/post-779.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -424,10 +433,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e7-bd-91-e7-ab-99-e5-bb-ba-e8-ae-be-e7-9a-84-e4-b8-80-e8-88-ac-e6-b5-81-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-seo-e7-9a-84-e9-87-8d-e7-82-b9-e6-98-af-e7-bd-91-e7-ab-99-e8-b4-a8-e9-87-8f" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-79.html" class="article-date">
-  <time datetime="2011-06-25T01:21:32.000Z" itemprop="datePublished">Jun 25 2011</time>
+    <a href="/post-704.html" class="article-date">
+  <time datetime="2012-02-17T10:34:47.000Z" itemprop="datePublished">Feb 17 2012</time>
 </a>
     
   <div class="article-category">
@@ -442,7 +451,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-79.html">网站建设的一般流程</a>
+      <a class="article-title" href="/post-704.html">网站优化的重点是网站质量</a>
     </h1>
   
 
@@ -450,26 +459,29 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>总的来说，网站建设一般包括四个阶段：<strong>策划</strong>、<strong>设计制作</strong>、<strong>建设完善</strong>、<strong>维护</strong>。下面，潜行者m将依据这四点，依次来说。</p>
-<p>首先是<strong>策划</strong>。网站建设前，你必须有一个明确的目标，就是建设这个网站，你要达到什么目的。这样的目的有很多，比如：我想建设这个网站赚取广告费，我想建设这个博客网站来宣传自己，我想建设这个网站来发布我的作品、产品等。有了这个目的后，你就应该根据根据网站的目的和服务来确定网站的类型，例如：我想建设一个个人博客，那么我的网站就用博客系统而不能用论坛；我想建设一个交友网站，那么我的网站就应该用SNS虚拟社区系统，而不能用cms网站系统。（关于常见的网站类型和网站系统，请看本人的这篇文章：【<a href="http://www.qianxingzhem.com/2011/06/%e5%b8%b8%e8%a7%81%e7%9a%84%e5%87%a0%e7%a7%8d%e7%bd%91%e7%ab%99%e7%b1%bb%e5%9e%8b%e4%bb%a5%e5%8f%8a%e7%9b%b8%e5%ba%94%e7%9a%84%e7%bd%91%e7%ab%99%e7%a8%8b%e5%ba%8f/" title="常见的几种网站类型以及相应的网站程序">常见的几种网站类型以及相应的网站程序</a>】在这里不再赘述）</p>
-<p>策划完了之后，就要<strong>开始制作</strong>。制作的时候，通常现在本地制作设计，完成之后呢，再上传到远程的服务器。这样能节省时间提高效率。制作的时候，就要区分网站是静态的还是动态的（关于静态网站和动态网站的区别，请看这里：<a href="http://www.qianxingzhem.com/archives/202">【动态网站与静态网站的区别详解</a>】），静态的网站，就要用DW、frontpage这类的网页设计软件来制作，当然高手也可以直接用代码编写。动态网站制作就比较麻烦了，首先，你要有相应的网站编译环境。比如你的网站是php语言开发的，就需要在本地搭建php环境，才可以访问。通常来说，动态网站的网站程序大部分都是用网上公开的源码，很少有人为了自己建设网站而自己开发网站系统。因为这需要精通编程，而且还需要大量时间和精力开发，为了方便就直接使用现成的网站源码。那么这样，动态网站的制作，就是修改下标题、logo、配置一下后台等，之后导出数据，将网站程序上传上去再把数据导入即可。</p>
-<p><strong>建设完善</strong>与策划差不多，就是完善网站，比如添加站长的联系方式、发表一些版权声明、添加备案号等，并且根据服务器的配置，修改网站达到最佳配置等。此外，还要根据前面第一个阶段中策划的营利方式添加一些广告等。</p>
-<p><strong>维护</strong>，就本人多年的网站建设经验来说，维护是网站建设中最重要的一个步骤了。维护就是包括网站内容的添加，数据的备份等。内容的添加是最考验站长的了。懒的人，网站就发展缓慢，甚至不久后就关闭了。数据的备份也是非常重要的，应当定期的进行数据库的备份以及网站整站的备份，这样，出现服务器崩溃、黑客攻击等情况就能把损失降到最低！</p>
-<p>关于网站建设，我会写更多的文章的，如果你需要，请多多关注我的博客，也可以加我与我交流。</p>
+        <p>很多人把网站优化的重点都放在了外链上面，我个人则认为网站优化的重点是内在的质量上，而不是其他的外因。</p>
+<p>网站优化不可避免的是研究搜索引擎的排名算法等。我们从用户与搜索引擎的关系来简单分析一下：用户为什么要使用某个搜索引擎？原因就是使用这个搜索引擎，可以方便快捷的找到自己需要的信息，这个信息必须是自己需要的并且高质量的信息。如果当一个用户搜索信息，在搜索引擎前几页，全都是乱七八糟的垃圾信息或者自己不想看的无关内容的话，用户便不会再用这个搜索引擎了。所以搜索引擎的工作就是，在网页中筛选出内容相关的网页并且按照网页质量来排序，以便让搜索者首先看到最相关的质量最高的网站，找到自己最需要的信息。所以搜索引擎的算法，就是去识别页面的主要内容是什么，它的质量好不好。其中一个方法就是通过外链进行判断，看它的外链多不多，有什么网站对其外链。</p>
+<p>看到这里，你会说，网站优化的重点这不还是外链吗？你为什么说是网站质量？</p>
+<p>网站优化的最终目的是什么？目的并不是在搜索引擎上排名多少、让多少人访问，而是尽量的把访问的人留住，转化成潜在的价值。这需要的就是高质量的内容。<strong>当一个人来了之后，不会看一眼立刻就关掉，而是继续看这个网站其他内容，把它放在收藏夹里，甚至发给他的朋友自愿的宣传。这才是一个成功的网站优化。</strong></p>
+<p>而实现这一个目的，最简单最原始的方法就是提高网站的质量。当一个网站的质量高了之后，排名自然就上去了。因为搜索引擎知道了这个网站的质量很高，自然愿意把它放在前面，让用户看到。至于外链，在初期可以进行适当宣传，后期基本不用了。由于你的网站质量高，可以让用户受益，用户自然会推荐给自己的朋友，或者在自己的网站上进行共享，大量外链就自然建立了。一个很经典的例子就是W3school.com.cn，它提供免费的权威的教程，有人去看了，发现了这么好的学习资源，自然就会推荐给他的朋友，或许也会像我一样，在写的文章中当做例子宣传它。这样建立的外链，质量最高，也最轻松，不用你去群发大量垃圾信息。</p>
+<p>网站质量高了，他的浏览者转化率也高。假设两个销售某产品的网站，一个仅仅重视外链，产品相关内容都是工具生成的伪原创，还有病句等；另一个则重视网站质量，仔细编写产品相关信息，让浏览者有一个清晰的认识，页面也设计的美观大方。第一个网站，访问量可能会很大，但是大部分人看到设计糟糕的页面，乱七八糟的内容，可能就仅仅访问一次就关闭了。而第二个网站，访问的人不多，但是看到了产品的详细信息，并且觉得这个网站设计不错很正规，极有可能产生消费购买自己需要的产品，并且会推荐给朋友，让朋友也购买。<strong>我们做网站，需要的不是大量的过客，而是大量的回头客。</strong></p>
+<p>所以，潜行者m个人认为，网站优化最重要的是网站自身的质量，至于外链等，都是其次的。关于一个网站的质量，需要从两方面去考虑：第一个方面，要站在用户的角度，合理的设计，合理的布局广告等，让用户觉得你这个网站很美观很正规感觉很好，他才有可能再次访问。记住，没有一个人喜欢一个到处漂浮着乱七八糟广告的网站，除了站长。第二个方面，就是用户所需要的高质量的内容，如果没有用户所需要的内容，再好的设计也是白搭。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-79.html" data-id="ckgcma3c9003oaa2aum5by586" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-704.html" data-id="ckgcnrub700cm1d2ays6bpxem" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
     </footer>
   </div>
   
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="79" data-title="网站建设的一般流程" data-url="http://www.qianxingzhem.com/post-79.html"></div>
+  <div class="ds-thread" data-thread-key="704" data-title="网站优化的重点是网站质量" data-url="http://www.qianxingzhem.com/post-704.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -488,10 +500,10 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
-    <article id="post--e5-b8-b8-e8-a7-81-e7-9a-84-e5-87-a0-e7-a7-8d-e7-bd-91-e7-ab-99-e7-b1-bb-e5-9e-8b-e4-bb-a5-e5-8f-8a-e7-9b-b8-e5-ba-94-e7-9a-84-e7-bd-91-e7-ab-99-e7-a8-8b-e5-ba-8f" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post--e7-bd-91-e7-ab-99-e8-b5-9a-e9-92-b1-e7-9a-84-e5-bf-85-e8-a6-81-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/post-85.html" class="article-date">
-  <time datetime="2011-06-17T21:43:38.000Z" itemprop="datePublished">Jun 18 2011</time>
+    <a href="/post-701.html" class="article-date">
+  <time datetime="2012-02-17T09:34:49.000Z" itemprop="datePublished">Feb 17 2012</time>
 </a>
     
   <div class="article-category">
@@ -506,7 +518,7 @@ var duoshuoQuery = {short_name:"qxzm"};
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/post-85.html">常见的几种网站类型以及相应的网站程序</a>
+      <a class="article-title" href="/post-701.html">网站赚钱的必要性</a>
     </h1>
   
 
@@ -514,24 +526,101 @@ var duoshuoQuery = {short_name:"qxzm"};
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>网站有很多，提供各种各样的服务，不同的服务对应着不同的网站类型。比如说交友型的网站或者是论坛，它们对应的网站类型就是sns和bbs。网站有很多，网站类型也有很多，潜行者m在这里整理出了几种常见的网站类型以及相应的优秀的网站程序。常见的网站类型有以下几种：CMS、BBS、BLOG、SNS。</p>
-<p><strong>CMS
-</strong>CMS是Content Management System的缩写，意为”内容管理系统” ，它的功能通常十分强大，最主要的功能是发布文章、图片以及视频资源等。主要用来建设门户网站，发布各种各样的信息等。像搜狐、网易这些网站，都可以归类为cms类型。cms类型的网站主要功能就是发布信息，不善于讨论交流。</p>
-<p>国内比较常用的cms网站程序有：织梦（dedecms.com）、supesite等。织梦是我个人比较喜欢的，功能特别的强大。其他的更多的程序和信息，大家可以看百度百科：<a href="http://baike.baidu.com/view/15867.htm" target="_blank" rel="noopener">http://baike.baidu.com/view/15867.htm</a></p>
-<p><strong>BBS
-</strong>BBS是电子公告板的意思，在我国通常称作论坛。常见的bbs.xxxx.com，就说明这个网站是个论坛。但是在国外没有bbs，论坛被称为bbs仅仅在我国。顾名思义，论坛的主要功能就是讨论、交流，同时也可以发布信息等。目前很多网站直接用一个论坛程序搭建，通常来说，一个比较全面的网站用两个网站系统，一个是cms，用在前面发布信息，另一个是bbs，让用户讨论使用。</p>
-<p>非常有名的论坛程序就是discuz！（<a href="http://www.discuz.net），很多网站就是用这套程序建设的。discuz！是由康盛创想公司开发的，前面提到的supesite也是这家公司开发的。联合supesite和discuz！这两个网站系统，就能打造一个非常完整、全面的网站。此外，还有phpwind（phpwind.net）等，都是很好用的。" target="_blank" rel="noopener">www.discuz.net），很多网站就是用这套程序建设的。discuz！是由康盛创想公司开发的，前面提到的supesite也是这家公司开发的。联合supesite和discuz！这两个网站系统，就能打造一个非常完整、全面的网站。此外，还有phpwind（phpwind.net）等，都是很好用的。</a></p>
-<p><strong>BLOG</strong><br>Blog相信大家都知道是博客吧，现在网络上到处都提供博客服务，想新浪博客、百度空间等。但还是有很多像潜行者M一样的站长，觉得这些博客局限性太大，而建设起了独立的博客。通常此类博客以营利为目的，写文章的同时，赚取广告费。</p>
-<p>非常有名的博客程序，就是本站正在使用的wordpress。由于wordpress的发展，其他的博客程序在逐渐的衰退，比较著名的博客程序还有PJblog、z-blog等，地址不再提供了，大家可以搜索一下。</p>
-<p><strong>SNS
-</strong>SNS，全称Social Networking Services，即社会性网络服务，专指旨在帮助人们建立社会性网络的互联网应用服务。 它更加注重于人与人的交往，比如国外的facebook。sns网站系统通常用于交友型网站，人们在上面，可以相互发送短消息、加好友、一起玩游戏、写一些文章等。</p>
-<p>就国内而言，比较有名的SNS网站程序有康盛的uhome、thinksns。其中thinksns是免费开源的，而康盛的uhome商业化运营是需要付版权费的，但是uhome的插件和模板很多，功能非常强大。</p>
-<p>多说一点，可能有些朋友看到了上面cms中的supesite、bbs中的discuz！、sns中的uhome都是康盛的产品，于是就想，利用这三款软件相互配合建立起一个网站。其实，这个他们早就想到了，他们推出了discuz！x网站系统，就是将这几种类型统一结合起来，仅仅建设这一个网站，就能拥有这些功能，将会比cms的功能更加强大。截止到现在discuz！X已经开发到第二个版本了。这应该是为了网站发展的方向，前面提到的phpwind现在也已经不再是单纯的论坛，也紧追不舍，朝着discuz！x的方向发展。</p>
+        <p>基本上，绝大多数的站长建设网站的目的就是为了赚钱，一个网站赚钱也是非常有必要的。</p>
+<p>周所周知，建设和维护一个网站是需要付出一些时间和精力上。一个成功的网站，除了好的方向之外，还需要站长的维护。<strong>坚持不断的维护，才是一个网站成功的秘诀。</strong></p>
+<p>但是，并不是所有的站长，都有坚韧的毅力，有用不完的精力，总会有累的时候。当一个站长累了的时候，他就会静下心来想想自己在做什么。自己在建设网站，付出了金钱、时间、精力，收获是什么？得到了预期的效果了吗？很显然，大多数的站长，无法在网站建设的初期，就能赚钱。这样，意志不坚定的站长，就开始动摇了。毕竟，我花时间、金钱和精力，建设了一个没有给我带来任何利益的网站，我为什么还要坚持呢？所以就放弃了，上网也不会打开自己的网站看一眼，也不会再像以前那样，每时每刻都想打开网站统计，看一下今天有多少人来过。</p>
+<p>然而，如果一个网站赚了钱呢？情况会大大相反，站长会继续坚持下去，哪怕赚的只是一点点钱。因为站长得到了一个令人鼓舞的信息，我的网站是可以赚到钱的。那么，他就会继续坚持下去。</p>
+<p><strong>这一现象，对于独立博客来说，是很典型的。</strong></p>
+<p>2011年7月高考完了的时候，我迫不及待的建设了我的个人独立博客，之后天天写文章。写了一些之后，我就开始四处寻找友情链接，想要提高我的博客的知名度，让更多的人来看我的文章，毕竟写博客就是要写给别人看的。当忙了一阵子之后，我去申请其他博客的友情链接，被拒绝之后。我累了，我停下想了想，我这样做究竟有没有意义？！没有，我写的文章，没有人来看，更别说什么利益、赚钱。所以就扔掉了，转身天天玩游戏，其他网站也懒得管理了。</p>
+<p>放寒假的时候，我又想起了这些网站，又重新开始写文章，更新我的博客。但是没过多久，又出现了前面出现出现的问题，更新速度慢了下来。就在这时，有人在我博客的赞助页上给了我一些赞助，说我写的文章不错。这时候，我充满了动力。原来我的博客还有人经常关注，所以潜行者m“不得不”每天都更新原创文章，因为我知道，总有一些人想看我的文章，需要我的文章。</p>
+<p>对于其他类型的网站，也是这样的。站长也是人，也有累的时候，自己的网站一旦赚钱了，哪怕是很少，也会给网站站长一些继续建设网站的动力。所以，在这里，我想说的是，如果你真的发现了一个好网站，并且想在今后不断关注、不断从这个网站身上获取些东西，那么请支持一下，让网站站长能够坚持下去继续运营。哪怕只是给站长发封邮件，说一下你很喜欢这个网站。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-85.html" data-id="ckgcma3bp0028aa2a0t31ehlo" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-701.html" data-id="ckgcnru9r008o1d2a0pakw6ip" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客运营/">博客运营</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="701" data-title="网站赚钱的必要性" data-url="http://www.qianxingzhem.com/post-701.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-dns-e7-9b-b8-e5-85-b3-e8-ae-b0-e5-bd-95-e4-b8-8e-e8-a7-a3-e6-9e-90-e8-af-b4-e6-98-8e" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-671.html" class="article-date">
+  <time datetime="2012-02-16T02:16:17.000Z" itemprop="datePublished">Feb 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-671.html">DNS相关记录与解析说明</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，先来了解一下dns是什么。</p>
+<p>网站都是放在服务器上面的，在网络发展的初期，通常都是使用IP地址访问网站。这样就出现了一些问题：1，一台服务器上，只能放一个主网站；2，IP地址通常有好几位数字，记忆起了非常不方便。于是人们就发明了域名，通过域名来标记网站的位置。使用域名，可以方便记忆，而且可以设置子域等等，一台服务器上，可以绑定多个域名建设多个网站，域名还是一种品牌。但是发明了域名，要怎么才能用呢？虽然有了域名，但是访问一个网站，实际上还得通过服务器IP等去访问。于是DNS也出现了，它的作用就是，当用户访问一个域名的时候，把域名提交给dns服务器，dns服务器从服务器上面读取这个域名对应的服务器IP，返回IP地址，然后浏览器就去访问服务器，获取相应的网页。</p>
+<p>当然，上面的一个流程只是简单的介绍了一下工作原理，实际中要复杂的多。既然我们是使用者，不是创造者，所以在这里就不用过多的研究。下面，潜行者m以dnspod的dns解析为例，给大家说说关于dns设置的各个记录的作用和用法：</p>
+<p><strong>1，主机记录：</strong></p>
+<p>主机记录就是设置你要解析的域名。如果你要解析根域名，就填上“@”或者空着，如果你要解析子域名，例如：www等，你可以填上www或者是其他你要创建的新的子域名。</p>
+<p><strong>2，记录类型：</strong></p>
+<p>这才是dns主要的功能。记录类型，表示着你这个域名要怎么解析，不同的记录类型有着不同的作用，而且在后面填的信息也不同。通常来说，当你购买网站空间或者服务器的时候，服务商会告诉你域名要怎么解析，解析到哪里。你要根据服务商告诉你的信息去解析。常见的几种记录类型如下：</p>
+<p>A记录：表示你要把这个域名解析到一个IP地址，就是你让这个域名指向的是服务器地址。空间服务商会给你空间的服务器IP地址，之后在后面填写。</p>
+<p>CNAME记录：表示你要把这个域名解析到另一个域名上，通过那一个域名获得服务器IP。通常购买虚拟主机的时候，服务商提供给你解析的不是IP地址，而是一个域名，这时候，你就要使用CNAME记录。</p>
+<p>NS记录：表示域名服务器记录，它表示你的域名的dns服务器地址。通常不用修改，如果你新建了一个子域名，想要把这个子域名的dns服务交给其他dns服务器，可以新建一个子域名，选择NS记录，在后面填上你想换用的dns服务器地址即可。</p>
+<p>MX记录：是邮件交换记录，它指向一个邮件服务器，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。如果你想拥有类似<a href="mailto:qxzm@qianxingzhem.com" target="_blank" rel="noopener">qxzm@qianxingzhem.com</a>的邮箱，那么你必须要在dns上面配置MX记录，并且将其指向一台提供邮件服务的服务器。当有人要发送邮件到 <a href="mailto:qxzm@qianxingzhem.com" target="_blank" rel="noopener">qxzm@qianxingzhem.com</a>上面时，邮件系统会通过dns检测qianxingzhem.com域名上面是否绑定了邮件服务器，如果绑定了，就把邮件发送到这个服务器上面处理。</p>
+<p>除了上面四种比较常用的记录类型之外，还有AAAA、TXT、URL等记录类型，但是这些不常用，有想了解的朋友，可以搜索一下。</p>
+<p><strong>3，记录值：</strong></p>
+<p>记录值是与前面记录类型相对应的，在前面选择了记录类型，在后面的记录值中，就必须填入相应格式的记录值。</p>
+<p>A记录：填入服务器IP地址，注意是IPv4，就是类似 192.168.22.123 这种的服务器IP。</p>
+<p>CNAME记录：填入一个域名，这个域名是空间商提供的。</p>
+<p>NS记录：填入的也是一个域名，是DNS服务器域名，例如：f1g1ns1.dnspod.net.</p>
+<p>MX记录：通常是一个域名，一般有邮件服务商提供。</p>
+<p><strong>4，MX优先级</strong></p>
+<p>这一项只针对MX记录，而且多条MX记录才有效。当添加多条MX记录之后，我们可以设置优先级，让邮件系统通过dns读取的时候，优先读取哪一个值。这样，当优先级高的服务器不能使用的时候，可以调用优先级低的服务器补充上，同时优先级低的服务器可以当做备份使用。</p>
+<p><strong>5，TTL</strong></p>
+<p>dns中的ttl表示缓存生效时间。DNS解析一个域名，是需要一定时间的，也需要占用dns服务器资源，然而域名指向的IP地址并不是经常变化的。所以当用户访问一次域名之后，DNS服务器把返回的IP地址储存到你的电脑上，当你再去访问这个域名的时候，就不用在请求dns服务器了，直接从电脑上读取直接访问，这样可以节省资源。TTL就是生效时间，如果超过了这个时间，当你访问这个域名的时候，会再次请求dns服务器，dns服务器会再次返回域名的地址，进行缓存。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-671.html" data-id="ckgcnruar00bb1d2ajca3ymbr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,7 +629,150 @@ var duoshuoQuery = {short_name:"qxzm"};
 </article>
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="85" data-title="常见的几种网站类型以及相应的网站程序" data-url="http://www.qianxingzhem.com/post-85.html"></div>
+  <div class="ds-thread" data-thread-key="671" data-title="DNS相关记录与解析说明" data-url="http://www.qianxingzhem.com/post-671.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-b8-b8-e8-a7-81-e7-9a-84-e7-bd-91-e7-ab-99-e6-ba-90-e7-a0-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-651.html" class="article-date">
+  <time datetime="2012-02-14T08:50:24.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-651.html">如何安装常见的网站源码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先，我们应该了解网站源码是什么东西。网站是由许多网页组成的，这只是比较低级的静态网页，只能建设比较小的，或者没有交互性的网站。如果想要建设博客、论坛、门户网站等，使用普通的静态网页是无法完成的。所以我们就需要使用动态网页，即使用动态脚本建设的网站。</p>
+<p>如果使用动态脚本建设网站，就需要想静态页面那样，设计制作并且编写。但是动态脚本的编写，是需要一定技术水平的，不是人人都能轻松地编写开发出网站，而且也不是所有人都有那么多的时间、金钱和精力，去编写一套网站程序。但是为什么网络上还有那么多个人建设的功能强大的网站呢？他们就是使用了网络上发布的网站源码建设网站程序。</p>
+<p>网站源码就是一些网站开发程序员设计制作的网站程序，分为好多个类型，有免费的，有收费的，有完全自由的等等。我们可以很方便的在网上下载到网站源码，并且建设相应的网站。但是，下载下来的网站源码，放在相应的服务器上面，往往不能直接成为一个可以使用的网站，我们必须要对其进行安装配置。于是，就出现了本文的主题，如何安装网站源码。</p>
+<p>动态网站源码，通常分为两类，第一类就是 asp 脚本技术配合 access 数据库；第二类就是 php 脚本技术配合 mysql 数据库技术。他们的安装方式略有不同。</p>
+<p><strong>asp+access：</strong></p>
+<p>asp 这种类型的网站源码比较流行，原因很简单，asp 语法比较简单，制作简单，同时它一般配合 access 数据库使用。access 数据库是不需要数据库环境支持的，它就是一个后缀为 mdb 的文件，我们可以直接把它放在网站目录下面。这样，可以节省数据库环境所需要的成本，同时在维护备份、转移网站的时候，直接用 ftp 软件把所有的文件下载下来即可。所以有很多人在用。</p>
+<p>它的安装方法也比较简单，一般会有说明文件指导你去安装，你只需要根据说明文件，一步一步的去做就可以。此外，asp+access 类型网站源码安装，通常就是配置一下数据库的位置信息，让网站程序能够连接到数据库。这样就能安装完成了。</p>
+<p><strong>php+mysql：</strong></p>
+<p>php 这种类型的网站源码，目前应该变成了主流。毕竟 php 的功能的都要比 asp 强大的多，但是 php 通常与 mysql 数据库结合使用。mysql 数据库是需要单独的数据库环境支持的，即服务器必须安装 mysql 数据库环境。所以，安装 php 程序的时候，必不可少的步骤就是配置 mysql 服务器的信息。例如比较经典的 wordpress 博客程序的安装</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/apache7.jpg" alt="" title="apache7"></a></p>
+<p>在这样的 php 网站源码的安装中，就需要配置数据库相关信息。包括数据库名、数据库的用户名、数据库用户密码、数据库服务器 IP 地址以及数据库表前缀等。只有配置好这些信息之后，网站才能安装。当然，如果你买虚拟主机支持 php 和 mysql 数据库的话，你可以在虚拟主机控制面板上看到这些信息。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-651.html" data-id="ckgcnru8s005o1d2aziypsg7e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="651" data-title="如何安装常见的网站源码" data-url="http://www.qianxingzhem.com/post-651.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-wordpress-e6-a8-a1-e6-9d-bf-e5-bc-80-e5-8f-912-e9-85-8d-e7-bd-ae-e6-9c-ac-e5-9c-b0-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-602.html" class="article-date">
+  <time datetime="2012-02-14T01:12:08.000Z" itemprop="datePublished">Feb 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-602.html">wordpress 模板开发 2——配置本地开发环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>模板开发有两种方法：<strong>第一种，就是在 wordpress 程序上，新建一个模板文件夹，之后不断设计模板，然后使用浏览器访问即时的看到效果。</strong>这种方法比较适合新手，开发比较慢，但是能够边制作边学习。<strong>第二种，就是直接写，制作完成之后，放在博客上面测试一下。</strong>这种方法需要有一定的开发经验。</p>
+<p>本系列教程采用第一种方法。即在本地搭建一个 wordpress 程序，然后使用工具（例如<a href="http://www.qianxingzhem.com/post-620.html">dreamweaver</a>）新建一个站点，指向新建的模板目录，在 wordpress 后台配置一下使用模板，之后开始制作模板，并且不断的通过浏览器观看模板制作的效果。</p>
+<p><strong>第一步，wordpress 程序安装：</strong></p>
+<p>为了调试方便，我们在本地安装 wordpress 程序。这样，我们首先应该搭建一个本地 apache、php、mysql 环境。关于如何搭建，可以观看本人的这篇文章教程：<a href="http://www.qianxingzhem.com/post-455.html">本地搭建配置 apache+php+mysql 环境</a>，在这里不再赘述。</p>
+<p>安装 wordpress 也同样不再多说了，如果你连 wordpress 都安装不上，肯定不会去学习<a href="http://www.qianxingzhem.com/post-tag/wordpresstheme">模板开发</a>了。</p>
+<p>这里要注意的是，我们要从现有的博客中导出部分测试数据，导入到新的博客中。在模板开发中，要看到具体的效果，本地 wordpress 里面必须要有数据才能看到。完成上面的步骤之后，我们的本地 wordpress 程序就安装好了，打开浏览器，输入 localhost，我们应该可以看到本地的测试博客。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf.jpg" alt="" title="wpkf"></a></p>
+<p><strong>第二步，配置 dreamweaver：</strong></p>
+<p>你可以选择记事本进行手写，但是我更加推荐使用第三方强大的软件，来进行模板的开发，这样可以节省大量的时间和精力。关于 dreamweaver，如果不熟悉或者不会使用的朋友，可以观看我制作的<a href="http://www.qianxingzhem.com/post-620.html">dreamweaver 基础视频教程</a>。</p>
+<p>在这里的配置，主要是新建一个站点，设置站点文件夹指向你的 wordpress 程序目录，或者直接指向模板目录。还可以在配置的过程中，使用 php 服务器技术，这样，我们在制作完成模板的时候，可以不需要打开浏览器，直接在 dreamweaver 中就可以看到效果。</p>
+<p>新建一个站点的具体操作在这里不再赘述，如果有不会的朋友，可以搜索一下或者看我的视频教程。在这里，我们新建好了。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf1.jpg" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2012/02/wpkf1.jpg" alt="" title="wpkf1"></a></p>
+<p>这样，我们开发 wordpress 模板的第一步—搭建本地测试环境就这样完成了，下一节开始，我们就进行模板相应模块的开发。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-602.html" data-id="ckgcnrubm00dx1d2avku2it3c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="602" data-title="wordpress 模板开发 2——配置本地开发环境" data-url="http://www.qianxingzhem.com/post-602.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -561,7 +793,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/post-category/网站与后台开发/page/3/">&laquo; Prev</a><a class="page-number" href="/post-category/网站与后台开发/">1</a><a class="page-number" href="/post-category/网站与后台开发/page/2/">2</a><a class="page-number" href="/post-category/网站与后台开发/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/post-category/网站与后台开发/page/3/">&laquo; Prev</a><a class="page-number" href="/post-category/网站与后台开发/">1</a><a class="page-number" href="/post-category/网站与后台开发/page/2/">2</a><a class="page-number" href="/post-category/网站与后台开发/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/post-category/网站与后台开发/page/5/">5</a><a class="page-number" href="/post-category/网站与后台开发/page/6/">6</a><a class="page-number" href="/post-category/网站与后台开发/page/7/">7</a><a class="extend next" rel="next" href="/post-category/网站与后台开发/page/5/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -572,7 +804,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -581,7 +813,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -590,7 +822,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -599,7 +831,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 

@@ -63,6 +63,107 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post--e7-94-b1opacity-e5-b1-9e-e6-80-a7-e5-bc-95-e5-8f-91-e7-9a-84-e5-b1-82-e5-8f-a0-e9-97-ae-e9-a2-98-e6-80-9d-e8-80-83-e4-b8-8e-e8-a7-a3-e5-86-b3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1667.html" class="article-date">
+  <time datetime="2013-01-31T07:25:54.000Z" itemprop="datePublished">Jan 31 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>►<a class="article-category-link" href="/post-category/CSS/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1667.html">由 opacity 属性引发的层叠问题思考与解决</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最近的一个作品中，在使用 opacity 属性来实现页面整体透明的时候，发现了一个问题。如果两个层发生了重叠，使用了 opacity 属性并且属性值小于 1 的层，会覆盖掉后面的层。于是动手做了个实验，来验证 opacity 的层次。</p>
+<p>网页中的层叠规律是这样的：如果两个层都没有定义 position 属性为 absolute 或者 relative 属性，哪个层的 HTML 代码放在后面，哪个层就显示在上面。如果指定了 position 属性，并且设置了 z-index 属性，谁的值大，谁就在上面。</p>
+<h2 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h2><p>而对于没有激活 z-index 的普通层来说，如果那个层使用了属性值小于 1 的 opacity 属性，哪个层就会显示在上面。我们做一个 Demo。代码如下：</p>
+<pre> &lt;!DOCTYPE html&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;带有 opacity 的层叠问题&lt;/title&gt;
+ &lt;style&gt;
+ html{padding:40px;}
+ .dd{width:100px;height:100px;}
+ #a{background:red;}
+ #b{background:blue;margin-left:20px;margin-top:-80px;}
+ #c{background:green;margin-left:40px;margin-top:-80px;}
+ &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;div id="a"&gt;&lt;/div&gt;
+ &lt;div id="b"&gt;&lt;/div&gt;
+ &lt;div id="c"&gt;&lt;/div&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;</pre>
+
+<p>保存为 html 文件打开之后，可以看到正常的次序</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity0.png" alt="正常的层叠"></a></p>
+<p>这时候，我们为 #a 加上属性 opacity：0.9 神奇的事情发生了，它覆盖了另外两个层</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity1.png" alt="加上小于1的 opacity 之后的层叠"></a></p>
+<p>只有当为另一个层（例如：#c）也设置一个小于 1 的 opacity 值（例如：0.8）之后，后面的 #c 才能安装正常的规则覆盖在 #a 上面。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity2.png" alt="同时为另一个层赋值 opacity"></a></p>
+<p>这样，增加了小于 1 的 opacity 属性的层，升高了一个层次。至于里面的科学原理，我没有想明白，或许也可能是一个小 BUG。但是有时候这种情况是我们不希望发生的。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>那么如何来解决这个问题呢？前面也说过了，正常的情况下，指定了 position 并且指定了 z-index 值的层，拥有比普通层更高的层次，那么指定 opacity 的层和指定了 position 的层相比呢？我们对 #b 加上 position：relative 看看。这时候的样式代码如下：</p>
+<pre> #a{background:red;opacity:0.9;}
+ #b{background:blue;margin-left:20px;margin-top:-80px;position:relative;}
+ #c{background:green;margin-left:40px;margin-top:-80px;opacity:0.8;}</pre>
+
+<p>保存刷新后，看到效果是这样的：</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity3.png" alt="对层使用了 position 属性之后的层叠效果"></a></p>
+<p>也就是说，对层使用 position 属性的 relative 之后，可以使其层次和 opacity 相同，这样之后，按照正常的排序进行层叠显示（在后面的实验中，我对 absolute 属性值也做了测试，结果和 relative 属性值表现的相同）。当我们取消了 #c 的 opacity 属性之后，我们可以看到，#c 被排在了最下面。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity4.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity4.png" alt="对底层取消 opacity 属性之后的效果"></a></p>
+<p>还没有完，之前只是对 #b 激活了 position：relative 属性，还没有使用 z-index。我们对 #b 进行了 z-index 的设置（例如：100），很显然的，#b 成为了最顶层。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity5.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/02/1667/opacity5.png" alt="对中间层设置 z-index 的效果"></a></p>
+<h2 id="得出结论："><a href="#得出结论：" class="headerlink" title="得出结论："></a>得出结论：</h2><p>使用了 position 属性值为 absolute、relative 的层，将会比普通层更高层次。使用了小于 1 的 opacity 属性的层，也比普通层更高层次并且和指定 position 的层同层，但是不支持 z-index 属性，所以指定 position 的层，可以使用 z-index 属性，来覆盖带有小于 1 的 opacity 属性的层。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1667.html" data-id="ckgcnru9l00891d2aagn4jfne" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1667" data-title="由 opacity 属性引发的层叠问题思考与解决" data-url="http://www.qianxingzhem.com/post-1667.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
     <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9113-ef-bc-8c-e8-a1-a5-e5-85-85-e4-b9-8b-e5-89-8d-e6-95-99-e7-a8-8b-e4-b8-ad-e7-9a-84-e4-b8-80-e4-ba-9b-e7-9f-a5-e8-af-86-e8-a6-81-e7-82-b9" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/post-1658.html" class="article-date">
@@ -150,7 +251,7 @@ echo &quot;&amp;lt;/div&amp;gt;&quot;;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1658.html" data-id="ckgcma39d0003aa2akap7jnud" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1658.html" data-id="ckgcnru7f001o1d2atv90o3vz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a></li></ul>
@@ -162,6 +263,96 @@ echo &quot;&amp;lt;/div&amp;gt;&quot;;
 
 <!-- 多说评论框 start -->
   <div class="ds-thread" data-thread-key="1658" data-title="【基础篇】13，补充之前教程中的一些知识要点" data-url="http://www.qianxingzhem.com/post-1658.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e3-80-90-e5-9f-ba-e7-a1-80-e7-af-87-e3-80-9112-ef-bc-8c-e9-80-9a-e8-bf-87-e5-bd-93-e5-89-8d-e7-9a-84-e6-96-87-e4-bb-b6-ef-bc-8c-e7-94-9f-e6-88-90-e4-b8-bb-e9-a2-98-e5-85-b6-e4-bb-96-e5-bf-85-e8-a6-81" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1570.html" class="article-date">
+  <time datetime="2013-01-25T10:55:59.000Z" itemprop="datePublished">Jan 25 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1570.html">【基础篇】12，通过当前的文件，生成主题其他必要文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>就基础篇来讲，主题的大部分文件已经生成了，现在还剩下几个比较次要的文件：page.php、archive.php。用到的手段和技术和之前都是一样的，借此，我们再来复习一下分割生成文件的过程。</p>
+<h2 id="生成-page-php-文件"><a href="#生成-page-php-文件" class="headerlink" title="生成 page.php 文件"></a>生成 page.php 文件</h2><p>页面（page）和文章（single）的样式大体是相同的。很显然，我们要用已经生成的 single.php 文件来生成 page.php 文件。我们先打开一个页面看一下现在的效果。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth0.png" alt="页面的初始效果"></a></p>
+<p>因为目前主题中，没有 page.php 这个模板文件，所以根据前面介绍的 <a href="http://www.qianxingzhem.com/post-1251.html">WordPress 主题机制</a> 中的<strong>缺失文件替换机制</strong>，它使用的是 index.php 文件，所以只能显示出摘要。下面我们来生成 page.php 页面：</p>
+<ol>
+<li>复制 single.php 文件，命名为 page.php</li>
+<li>打开文件修改一下<br>对于页面来说，通常不需要底部文章版权和作者介绍信息，因为页面使用来展示内容的，一般是一些公告之类的。此外，如果想做一个留言板这类的东西，也可以使用页面来实现，当然这个页面要带有评论模块。那么，我们只需要把原来 single.php 文件中的底部文章版权和作者介绍信息模块删掉就可以了。</li>
+</ol>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth1.png" alt="修改完成后的 页面 page.php"></a></p>
+<p>修改完成之后，我们再打开随便一个页面，就可以看到里面的内容了。需要注意的是，这里没有显示评论模块，因为我在本地没有安装<a href="http://www.qianxingzhem.com/post-1568.html">“多说”插件</a>，所以暂时看不到评论框之类的东西。如果你在本地安装了，就会看到的。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth2.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth2.png" alt="page.php 页面效果"></a></p>
+<h2 id="生成-archive-php-文件"><a href="#生成-archive-php-文件" class="headerlink" title="生成 archive.php 文件"></a>生成 archive.php 文件</h2><p>archive.php 这个文件主要用于按照日期显示文章列表。很多博客通常在边栏增加一个类似“按月归档”的功能。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth3.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1570/oth3.png" alt="archieve 页面"></a></p>
+<p>当点击这些日期的时候，系统就会优先查找 archive.php 这个模板文件来显示列表。既然是文章摘要列表，那么我们应该使用 index.php 文件来生成这个文件了。过程和之前的完全相同，复制一遍，改一下名字就可以了。如果你想让它变的与众不同一点，还可以加上一些修饰之类的。例如在文章列表的最顶端加上“按月查看文章”之类的说明字样。</p>
+<p>在本系列教程的中级篇中，还会详细讲解怎么进一步的设计这个页面，但是在初级篇，就直接复制一遍好了。这样，主题的其他必要文件就完全生成了，我们的初级篇示例主题就做好了。</p>
+<h2 id="本节课相关资源下载"><a href="#本节课相关资源下载" class="headerlink" title="本节课相关资源下载"></a>本节课相关资源下载</h2><p><a href="http://pan.baidu.com/share/link?shareid=196700&amp;uk=706095745" target="_blank" rel="noopener">myTheme(基础篇-12) 本节课主题下载</a></p>
+<h2 id="本系列文章"><a href="#本系列文章" class="headerlink" title="本系列文章"></a>本系列文章</h2><ol>
+<li><a href="http://www.qianxingzhem.com/post-1235.html">开始执行的 wordpress 主题教程计划</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1247.html">【基础篇】1、学习制作主题之前的准备</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1251.html">【基础篇】2、WordPress 的主题机制</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1259.html">【基础篇】3、设计制作你的 HTML 主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1268.html">【基础篇】4、安装主题文件</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1304.html">【基础篇】5、制作主题的头部区域</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1502.html">【基础篇】6，使用主循环调用显示日志摘要等数据</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1551.html">【基础篇】7，制作博客的搜索模块</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1556.html">【基础篇】8，添加博客边栏功能</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1564.html">【基础篇】9，制作底部区域 footer</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1566.html">【基础篇】10，将现有 index.php 文件分块处理</a></li>
+<li><a href="http://www.qianxingzhem.com/post-1568.html">【基础篇】11，通过 index.php 文件生成 文章页面(single.php)</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1570.html" data-id="ckgcnru7e001m1d2aclu5xp5g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1570" data-title="【基础篇】12，通过当前的文件，生成主题其他必要文件" data-url="http://www.qianxingzhem.com/post-1570.html"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -224,7 +415,7 @@ var duoshuoQuery = {short_name:"qxzm"};
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.qianxingzhem.com/post-1653.html" data-id="ckgcma3cr004qaa2ae4z0w44v" class="article-share-link">Share</a>
+      <a data-url="http://www.qianxingzhem.com/post-1653.html" data-id="ckgcnrua700a21d2aosj46rt6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/思考/">思考</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录生活/">记录生活</a></li></ul>
@@ -254,6 +445,93 @@ var duoshuoQuery = {short_name:"qxzm"};
 
 
   
+    <article id="post--e4-b8-80-e7-a7-8d-e6-96-b0-e5-9e-8b-e8-b6-85-e9-93-be-e6-8e-a5-e4-ba-a4-e4-ba-92-e6-a0-b7-e5-bc-8f-e8-ae-be-e8-ae-a1-e4-b8-8e-e5-ae-9e-e7-8e-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1649.html" class="article-date">
+  <time datetime="2013-01-16T11:48:56.000Z" itemprop="datePublished">Jan 17 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1649.html">一种新型超链接交互样式设计与实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>超链接是网页中，必不可少的内容。超链接的交互设计，也是一个网页中最重要的细节。CSS 也为链接准备了几个伪类选择器，用来设置超链接的交互操作。但是在绝大多数网站中，我们看到的超链接交互样式，通常是：改变一下链接的颜色、取消或者增加下划线、点击链接文本变色或者下划线消失等等。但实际上，超链接的交互设计，并非只能这么简单。</p>
+<p>很久没有登录 W3C 的官方网站，今天上去看了一下，从第一眼就看到了他们的超练级的与众不同。把鼠标放上，点击，测试了一下他们的超链接交互设计，感觉非常不错，就稍微思考了一下这个设计是如何实现的。稍微思考一下之后，才发现实现这个效果非常的容易，而且兼容性较好。下面就来介绍一下。</p>
+<p>先来看一下他们的效果图片，当然，我更推荐直接去 <a href="http://www.w3.org/" target="_blank" rel="noopener">W3C 官方网站</a>看效果。</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1649/link0.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1649/link0.png" alt="w3c 的超链接交互性演示" title="w3c 的超链接交互性演示"></a></p>
+<h2 id="实现原理和分析"><a href="#实现原理和分析" class="headerlink" title="实现原理和分析"></a>实现原理和分析</h2><p>首先，仍然是常规的超链接样式，带一条下划线，但是与普通的超链接样式不同的是，这条下划线要粗（2px 普通的 1px），同时这个下划线和文字颜色不同（用 color 和 text-decoration 定义的超链接下划线颜色是和文本相同的）。所以可以肯定，这个下划线是使用 border-bottom 属性定义的，并且 padding-bottom 了几个像素，空开一定距离。然后交互性操作就很简单了，只需要改变一下底边框的颜色就可以了。当点击事件发生的时候，超链接不是简单的改变了颜色，而是向下移动了几个像素，这样给人的错觉就是按下去了一样，这种用户体验是传统超链接仅仅变换颜色所体验不到的。关于这个的实现，需要使用 position 的 relative 属性，激活 top 属性，即可让超链接脱离原来位置向下偏移一定距离。</p>
+<p>既然原理分析完毕，那么我们就开始写出相应代码吧。</p>
+<h2 id="HTML-结构"><a href="#HTML-结构" class="headerlink" title="HTML 结构"></a>HTML 结构</h2><p>随便输入一些字，加上个链接就 OK 了。</p>
+<pre>&lt;div&gt;
+ 这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。这里是 潜行者m 随便打的一些字，用来做链接交互样式的演示，&lt;a href="#"&gt;链接在这里&lt;/a&gt;。
+ &lt;/div&gt;</pre>
+
+<h2 id="CSS-样式"><a href="#CSS-样式" class="headerlink" title="CSS 样式"></a>CSS 样式</h2><pre>div{width:300px;margin:20px auto;line-height:24px;}
+ div a{text-decoration:none;color:#000;padding-bottom:1px;}
+ div a:link,div a:visited{border-bottom:2px solid #f00;}
+ div a:hover{border-bottom:2px solid #00f;}
+ div a:active{border-bottom:2px solid #00f;outline:0 none;position:relative;top:1px;}</pre>
+
+<p>对 div 的宽度定义只是为了好看而已，对行高的定义，是为了不让下划线影响到下一行文字，这个可以自己决定。然后先对 a 标签取消默认的下划线和颜色，再就是交互性的操作。注意，对 :active 使用了 outline 属性，防止有些浏览器在点击超链接的时候，超链接会出现边框。</p>
+<h2 id="发散思维"><a href="#发散思维" class="headerlink" title="发散思维"></a>发散思维</h2><p>既然是用了边框的方式模拟下划线，那么可不可以通过调整超链接的高度让这条线变成一条可以交互操作的 “删除线” 呢？当然是可以的，我们只需要把 height 属性调小一点同时还需要让 a 的 display 属性变成 inline-block，就可以让边框穿过文字，由于 overflow 的默认属性是 visible 所以文本仍然是可见的。</p>
+<pre>div a{text-decoration:none;color:#000;padding-bottom:1px;height:6px;display:inline-block;}</pre>
+
+<p>这样就实现了下图效果</p>
+<p><a href="https://qxzm-cdn.sapi.work/blog/2013/01/1649/link1.png" target="_blank" rel="noopener"><img src="https://qxzm-cdn.sapi.work/blog/2013/01/1649/link1.png" alt="具有交互性的边框模拟删除线样式"></a></p>
+<p>需要注意的是 a 元素是行间元素，直接对其使用 height 是没有作用的，但是对其加上 display：block 变成块元素，则会脱离文本，所以需要添加 inline-block 属性。但是这样，对于早期的 IE 浏览器兼容性不太好。</p>
+<p>制作这样一个超链接的交互样式非常简单，而且交互效果很不错，平时我们应该多一点细心和发散思维，才能不断提高用户体验。</p>
+<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><p><a href="http://www.neoease.com/a-tag-css-design/" target="_blank" rel="noopener">a 标签的样式规划</a></p>
+<p><a href="http://ued.taobao.com/blog/2012/08/inline-block/" target="_blank" rel="noopener">inline-block 前世今生</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1649.html" data-id="ckgcnru7o002g1d2awvbhpzjo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1649" data-title="一种新型超链接交互样式设计与实现" data-url="http://www.qianxingzhem.com/post-1649.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
   
 </section>
         
@@ -263,7 +541,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">61</span></li></ul>
     </div>
   </div>
 
@@ -272,7 +550,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JSON/">JSON</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP-主题函数/">WP 主题函数</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cPanel-X/">cPanel X</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery-插件/">jQuery 插件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp-主题制作教程/">wp 主题制作教程</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络防骗/">网络防骗</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -281,7 +559,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.75px;">HTML5</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.25px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.75px;">PHP</a> <a href="/tags/SEO/" style="font-size: 13.75px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 12.5px;">ThinkSAAS</a> <a href="/tags/Ubuntu/" style="font-size: 11.25px;">Ubuntu</a> <a href="/tags/WP-主题函数/" style="font-size: 12.5px;">WP 主题函数</a> <a href="/tags/WP主题函数/" style="font-size: 11.25px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 13.75px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cPanel-X/" style="font-size: 15px;">cPanel X</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 11.25px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 17.5px;">jQuery</a> <a href="/tags/jQuery-插件/" style="font-size: 10px;">jQuery 插件</a> <a href="/tags/jQuery插件/" style="font-size: 12.5px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 15px;">sublime text 2</a> <a href="/tags/wp-主题制作教程/" style="font-size: 18.75px;">wp 主题制作教程</a> <a href="/tags/wp主题制作教程/" style="font-size: 15px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.25px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.75px;">思考</a> <a href="/tags/推广运营/" style="font-size: 13.75px;">推广运营</a> <a href="/tags/网络防骗/" style="font-size: 12.5px;">网络防骗</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 12.5px;">设计</a> <a href="/tags/资源分享/" style="font-size: 12.5px;">资源分享</a>
     </div>
   </div>
 
@@ -290,7 +568,7 @@ var duoshuoQuery = {short_name:"qxzm"};
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">October 2012</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/08/">August 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">4</span></li></ul>
     </div>
   </div>
 
