@@ -1,10 +1,9 @@
 title: firefox、chrome、opera 和 IE 7 的区别
 id: 612
 categories:
-
-- 前端相关
-  date: 2012-02-14 15:16:31
-  tags:
+  - 前端相关
+date: 2012-02-14 15:16:31
+tags:
 
 ---
 

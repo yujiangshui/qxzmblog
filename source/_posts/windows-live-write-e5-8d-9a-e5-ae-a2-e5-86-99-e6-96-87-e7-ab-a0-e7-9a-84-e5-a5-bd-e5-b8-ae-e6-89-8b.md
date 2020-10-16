@@ -1,10 +1,9 @@
 title: windows live write 博客写文章的好帮手
 id: 509
 categories:
-
-- 其他
-  date: 2012-02-05 23:01:39
-  tags:
+  - 其他
+date: 2012-02-05 23:01:39
+tags:
 
 ---
 

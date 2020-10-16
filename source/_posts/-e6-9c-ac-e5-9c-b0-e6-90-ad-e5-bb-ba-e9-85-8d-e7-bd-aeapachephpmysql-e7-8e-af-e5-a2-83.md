@@ -1,10 +1,9 @@
 title: 本地搭建配置 apache+php+mysql 环境
 id: 455
 categories:
-
-- 网站与后台开发
-  date: 2012-02-03 15:50:09
-  tags:
+  - 网站与后台开发
+date: 2012-02-03 15:50:09
+tags:
 
 ---
 

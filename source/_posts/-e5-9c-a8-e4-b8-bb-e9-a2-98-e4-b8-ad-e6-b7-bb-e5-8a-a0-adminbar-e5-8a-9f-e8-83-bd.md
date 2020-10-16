@@ -1,11 +1,10 @@
 title: 在主题中添加 AdminBar 功能
 tags:
-
-- WP 主题函数
+  - WP 主题函数
 id: 1297
-  categories:
-- 网站与后台开发
-  date: 2012-09-24 12:34:48
+categories:
+  - 网站与后台开发
+date: 2012-09-24 12:34:48
 
 ---
 

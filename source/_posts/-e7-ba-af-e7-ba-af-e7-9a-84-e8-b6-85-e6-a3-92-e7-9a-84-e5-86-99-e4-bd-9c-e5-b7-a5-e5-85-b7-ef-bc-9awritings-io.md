@@ -1,10 +1,9 @@
 title: 纯纯的超棒的写作工具：Writings.io
 id: 1806
 categories:
-
-- 其他
-  date: 2013-03-25 20:57:20
-  tags:
+  - 其他
+date: 2013-03-25 20:57:20
+tags:
 
 ---
 
