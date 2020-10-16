@@ -1,11 +1,13 @@
 title: 实现网页换肤功能的最优解（带 Cookie 记录功能）
 tags:
-  - jQuery
-id: 1980
-categories:
-  - JS/JQ
-  - 前端相关
-date: 2013-06-06 17:54:50
+
+- jQuery
+  id: 1980
+  categories:
+- JS/JQ
+- 前端相关
+  date: 2013-06-06 17:54:50
+
 ---
 
 网页换肤是一门老技术了，老的现在都不怎么流行了。但是，有时候有些客户就是想要这个换肤功能。于是就实践做了一下网页换肤，结果遇到了很多问题。
@@ -20,13 +22,14 @@ date: 2013-06-06 17:54:50
 
 首先你可能要准备多套 CSS 样式表文件，当点击换肤按钮的是，使用 JS 来切换对应的 CSS 样式表。之后，就是在网页上增加一个 ul li 列表，用 CSS 修饰一下做成换肤选项。例如：
 
-![网页中的换肤选项](http://qxzm-img.b0.upaiyun.com/blog/2013/06/1980/skin0.png)
+![网页中的换肤选项](https://qxzm-cdn.sapi.work/blog/2013/06/1980/skin0.png)
 
 下面我们就来看具体功能代码。
 
 ## 实现点击切换对应 CSS 功能
 
 首先，我们的皮肤选项的 HTML 结构是这样的
+
 <pre>&lt;div class="skin"&gt;
     &lt;ul&gt;
         &lt;li class="skin1 hover"&gt;&lt;/li&gt;
@@ -35,9 +38,13 @@ date: 2013-06-06 17:54:50
         &lt;li class="skin4"&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;</pre>
+
 然后在网页的顶部偏下的位置放上一个空的 link 标签，我们将会使用 jQuery 为这个 link 标签赋予不同的 CSS 文件实现切换效果
+
 <pre>&lt;link rel="stylesheet" href="" data-href="style-Teal.css" type="text/css" media="screen" class="skincsslittle" /&gt;</pre>
+
 其中，我自定义了一个 data-href 属性来存放系统默认的皮肤，这样当页面加载完成之后，如果 JS 没有检测到 Cookie 中的皮肤信息，就会把 data-href 中的内容赋值上去。之后就是大家熟悉的 jQuery 代码：
+
 <pre>jQuery('.skin li').click(function(){
     var currentClass = jQuery(this).attr('class');
     jQuery(this).siblings().removeClass('hover');
@@ -49,11 +56,13 @@ date: 2013-06-06 17:54:50
 
     createCookie('skin',currentClass,365);
 });</pre>
-大体的逻辑就是获取到当前皮肤的 class 然后截取出来 skin* 然后通过一个函数得到其对应的 CSS 文件。skincssurl 记载的是网页的非皮肤 CSS 文件，主要用来获取当前网页的 CSS 目录 URL ，最后将混合好的 CSS 皮肤文件赋值准备好的空 link 中，实现换肤。
+
+大体的逻辑就是获取到当前皮肤的 class 然后截取出来 skin\* 然后通过一个函数得到其对应的 CSS 文件。skincssurl 记载的是网页的非皮肤 CSS 文件，主要用来获取当前网页的 CSS 目录 URL ，最后将混合好的 CSS 皮肤文件赋值准备好的空 link 中，实现换肤。
 
 ## 增加 Cookie 记录皮肤功能
 
 这里主要用到两个自定义的函数，用来创建、读取 Cookie 内容。
+
 <pre>function readCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(';');
@@ -74,7 +83,9 @@ function createCookie(name,value,days) {
     else expires = "";
     document.cookie = name+"="+value+expires+"; path=/";
 }</pre>
+
 你只需要把这两个函数复制到 JS 代码区域即可。在 jQuery 点击换肤的功能代码中，最后一句就创建了一个 Cookie，等网页加载完成之后，我们需要使用 JS 读取 Cookie 内容，然后使用 if 判断：
+
 <pre id="line1">var cccc = readCookie("skin");
 
 if (cccc){
@@ -90,6 +101,7 @@ if (cccc){
     jQuery('.'+currentcssname).addClass('hover').siblings().removeClass('hover');
     jQuery('.skincsslittle').attr("href",jQuery('.skincsslittle').attr("data-href"));
 }</pre>
+
 不要被这么乱的代码吓晕了，实际上逻辑很简单，先获取 Cookie 的皮肤值，如果有就为对应的皮肤选项高亮并且转换得到对应的 CSS 皮肤文件赋值。如果没有 Cookie 内容，就将 data-href 属性中记录的值赋值进去。
 
 ## 网页换肤的闪烁问题和不完美解决方案

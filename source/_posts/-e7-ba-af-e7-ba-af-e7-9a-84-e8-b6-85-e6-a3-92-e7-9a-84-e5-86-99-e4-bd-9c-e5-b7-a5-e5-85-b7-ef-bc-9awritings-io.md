@@ -1,9 +1,11 @@
 title: 纯纯的超棒的写作工具：Writings.io
 id: 1806
 categories:
-  - 其他
-date: 2013-03-25 20:57:20
-tags:
+
+- 其他
+  date: 2013-03-25 20:57:20
+  tags:
+
 ---
 
 作为一个崇尚简约设计的博主，我对于写作环境的要求比较苛刻。先是用过 WordPress 的原生编辑器，然后觉得功能不够，使用增强版的编辑器插件，再到使用 Windows live write 这样的桌面写作软件，到现在的回归原始使用 WordPress 原生编辑器。这个过程中，我从要求功能的复杂转变到了简洁、简单。
@@ -24,19 +26,19 @@ tags:
 
 先简单的注册一个账号，然后就进入了后台，及其简约的后台：
 
-![Writings 后台截图](http://qxzm-img.b0.upaiyun.com/blog/2013/03/1806/writings0.png)
+![Writings 后台截图](https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings0.png)
 
 然后很明显的新文章按钮，点击一下就进入了新写文章界面，超级简洁和必备的编辑功能：
 
-![Writings 文章编辑器截图](http://qxzm-img.b0.upaiyun.com/blog/2013/03/1806/writings1.png)
+![Writings 文章编辑器截图](https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings1.png)
 
 我把前段时间写的一篇文章复制上去测试一下，然后编辑器支持 HTML 代码，排版布局非常合理，写文章的普通基础功能都必备。点击一下发表之后就可以成功发布了，在此过程中实时的保存，妈妈再也不用担心我写的文章不见了。发布之后，就可以查看了。
 
-![Writings 文章发表之后截图](http://qxzm-img.b0.upaiyun.com/blog/2013/03/1806/writings2.png)
+![Writings 文章发表之后截图](https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings2.png)
 
 展示文章的样式也是非常简洁的，非常不错。后台其实有更强大的功能，比较亮的有这个：
 
-![Writings 后台亮点功能](http://qxzm-img.b0.upaiyun.com/blog/2013/03/1806/writings3.png)
+![Writings 后台亮点功能](https://qxzm-cdn.sapi.work/blog/2013/03/1806/writings3.png)
 
 支持绑定域名和 Disqus 账号，这样就可以自定义域名并且拥有评论功能了。绑定域名超级简单，直接 CNAME 到 writings.io 然后在后台设置一下，无需备案没有延迟，直接就可以使用了。
 

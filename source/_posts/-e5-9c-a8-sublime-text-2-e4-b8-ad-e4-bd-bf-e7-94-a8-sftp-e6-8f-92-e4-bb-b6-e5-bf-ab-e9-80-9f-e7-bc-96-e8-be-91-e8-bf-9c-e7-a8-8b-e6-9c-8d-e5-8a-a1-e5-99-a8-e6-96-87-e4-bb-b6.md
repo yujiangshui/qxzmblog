@@ -1,13 +1,15 @@
 title: 在 Sublime Text 2 中使用 SFTP 插件快速编辑远程服务器文件
 tags:
-  - sublime text 2
-id: 1924
-categories:
-  - 前端相关
-date: 2013-05-01 01:02:32
+
+- sublime text 2
+  id: 1924
+  categories:
+- 前端相关
+  date: 2013-05-01 01:02:32
+
 ---
 
-Sublime Text 2 本身并不强大，但是它方便使用插件扩展功能，所以变得很强大。今天 [潜行者m ](http://www.qianxingzhem.com)介绍一个很实用的插件 SFTP ，可以大大提高前端工作效率。
+Sublime Text 2 本身并不强大，但是它方便使用插件扩展功能，所以变得很强大。今天 [潜行者 m ](http://www.qianxingzhem.com)介绍一个很实用的插件 SFTP ，可以大大提高前端工作效率。
 
 ## 常见的工作流程
 
@@ -27,11 +29,11 @@ Sublime Text 2 本身并不强大，但是它方便使用插件扩展功能，�
 
 安装完插件之后，找到 “文件” 菜单，找到 “SFTP/FTP” 选项，点击配置：
 
-![在 SFTP 中配置远程服务器信息](http://qxzm-img.b0.upaiyun.com/blog/2013/05/1924/sftp0.png)
+![在 SFTP 中配置远程服务器信息](https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp0.png)
 
 点击之后，会弹出一个新的窗口，这是一个配置文件
 
-![SFTP 中服务器的配置参数](http://qxzm-img.b0.upaiyun.com/blog/2013/05/1924/sftp1.png)
+![SFTP 中服务器的配置参数](https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp1.png)
 
 一般就是配置一下我箭头所指的四个参数，包括连接方式、服务器地址、用户名、密码等。如果你的服务器还有其他配置，你也可以对照注释设置一下。一般为了方便，还会设置一下“路径”，这样直接可以看到想要修改的文件列表。
 
@@ -41,15 +43,15 @@ Sublime Text 2 本身并不强大，但是它方便使用插件扩展功能，�
 
 还是点击 “文件” 选择 “SFTP/FTP” 中的查看服务器列表
 
-![使用 SFTP 连接远程服务器](http://qxzm-img.b0.upaiyun.com/blog/2013/05/1924/sftp2.png)
+![使用 SFTP 连接远程服务器](https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp2.png)
 
 会弹出刚刚配置好的服务器，我们可以点击需要连接的 FTP 服务器，这时候就链接上了并且弹出文件列表
 
-![SFTP 连接服务器获取文件列表](http://qxzm-img.b0.upaiyun.com/blog/2013/05/1924/sftp3.png)
+![SFTP 连接服务器获取文件列表](https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp3.png)
 
 这时候点击一个文件，就可以弹出一些选项
 
-![使用 SFTP 操作远程文件](http://qxzm-img.b0.upaiyun.com/blog/2013/05/1924/sftp4.png)
+![使用 SFTP 操作远程文件](https://qxzm-cdn.sapi.work/blog/2013/05/1924/sftp4.png)
 
 就可以根据你自己的需要，对文件编辑、重命名什么的了。点击编辑之后，会在本地打开，然后可以修改。摁下 ctrl + s 保存文件的时候，就会自动上传文件。
 
