@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: 前端相关 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-category/前端相关/index.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ie10-e7-9a-84-e4-b8-80-e4-ba-9b-e5-89-8d-e7-ab-af-e6-9c-89-e5-85-b3-e7-9a-84-e7-89-b9-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-2001.html" class="article-date">
+  <time datetime="2013-07-12T11:29:32.000Z" itemprop="datePublished">Jul 12 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-2001.html">IE10 的一些前端有关的特性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>IE10 已经出来了很久一段时间了，整理一下有关的特性，方便日后查阅使用。</p>
+<h2 id="IE10-的-hack"><a href="#IE10-的-hack" class="headerlink" title="IE10 的 hack"></a>IE10 的 hack</h2><pre>.ie{
+color:red;          /* for all browsers*/
+_color:green;       /* hack for IE6*/
+*color:black;       /* hack for IE6 IE7*/
+color:white\9;      /* hack for IE6+(IE6 IE7 IE8 IE9 IE10)*/
+color:yellow\0;     /* hack for IE8+(IE8 IE9 IE10)*/
+color:orange\9\0;   /* hack for IE9+(IE9 IE10)*/
+}</pre>
+
+<p>暂时还没有比较好的 hack 方式，使用一些另类的方法可以实现，但是不太好。此外，IE10 不再支持 IE 条件注释了。也就是说，面对下面的代码，IE10 会直接像其他浏览器那样忽略：</p>
+<pre><!--[if IE]>IE 条件注释的内容<![endif]--></pre>
+
+<p>至于为什么，可能是因为微软对 IE10 已经拥有足够的自信，可以做到跟普通正常浏览器效果差不多，不再需要单独的 hack 了吧。</p>
+<p>详细的了解 IE10 的更多细节和特性以及新技术，可以观看 MSDN 上的 IE10 develop 部分：<a href="http://msdn.microsoft.com/en-us/ie/aa740473" target="_blank" rel="noopener">http://msdn.microsoft.com/en-us/ie/aa740473</a></p>
+<p>（未完，会继续发现添加。。）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-2001.html" data-id="ckgcma3en009naa2adfmomve0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="2001" data-title="IE10 的一些前端有关的特性" data-url="http://www.qianxingzhem.com/post-2001.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-emmet-e5-b8-b8-e7-94-a8-e7-9a-84-e9-ab-98-e7-ba-a7-e5-8a-9f-e8-83-bd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1995.html" class="article-date">
+  <time datetime="2013-06-28T06:14:10.000Z" itemprop="datePublished">Jun 28 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1995.html">Emmet 常用的高级功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Emmet 的功能不仅仅局限在快速生成标记语言结构或者生成 CSS 代码，它还具有很多常用的前端相关的功能，下面就来介绍几个比较常用的功能。</p>
+<h2 id="生成-Lorem-Ipsum"><a href="#生成-Lorem-Ipsum" class="headerlink" title="生成 Lorem Ipsum"></a>生成 Lorem Ipsum</h2><p><code>Lorem Ipsum</code> 表示一段随机看不懂的文字。<code>Lorem Ipsum</code> 的文字让人看不懂，这样才能忽略内容的含义而专注内容的排版，作为测试数据填充用的。使用 Emmet 生成 <code>Lorem Ipsum</code> 文本非常简单，只需要使用 <code>lorem</code>这一条命令即可，敲击 Tab 键之后，就会生成如下一段文字：</p>
+<p><pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, dolor, aperiam ab repellendus blanditiis eum exercitationem. Quae, reprehenderit repellat impedit asperiores consequatur? Illum quos magnam odit omnis recusandae natus similique.</pre><br>Emmet 的 lorem 命令不仅仅只有输出这么一段文字这样一个简单的功能，它既然作为测试数据，可以加上参数指定要输出的字符数量。例如，我们如果想输出一个十个单词的 h1 标题，我们就可以使用如下命令 <code>h1&amp;gt;lorem10</code> 。但是这项功能对于使用中文的网页测试来说，好像没有多大用处，毕竟中文和英语单词的排版是不同的。</p>
+<h2 id="跳转编辑区域"><a href="#跳转编辑区域" class="headerlink" title="跳转编辑区域"></a>跳转编辑区域</h2><p>写代码一般要用到两只手，有时候需要跳转到别的代码段等，你可以使用键盘方向键也可以使用鼠标。但是这都有缺陷，使用键盘方向键移动太慢了，而且需要按住 shift 键和方向键选中代码；使用鼠标的话，手就必须离开键盘，来回也会浪费一些时间。而 Emmet 提供了一个很实用的功能，就是整块的跳转。</p>
+<p>为了方便理解，先看一下<a href="http://docs.emmet.io/actions/select-item/" target="_blank" rel="noopener">官方的 Demo 动画</a>。这个功能，使用 <code>Shift+Ctrl+.</code> 和 <code>Shift+Ctrl+,</code> 分别向下或者向上移动，选取的是一整块，先从标签开始，再是整个属性，再是属性值。这样，比键盘的方向键移动高效多了。</p>
+<h2 id="增加图片的尺寸大小"><a href="#增加图片的尺寸大小" class="headerlink" title="增加图片的尺寸大小"></a>增加图片的尺寸大小</h2><p>有时候，我们需要给 &lt;img&gt; 标签增加对应的 width、height 属性来表示图片的大小或者给通过 background-image 属性引用的背景图片一个尺寸大小。通常的做法是看一下图片的尺寸，然后加上，而现在，你只需要将光标移动到代码段，摁下 <code>Ctrl+U</code> 即可让 Emmet 自动读取图片的尺寸添加上。前提条件是图片比较存在并且正确引用进来了。</p>
+<p>如果是针对 &lt;img&gt; 标签的，会在后面加上 width、height 属性，如果是 background 引入的，会在下面加上 width、height 的 CSS 属性。可以看一下<a href="http://docs.emmet.io/actions/update-image-size/" target="_blank" rel="noopener">官方的 Demo </a>。但是这里有个问题，官方的 Demo 中，实现这个功能的快捷键是 <code>Shift+Ctrl+U</code> 但实际使用中，这个快捷键不起作用。关于 Emmet 的 Mac、Win 下的快捷键，以这个页面上的为准：<a href="https://github.com/sergeche/emmet-sublime#available-actions" target="_blank" rel="noopener">https://github.com/sergeche/emmet-sublime#available-actions</a>。</p>
+<h2 id="更新-CSS-的属性值"><a href="#更新-CSS-的属性值" class="headerlink" title="更新 CSS 的属性值"></a>更新 CSS 的属性值</h2><p>我们在写 CSS 的时候，有时候为了 hack 写很多带有前缀的属性。例如：</p>
+<p><pre>-webkit-transform: rotate(30deg);<br>-moz-transform: rotate(30deg);<br>-ms-transform: rotate(30deg);<br>-o-transform: rotate(30deg);<br>transform: rotate(30deg);</pre><br>如果我们突然想修改一下旋转的角度值，那么我们就需要依次修改或者按住 Ctrl 多个选中进行修改。使用 Emmet 的话，就方便多了，我们只需要修改其中一个，然后摁下 <code>Shift+Ctrl+R</code> 键即可更新其他的相关属性值。</p>
+<h2 id="将图片资源转换成-data-url-形式"><a href="#将图片资源转换成-data-url-形式" class="headerlink" title="将图片资源转换成 data url 形式"></a>将图片资源转换成 data url 形式</h2><p>data url 图片具有很多优点，在某些情况下比较实用，但是将图片转换成 data url 格式就比较麻烦了，得使用一些工具。而在 Emmet 中，将光标移动到 background: url() 中的图片位置的地方，按下<code>Ctrl+’</code> 即可将图片编码成 data url 格式。当然，前提条件是图片资源引用正确。</p>
+<p>除此之外，Emmet 还有一些其他的诸如快速跳转、计算等等常用功能，在这里只是介绍了几个更常用的功能，有兴趣的朋友可以打开<a href="http://docs.emmet.io/actions/" target="_blank" rel="noopener">Emmet Action 的官方文档</a>看一下 Demo，这里不再赘述。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1995.html" data-id="ckgcma3d3005naa2aqh86vyfr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emmet/">emmet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1995" data-title="Emmet 常用的高级功能" data-url="http://www.qianxingzhem.com/post-1995.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-emmet-e7-94-9f-e6-88-90-html-e7-9a-84-e8-af-ad-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1940.html" class="article-date">
+  <time datetime="2013-05-07T11:26:32.000Z" itemprop="datePublished">May 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1940.html">Emmet 生成 HTML 的语法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇文章<a href="http://www.qianxingzhem.com/post-1937.html">前端开发神器 Emmet 介绍</a>中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。</p>
+<p>现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！</p>
+<h2 id="生成-HTML-文档初始结构"><a href="#生成-HTML-文档初始结构" class="headerlink" title="生成 HTML 文档初始结构"></a>生成 HTML 文档初始结构</h2><p>HTML 文档的初始结构，就是包括 doctype、html、head、body 以及 meta 等内容。你只需要输入一个 “!” 就可以生成一个 HTML5 的标准文档初始结构，你没有看错，输入一个感叹号（当然是英文符号），然后摁下 TAB 键，就会发现生成了下面的结构：</p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+这就是一个 HTML5 的标准结构，也是默认的 HTML 结构。如果你想生成 HTML4 的过渡型结构，那么输入指令 `html:xt` 即可生成如下结构：
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+Emmet 会自动把 doctype 给你补全了，怎么样，这样的功能会不会让你动心？简单总结一下常用的 HTML 结构指令：
+
+*   `html:5` `或者 !` 生成 HTML5 结构
+*   `html:xt` 生成 HTML4 过渡型
+*   `html:4s` 生成 HTML4 严格型
+
+## 生成带有 id 、class 的 HTML 标签
+
+Emmet 的语法有点类似 CSS 的语法，生成 id 为 aaa 的 div 标签，我们只需要编写下面指令：
+<pre>#aaa</pre>
+Emmet 默认的标签为 div ，如果我们不给出标签名称的话，默认就生成 div 标签。如果编写一个 class 为 bbb 的 span 标签，我们需要编写下面指令：
+<pre>span.bbb</pre>
+然后就生成了对应的结构。同理，如果想要编写一个 id 为 ccc 的 class 为 ddd 的 ul 标签，我们可以这样写：
+<pre>ul#ccc.ddd</pre>
+很简单吧？比你用手写 id 、class 方便多了吧
+
+## 生成后代：&gt;
+
+大于号表示后面要生成的内容是当前标签的后代。例如我要生成一个无序列表，而且被 class 为 aaa 的 div 包裹，那么可以使用下面指令：
+<pre>div.aaa&gt;ul&gt;li</pre>
+可以生成如下的结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<h2 id="生成兄弟："><a href="#生成兄弟：" class="headerlink" title="生成兄弟：+"></a>生成兄弟：+</h2><p>上面是生成下级元素，如果想要生成平级的元素，就需要使用 + 号。例如下面指令：</p>
+<p>div+p+bq`<br>就可以生成如下的 HTML 结构：</p>
+<pre>`&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;`</pre>
+
+<h2 id="生成上级元素："><a href="#生成上级元素：" class="headerlink" title="生成上级元素：^"></a>生成上级元素：^</h2><p>上级 （Climb-up）元素是什么意思呢？前面咱们说过了生成下级元素的符号“&gt;”，当使用 div&gt;ul&gt;li 的指令之后，再继续写下去，那么后续内容都是在 li 下级的。如果我想编写一个跟 ul 平级的 span 标签，那么我需要先用 “^” 提升一下层次。例如：</p>
+<pre>div&gt;ul&gt;li^span</pre>
+就会生成如下结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+如果我想相对与 div 生成一个平级元素，那么就再上升一个层次，多用一个“^”符号：
+<pre>div&gt;ul&gt;li^^span</pre>
+
+<h2 id="重复生成多份："><a href="#重复生成多份：" class="headerlink" title="重复生成多份：*"></a>重复生成多份：*</h2><p>特别是一个无序列表，ul 下面的 li 肯定不只是一份，通常要生成很多个 li 标签。那么我们可以直接在 li 后面 * 上一些数字：</p>
+<pre>ul&gt;li*5</pre>
+这样就直接生成五个项目的无序列表了。如果想要生成多份其他结构，方法类似。
+
+## 生成分组：()
+
+用括号进行分组，这样可以更加明确要生成的结构，特别是层次关系，例如：
+<pre>`div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p`</pre>
+这样很明显就可以看出层次关系和并列关系，生成如下结构：
+<pre>`&lt;div&gt;
+    &lt;header&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;`</pre>
+此外，分组还可以很方便的结合上面说的 “*” 符号生成重复结构：
+<pre>`(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p`</pre>
+生成结构：
+<pre>`&lt;div&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/footer&gt;`</pre>
+
+<h2 id="生成自定义属性：-attr"><a href="#生成自定义属性：-attr" class="headerlink" title="生成自定义属性：[attr]"></a>生成自定义属性：[attr]</h2><p>a 标签中往往需要附带 href 属性和 title 属性，如果我们想生成一个 href 为 “<a href="http://www.qianxingzhem.com”" target="_blank" rel="noopener">http://www.qianxingzhem.com”</a> ，title 为“潜行者m 博客”的 a 标签，可以这样写：</p>
+<pre>a[href="http://www.qianxingzhem.com" title="潜行者m 博客"]</pre>
+其他标签和属性都类似。
+
+## 对生成内容编号：$
+
+例如无序列表，我想为五个个 li 增加一个 class 属性值 item1 ，然后依次递增从 1-5，那么就需要使用 $ 符号：
+<pre>`ul&gt;li.item$*5`</pre>
+这样就生成了如下结构：
+<pre>&lt;ul&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+$ 就表示一位数字，只出现一个的话，就从1开始。如果出现多个，就从0开始。如果我想生成三位数的序号，那么要写三个 $：
+<pre>`ul&gt;li.item$$$*5`</pre>
+输出：
+<pre>`&lt;ul&gt;
+    &lt;li class="item001"&gt;&lt;/li&gt;
+    &lt;li class="item002"&gt;&lt;/li&gt;
+    &lt;li class="item003"&gt;&lt;/li&gt;
+    &lt;li class="item004"&gt;&lt;/li&gt;
+    &lt;li class="item005"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+只能这样单调的生成序号？对于强大的 Emmet 来说，肯定不会会了，我们也可以在 $ 后面增加 @- 来实现倒序排列：
+<pre>`ul&gt;li.item$@-*5`</pre>
+生成如下结构：
+<pre>`&lt;ul&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+同样，我们也可以使用 @N 指定开始的序号：
+<pre>`ul&gt;li.item$@3*5`</pre>
+这样就会从 3 开始排序，生成如下代码：
+<pre>`&lt;ul&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+配合上面倒序输出，可以这样写：
+<pre>`ul&gt;li.item$@-3*5`</pre>
+生成的就是以 3 为底倒序：
+<pre>`&lt;ul&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+
+<h2 id="生成文本内容："><a href="#生成文本内容：" class="headerlink" title="生成文本内容：{}"></a>生成文本内容：{}</h2><p>上面讲解了如何生成 HTML 标签，那里面的内容呢？当然也可以生成了：</p>
+<p><pre><code>a[href=&quot;http://www.qianxingzhem.com&quot;]{点击这里到 潜行者m 的博客}</code></pre><br>这样就生成了一个到我博客的超链接了。在生成内容的时候，特别要注意前后的符号关系，虽然 a&gt;{Click me} 和 a{Click me} 生成的结构是相同的，但是加上其他的内容就不一定了，例如：</p>
+<p><pre>`&lt;!– a{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;</pre></p>
+<p>&lt;!– a&gt;{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;`<br>这样就生成了完全不同的结构，注意这些小细节哦。</p>
+<h2 id="不要有空格"><a href="#不要有空格" class="headerlink" title="不要有空格"></a>不要有空格</h2><p>在写指令的时候，你可能为了代码的可读性，使用一些空格什么的排版一下。这就会导致代码无法使用。例如下面这句：</p>
+<p><pre>`(header &gt; ul.nav &gt; li*5) + footer</pre></p>
+<p>而去掉空格之后，就可以正常执行生成结构了。HTML 语法部分说完了，现在回头看看第一篇文字，你是否已经看懂了那一串指令？下一篇将会讲解快速编写 CSS 的技巧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1940.html" data-id="ckgcma3d5005uaa2at9bk26un" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1940" data-title="Emmet 生成 HTML 的语法" data-url="http://www.qianxingzhem.com/post-1940.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e8-ae-a9-e7-94-a8-e6-88-b7-e7-a6-81-e7-94-a8-e5-93-8d-e5-ba-94-e5-bc-8f-e5-b8-83-e5-b1-80-e7-95-8c-e9-9d-a2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1921.html" class="article-date">
+  <time datetime="2013-04-29T07:07:00.000Z" itemprop="datePublished">Apr 29 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1921.html">让浏览者禁用响应式布局界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>原文：<a href="http://www.456bereastreet.com/archive/201303/letting_users_disable_responsive_layout/" target="_blank" rel="noopener">Letting users disable responsive layout</a></li>
+<li>作者：<a href="http://www.456bereastreet.com" target="_blank" rel="noopener">456 Berea Street</a>  翻译者：<a href="http://www.qianxingzhem.com">潜行者m</a></li>
+<li>版权声明：版权归原作者所有，翻译仅作学习交流目的！<br>响应式网站设计（Responsive Web Design）使用强大的媒体查询（media querie）让网站可以根据浏览者的浏览设备分辨率进行样式调整。但是，这样也产生了一个问题：有些人并不希望网站的外观在不同的浏览设备中发生改变。因为改变了之后，可能会让人产生疑问，认为自己在访问另一个网站。</li>
+</ul>
+<p>虽然我不认为这会影响一大批人，但是绝大多数人肯定不懂响应式网站设计。如果有个人在电脑、平板电脑或者智能手机上访问同一个网站结果发现外观效果不同，他可能会感到很困惑。Bruce Lawson 在文章 <a href="http://www.brucelawson.co.uk/2013/turning-off-responsive-web-design/" target="_blank" rel="noopener">Turning off responsive web design</a> 中就提到了一个真实的例子。</p>
+<p>一个同事也提到了另一个案例，响应式布局并没有很完美的客户端支持。客户经常提到布局问题等等。试想一下，如果你收到了一个邮件提到的是关于你用电脑访问看到的外观或内容，那么你用平板或者智能手机可能看不到相同的外观或者内容。当然，这种情况可能不多，但是这时候如果有一个可以切换或者关掉响应式布局的功能就好多了。</p>
+<p>尽管这个功能不会让很多人受益，但是做这么个功能也并不是很复杂的事情。所以我在一些项目中增加了这个功能，现在想跟大家分享一下。这个方法跟 Adrian Roselli 写的 <a href="http://blog.adrianroselli.com/2013/01/letting-mobile-users-see-desktop-view.html" target="_blank" rel="noopener">Letting Mobile Users See Desktop View of RWD Site</a> 这篇文章中的很相似。这个功能不是很复杂，更不是什么革命性的改进，但是可以通过很多方法来实现。</p>
+<h2 id="如何命名响应式布局开关"><a href="#如何命名响应式布局开关" class="headerlink" title="如何命名响应式布局开关"></a>如何命名响应式布局开关</h2><p>有必要讨论一下怎么在网页中称呼这个功能。通常的名字是：查看桌面版布局、桌面版、完整版。而我称呼它为：查看固定宽度下的布局（当切换之后变成“查看弹性宽度下的布局”）。我并不确定这样可以帮助用户明白之间的异同，但是我认为这比起“桌面端”和“手机端”来说，描述的更加准确。有些人的浏览器窗口可能比 960px 还窄，也可能比 1200px 窄，或者是他们自己拖动设置的大小，虽然满足了媒体查询中定义的宽度，但是能在网页中显示“切换成桌面版”？</p>
+<h2 id="HTML-和-CSS-代码"><a href="#HTML-和-CSS-代码" class="headerlink" title="HTML 和 CSS 代码"></a>HTML 和 CSS 代码</h2><p>我做了一个 <a href="http://www.456bereastreet.com/lab/disable-responsive-layout/" target="_blank" rel="noopener">Disable responsive layout</a> 演示页面来展示效果。如果你打开了这个页面，并且调整你的浏览器窗口小于 960px ，一个就跟超链接似的开关就会显示出来，点击就可以切换。我觉得只有在媒体查询工作的时候才显示这个切换开关——如果响应式布局没有被触发，那切换个毛啊。</p>
+<p>我选择直接把这个切换链接写进 HTML 中，而不是使用 JavaScript 临时生成。这是因为我使用后台（可以是任何后台语言，本文中使用 PHP 做演示）来处理 cookie ，这样就可以记录你是否选择了禁用响应式布局。</p>
+<p>在前面的 demo 页面中，写入了如下的 HTML 结构，你可以自己定义：</p>
+<pre><code>&amp;lt;div id=&quot;toggle&quot;&amp;gt;
+    &amp;lt;a href=&quot;?fixedwidth=1&quot;&amp;gt;Switch to fixed width layout&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;`&lt;/pre&gt;
+使用 CSS 让其隐藏，不要写进媒体查询中：
+&lt;pre&gt;`#toggle {
+    display:none;
+}
+.fixed #toggle {
+    display:block;
+}`&lt;/pre&gt;
+为了方便切换，我们增加了 fixed 类。这样切换的时候，只需要对 html 对象加上 fixed 类就可以了。如果 html 对象中有这个类，就说明用户已经禁用了响应式布局，所以需要显示开关，方便他们再次启用。
+
+下面 CSS 片段包含进媒体查询中：
+&lt;pre&gt;`@media only screen and (max-width:960px) {
+
+    #toggle {
+        display:block;
+    }
+
+}`&lt;/pre&gt;
+上面代码实现当宽度小于 960px 的时候，触发媒体查询功能显示这个开关。如果用户已经禁用了响应式布局，上面代码将不会被加载（实现方法见下文）。
+
+如果你的媒体查询 CSS 文件没有在一个单独的文件，要实现这个功能，可能需要做的更多工作。你可以在媒体查询的规则前面加上前缀 html:not(.fixed) 或者不使用媒体查询创建单独的文件。
+
+##  JavaScript 代码
+
+如果媒体查询的 CSS 代码被禁用，你要确保与响应式布局无关的 JavaScript 和 CSS 代码也被禁用。为了达到这个目的，你可以将下面的脚本放在单独的文件中，你也可以使用这种方法处理对应的 CSS （使用 PHP 处理），不加载这个文件。如果你没有分割成单独的文件，那么就通过检查 HTML 元素中是否有 fixed 这个类名在启用响应式布局功能脚本：
+&lt;pre&gt;`&amp;lt;script&amp;gt;
+if ( !document.documentElement.className.match(/(\\s|^)fixed(\\s|$)/) ) {
+    // Responsive scripts go here, likely with additional checks
+    // for viewport width, media query support etc.
+}
+&amp;lt;/script&amp;gt;`&lt;/pre&gt;
+
+##  PHP 代码
+
+在本文 Demo 中，我使用 PHP 来处理 cookie 和提供切换响应式布局的功能。你可以使用 JavaScript 来实现这样的功能，但是这样在禁用 JavaScript 的客户端无法生效。毕竟这不是很关键的功能，如果你选择使用 JavaScript 请记住如果客户端不支持 JavaScript 的时候，也要显示出一个可以看到的链接。
+
+下面就是一个简单的 HTML 结构和必须的 PHP 代码：
+&lt;pre&gt;`&amp;lt;?php
+    $fixedwidth = &apos;&apos;;
+    //检查是否有 $fixedwidth 这个变量，然后获取
+    if ( isset($_GET[&apos;fixedwidth&apos;]) &amp;amp;&amp;amp; ($_GET[&apos;fixedwidth&apos;] != &quot;&quot;) ) {
+        $fixedwidth = $_GET[&apos;fixedwidth&apos;];
+    }
+    //检查是否有对应的 cookie 内容
+    if ( isset($_COOKIE[&apos;fixedwidth&apos;]) ) {
+        if ( $fixedwidth == &apos;0&apos; ) {
+            // 如果值为 0 就清除 cookie
+            setcookie(&apos;fixedwidth&apos;, &apos;&apos;, time() - 60, &apos;/&apos;);
+        } else {
+            // 如果值不为零，就获取
+            $fixedwidth = &apos;1&apos;;
+        }
+    } else if ( $fixedwidth == &apos;1&apos;) {
+        // 浏览者想要禁用响应式布局功能，设置一个 cookie
+        $expires = 60 * 60 * 24 * 60 + time(); 
+        setcookie(&apos;fixedwidth&apos;, &apos;1&apos;, $expires, &apos;/&apos;);
+    }
+?&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;en&quot; &amp;lt;?php if ($fixedwidth == &apos;1&apos;) { echo &apos;class=&quot;fixed&quot;&apos;; } ?&amp;gt;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&quot;utf-8&quot; /&amp;gt;
+    &amp;lt;title&amp;gt;Document title&amp;lt;/title&amp;gt;
+&amp;lt;?php
+// 只在响应式布局可用的时候插入 meta[name=&quot;viewport&quot;] 对象
+if ( $fixedwidth != &apos;1&apos; ): ?&amp;gt;
+    &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot; /&amp;gt;
+&amp;lt;?php
+// 只在响应式布局可用的时候，插入 CSS 文件
+if ( $fixedwidth != &apos;1&apos; ): ?&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;mq.css&quot; /&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;Document title&amp;lt;/h1&amp;gt;
+    &amp;lt;div id=&quot;toggle&quot;&amp;gt;
+&amp;lt;?php
+// Responsive is disabled, so insert a switch to flexible width
+if ( $fixedwidth == &apos;1&apos; ): ?&amp;gt;
+        &amp;lt;a href=&quot;&amp;lt;?php echo $_SERVER[&quot;SCRIPT_NAME&quot;] ?&amp;gt;?fixedwidth=0&quot;&amp;gt;Switch to flexible width layout&amp;lt;/a&amp;gt;
+&amp;lt;?php
+// Responsive is not disabled, so insert a switch to fixed width
+else: ?&amp;gt;
+        &amp;lt;a href=&quot;&amp;lt;?php echo $_SERVER[&quot;SCRIPT_NAME&quot;] ?&amp;gt;?fixedwidth=1&quot;&amp;gt;Switch to fixed width layout&amp;lt;/a&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script&amp;gt;
+    if ( !document.documentElement.className.match(/(\\s|^)fixed(\\s|$)/) ) {
+        // Responsive scripts go here
+    }
+    &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre><p>上面的 PHP 代码肯定能进一步改进，这里只是抛砖引玉给你一个思路，你可以自己编写更符合你要求的代码。</p>
+<h2 id="这个功能应该在客户端中吗？"><a href="#这个功能应该在客户端中吗？" class="headerlink" title="这个功能应该在客户端中吗？"></a>这个功能应该在客户端中吗？</h2><p>你可能会产生浏览器是否应该增加切换响应式布局功能的疑问。浏览器可能需要禁止他们自身对媒体查询的支持，而是通过网站的设置来默认显示“全尺寸”或者“桌面版”。这就是为什么我个人喜好直接开发网站，但是其他开发者却相反的先使用媒体查询功能开发“手机端”的网站，然后再开发“桌面端”布局。</p>
+<p>如果你使用媒体查询为老的浏览器隐藏 CSS3 的功能，这也会产生问题。一个浏览器的禁用媒体查询的功能，可能会禁用所有的媒体查询中的代码，这样会产生很多布局的问题。</p>
+<p>所以，这个功能应该交给咱们 Web 开发者来做。如果你需要这个功能，上面提供了一个不错的思路。</p>
+<h2 id="译者总结"><a href="#译者总结" class="headerlink" title="译者总结"></a>译者总结</h2><p>禁用响应式布局确实是一个必要的功能。Bruce Lawson 在 <a href="http://www.brucelawson.co.uk/2013/turning-off-responsive-web-design/" target="_blank" rel="noopener">Turning off responsive web design</a> 这篇文章中，提到了一个小故事。说他的父亲在用手机访问一个网站的时候，发现跟电脑访问时不一样，而怀疑自己是不是在访问想访问的网站，然后关掉了。</p>
+<p><a href="http://www.qianxingzhem.com">潜行者m</a> 曾经使用平板和智能手机做过测试，虽然智能设备上的浏览器通常可以设置“使用什么样的客户端模式（桌面、手机）来访问网站”，但是响应式布局使用的媒体查询技术，直接根据设备的参数等进行改变，不会因为客户端的代理模式（User-Agent）。特别是使用手机想要看到网站的桌面版效果，就很难实现了。</p>
+<p>通过 JavaScript 来实现这个功能也非常简单，但是使用 PHP 更加有优势。这样可以减少不必要的 CSS 、JS 文件的引入，增强前端性能。但是 PHP 的移植性不太好。所以也可以考虑使用 JavaScript 来实现。</p>
+<p>如果想要你的网站更加完善，如果使用了响应式布局的设计，最好加上一个禁用选项。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1921.html" data-id="ckgcma3ck0049aa2at9fkjiv8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式/">响应式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1921" data-title="让浏览者禁用响应式布局界面" data-url="http://www.qianxingzhem.com/post-1921.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-e9-a2-84-e5-8a-a0-e8-bd-bd-e6-8f-90-e9-80-9f-e4-bd-a0-e7-9a-84-e7-bd-91-e7-ab-99" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1900.html" class="article-date">
+  <time datetime="2013-04-22T04:31:44.000Z" itemprop="datePublished">Apr 22 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1900.html">使用预加载提速你的网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>原文：<a href="http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching/" target="_blank" rel="noopener">Speed Up Your Site Using Prefetching</a></li>
+<li>原作者：<a href="jonefox.com/blog/">Jon Fox</a> 译者：<a href="http://www.qianxingzhem.com">潜行者m</a></li>
+<li>版权声明：版权归原作者所有，翻译仅供学习使用，内容有修改，转载请先开启节操模式，保留上面信息。<br>预加载（prefetching）这个东西很好理解。我们都知道浏览器可能会在渲染之前需要一些资源。预加载不仅仅提前告诉浏览器这个页面或者可能用到的资源，而且还通常提前保存这个资源到浏览器的缓存，这样就可以以非阻塞的方式请求、下载对应资源提高效率。</li>
+</ul>
+<p>有很多方法可以实现预加载，但是这里有三种比较简单实用的方法。</p>
+<h2 id="DNS-预加载"><a href="#DNS-预加载" class="headerlink" title="DNS 预加载"></a>DNS 预加载</h2><p>DNS 是将域名转换成服务器 IP 地址的协议。DNS 的解析速度通常是非常快的一般在 100ms 以内，但是因为 DNS 解析要发生在任何对服务器的请求之前，这样会造成一个级联效应（cascade effect），这样就会增加页面加载的时间。浏览器解析页面或者 session 的时候会访问静态文件加速服务器的域名，会使用诸如 images.mydomin.com 等域名来加载静态文件。有些浏览器支持 meta 标签可以提前声明这些需要用到的静态加速服务器域名，这样浏览器就可以预先解析它们，调用资源直接通过解析后的 IP ，不需要再进行 DNS 解析。写法如下：</p>
+<p><pre>&lt;link href=”//my.domain.com” rel=”dns-prefetch” /&gt;<br>&lt;link href=”<a href="http://my.domain.com/&quot;" target="_blank" rel="noopener">http://my.domain.com/&quot;</a> rel=”prefetch” /&gt; &lt;!– IE9+ –&gt;</pre><br>增加了这个标签之后，支持它的浏览器将会提前进行域名的 DNS 解析，而不用等待请求资源的时候再去解析它。这项技术一般用在浏览者有可能去的页面，提前对页面进行 DNS 的预加载。Chrome、Firefox 和 IE9+ 支持这个功能。</p>
+<p>即使看上去只是节省了几百毫秒而已，但是合计起来也是不少的时间。它是一种安全的优化方法同时很容易实现。我很好奇有多少网站使用了这项技术，我打开了 Alexa 排名前 100K 的网站。但是只有 552 个网站（使用率 0.55%）正确的使用了 DNS 预加载技术。这么简单的技术应该被更多的网站使用。</p>
+<h2 id="资源预加载"><a href="#资源预加载" class="headerlink" title="资源预加载"></a>资源预加载</h2><p>在现在的网站中，网页的大小很大程度上取决于网页中图片的大小。如果提前请求并且下载这些图片，可以有明显的提速效果。大多数情况下，网页作者知道一个图片什么时候需要加载这样就不需要提前在浏览器中声明，例如使用 ajax 或者浏览者浏览页面时触发的一些事件来加载一个图片。资源预加载就是提前让浏览器加载图片、脚本、样式或者其他资源。不仅仅用于加载图片，可以让所有类型的资源提前被缓存在浏览器的缓存中。</p>
+<p>这项技术是最久远古老和最经常使用的，抱歉，我无法给出具体的统计数字。仍然有很多网站没有正确的使用这项技术，然而仅仅预加载几张图片就可以制造巨大的用户体验差异。</p>
+<h2 id="页面预加载、预渲染"><a href="#页面预加载、预渲染" class="headerlink" title="页面预加载、预渲染"></a>页面预加载、预渲染</h2><p>页面预加载就像资源预加载，不同的是页面预加载提前加载了它本身。这项技术首先在 Firefox 浏览器中可以使用。你可以使用下面的标签来测试一下别的浏览器看看这个页面（或者相关资源）能否被提前加载：</p>
+<p><pre>    &lt;link href=”/my-next-page.htm” rel=”prefetch” /&gt;</pre><br>不同于预渲染，浏览器不仅仅会下载这个页面，而且还会把这个页面需要用到的资源一块下载下来。通常在内存中渲染这个页面（不会被浏览者看到）这样当请求这个页面的时候就可以很快显示在浏览者面前。预渲染最先在 chrome 中可以使用。你可以在页面中添加下面标签来实现预渲染：</p>
+<p><pre>    &lt;link href=”<a href="http://mydomain.com/my-next-page.htm&quot;" target="_blank" rel="noopener">http://mydomain.com/my-next-page.htm&quot;</a> rel=”prerender” /&gt;</pre><br>这项技术在目前非常有争议，在其他技术中也很有风险。预渲染的那个页面必须非常确定是浏览者即将浏览的页面。比较常见的例子是 Google 搜索，它将会预渲染页第一个返回页面。在 Alexa 排行榜前 100K 个站点中，我只发现了 95 个使用这项技术的例子。即使这项技术还不是很成熟也无法适应所有需求，但是我认为很多网站应该用一下来提升用户体验。</p>
+<h2 id="争议"><a href="#争议" class="headerlink" title="争议"></a>争议</h2><p>预加载一直是有争议的话题。很多人们认为它没有效果而且在浪费宽带。而且它还用到一些不重要的客户端的资源（尤其是很多手机设备）。此外值得一提的是，预加载、预渲染页面可能会导致一些浏览者统计和访问日志记录的问题，因为系统不知道浏览者是否真正访问过这个页面还是通过预加载请求的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>尽管有一些问题，但是预加载还是有很大优势的。请求的速度我们一般无法控制，所以把资源提前尽可能多的放入缓存是我们解决问题的方法。当用户在等待请求的时候，成本太高了，我们可以使用这些技术大大的提升性能。如果你还没有做这些，建议你去应用这些技术到你的网站上。结果可能不一样，所以你可以使用专业工具（例如：<a href="http://torbit.com/" target="_blank" rel="noopener">Torbit</a>)来检查预加载技术帮你做了多少。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1900.html" data-id="ckgcma39u000maa2adlvortyz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端优化/">前端优化</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1900" data-title="使用预加载提速你的网站" data-url="http://www.qianxingzhem.com/post-1900.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-9c-a8-e9-a1-b5-e9-9d-a2-e4-b8-ad-e6-b7-bb-e5-8a-a0-e6-bb-9a-e5-8a-a8-e4-b8-80-e5-ae-9a-e8-b7-9d-e7-a6-bb-e5-90-8e-e8-b7-9f-e9-9a-8f-e6-bb-9a-e5-8a-a8-e6-a8-a1-e5-9d-97-e7-9a-84-e6-96-b9-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1782.html" class="article-date">
+  <time datetime="2013-03-03T18:14:46.000Z" itemprop="datePublished">Mar 4 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1782.html">在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在在网页中，经常可以看到一些滚动跟随模块。比较常见的两种场景：</p>
+<ol>
+<li>页面滚动到了导航条位置，然后导航条就固定到页面顶端，跟随滚动</li>
+<li>边栏高度不如正文高，滚动到边栏末端，出现一个跟随页面的滚动的边栏模块<br>本文就是来介绍如何实现这个效果，并且解决这个效果带来的一些问题。</li>
+</ol>
+<h2 id="实现的基本原理"><a href="#实现的基本原理" class="headerlink" title="实现的基本原理"></a>实现的基本原理</h2><p>固定到页面的某个位置，并且跟随页面滚动，实际上就是用到了一个 CSS 中的<a href="http://www.w3school.com.cn/css/pr_class_position.asp" target="_blank" rel="noopener"> position 属性值 fixed</a>。对 HTML 对象指定 position 属性为 fixed 之后，这个对象就会保证位置不变，跟随页面滚动。但是这个属性在早期的 IE 浏览器中是不支持的，有很多 hack 方法，在这里不再赘述。</p>
+<p>那么，要想实现 滚动一定距离 之后，某个模块跟随页面滚动，要做的就是用 Javascript 来监控页面的滚动事件，判断滚动距离是否达到目标位置，然后对要跟随滚动的模块修改 position 属性为 fixed。当然，也可以提前做好一个滚动跟随模块，用 display 属性隐藏起来，等滚动到了一定距离，取消显示。至于怎么出现和出现什么内容，就看你自己的需求了。用 jQuery 监控方法如下：</p>
+<p><pre>$(window).scroll(function(){<br>    if ($(window).scrollTop()&gt;64){<br>        $(“#menu”).css({position:”fixed”,left:”0px”,top:”0px”});<br>    }else{<br>        $(“#menu”).css({position: “relative”});<br>    }<br>});</pre><br>这里，对 window 对象使用<a href="http://api.jquery.com/scroll/" target="_blank" rel="noopener"> jQuery 的 scroll 方法</a>，用来监控滚动事件。当页面滚动的时候，就会触发定义的函数。函数的功能也比较简单，使用 <a href="http://api.jquery.com/scrollTop/" target="_blank" rel="noopener">scrollTop 方法</a>来获取当前网页滚动的位置距离页面顶部多高（单位 px），然后用 if 语句判断，当滚动距离页面顶端超过 64px 之后，就对 id 为 menu 的模块修改 CSS 样式，让它跟随页面滚动。当小于这个高度的时候，再修改回去。</p>
+<p>虽然功能比较简陋，但大体的原理就是这样，更多具体的效果，请自由发挥。</p>
+<h2 id="两个跟随滚动插件"><a href="#两个跟随滚动插件" class="headerlink" title="两个跟随滚动插件"></a>两个跟随滚动插件</h2><p>神说，这么好的效果应该做成插件，于是就有了插件。这里简单的介绍两款基于 jQuery 的插件：<strong>Sidebar Follow</strong> 和 <strong>Scroll Follow</strong> 。</p>
+<h3 id="Sidebar-Follow"><a href="#Sidebar-Follow" class="headerlink" title="Sidebar Follow"></a>Sidebar Follow</h3><p>这是 <a href="http://www.neoease.com/" target="_blank" rel="noopener">mg12 </a>写的一个小插件，代码比较少，功能也比较简单，所以使用起来就比较方便。看名字就可以知道，主要用于边栏模块的跟随滚动。代码页比较少，有兴趣的同学可以看一下。</p>
+<p><a href="http://www.neoease.com/sidebar-follow-scrolling-section/" target="_blank" rel="noopener">Sidebar Follow官方主页和使用说明</a></p>
+<h3 id="Scroll-Follow"><a href="#Scroll-Follow" class="headerlink" title="Scroll Follow"></a>Scroll Follow</h3><p>这是个比较老功能比较强大的插件，可以实现各种你想要的跟随滚动效果。具体的下载地址和使用方法，也不再赘述了。</p>
+<p><a href="http://kitchen.net-perspective.com/open-source/scroll-follow/" target="_blank" rel="noopener">Scroll Follow官方主页和使用说明</a></p>
+<h2 id="添加跟随滚动模块的注意事项"><a href="#添加跟随滚动模块的注意事项" class="headerlink" title="添加跟随滚动模块的注意事项"></a>添加跟随滚动模块的注意事项</h2><p>本文介绍的技术其实没有什么技术含量，写本文的最主要的目的，是想介绍下面这两个注意事项。</p>
+<h3 id="尽量少的使用"><a href="#尽量少的使用" class="headerlink" title="尽量少的使用"></a>尽量少的使用</h3><p>再好的功能，也要适度使用。屏幕的空间本来就有限，加上一个很高的导航条，再加上左下角、右下角的广告，右边再来个边栏跟随，这样的页面你如何才能专注的看正文内容？所以要尽量多的留出浏览者阅读的空间，适度的补充内容，尽量保证页面的整洁。才能有一个比较好的用户体验。</p>
+<h3 id="设置合理的结构防止页面塌陷"><a href="#设置合理的结构防止页面塌陷" class="headerlink" title="设置合理的结构防止页面塌陷"></a>设置合理的结构防止页面塌陷</h3><p>这个问题才是本文的重点，网上很多采用这个效果的页面都中了这个问题。先来看看<a href="http://www.qianxingzhem.com/demo/1782/">问题演示 demo</a>。</p>
+<p>塌陷的具体问题效果很明显，就是下面的内容突然跑上去了，产生了<a href="http://www.blueidea.com/tech/web/2007/4950.asp" target="_blank" rel="noopener">回流（reflow）</a>。回流简单的说，就是当你页面中某个部分突然消失了，浏览器就需要重新渲染网页的内容。潜行者M的 Demo 页面由于结构比较简单，所以具体效果只是内容突然上去而已。但是对于结构比较复杂、代码比较多的网站来说，一旦出现回流，浏览器就要重新计算渲染，页面就会卡一下子。如果浏览者的电脑配置比较低，甚至会卡一下电脑。如果浏览者的浏览器版本比较低，可能会导致页面错乱。</p>
+<p>事关用户体验的问题，是不能容忍的。问题的原因，就是突然改变了相关结构的 CSS 属性导致。就本例而言，原来的导航条 position 属性是 relative ，在页面中占据一定空间。突然改成了 fixed 脱离了文档流，自然浏览器要把原来位置补上，重新渲染。</p>
+<p>所以，在设计页面跟随滚动模块之前，一定要考虑到这个细节。最好设置比较好的 HTML 结构，撑起来。也可以在要滚动的模块外面包裹一层结构，用来占位。也可以在一开始，就让滚动模块脱离文档流。<a href="http://www.qianxingzhem.com">潜行者M</a>的建议是，最好专门设置一个用来滚动的模块，先隐藏，然后触发显示。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1782.html" data-id="ckgcma3bi001waa2am9vujg9w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1782" data-title="在页面中添加滚动一定距离后跟随滚动模块的方法和注意事项" data-url="http://www.qianxingzhem.com/post-1782.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1758.html" class="article-date">
+  <time datetime="2013-02-25T15:07:40.000Z" itemprop="datePublished">Feb 26 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1758.html">用 jQuery 制作一个简单的遮罩弹窗效果教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。</p>
+<p>神说，有代码的文章，应该有个 Demo ，于是就有了 <a href="http://www.qianxingzhem.com/demo/1758/">Demo</a>。</p>
+<h2 id="HTML-结构"><a href="#HTML-结构" class="headerlink" title="HTML 结构"></a>HTML 结构</h2><p>首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。</p>
+<pre> &lt;div class="click"&gt;点击这里&lt;/div&gt;
+ &lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
+ &lt;div class="bg"&gt;&lt;/div&gt;
+ &lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
+
+<h2 id="CSS-代码"><a href="#CSS-代码" class="headerlink" title="CSS 代码"></a>CSS 代码</h2><p>对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。</p>
+<p><pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}<br>.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre><br>简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。</p>
+<p>特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。</p>
+<h2 id="jQuery-代码"><a href="#jQuery-代码" class="headerlink" title="jQuery 代码"></a>jQuery 代码</h2><p>分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。</p>
+<p><pre>   $(function(){<br>        $(‘.click’).click(function(){<br>            $(‘.bg’).css({‘display’:’block’});<br>            $(‘.content’).css({‘display’:’block’});<br>        });<br>        $(‘.bg’).click(function(){<br>            $(‘.bg’).css({‘display’:’none’});<br>            $(‘.content’).css({‘display’:’none’});<br>        });<br>    });</pre><br>这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。</p>
+<h2 id="更多技巧和方法"><a href="#更多技巧和方法" class="headerlink" title="更多技巧和方法"></a>更多技巧和方法</h2><h3 id="更平缓的显示"><a href="#更平缓的显示" class="headerlink" title="更平缓的显示"></a>更平缓的显示</h3><p>点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。</p>
+<p><pre> $(‘.click1’).click(function(){<br>    $(‘.bg’).fadeIn(200);<br>    $(‘.content’).fadeIn(400);<br> });<br> $(‘.bg’).click(function(){<br>    $(‘.bg’).fadeOut(800);<br>    $(‘.content’).fadeOut(800);<br> });</pre><br>这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。</p>
+<h3 id="其他的实现方法"><a href="#其他的实现方法" class="headerlink" title="其他的实现方法"></a>其他的实现方法</h3><p>现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：<a href="http://www.54173.cn/blog/?p=701" target="_blank" rel="noopener">简单的jQuery弹出遮罩层</a>。</p>
+<p>差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1758.html" data-id="ckgcma3c4003aaa2aodc9u4ge" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1758" data-title="用 jQuery 制作一个简单的遮罩弹窗效果教程" data-url="http://www.qianxingzhem.com/post-1758.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e4-b8-ad-e4-bb-a3-e7-a0-81-e7-9a-84-e9-a1-ba-e5-ba-8f-e6-98-af-e4-b8-8d-e5-8f-af-e5-bf-bd-e7-95-a5-e7-9a-84-e7-bb-86-e8-8a-82" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1539.html" class="article-date">
+  <time datetime="2012-11-14T08:40:48.000Z" itemprop="datePublished">Nov 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1539.html">网页中代码的顺序是不可忽略的细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>仿佛奇怪的问题总是喜欢找上那些初学者。当我在学习制作网页的时候，经常遇到一些很特别的问题。例如：刚刚添加的样式不起作用、jQuery的代码老是不起作用等等。这往往是不关注细节导致的。而今天我要谈的这个细节，就是关于网页中代码的顺序。没错，代码也是有顺序的，顺序不对有可能会出现一些意外的情况。</p>
+<h2 id="HTML-相关的代码顺序"><a href="#HTML-相关的代码顺序" class="headerlink" title="HTML 相关的代码顺序"></a>HTML 相关的代码顺序</h2><p>下面先来介绍 HTML 中的代码顺序。</p>
+<h3 id="HTML-代码的排序原理"><a href="#HTML-代码的排序原理" class="headerlink" title="HTML 代码的排序原理"></a>HTML 代码的排序原理</h3><p>排序原理很简单，因为当浏览器访问一个网页的时候，要下载这个网页。现在的网速，对于一个几百K的网页来说，很快就能下载完。但是如果网页比较大或者网速比较卡，网页下载就会需要一定的时间。这样的话，浏览器显示网页的过程就很明显了。从 HTML 代码的上到下，依次下载。<strong>重要的内容要优先加载</strong>，所以就产生了 HTML 代码排序的问题。</p>
+<h3 id="head-里面的元素排序"><a href="#head-里面的元素排序" class="headerlink" title="head 里面的元素排序"></a>head 里面的元素排序</h3><p>HTML 中的 head 元素里面，通常放置着文档的描述信息。一般有：网页编码、title标题、meta 描述网页关键字、link 引入 CSS 文件、script 引入 Javascript 文件等等。下面就这几个内容进行一个讨论（以 HTML5 为例）：</p>
+<p>首先，先是标准的 DOCTYPE 声明、HTML 结构那一套。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+其次，编写网页编码，我个人认为编码是网页中最重要的，因为它决定浏览器采用什么编码来解析你的网页，如果编码没有设置好的话，网页显示出来就是一整个乱码。关于网页编码的更详细的文章，可以看一下 [潜行者m](http://www.qianxingzhem.com) 写的 [网页编码就是那点事](http://www.qianxingzhem.com/post-1499.html) 。编码写完之后，应该让浏览器立刻显示出网页的标题，这时候就应该写出 title 标题了。
+<pre>&lt;meta charset="utf-8" /&gt;
+&lt;title&gt;标题&lt;/title&gt;</pre>
+接下来，就应该是声明文档的各种信息，例如 关键词、描述、作者等等信息。之后就要加载 CSS 样式表。让浏览器先下载好 CSS 样式表，之后下载的网页内容，就会立刻加上 CSS 的样式效果，谁也不希望打开网页的时候，是没有样式的，然后加载完内容之后才出现正常的页面。这也就是为什么 CSS 引用要写在 head 里面。
+<pre id="line1">&lt;meta name="<a>keywords</a>" content="<a>潜行者m,网站建设,前端设计,Web开发</a>" /&gt;
+&lt;meta name="<a>description</a>" content="<a>潜行者m 博客，是由 潜行者m 个人设计制作，完全原创写作，关注网站建设/前端设计/Web开发相关的独立博客。欢迎各位观看学习，并且与本人交流！！</a>" /&gt;
+
+&lt;link rel="<a>stylesheet</a>" type="<a>text/css</a>" media="<a>screen</a>" href="http://www.qianxingzhem.com/wp-content/themes/qetro/style.css"/&gt;</pre>
+关于 JavaScript 的位置一直比较有争议。因为 JavaScript 比较灵活，可以添加在页面的任何位置。通常推荐的是加在页面的最底部。因为JavaScript 文件通常比较大，浏览器下载比较费时间，由于 JavaScript 可能会影响到当前页面的结构内容，所以浏览器通常会先下载完JavaScript 代码，“运行” 之后，再下载网页的正文内容。这就导致了加载速度比较慢，因为要先加载  JavaScript 代码才会显示网页内容。所以要放在页面底部。这样浏览器会先下载网页的内容显示出来，然后再下载 JavaScript 对当前的网页进行处理。
+
+### body 主体内容的排序
+
+前面说过浏览器先依次下载网页然后显示，那么网页主体内容的排版布局就很明显了：**重要的内容排在前面**。
+
+例如一个博客类型的网页，最重要的内容肯定是 文章 。所以文章的内容要尽量放在网页的顶部。虽然它可能要显示在下面，但是也要放在代码的上面，然后通过 CSS 布局等放在下面。当网速很卡的时候，排版合理的博客很明显就可以看到，先显示出来头部、文章主体内容，之后再显示 边栏、底部 内容。这就是为了让用户最快的看到他们想要看的内容，即使网速很卡下载很慢，内容出来了边栏等都下载不下来，用户也会得到他需要的内容。这就是 body 元素里面的代码排序原则。
+
+## CSS 代码的排序
+
+CSS中有很多排序的小细节需要注意，不注意的话很有可能就出现一些意外情况。
+
+### 顺序解决样式冲突问题
+
+当你对一个元素赋予了 background-color 属性，你在其他地方，忘了之前的设置，又对这个元素赋予了一个属性值与之前不同的 background-color 属性。那么浏览器究竟会对这个元素渲染哪一个背景颜色呢？答案是代码排在后面的属性值。冲突的内容，后面的属性值就会覆盖前面的属性值。因此要注意，一些 [CSS reset](http://www.qianxingzhem.com/post-610.html) 等要先加载，然后在后面加载自己写的属性值。例如：CSS reset 通常会取消 strong 的加粗，但有时我们的网页作品中，要 strong 显示成加粗效果，所以我们要设置 strong{font-weight：bold；} 这样的样式。但如果 CSS reset 代码放在后面，它之前对 strong 的取消加粗属性就会覆盖掉你的 加粗效果。所以无论刷新网页多少遍，你的 strong 标签里面的内容，还没有加粗。
+
+如果有时候，你真的无法修改加载文件的顺序，那么面对这种情况，你可以使用 CSS 中的 ！important 语法，告诉浏览器要使用这个属性解决冲突。
+
+### 链接的交互排序
+
+一个超链接，默认是蓝色的，当我们把鼠标移动上去，会变色，点击的过程也会变色，访问过后回来一看，通常也不会是原来的蓝色了。控制这些颜色的，分别是 CSS 中的 ：link 、：visited 、：hover、：active 这四个伪类选择器，从名称就可以看出，控制的状态分别是：默认显示、访问过后、鼠标移动上去、点击激活。有时候会出现一些意外情况，例如：同时设置了 ：visited 和 ：hover 的样式，但一旦超链接访问后，hover 的样式就不出现了等。这是因为，这四个伪类选择器对 a 元素定义的时候，是有一个顺序的。如果不按照这个顺序，就会出现一些意外情况。
+
+这个顺序有一个很好记的方法，那就是：love hate，即 l（link）ov（visited）e  h（hover ）a（active）te。
+<pre>a:link{color:#666666; text-decoration:none;}
+a:visited{color:#666666; text-decoration:none;}
+a:hover{color:#666666; text-decoration:underline;}
+a:active{color:#666666; text-decoration:none;}</pre>
+
+<h3 id="属性值的顺序"><a href="#属性值的顺序" class="headerlink" title="属性值的顺序"></a>属性值的顺序</h3><p>CSS 中，有的属性既可以分开写，也可以合并起来写。例如 margin 属性，你可以分别制定 margin-left 、margin-right、margin-top、margin-bottom 的值，也可以直接写成 margin：top right bottom left； 也可以写两个参数，分别代表上下和左右的外边距。这样的写法简练而且灵活，但是对不熟练的新手来说，比较容易搞混。当类似 margin 、 padding 这样的属性，写四个参数的时候，以 top 开始，顺时针旋转。</p>
+<p>除此之外，还有类似 font、background 这样的属性，它的属性值也要有顺序（虽然对顺序要求不严格），它们的参数有缺省值，所以不需要全部定义，只需要定义自己需要的样式即可。但是 border 这样的属性，就必须严格的按照语法编写属性值的顺序。例如：border ：1px solid #ccc；如果 1px solid #ccc 这三个值的顺序出问题了，那么浏览器就可能无法解读这段 CSS 的样式。</p>
+<h2 id="JavaScript-代码的顺序"><a href="#JavaScript-代码的顺序" class="headerlink" title="JavaScript 代码的顺序"></a>JavaScript 代码的顺序</h2><h3 id="JavaScript-文件加载顺序"><a href="#JavaScript-文件加载顺序" class="headerlink" title="JavaScript 文件加载顺序"></a>JavaScript 文件加载顺序</h3><p>jQuery 是一个比较常用的 JavaScript 库，通常我们还要配合它强大的插件使用。对于新手来说，经常会遇到没有产生相应效果的问题。就是说，代码没有检查出问题，但就是没有执行显示应有的效果。原因就出在加载顺序上面。你编写的 JavaScript 代码以及调用的 jQuery 插件，都需要基于 jQuery 库，所以应该在所有 JavaScript 代码之前，先引入 jQuery 库。浏览器先把库下载完了，才会识别后面的依赖这个库的代码实现相应的功能。同样的，激活使用某个插件的代码，也需要放在插件的后面才会有效。</p>
+<pre id="line1">&lt;script type="<a>text/javascript</a>" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/jquery.lazyload.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/插件.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="自己编写的js/js.js"&gt;&lt;/script&gt;</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="ckgcma3c8003laa2acvidghb2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1539" data-title="网页中代码的顺序是不可忽略的细节" data-url="http://www.qianxingzhem.com/post-1539.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e4-bd-bf-e7-94-a8-html5-e6-ad-a3-e7-a1-ae-e5-90-88-e7-90-86-e7-9a-84-e9-87-8d-e6-9e-84-e4-bd-a0-e7-9a-84-e7-bd-91-e9-a1-b5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1313.html" class="article-date">
+  <time datetime="2012-09-29T20:29:39.000Z" itemprop="datePublished">Sep 30 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1313.html">使用 HTML5 正确合理的重构你的网页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这可能是我在建博之后到现在为止，写过的最长的一篇文章，不过也是在这个博客里面，文章最短的。什么意思呢？</p>
+<p>这里的这篇文章，我就写这么几个字。但是这篇文章，我写了大约两天，包括构思，查阅资料，排版等等。</p>
+<p>denis 的水煮鱼博客，不知道编辑器抽了风，编辑起来好麻烦。</p>
+<p>好了，直接给出地址：<a href="http://fairyfish.net/article/designing-with-html5/" target="_blank" rel="noopener">http://fairyfish.net/article/designing-with-html5/</a> ，我懒得复制过来排版了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1313.html" data-id="ckgcma3ao000oaa2axjfgmyqr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1313" data-title="使用 HTML5 正确合理的重构你的网页" data-url="http://www.qianxingzhem.com/post-1313.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-85-a8-e4-bb-a3-e7-a0-81-e6-89-93-e9-80-a0-e7-ae-80-e6-b4-81-e7-be-8e-e8-a7-82-e5-9b-9e-e5-88-b0-e9-a1-b6-e9-83-a8-e6-8c-89-e9-92-ae" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1220.html" class="article-date">
+  <time datetime="2012-08-28T06:46:29.000Z" itemprop="datePublished">Aug 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1220.html">全代码打造简洁美观回到顶部按钮</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这次，潜行者m带来一个jquery的比较实用的教程，就是为你的网站添加一个纯代码画出来的、简洁美观的回到顶部按钮。这个按钮的效果就是，当页面滑动一段距离之后，就会浮现出来这个按钮，点击这个按钮之后，就自动滚动到顶部。具体效果如下：</p>
+<p><a href="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg"><img src="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg" alt="" title="2-2"></a></p>
+<p>点击之后就会跳转到顶部，然后这个按钮平滑消失。与网上的相比，潜行者m版的是纯代码，加载速度更快，效果色彩控制好；代码精简，只有数条而已，拒绝大坨大坨的代码。废话不多说，下面就开始制作。</p>
+<h2 id="html结构"><a href="#html结构" class="headerlink" title="html结构"></a>html结构</h2><p>我使用了a标签作为这个结构，可能不太标准，但是比较方便。在a标签中，内置了一个span标签，用来显示三角号。具体代码如下：</p>
+<p><pre>&lt;a id=”gotop” href=”#”&gt;<br>    &lt;span class=”gotop-shang”&gt;▲&lt;/span&gt;<br>&lt;/a&gt;</pre><br>对，你没看错，就这么简单的一句代码，直接在a标签中，填写一个三角号。剩下的就是使用css进行样式控制。</p>
+<h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h2><p><pre>a[id=”gotop”]{<br>    display:block;<br>    width:60px;<br>    height:60px;<br>    position:fixed;<br>    bottom:50px;<br>    right:40px;<br>    border-radius:10px 10px 10px 10px;<br>    text-decoration:none;<br>    display:none;<br>    background-color:#999999;<br>    }</pre><br>上面这段代码，定义了a标签的外观样式，定义display为block，这样，我们才能指定它的width和height。定义position为fixed，让它固定在右下角。同时为它指定圆角，就是使用border-radius属性，定于半径为10px的圆角。</p>
+<p><pre>span{<br>    display:block;<br>    width:60px;<br>    color:#dddddd;<br>    }<br>span:hover{<br>    color:#cccccc;<br>    }<br>span[class=”gotop-shang”]{<br>    font-size:40px;<br>    text-align:center;<br>    margin-top:4px;<br>    }</pre><br>上面这一段，就是定义了span标签里面的三角号，如果你不会打三角号，可以看本人的这篇文章：<a href="http://www.qianxingzhem.com/post-1196.html">亲自打造属于自己网站风格的工具边栏</a>，里面有提到这个。这几句代码意思很简单，就是定义了三角号的外观样式，同时制定了颜色变化，这是为了用户体验。最下面的margin-top：4px，则是用来准确定位三角号，让它居中显示。</p>
+<h2 id="jquery代码"><a href="#jquery代码" class="headerlink" title="jquery代码"></a>jquery代码</h2><p>具体的javascript代码如下，解析已经写在注释里面了：</p>
+<p><pre>$(function(){</pre></p>
+<pre><code>$(window).scroll(function(){  //只要窗口滚动,就触发下面代码
+    var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+    if( scrollt &amp;gt;200 ){  //判断滚动后高度超过200px,就显示
+        $(&quot;#gotop&quot;).fadeIn(400); //淡出
+    }else{
+            $(&quot;#gotop&quot;).stop().fadeOut(400); //如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动
+    }
+});&lt;/pre&gt;
+</code></pre><p><pre><br>    $(“#gotop”).click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部<br>        $(“html,body”).animate({scrollTop:”0px”},200);<br>    });<br>});</pre><br>怎么样，简单吧？就用这几句代码而已，就可以出现这个功能，而且可以方便的修改颜色、形状、大小等。当然缺点也是有的，就是在IE6等过时的浏览器中，可能不会兼容，无法实现。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1220.html" data-id="ckgcma3ar000vaa2atfmslzw4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1220" data-title="全代码打造简洁美观回到顶部按钮" data-url="http://www.qianxingzhem.com/post-1220.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/post-category/前端相关/page/2/">2</a><a class="page-number" href="/post-category/前端相关/page/3/">3</a><a class="extend next" rel="next" href="/post-category/前端相关/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

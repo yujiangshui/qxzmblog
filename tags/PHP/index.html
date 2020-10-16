@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: PHP | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/tags/PHP/index.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e8-ae-a9-e7-94-a8-e6-88-b7-e7-a6-81-e7-94-a8-e5-93-8d-e5-ba-94-e5-bc-8f-e5-b8-83-e5-b1-80-e7-95-8c-e9-9d-a2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1921.html" class="article-date">
+  <time datetime="2013-04-29T07:07:00.000Z" itemprop="datePublished">Apr 29 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1921.html">让浏览者禁用响应式布局界面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>原文：<a href="http://www.456bereastreet.com/archive/201303/letting_users_disable_responsive_layout/" target="_blank" rel="noopener">Letting users disable responsive layout</a></li>
+<li>作者：<a href="http://www.456bereastreet.com" target="_blank" rel="noopener">456 Berea Street</a>  翻译者：<a href="http://www.qianxingzhem.com">潜行者m</a></li>
+<li>版权声明：版权归原作者所有，翻译仅作学习交流目的！<br>响应式网站设计（Responsive Web Design）使用强大的媒体查询（media querie）让网站可以根据浏览者的浏览设备分辨率进行样式调整。但是，这样也产生了一个问题：有些人并不希望网站的外观在不同的浏览设备中发生改变。因为改变了之后，可能会让人产生疑问，认为自己在访问另一个网站。</li>
+</ul>
+<p>虽然我不认为这会影响一大批人，但是绝大多数人肯定不懂响应式网站设计。如果有个人在电脑、平板电脑或者智能手机上访问同一个网站结果发现外观效果不同，他可能会感到很困惑。Bruce Lawson 在文章 <a href="http://www.brucelawson.co.uk/2013/turning-off-responsive-web-design/" target="_blank" rel="noopener">Turning off responsive web design</a> 中就提到了一个真实的例子。</p>
+<p>一个同事也提到了另一个案例，响应式布局并没有很完美的客户端支持。客户经常提到布局问题等等。试想一下，如果你收到了一个邮件提到的是关于你用电脑访问看到的外观或内容，那么你用平板或者智能手机可能看不到相同的外观或者内容。当然，这种情况可能不多，但是这时候如果有一个可以切换或者关掉响应式布局的功能就好多了。</p>
+<p>尽管这个功能不会让很多人受益，但是做这么个功能也并不是很复杂的事情。所以我在一些项目中增加了这个功能，现在想跟大家分享一下。这个方法跟 Adrian Roselli 写的 <a href="http://blog.adrianroselli.com/2013/01/letting-mobile-users-see-desktop-view.html" target="_blank" rel="noopener">Letting Mobile Users See Desktop View of RWD Site</a> 这篇文章中的很相似。这个功能不是很复杂，更不是什么革命性的改进，但是可以通过很多方法来实现。</p>
+<h2 id="如何命名响应式布局开关"><a href="#如何命名响应式布局开关" class="headerlink" title="如何命名响应式布局开关"></a>如何命名响应式布局开关</h2><p>有必要讨论一下怎么在网页中称呼这个功能。通常的名字是：查看桌面版布局、桌面版、完整版。而我称呼它为：查看固定宽度下的布局（当切换之后变成“查看弹性宽度下的布局”）。我并不确定这样可以帮助用户明白之间的异同，但是我认为这比起“桌面端”和“手机端”来说，描述的更加准确。有些人的浏览器窗口可能比 960px 还窄，也可能比 1200px 窄，或者是他们自己拖动设置的大小，虽然满足了媒体查询中定义的宽度，但是能在网页中显示“切换成桌面版”？</p>
+<h2 id="HTML-和-CSS-代码"><a href="#HTML-和-CSS-代码" class="headerlink" title="HTML 和 CSS 代码"></a>HTML 和 CSS 代码</h2><p>我做了一个 <a href="http://www.456bereastreet.com/lab/disable-responsive-layout/" target="_blank" rel="noopener">Disable responsive layout</a> 演示页面来展示效果。如果你打开了这个页面，并且调整你的浏览器窗口小于 960px ，一个就跟超链接似的开关就会显示出来，点击就可以切换。我觉得只有在媒体查询工作的时候才显示这个切换开关——如果响应式布局没有被触发，那切换个毛啊。</p>
+<p>我选择直接把这个切换链接写进 HTML 中，而不是使用 JavaScript 临时生成。这是因为我使用后台（可以是任何后台语言，本文中使用 PHP 做演示）来处理 cookie ，这样就可以记录你是否选择了禁用响应式布局。</p>
+<p>在前面的 demo 页面中，写入了如下的 HTML 结构，你可以自己定义：</p>
+<pre><code>&amp;lt;div id=&quot;toggle&quot;&amp;gt;
+    &amp;lt;a href=&quot;?fixedwidth=1&quot;&amp;gt;Switch to fixed width layout&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;`&lt;/pre&gt;
+使用 CSS 让其隐藏，不要写进媒体查询中：
+&lt;pre&gt;`#toggle {
+    display:none;
+}
+.fixed #toggle {
+    display:block;
+}`&lt;/pre&gt;
+为了方便切换，我们增加了 fixed 类。这样切换的时候，只需要对 html 对象加上 fixed 类就可以了。如果 html 对象中有这个类，就说明用户已经禁用了响应式布局，所以需要显示开关，方便他们再次启用。
+
+下面 CSS 片段包含进媒体查询中：
+&lt;pre&gt;`@media only screen and (max-width:960px) {
+
+    #toggle {
+        display:block;
+    }
+
+}`&lt;/pre&gt;
+上面代码实现当宽度小于 960px 的时候，触发媒体查询功能显示这个开关。如果用户已经禁用了响应式布局，上面代码将不会被加载（实现方法见下文）。
+
+如果你的媒体查询 CSS 文件没有在一个单独的文件，要实现这个功能，可能需要做的更多工作。你可以在媒体查询的规则前面加上前缀 html:not(.fixed) 或者不使用媒体查询创建单独的文件。
+
+##  JavaScript 代码
+
+如果媒体查询的 CSS 代码被禁用，你要确保与响应式布局无关的 JavaScript 和 CSS 代码也被禁用。为了达到这个目的，你可以将下面的脚本放在单独的文件中，你也可以使用这种方法处理对应的 CSS （使用 PHP 处理），不加载这个文件。如果你没有分割成单独的文件，那么就通过检查 HTML 元素中是否有 fixed 这个类名在启用响应式布局功能脚本：
+&lt;pre&gt;`&amp;lt;script&amp;gt;
+if ( !document.documentElement.className.match(/(\\s|^)fixed(\\s|$)/) ) {
+    // Responsive scripts go here, likely with additional checks
+    // for viewport width, media query support etc.
+}
+&amp;lt;/script&amp;gt;`&lt;/pre&gt;
+
+##  PHP 代码
+
+在本文 Demo 中，我使用 PHP 来处理 cookie 和提供切换响应式布局的功能。你可以使用 JavaScript 来实现这样的功能，但是这样在禁用 JavaScript 的客户端无法生效。毕竟这不是很关键的功能，如果你选择使用 JavaScript 请记住如果客户端不支持 JavaScript 的时候，也要显示出一个可以看到的链接。
+
+下面就是一个简单的 HTML 结构和必须的 PHP 代码：
+&lt;pre&gt;`&amp;lt;?php
+    $fixedwidth = &apos;&apos;;
+    //检查是否有 $fixedwidth 这个变量，然后获取
+    if ( isset($_GET[&apos;fixedwidth&apos;]) &amp;amp;&amp;amp; ($_GET[&apos;fixedwidth&apos;] != &quot;&quot;) ) {
+        $fixedwidth = $_GET[&apos;fixedwidth&apos;];
+    }
+    //检查是否有对应的 cookie 内容
+    if ( isset($_COOKIE[&apos;fixedwidth&apos;]) ) {
+        if ( $fixedwidth == &apos;0&apos; ) {
+            // 如果值为 0 就清除 cookie
+            setcookie(&apos;fixedwidth&apos;, &apos;&apos;, time() - 60, &apos;/&apos;);
+        } else {
+            // 如果值不为零，就获取
+            $fixedwidth = &apos;1&apos;;
+        }
+    } else if ( $fixedwidth == &apos;1&apos;) {
+        // 浏览者想要禁用响应式布局功能，设置一个 cookie
+        $expires = 60 * 60 * 24 * 60 + time(); 
+        setcookie(&apos;fixedwidth&apos;, &apos;1&apos;, $expires, &apos;/&apos;);
+    }
+?&amp;gt;
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&quot;en&quot; &amp;lt;?php if ($fixedwidth == &apos;1&apos;) { echo &apos;class=&quot;fixed&quot;&apos;; } ?&amp;gt;&amp;gt;
+&amp;lt;head&amp;gt;
+    &amp;lt;meta charset=&quot;utf-8&quot; /&amp;gt;
+    &amp;lt;title&amp;gt;Document title&amp;lt;/title&amp;gt;
+&amp;lt;?php
+// 只在响应式布局可用的时候插入 meta[name=&quot;viewport&quot;] 对象
+if ( $fixedwidth != &apos;1&apos; ): ?&amp;gt;
+    &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;main.css&quot; /&amp;gt;
+&amp;lt;?php
+// 只在响应式布局可用的时候，插入 CSS 文件
+if ( $fixedwidth != &apos;1&apos; ): ?&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;mq.css&quot; /&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+    &amp;lt;h1&amp;gt;Document title&amp;lt;/h1&amp;gt;
+    &amp;lt;div id=&quot;toggle&quot;&amp;gt;
+&amp;lt;?php
+// Responsive is disabled, so insert a switch to flexible width
+if ( $fixedwidth == &apos;1&apos; ): ?&amp;gt;
+        &amp;lt;a href=&quot;&amp;lt;?php echo $_SERVER[&quot;SCRIPT_NAME&quot;] ?&amp;gt;?fixedwidth=0&quot;&amp;gt;Switch to flexible width layout&amp;lt;/a&amp;gt;
+&amp;lt;?php
+// Responsive is not disabled, so insert a switch to fixed width
+else: ?&amp;gt;
+        &amp;lt;a href=&quot;&amp;lt;?php echo $_SERVER[&quot;SCRIPT_NAME&quot;] ?&amp;gt;?fixedwidth=1&quot;&amp;gt;Switch to fixed width layout&amp;lt;/a&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;script&amp;gt;
+    if ( !document.documentElement.className.match(/(\\s|^)fixed(\\s|$)/) ) {
+        // Responsive scripts go here
+    }
+    &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre><p>上面的 PHP 代码肯定能进一步改进，这里只是抛砖引玉给你一个思路，你可以自己编写更符合你要求的代码。</p>
+<h2 id="这个功能应该在客户端中吗？"><a href="#这个功能应该在客户端中吗？" class="headerlink" title="这个功能应该在客户端中吗？"></a>这个功能应该在客户端中吗？</h2><p>你可能会产生浏览器是否应该增加切换响应式布局功能的疑问。浏览器可能需要禁止他们自身对媒体查询的支持，而是通过网站的设置来默认显示“全尺寸”或者“桌面版”。这就是为什么我个人喜好直接开发网站，但是其他开发者却相反的先使用媒体查询功能开发“手机端”的网站，然后再开发“桌面端”布局。</p>
+<p>如果你使用媒体查询为老的浏览器隐藏 CSS3 的功能，这也会产生问题。一个浏览器的禁用媒体查询的功能，可能会禁用所有的媒体查询中的代码，这样会产生很多布局的问题。</p>
+<p>所以，这个功能应该交给咱们 Web 开发者来做。如果你需要这个功能，上面提供了一个不错的思路。</p>
+<h2 id="译者总结"><a href="#译者总结" class="headerlink" title="译者总结"></a>译者总结</h2><p>禁用响应式布局确实是一个必要的功能。Bruce Lawson 在 <a href="http://www.brucelawson.co.uk/2013/turning-off-responsive-web-design/" target="_blank" rel="noopener">Turning off responsive web design</a> 这篇文章中，提到了一个小故事。说他的父亲在用手机访问一个网站的时候，发现跟电脑访问时不一样，而怀疑自己是不是在访问想访问的网站，然后关掉了。</p>
+<p><a href="http://www.qianxingzhem.com">潜行者m</a> 曾经使用平板和智能手机做过测试，虽然智能设备上的浏览器通常可以设置“使用什么样的客户端模式（桌面、手机）来访问网站”，但是响应式布局使用的媒体查询技术，直接根据设备的参数等进行改变，不会因为客户端的代理模式（User-Agent）。特别是使用手机想要看到网站的桌面版效果，就很难实现了。</p>
+<p>通过 JavaScript 来实现这个功能也非常简单，但是使用 PHP 更加有优势。这样可以减少不必要的 CSS 、JS 文件的引入，增强前端性能。但是 PHP 的移植性不太好。所以也可以考虑使用 JavaScript 来实现。</p>
+<p>如果想要你的网站更加完善，如果使用了响应式布局的设计，最好加上一个禁用选项。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1921.html" data-id="ckgcma3ck0049aa2at9fkjiv8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/响应式/">响应式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1921" data-title="让浏览者禁用响应式布局界面" data-url="http://www.qianxingzhem.com/post-1921.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-style-css-e6-96-87-e4-bb-b6-e7-94-9f-e6-88-90-e5-b7-a5-e5-85-b7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1223.html" class="article-date">
+  <time datetime="2012-08-29T09:19:58.000Z" itemprop="datePublished">Aug 29 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/作品/">作品</a>►<a class="article-category-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1223.html">Style.css文件生成工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><span style="color: #ff0000;">此工具正在升级，暂时无法使用看到，待升级完毕，会新发一篇文章！</span></p>
+<p>工具地址：<a href="http://labs.qianxingzhem.com/app/csscreater" target="_blank" rel="noopener">http://labs.qianxingzhem.com/app/csscreater</a></p>
+<p>开发时间：2012-8-10</p>
+<p>作者：潜行者m</p>
+<p>在制作<span style="font-family: Times New Roman;">wordpress</span><span style="font-family: 宋体;">主题的时候，我们需要</span><span style="font-family: Times New Roman;">css</span><span style="font-family: 宋体;">文件，在标准的</span><span style="font-family: Times New Roman;">wordpress</span><span style="font-family: 宋体;">主题中，官方推荐将</span><span style="font-family: Times New Roman;">css</span><span style="font-family: 宋体;">文件命名为</span><span style="font-family: Times New Roman;">style.css</span><span style="font-family: 宋体;">。</span></p>
+<p>在使用主题的时候，我们可以上传安装主题，也可以在线安装。当我们安装好主题的时候，我们会发现会有作者、作者地址、模板介绍等等信息。这些信息是写在<span style="font-family: Times New Roman;">style.css</span><span style="font-family: 宋体;">文件里面的。只有按照正确的格式，写进</span><span style="font-family: Times New Roman;">style.css</span><span style="font-family: 宋体;">文件，我们才能把主题压缩成</span><span style="font-family: Times New Roman;">zip</span><span style="font-family: 宋体;">直接上传安装。</span></p>
+<p>本工具的功能就是为了简化这个流程。你只需要填写一个表单，就可以自动生成带有正确格式信息的<span style="font-family: Times New Roman;">style.css</span><span style="font-family: 宋体;">文件。</span></p>
+<p>当然，不仅仅是输出你输入的<span style="font-family: Times New Roman;">wordpress</span><span style="font-family: 宋体;">主题版权信息，在</span><span style="font-family: Times New Roman;">style.css</span><span style="font-family: 宋体;">文件里面，还附带了一段非常成熟的</span><span style="font-family: Times New Roman;">CSS reset </span><span style="font-family: 宋体;">代码，将元素在不同浏览器中的不同表现一律抹平。如果你不知道为什么使用</span><span style="font-family: Times New Roman;">CSS reset</span><span style="font-family: 宋体;">，可以看一下潜行者</span><span style="font-family: Times New Roman;">m</span><span style="font-family: 宋体;">的这篇文章：<a href="http://www.qianxingzhem.com/post-610.html">网页设计为什么要使用css reset</a></span></p>
+<p>同时，还附带了本人常用的<span style="font-family: Times New Roman;">css</span><span style="font-family: 宋体;">原子类，使用原子类，可以非常容易的进行布局等。关于为什么要使用原子类，可以看一下潜行者</span><span style="font-family: Times New Roman;">m</span><span style="font-family: 宋体;">的这篇文章：<a href="http://www.qianxingzhem.com/post-939.html">网页设计中构建并使用原子类</a></span></p>
+<p>当然，还帮你整理好了结构，因为本人患有代码整理强迫症 <span style="font-family: Times New Roman;">^_^ </span><span style="font-family: 宋体;">。</span></p>
+<p>此外，这个工具也不仅仅可以用于<span style="font-family: Times New Roman;">wordpress</span><span style="font-family: 宋体;">，你在设计网页的时候，也需要在</span><span style="font-family: Times New Roman;">css</span><span style="font-family: 宋体;">文件里面，声明你的作品版权，这个工具就是为了帮助你省略这些工序。</span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1223.html" data-id="ckgcma3dg006oaa2auv3p70b9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1223" data-title="Style.css文件生成工具" data-url="http://www.qianxingzhem.com/post-1223.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e8-a7-a3-e5-86-b3iconv-e5-92-8cmb-convert-encoding-e5-87-bd-e6-95-b0-e7-9a-84-e6-b1-89-e5-ad-97-e4-b9-b1-e7-a0-81-e9-97-ae-e9-a2-98" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1078.html" class="article-date">
+  <time datetime="2012-08-19T22:02:55.000Z" itemprop="datePublished">Aug 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/网站与后台开发/">网站与后台开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1078.html">解决iconv和mb_convert_encoding函数的汉字乱码问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>近期在做一个小应用，就是填上信息，然后输出wordpress模板标准的style.css文件，当然，这个文件包含了CSSreset 和本人常用的原子类，这样可以大大缩小制作的难度和时间。</p>
+<p>于是就遇到了一个编码问题，因为wordpress的编码是UTF-8，所以我们模板的css文件编码最好也是UTF-8。因为在早期的浏览器中，如果编码和文档中声明的不同，会读取不出来。IE6就是这样，在其他浏览器中没有出现类似的情况，不过还是建议使用UTF-8编码，如果你的模板要面向全世界的用户，你必须用这个编码，因为国外的电脑上没有装GBK、GB2312这类中文编码，就会出现乱码，或者出现一些其他的意外情况。</p>
+<p>那么，我使用php接受字符串，并且输出的时候，需要使用编码相关的函数。经过搜索，找到了标题上面的两款函数。iconv和mb_convert_encoding，这两个函数，可以把字符串进行编码，然后配合file_put_contents这个函数，可以输出你指定的编码。我这个工具的原理很简单，就是获取表单内容，读取已经保存的写好的文件，然后混合编码，输出。</p>
+<p><pre>$add_string = $add_string.$fpr; //$fpr变量是读取之前写好的UTF-8编码的style.css文件模板<br>$add_string = iconv(“utf-8”,”utf-8”,$add_string); //由于读取的style.css文件是utf-8编码,所以这里用了utf-8编码转换utf-8编码<br>file_put_contents($new_filename,$add_string);</pre><br>但是问题就出现了，出现在中文上了。由于iconv是php默认安装的模块，所以先使用的iconv函数。编写完成之后，输入中文信息，输出中断，查看输出文件，在中文的地方，输出了一个DZ，之后就断掉了。经过搜索，说这是iconv的一个bug，遇到“-”这样的符号，就出问题，可以使用“GBK”编码或者是加上“//IGNORE”参数解决。实验了一下，还是没有效果，加上了//IGNORE参数，中文全被过滤，只输出英文。</p>
+<p>疯狂的在网上查找相关资料，没有找到，我找了一段网上编写的，有这个函数的应用，把代码运行了一下，结果发现，还是没有。蛋碎，别人写的可以用的代码，在自己电脑上还是不能支持中文。我phpinfo了一下，这个模块正常啊，我还把代码上传到远程服务器上，执行还是不行。</p>
+<p>没办法，我考虑使用同样的功能的mb_convert_encoding函数，来试一下。结果还是不行，仍然出现乱码。这个时候，我突然想，不要把utf-8转换成utf-8 了，把GBK转换成utf-8试试怎么样啊。试了一下，表单部分在utf-8文件中，显示正常，但是模板（style.css模板用的utf-8编码）中的中文，全都变乱码了。研究一晚上这个问题了，已经到了0点了，果断关机睡觉。</p>
+<p>在床上，翻来覆去的思考这个问题。最后的这个尝试，给了我一个思路。然后我就想明白了，我们用浏览器输入内容，我们也没有规定编码是什么，那系统得到我们输入的内容，它的编码是什么呢？那就只有GB2312 了，因为我中文系统默认的编码就是这样。所以，我对字符串的处理，应该是由GBK、GB2312来转换成UTF-8编码才对。这就是为什么最后，表单内容正常，而源css模板不正常了。我用utf-8保存的css模板，却用GBK的方式去读，然后转换成utf-8编码，读出来的时候，已经是乱码了，再把乱码转换成utf-8，那不更乱了。</p>
+<p>不仅感叹一句，有多少问题，是在床上解决的，别想歪了哦 ^-^</p>
+<p>今天早上起来，立刻按照昨晚想的思路写了一下，果然可以成功输出汉字。最终代码：</p>
+<p><pre>    $add_string = iconv(“GBK”,”utf-8”,$add_string);//先把表单内容转成utf-8<br>    $add_string = $add_string.$fpr; //再与utf-8编码的css模板文件结合<br>    file_put_contents($new_filename,$add_string); //输出</pre><br>就这样,变化一下顺序,这个问题就完美解决了。今天写这篇文章时，发现这是一个多么简单的逻辑问题，却研究尝试了一个晚上，自己也真够笨的。不过最终解决了就好。我们平时都看书，太重于理论，到实践的时候，却发现，出现好多书上没有的错误。但是有了这个经历，以后遇到编码问题，就再也不用怕了。</p>
+<p>另附这两个函数的用法：</p>
+<p>iconv(“UTF-8”,”GB2312//IGNORE”,$data); //意思是把$data字符串由utf-8编码转成gb2312编码,刚开始就被这个误导了</p>
+<p>mb_convert_encoding($data, “UTF-8”, “GBK”); //这个意思是把$data字符串,由gbk转成utf-8编码,注意顺序与iconv相反</p>
+<p>至于gbk和gb2312,都是中文编码,区别在于,你想多打字,就打gb232,想少打字就打gbk.</p>
+<p>此外,上面这两个函数,需要配合file_put_contents这个函数输入才有效,这个函数的用法和其他输出函数都一样.不再赘述.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1078.html" data-id="ckgcma3cj0045aa2a2rwhnszd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1078" data-title="解决iconv和mb_convert_encoding函数的汉字乱码问题" data-url="http://www.qianxingzhem.com/post-1078.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

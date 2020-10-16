@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emmet 生成 HTML 的语法 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在上篇文章前端开发神器 Emmet 介绍中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。 现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！ 生成 HTML 文档初始结构HTML 文档的初始结构，就是包括 doctype、">
+<meta name="keywords" content="sublime text 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emmet 生成 HTML 的语法">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1940.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="在上篇文章前端开发神器 Emmet 介绍中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。 现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！ 生成 HTML 文档初始结构HTML 文档的初始结构，就是包括 doctype、">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-23T03:18:25.387Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Emmet 生成 HTML 的语法">
+<meta name="twitter:description" content="在上篇文章前端开发神器 Emmet 介绍中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。 现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！ 生成 HTML 文档初始结构HTML 文档的初始结构，就是包括 doctype、">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-emmet-e7-94-9f-e6-88-90-html-e7-9a-84-e8-af-ad-e6-b3-95" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1940.html" class="article-date">
+  <time datetime="2013-05-07T11:26:32.000Z" itemprop="datePublished">May 7 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Emmet 生成 HTML 的语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上篇文章<a href="http://www.qianxingzhem.com/post-1937.html">前端开发神器 Emmet 介绍</a>中，我简单的介绍了一下 Emmet ，并且用了一句指令迅速生成了一大片 HTML 代码。本文，就会介绍 Emmet 的 HTML 语法，看完之后，你就会看懂并且写出那句代码了。</p>
+<p>现在，打开你的 ST2 然后新建一个 HTML 文档，跟着文章，即时输入对应的指令然后亲自尝试一下！</p>
+<h2 id="生成-HTML-文档初始结构"><a href="#生成-HTML-文档初始结构" class="headerlink" title="生成 HTML 文档初始结构"></a>生成 HTML 文档初始结构</h2><p>HTML 文档的初始结构，就是包括 doctype、html、head、body 以及 meta 等内容。你只需要输入一个 “!” 就可以生成一个 HTML5 的标准文档初始结构，你没有看错，输入一个感叹号（当然是英文符号），然后摁下 TAB 键，就会发现生成了下面的结构：</p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+这就是一个 HTML5 的标准结构，也是默认的 HTML 结构。如果你想生成 HTML4 的过渡型结构，那么输入指令 `html:xt` 即可生成如下结构：
+<pre>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+Emmet 会自动把 doctype 给你补全了，怎么样，这样的功能会不会让你动心？简单总结一下常用的 HTML 结构指令：
+
+*   `html:5` `或者 !` 生成 HTML5 结构
+*   `html:xt` 生成 HTML4 过渡型
+*   `html:4s` 生成 HTML4 严格型
+
+## 生成带有 id 、class 的 HTML 标签
+
+Emmet 的语法有点类似 CSS 的语法，生成 id 为 aaa 的 div 标签，我们只需要编写下面指令：
+<pre>#aaa</pre>
+Emmet 默认的标签为 div ，如果我们不给出标签名称的话，默认就生成 div 标签。如果编写一个 class 为 bbb 的 span 标签，我们需要编写下面指令：
+<pre>span.bbb</pre>
+然后就生成了对应的结构。同理，如果想要编写一个 id 为 ccc 的 class 为 ddd 的 ul 标签，我们可以这样写：
+<pre>ul#ccc.ddd</pre>
+很简单吧？比你用手写 id 、class 方便多了吧
+
+## 生成后代：&gt;
+
+大于号表示后面要生成的内容是当前标签的后代。例如我要生成一个无序列表，而且被 class 为 aaa 的 div 包裹，那么可以使用下面指令：
+<pre>div.aaa&gt;ul&gt;li</pre>
+可以生成如下的结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre>
+
+<h2 id="生成兄弟："><a href="#生成兄弟：" class="headerlink" title="生成兄弟：+"></a>生成兄弟：+</h2><p>上面是生成下级元素，如果想要生成平级的元素，就需要使用 + 号。例如下面指令：</p>
+<p>div+p+bq`<br>就可以生成如下的 HTML 结构：</p>
+<pre>`&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;`</pre>
+
+<h2 id="生成上级元素："><a href="#生成上级元素：" class="headerlink" title="生成上级元素：^"></a>生成上级元素：^</h2><p>上级 （Climb-up）元素是什么意思呢？前面咱们说过了生成下级元素的符号“&gt;”，当使用 div&gt;ul&gt;li 的指令之后，再继续写下去，那么后续内容都是在 li 下级的。如果我想编写一个跟 ul 平级的 span 标签，那么我需要先用 “^” 提升一下层次。例如：</p>
+<pre>div&gt;ul&gt;li^span</pre>
+就会生成如下结构：
+<pre>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;</pre>
+如果我想相对与 div 生成一个平级元素，那么就再上升一个层次，多用一个“^”符号：
+<pre>div&gt;ul&gt;li^^span</pre>
+
+<h2 id="重复生成多份："><a href="#重复生成多份：" class="headerlink" title="重复生成多份：*"></a>重复生成多份：*</h2><p>特别是一个无序列表，ul 下面的 li 肯定不只是一份，通常要生成很多个 li 标签。那么我们可以直接在 li 后面 * 上一些数字：</p>
+<pre>ul&gt;li*5</pre>
+这样就直接生成五个项目的无序列表了。如果想要生成多份其他结构，方法类似。
+
+## 生成分组：()
+
+用括号进行分组，这样可以更加明确要生成的结构，特别是层次关系，例如：
+<pre>`div&gt;(header&gt;ul&gt;li*2&gt;a)+footer&gt;p`</pre>
+这样很明显就可以看出层次关系和并列关系，生成如下结构：
+<pre>`&lt;div&gt;
+    &lt;header&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/header&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;`</pre>
+此外，分组还可以很方便的结合上面说的 “*” 符号生成重复结构：
+<pre>`(div&gt;dl&gt;(dt+dd)*3)+footer&gt;p`</pre>
+生成结构：
+<pre>`&lt;div&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+        &lt;dt&gt;&lt;/dt&gt;
+        &lt;dd&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+&lt;footer&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/footer&gt;`</pre>
+
+<h2 id="生成自定义属性：-attr"><a href="#生成自定义属性：-attr" class="headerlink" title="生成自定义属性：[attr]"></a>生成自定义属性：[attr]</h2><p>a 标签中往往需要附带 href 属性和 title 属性，如果我们想生成一个 href 为 “<a href="http://www.qianxingzhem.com”" target="_blank" rel="noopener">http://www.qianxingzhem.com”</a> ，title 为“潜行者m 博客”的 a 标签，可以这样写：</p>
+<pre>a[href="http://www.qianxingzhem.com" title="潜行者m 博客"]</pre>
+其他标签和属性都类似。
+
+## 对生成内容编号：$
+
+例如无序列表，我想为五个个 li 增加一个 class 属性值 item1 ，然后依次递增从 1-5，那么就需要使用 $ 符号：
+<pre>`ul&gt;li.item$*5`</pre>
+这样就生成了如下结构：
+<pre>&lt;ul&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+$ 就表示一位数字，只出现一个的话，就从1开始。如果出现多个，就从0开始。如果我想生成三位数的序号，那么要写三个 $：
+<pre>`ul&gt;li.item$$$*5`</pre>
+输出：
+<pre>`&lt;ul&gt;
+    &lt;li class="item001"&gt;&lt;/li&gt;
+    &lt;li class="item002"&gt;&lt;/li&gt;
+    &lt;li class="item003"&gt;&lt;/li&gt;
+    &lt;li class="item004"&gt;&lt;/li&gt;
+    &lt;li class="item005"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+只能这样单调的生成序号？对于强大的 Emmet 来说，肯定不会会了，我们也可以在 $ 后面增加 @- 来实现倒序排列：
+<pre>`ul&gt;li.item$@-*5`</pre>
+生成如下结构：
+<pre>`&lt;ul&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item2"&gt;&lt;/li&gt;
+    &lt;li class="item1"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+同样，我们也可以使用 @N 指定开始的序号：
+<pre>`ul&gt;li.item$@3*5`</pre>
+这样就会从 3 开始排序，生成如下代码：
+<pre>`&lt;ul&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+配合上面倒序输出，可以这样写：
+<pre>`ul&gt;li.item$@-3*5`</pre>
+生成的就是以 3 为底倒序：
+<pre>`&lt;ul&gt;
+    &lt;li class="item7"&gt;&lt;/li&gt;
+    &lt;li class="item6"&gt;&lt;/li&gt;
+    &lt;li class="item5"&gt;&lt;/li&gt;
+    &lt;li class="item4"&gt;&lt;/li&gt;
+    &lt;li class="item3"&gt;&lt;/li&gt;
+&lt;/ul&gt;`</pre>
+
+<h2 id="生成文本内容："><a href="#生成文本内容：" class="headerlink" title="生成文本内容：{}"></a>生成文本内容：{}</h2><p>上面讲解了如何生成 HTML 标签，那里面的内容呢？当然也可以生成了：</p>
+<p><pre><code>a[href=&quot;http://www.qianxingzhem.com&quot;]{点击这里到 潜行者m 的博客}</code></pre><br>这样就生成了一个到我博客的超链接了。在生成内容的时候，特别要注意前后的符号关系，虽然 a&gt;{Click me} 和 a{Click me} 生成的结构是相同的，但是加上其他的内容就不一定了，例如：</p>
+<p><pre>`&lt;!– a{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;</pre></p>
+<p>&lt;!– a&gt;{click}+b{here} –&gt;<br>&lt;a href=””&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;`<br>这样就生成了完全不同的结构，注意这些小细节哦。</p>
+<h2 id="不要有空格"><a href="#不要有空格" class="headerlink" title="不要有空格"></a>不要有空格</h2><p>在写指令的时候，你可能为了代码的可读性，使用一些空格什么的排版一下。这就会导致代码无法使用。例如下面这句：</p>
+<p><pre>`(header &gt; ul.nav &gt; li*5) + footer</pre></p>
+<p>而去掉空格之后，就可以正常执行生成结构了。HTML 语法部分说完了，现在回头看看第一篇文字，你是否已经看懂了那一串指令？下一篇将会讲解快速编写 CSS 的技巧。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1940.html" data-id="ckgcma3d5005uaa2at9bk26un" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1944.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          让你的网页在滚动的时候 放屁
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1927.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML 的 id 和 class 可以使用 Unicode 编码的特殊字符命名</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1940" data-title="Emmet 生成 HTML 的语法" data-url="http://www.qianxingzhem.com/post-1940.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

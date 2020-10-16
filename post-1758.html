@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>用 jQuery 制作一个简单的遮罩弹窗效果教程 | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。 神说，有代码的文章，应该有个 Demo ，于是就有了 Demo。 HTML 结构首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 jQuery 制作一个简单的遮罩弹窗效果教程">
+<meta property="og:url" content="http://www.qianxingzhem.com/post-1758.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:description" content="客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。 神说，有代码的文章，应该有个 Demo ，于是就有了 Demo。 HTML 结构首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-23T02:22:53.035Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用 jQuery 制作一个简单的遮罩弹窗效果教程">
+<meta name="twitter:description" content="客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。 神说，有代码的文章，应该有个 Demo ，于是就有了 Demo。 HTML 结构首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post--e7-94-a8-jquery-e5-88-b6-e4-bd-9c-e4-b8-80-e4-b8-aa-e7-ae-80-e5-8d-95-e7-9a-84-e9-81-ae-e7-bd-a9-e5-bc-b9-e7-aa-97-e6-95-88-e6-9e-9c-e6-95-99-e7-a8-8b" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1758.html" class="article-date">
+  <time datetime="2013-02-25T15:07:40.000Z" itemprop="datePublished">Feb 26 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用 jQuery 制作一个简单的遮罩弹窗效果教程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>客户的网站上突然需要一个遮罩弹窗效果，也可以称作暗箱之类的，具体效果就是网页中背景变成半透明，然后在屏幕中间出现一个菜单之类的东西。这种效果在网上很常见，例如：QQ空间浏览相册等。这种效果的好处就是，可以让用户聚焦到弹出的菜单中。</p>
+<p>神说，有代码的文章，应该有个 Demo ，于是就有了 <a href="http://www.qianxingzhem.com/demo/1758/">Demo</a>。</p>
+<h2 id="HTML-结构"><a href="#HTML-结构" class="headerlink" title="HTML 结构"></a>HTML 结构</h2><p>首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。</p>
+<pre> &lt;div class="click"&gt;点击这里&lt;/div&gt;
+ &lt;div class="click1"&gt;效果增强版的&lt;/div&gt;
+ &lt;div class="bg"&gt;&lt;/div&gt;
+ &lt;div class="content"&gt;这里是正文内容&lt;/div&gt;</pre>
+
+<h2 id="CSS-代码"><a href="#CSS-代码" class="headerlink" title="CSS 代码"></a>CSS 代码</h2><p>对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。</p>
+<p><pre>.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}<br>.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}</pre><br>简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。</p>
+<p>特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。</p>
+<h2 id="jQuery-代码"><a href="#jQuery-代码" class="headerlink" title="jQuery 代码"></a>jQuery 代码</h2><p>分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。</p>
+<p><pre>   $(function(){<br>        $(‘.click’).click(function(){<br>            $(‘.bg’).css({‘display’:’block’});<br>            $(‘.content’).css({‘display’:’block’});<br>        });<br>        $(‘.bg’).click(function(){<br>            $(‘.bg’).css({‘display’:’none’});<br>            $(‘.content’).css({‘display’:’none’});<br>        });<br>    });</pre><br>这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。</p>
+<h2 id="更多技巧和方法"><a href="#更多技巧和方法" class="headerlink" title="更多技巧和方法"></a>更多技巧和方法</h2><h3 id="更平缓的显示"><a href="#更平缓的显示" class="headerlink" title="更平缓的显示"></a>更平缓的显示</h3><p>点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。</p>
+<p><pre> $(‘.click1’).click(function(){<br>    $(‘.bg’).fadeIn(200);<br>    $(‘.content’).fadeIn(400);<br> });<br> $(‘.bg’).click(function(){<br>    $(‘.bg’).fadeOut(800);<br>    $(‘.content’).fadeOut(800);<br> });</pre><br>这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。</p>
+<h3 id="其他的实现方法"><a href="#其他的实现方法" class="headerlink" title="其他的实现方法"></a>其他的实现方法</h3><p>现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：<a href="http://www.54173.cn/blog/?p=701" target="_blank" rel="noopener">简单的jQuery弹出遮罩层</a>。</p>
+<p>差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1758.html" data-id="ckgcma3c4003aaa2aodc9u4ge" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/post-1778.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用 jquery.easing.js 增强动画过渡效果
+        
+      </div>
+    </a>
+  
+  
+    <a href="/post-1730.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">本站原创主题 Qetro 现对外公开发布</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1758" data-title="用 jQuery 制作一个简单的遮罩弹窗效果教程" data-url="http://www.qianxingzhem.com/post-1758.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

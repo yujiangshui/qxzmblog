@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Tag: CSS | 潜行者m</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="潜行者m">
+<meta property="og:url" content="http://www.qianxingzhem.com/tags/CSS/index.html">
+<meta property="og:site_name" content="潜行者m">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="潜行者m">
+  
+    <link rel="alternative" href="/atom.xml" title="潜行者m" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">潜行者m</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">关注前端开发热爱简约设计。【注意】当前博客已停更，新博客 yujiangshui.com</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://www.qianxingzhem.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post--e4-b8-ba-e4-bb-80-e4-b9-88-e4-bd-bf-e7-94-a8-class-e5-b1-9e-e6-80-a7-e6-9d-a5-e6-a0-87-e6-b3-a8-html-e5-85-83-e7-b4-a0-e8-80-8c-e4-b8-8d-e6-98-af-id-e5-b1-9e-e6-80-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1801.html" class="article-date">
+  <time datetime="2013-03-23T12:40:19.000Z" itemprop="datePublished">Mar 24 2013</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/CSS/">CSS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1801.html">为什么使用 class 属性来标注 HTML 元素而不是 id 属性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在网页中有很复杂的 HTML 结构，如果我们使用 CSS 来定义相关的样式，就需要为这些结构指定相应的标志，然后再编写相应的 CSS 选择器来获取他们赋予样式。最常用的两个标注属性就是 id 和 class 了，例如：</p>
+<p><pre>&lt;div class=”header” id=”header” &gt;&lt;/div&gt;</pre><br>现在还有更多的选择方法，例如：属性选择器等。但是并不推荐使用，使用属性选择器虽然可以省略掉 id 和 class，但是存在 后期维护起来不方便、早期浏览器兼容性不好、影响浏览器的渲染效率 等问题。所以，虽然有了更多的选择，我还是推荐使用 id 和 class 以及 元素名 来构造 CSS 选择器。</p>
+<p>既然 id 和 class 都可以标注 HTML 结构，那么我应该优先选择使用什么？这就是本文即将讨论的。</p>
+<h2 id="id-和-class-的区别"><a href="#id-和-class-的区别" class="headerlink" title="id 和 class 的区别"></a>id 和 class 的区别</h2><p>有经验的朋友可以略过这一部分。</p>
+<h3 id="唯一性和重复可用性"><a href="#唯一性和重复可用性" class="headerlink" title="唯一性和重复可用性"></a>唯一性和重复可用性</h3><p>id 在网页结构中只能是唯一的，如果你指定了一个元素的 id 为 aa，那么网页中就不能再出现一个 id 为 aa 的 HTML 元素。虽然强大的浏览器会支持多个重复 id 并赋予对应样式，但这是不标准不允许的。</p>
+<p>而 class 相反，它可以在网页结构中重复使用，你指定了一个元素的 class 为 bb，同时可以指定下一个元素的 class 为 bb，这两个元素可以同时被应用 bb 的样式。此外，你还可以为一个元素制定多个 class 属性值，这样就会同时获得多个属性的样式。</p>
+<h3 id="CSS-中优先级不同"><a href="#CSS-中优先级不同" class="headerlink" title="CSS 中优先级不同"></a>CSS 中优先级不同</h3><p>在 CSS 选择器中，对 id 和 class 的样式应用优先级不同。id 的样式优先级要高于 class 的样式优先级，如果我对一个 id 为 aa 、class 为 bb 的 div 指定了下面的样式：</p>
+<p><pre>#aa{background:red;}<br>.bb{background:blue;}</pre><br>那么浏览器会显示成红色背景。</p>
+<h3 id="跳转功能"><a href="#跳转功能" class="headerlink" title="跳转功能"></a>跳转功能</h3><p>使用 id 属性可以增加锚标记跳转功能，如果在页面中我们对一个 div 指定 id 为 aa ，那么我们在当前的 URL 后面加上 #aa ，页面将会立刻跳转到 id 为 aa 的 div 所在的位置。例如：百度百科的章节跳转。而 class 没有这个功能。</p>
+<p><a href="http://baike.baidu.com/view/371.htm#8" target="_blank" rel="noopener">http://baike.baidu.com/view/371.htm#8</a></p>
+<h2 id="为什么使用-class-而不是-id"><a href="#为什么使用-class-而不是-id" class="headerlink" title="为什么使用 class 而不是 id"></a>为什么使用 class 而不是 id</h2><p>使用 class 究竟有什么好处？</p>
+<h3 id="减少命名"><a href="#减少命名" class="headerlink" title="减少命名"></a>减少命名</h3><p>为复杂的结构起名字真是一个麻烦的事情，如果我使用 id 来标注，那么我必须为每一个结构起一个名字。而在网页中，有很多结构的样式和效果都是一样的（例如：统一的按钮样式），那么我们仅仅编写一个通用的 class 样式，然后为所有的需要相同样式的结构赋值这个 class 即可。</p>
+<h3 id="高度重复使用"><a href="#高度重复使用" class="headerlink" title="高度重复使用"></a>高度重复使用</h3><p>class 可以重复应用在其他结构中，并且可以对某个元素应用多个 class ，那么这样就可以高度重复使用某个 class 样式了。比较极端的实际应用就是原子类，例如：</p>
+<p><pre>.fl{float:left;display:inline;}<br>.fr{float:right;display:inline;}</pre><br>尽可能小的简短的写出一些类，然后对于某个需要这个样式（例如：上面的浮动）的元素直接写上 class （例如：class=“fl”）。</p>
+<p>一般的应用来说，对于某些需要相同样式的结构，只编写一个样式，然后对这些结构赋值相同的 class 即可，这样达到高度的样式代码重用，而且修改起来也比较方便。</p>
+<h3 id="优先级低"><a href="#优先级低" class="headerlink" title="优先级低"></a>优先级低</h3><p>class 的优先级高于 元素名，低于 id ，利用优先级低的这个特性可以方便调试和样式覆盖。</p>
+<p>如果我们之前对一个元素使用了 id 来标注，我们想修改这个元素的样式，只能去修改对应的 CSS 样式代码或者对某样式使用 !important 强调语法来覆盖原有样式。</p>
+<p>如果元素使用了 class 来标注，那么我们直接为元素增加一个 id ，然后构造一个元素 id 的 CSS 选择器即可进行修改覆盖。</p>
+<p>正是因为这些特性，所以要尽量使用 class 来标注元素，方便后期维护等。</p>
+<h2 id="id-也是必须有的"><a href="#id-也是必须有的" class="headerlink" title="id 也是必须有的"></a>id 也是必须有的</h2><p>class 也不是万能的，有很多地方我们必须同时使用 id 来标注。</p>
+<h3 id="锚标记跳转"><a href="#锚标记跳转" class="headerlink" title="锚标记跳转"></a>锚标记跳转</h3><p>要想在页面中使用锚标记来跳转，那只能指定某个跳转目标的 id ，因为 class 可以被重复多次使用，所以不具备跳转的功能。</p>
+<h3 id="用在-input-中"><a href="#用在-input-中" class="headerlink" title="用在 input 中"></a>用在 input 中</h3><p>使用 input 的时候，通常要使用 label 标签来描述这个 input 的功能。将 label 与 input 关联的方法有两种，一种是使用 label 的 for 属性，属性值就是 input 的 id 值，另一种就是将 label 把相应的 input 包裹起来。很显然第一种比较灵活比较好，但是你必须要对相应的 input 指定一个 id 属性。</p>
+<p>此外，有些特殊的需求，也必须使用 id ，这里不再总结了。</p>
+<h2 id="最佳的使用组合"><a href="#最佳的使用组合" class="headerlink" title="最佳的使用组合"></a>最佳的使用组合</h2><p>之前有很多批评 class 的言论，甚至有言论说 W3C 应该废除 class 标签，<a href="http://www.qianxingzhem.com">潜行者m</a> 也曾经是 id 属性的狂热使用者，但是在实践过程中，越来越发现 class 的优点并改用 class。</p>
+<p>比较好的使用组合就是对于绝大多数的元素和结构等使用 class 来指定，对于极个别需求特定功能的元素使用 id 标注。</p>
+<p>欢迎讨论交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1801.html" data-id="ckgcma3do007eaa2aqnotmxeh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1801" data-title="为什么使用 class 属性来标注 HTML 元素而不是 id 属性" data-url="http://www.qianxingzhem.com/post-1801.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e4-b8-ad-e4-bb-a3-e7-a0-81-e7-9a-84-e9-a1-ba-e5-ba-8f-e6-98-af-e4-b8-8d-e5-8f-af-e5-bf-bd-e7-95-a5-e7-9a-84-e7-bb-86-e8-8a-82" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1539.html" class="article-date">
+  <time datetime="2012-11-14T08:40:48.000Z" itemprop="datePublished">Nov 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1539.html">网页中代码的顺序是不可忽略的细节</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>仿佛奇怪的问题总是喜欢找上那些初学者。当我在学习制作网页的时候，经常遇到一些很特别的问题。例如：刚刚添加的样式不起作用、jQuery的代码老是不起作用等等。这往往是不关注细节导致的。而今天我要谈的这个细节，就是关于网页中代码的顺序。没错，代码也是有顺序的，顺序不对有可能会出现一些意外的情况。</p>
+<h2 id="HTML-相关的代码顺序"><a href="#HTML-相关的代码顺序" class="headerlink" title="HTML 相关的代码顺序"></a>HTML 相关的代码顺序</h2><p>下面先来介绍 HTML 中的代码顺序。</p>
+<h3 id="HTML-代码的排序原理"><a href="#HTML-代码的排序原理" class="headerlink" title="HTML 代码的排序原理"></a>HTML 代码的排序原理</h3><p>排序原理很简单，因为当浏览器访问一个网页的时候，要下载这个网页。现在的网速，对于一个几百K的网页来说，很快就能下载完。但是如果网页比较大或者网速比较卡，网页下载就会需要一定的时间。这样的话，浏览器显示网页的过程就很明显了。从 HTML 代码的上到下，依次下载。<strong>重要的内容要优先加载</strong>，所以就产生了 HTML 代码排序的问题。</p>
+<h3 id="head-里面的元素排序"><a href="#head-里面的元素排序" class="headerlink" title="head 里面的元素排序"></a>head 里面的元素排序</h3><p>HTML 中的 head 元素里面，通常放置着文档的描述信息。一般有：网页编码、title标题、meta 描述网页关键字、link 引入 CSS 文件、script 引入 Javascript 文件等等。下面就这几个内容进行一个讨论（以 HTML5 为例）：</p>
+<p>首先，先是标准的 DOCTYPE 声明、HTML 结构那一套。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+其次，编写网页编码，我个人认为编码是网页中最重要的，因为它决定浏览器采用什么编码来解析你的网页，如果编码没有设置好的话，网页显示出来就是一整个乱码。关于网页编码的更详细的文章，可以看一下 [潜行者m](http://www.qianxingzhem.com) 写的 [网页编码就是那点事](http://www.qianxingzhem.com/post-1499.html) 。编码写完之后，应该让浏览器立刻显示出网页的标题，这时候就应该写出 title 标题了。
+<pre>&lt;meta charset="utf-8" /&gt;
+&lt;title&gt;标题&lt;/title&gt;</pre>
+接下来，就应该是声明文档的各种信息，例如 关键词、描述、作者等等信息。之后就要加载 CSS 样式表。让浏览器先下载好 CSS 样式表，之后下载的网页内容，就会立刻加上 CSS 的样式效果，谁也不希望打开网页的时候，是没有样式的，然后加载完内容之后才出现正常的页面。这也就是为什么 CSS 引用要写在 head 里面。
+<pre id="line1">&lt;meta name="<a>keywords</a>" content="<a>潜行者m,网站建设,前端设计,Web开发</a>" /&gt;
+&lt;meta name="<a>description</a>" content="<a>潜行者m 博客，是由 潜行者m 个人设计制作，完全原创写作，关注网站建设/前端设计/Web开发相关的独立博客。欢迎各位观看学习，并且与本人交流！！</a>" /&gt;
+
+&lt;link rel="<a>stylesheet</a>" type="<a>text/css</a>" media="<a>screen</a>" href="http://www.qianxingzhem.com/wp-content/themes/qetro/style.css"/&gt;</pre>
+关于 JavaScript 的位置一直比较有争议。因为 JavaScript 比较灵活，可以添加在页面的任何位置。通常推荐的是加在页面的最底部。因为JavaScript 文件通常比较大，浏览器下载比较费时间，由于 JavaScript 可能会影响到当前页面的结构内容，所以浏览器通常会先下载完JavaScript 代码，“运行” 之后，再下载网页的正文内容。这就导致了加载速度比较慢，因为要先加载  JavaScript 代码才会显示网页内容。所以要放在页面底部。这样浏览器会先下载网页的内容显示出来，然后再下载 JavaScript 对当前的网页进行处理。
+
+### body 主体内容的排序
+
+前面说过浏览器先依次下载网页然后显示，那么网页主体内容的排版布局就很明显了：**重要的内容排在前面**。
+
+例如一个博客类型的网页，最重要的内容肯定是 文章 。所以文章的内容要尽量放在网页的顶部。虽然它可能要显示在下面，但是也要放在代码的上面，然后通过 CSS 布局等放在下面。当网速很卡的时候，排版合理的博客很明显就可以看到，先显示出来头部、文章主体内容，之后再显示 边栏、底部 内容。这就是为了让用户最快的看到他们想要看的内容，即使网速很卡下载很慢，内容出来了边栏等都下载不下来，用户也会得到他需要的内容。这就是 body 元素里面的代码排序原则。
+
+## CSS 代码的排序
+
+CSS中有很多排序的小细节需要注意，不注意的话很有可能就出现一些意外情况。
+
+### 顺序解决样式冲突问题
+
+当你对一个元素赋予了 background-color 属性，你在其他地方，忘了之前的设置，又对这个元素赋予了一个属性值与之前不同的 background-color 属性。那么浏览器究竟会对这个元素渲染哪一个背景颜色呢？答案是代码排在后面的属性值。冲突的内容，后面的属性值就会覆盖前面的属性值。因此要注意，一些 [CSS reset](http://www.qianxingzhem.com/post-610.html) 等要先加载，然后在后面加载自己写的属性值。例如：CSS reset 通常会取消 strong 的加粗，但有时我们的网页作品中，要 strong 显示成加粗效果，所以我们要设置 strong{font-weight：bold；} 这样的样式。但如果 CSS reset 代码放在后面，它之前对 strong 的取消加粗属性就会覆盖掉你的 加粗效果。所以无论刷新网页多少遍，你的 strong 标签里面的内容，还没有加粗。
+
+如果有时候，你真的无法修改加载文件的顺序，那么面对这种情况，你可以使用 CSS 中的 ！important 语法，告诉浏览器要使用这个属性解决冲突。
+
+### 链接的交互排序
+
+一个超链接，默认是蓝色的，当我们把鼠标移动上去，会变色，点击的过程也会变色，访问过后回来一看，通常也不会是原来的蓝色了。控制这些颜色的，分别是 CSS 中的 ：link 、：visited 、：hover、：active 这四个伪类选择器，从名称就可以看出，控制的状态分别是：默认显示、访问过后、鼠标移动上去、点击激活。有时候会出现一些意外情况，例如：同时设置了 ：visited 和 ：hover 的样式，但一旦超链接访问后，hover 的样式就不出现了等。这是因为，这四个伪类选择器对 a 元素定义的时候，是有一个顺序的。如果不按照这个顺序，就会出现一些意外情况。
+
+这个顺序有一个很好记的方法，那就是：love hate，即 l（link）ov（visited）e  h（hover ）a（active）te。
+<pre>a:link{color:#666666; text-decoration:none;}
+a:visited{color:#666666; text-decoration:none;}
+a:hover{color:#666666; text-decoration:underline;}
+a:active{color:#666666; text-decoration:none;}</pre>
+
+<h3 id="属性值的顺序"><a href="#属性值的顺序" class="headerlink" title="属性值的顺序"></a>属性值的顺序</h3><p>CSS 中，有的属性既可以分开写，也可以合并起来写。例如 margin 属性，你可以分别制定 margin-left 、margin-right、margin-top、margin-bottom 的值，也可以直接写成 margin：top right bottom left； 也可以写两个参数，分别代表上下和左右的外边距。这样的写法简练而且灵活，但是对不熟练的新手来说，比较容易搞混。当类似 margin 、 padding 这样的属性，写四个参数的时候，以 top 开始，顺时针旋转。</p>
+<p>除此之外，还有类似 font、background 这样的属性，它的属性值也要有顺序（虽然对顺序要求不严格），它们的参数有缺省值，所以不需要全部定义，只需要定义自己需要的样式即可。但是 border 这样的属性，就必须严格的按照语法编写属性值的顺序。例如：border ：1px solid #ccc；如果 1px solid #ccc 这三个值的顺序出问题了，那么浏览器就可能无法解读这段 CSS 的样式。</p>
+<h2 id="JavaScript-代码的顺序"><a href="#JavaScript-代码的顺序" class="headerlink" title="JavaScript 代码的顺序"></a>JavaScript 代码的顺序</h2><h3 id="JavaScript-文件加载顺序"><a href="#JavaScript-文件加载顺序" class="headerlink" title="JavaScript 文件加载顺序"></a>JavaScript 文件加载顺序</h3><p>jQuery 是一个比较常用的 JavaScript 库，通常我们还要配合它强大的插件使用。对于新手来说，经常会遇到没有产生相应效果的问题。就是说，代码没有检查出问题，但就是没有执行显示应有的效果。原因就出在加载顺序上面。你编写的 JavaScript 代码以及调用的 jQuery 插件，都需要基于 jQuery 库，所以应该在所有 JavaScript 代码之前，先引入 jQuery 库。浏览器先把库下载完了，才会识别后面的依赖这个库的代码实现相应的功能。同样的，激活使用某个插件的代码，也需要放在插件的后面才会有效。</p>
+<pre id="line1">&lt;script type="<a>text/javascript</a>" src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/jquery.lazyload.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="jquery/插件.js"&gt;&lt;/script&gt;
+&lt;script type="<a>text/javascript</a>" src="自己编写的js/js.js"&gt;&lt;/script&gt;</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1539.html" data-id="ckgcma3c8003laa2acvidghb2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1539" data-title="网页中代码的顺序是不可忽略的细节" data-url="http://www.qianxingzhem.com/post-1539.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e5-85-a8-e4-bb-a3-e7-a0-81-e6-89-93-e9-80-a0-e7-ae-80-e6-b4-81-e7-be-8e-e8-a7-82-e5-9b-9e-e5-88-b0-e9-a1-b6-e9-83-a8-e6-8c-89-e9-92-ae" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1220.html" class="article-date">
+  <time datetime="2012-08-28T06:46:29.000Z" itemprop="datePublished">Aug 28 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1220.html">全代码打造简洁美观回到顶部按钮</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这次，潜行者m带来一个jquery的比较实用的教程，就是为你的网站添加一个纯代码画出来的、简洁美观的回到顶部按钮。这个按钮的效果就是，当页面滑动一段距离之后，就会浮现出来这个按钮，点击这个按钮之后，就自动滚动到顶部。具体效果如下：</p>
+<p><a href="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg"><img src="http://www.qianxingzhem.com/wp-content/uploads/2012/08/2-2.jpg" alt="" title="2-2"></a></p>
+<p>点击之后就会跳转到顶部，然后这个按钮平滑消失。与网上的相比，潜行者m版的是纯代码，加载速度更快，效果色彩控制好；代码精简，只有数条而已，拒绝大坨大坨的代码。废话不多说，下面就开始制作。</p>
+<h2 id="html结构"><a href="#html结构" class="headerlink" title="html结构"></a>html结构</h2><p>我使用了a标签作为这个结构，可能不太标准，但是比较方便。在a标签中，内置了一个span标签，用来显示三角号。具体代码如下：</p>
+<p><pre>&lt;a id=”gotop” href=”#”&gt;<br>    &lt;span class=”gotop-shang”&gt;▲&lt;/span&gt;<br>&lt;/a&gt;</pre><br>对，你没看错，就这么简单的一句代码，直接在a标签中，填写一个三角号。剩下的就是使用css进行样式控制。</p>
+<h2 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h2><p><pre>a[id=”gotop”]{<br>    display:block;<br>    width:60px;<br>    height:60px;<br>    position:fixed;<br>    bottom:50px;<br>    right:40px;<br>    border-radius:10px 10px 10px 10px;<br>    text-decoration:none;<br>    display:none;<br>    background-color:#999999;<br>    }</pre><br>上面这段代码，定义了a标签的外观样式，定义display为block，这样，我们才能指定它的width和height。定义position为fixed，让它固定在右下角。同时为它指定圆角，就是使用border-radius属性，定于半径为10px的圆角。</p>
+<p><pre>span{<br>    display:block;<br>    width:60px;<br>    color:#dddddd;<br>    }<br>span:hover{<br>    color:#cccccc;<br>    }<br>span[class=”gotop-shang”]{<br>    font-size:40px;<br>    text-align:center;<br>    margin-top:4px;<br>    }</pre><br>上面这一段，就是定义了span标签里面的三角号，如果你不会打三角号，可以看本人的这篇文章：<a href="http://www.qianxingzhem.com/post-1196.html">亲自打造属于自己网站风格的工具边栏</a>，里面有提到这个。这几句代码意思很简单，就是定义了三角号的外观样式，同时制定了颜色变化，这是为了用户体验。最下面的margin-top：4px，则是用来准确定位三角号，让它居中显示。</p>
+<h2 id="jquery代码"><a href="#jquery代码" class="headerlink" title="jquery代码"></a>jquery代码</h2><p>具体的javascript代码如下，解析已经写在注释里面了：</p>
+<p><pre>$(function(){</pre></p>
+<pre><code>$(window).scroll(function(){  //只要窗口滚动,就触发下面代码
+    var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+    if( scrollt &amp;gt;200 ){  //判断滚动后高度超过200px,就显示
+        $(&quot;#gotop&quot;).fadeIn(400); //淡出
+    }else{
+            $(&quot;#gotop&quot;).stop().fadeOut(400); //如果返回或者没有超过,就淡入.必须加上stop()停止之前动画,否则会出现闪动
+    }
+});&lt;/pre&gt;
+</code></pre><p><pre><br>    $(“#gotop”).click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部<br>        $(“html,body”).animate({scrollTop:”0px”},200);<br>    });<br>});</pre><br>怎么样，简单吧？就用这几句代码而已，就可以出现这个功能，而且可以方便的修改颜色、形状、大小等。当然缺点也是有的，就是在IE6等过时的浏览器中，可能不会兼容，无法实现。</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1220.html" data-id="ckgcma3ar000vaa2atfmslzw4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1220" data-title="全代码打造简洁美观回到顶部按钮" data-url="http://www.qianxingzhem.com/post-1220.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-ba-8c-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-1005.html" class="article-date">
+  <time datetime="2012-05-18T02:24:46.000Z" itemprop="datePublished">May 18 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-1005.html">潜行者m的CSS2笔记（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接上面的文章，<a href="http://www.qianxingzhem.com/post-994.html">潜行者m的CSS2笔记（一）</a>。</p>
+<p>21，使用line-height属性来控制行高，使文字居中，控制文字排版。</p>
+<p>22，使用&lt;label&gt;标签，可以让人点击文本选中相应单选复选，提高网站交互性。例子&lt;label for=”c1”&gt;点击此文本&lt;/label&gt;&lt;input type=”checkbox” name=”c1” id=”c1” value=”ckbox”/&gt;</p>
+<p>23，对于文本下划线，可以使用border-bottom来实现丰富的定义。</p>
+<p>24，li{width:120px;text-overflow:ellipsis;}当内容超出对象宽度时，显示为省略号。clip将不显示。必须使用word-break:keep-all;使其被强制不能换行。</p>
+<p>25，em是一种相对弹丸。text-indent:2em;表示空出两个字符的距离，em长度相当于本行中字符的倍数，这个单位非常实用。</p>
+<p>26，首字下沉使用css伪类。p:first-letter{font-size:2em;float:left;}。first-line伪类对第一行进行设置。</p>
+<p>27，在布局中，出现布局的错位等，可以使用相对定位。尽量避免绝对定位。</p>
+<p>28，剪切图像可以使用clip。使用div overflow属性进行剪切图像，用img margin移动剪切区域。</p>
+<p>29，图片代替文本，内含不显示文本，表明图像的内容，非alt属性。两种实现方法：display:none;text-indent:-99999px;</p>
+<p>30，a:link只会对拥有href=“”的a发生作用。</p>
+<p>31，使用图片代替文本，对搜索引擎有利，有利seo。</p>
+<p>32，使用导航等，显示边框的时候，最好加上一个背景边框，防止错位。</p>
+<p>33，pimg{float:left;padding:10px;}设置图片浮动方式，可以将图片嵌入文字流。</p>
+<p>34，如果想要添加图片说明，将文字与img放在一个div中，之后对文字等进行设置。</p>
+<p>35，表格布局对table、tr、td进行定位，border-collapse：collapse;属性表示将表格中单元格之间线条合并。border-collapse：separate:则将使各单元格的边框独立存在。</p>
+<p>36，@import导入命令是将目的文件包含进来。例如：@import url(“home.css”);<br>还可以指定一个设备类型，指明当前的样式表用于什么操作，例如：<br>@import url(“pageprint.css”) print;表示在打印文件的时候，使用pageprint.css这个样式表。</p>
+<p>37，提高css效率的方法：<br>1，按照功能划分css文件。<br>2，在需要这方面功能的页面，引用相应的样式表文件。引用用上面的import</p>
+<p>38，用css制造进度条等，使用行间样式。</p>
+<p>整本书大部分的内容，都已经吸收同化进潜行者m的身体中，对于这38条笔记的内容，掌握的还不是很熟悉，所以做成笔记，以便在日后进行翻阅。</p>
+<p>在随后的一段时间内，我将继续公布潜行者m的个人笔记，包括seo、html5、css3、php、javascript等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-1005.html" data-id="ckgcma3c10033aa2ax595u43a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="1005" data-title="潜行者m的CSS2笔记（二）" data-url="http://www.qianxingzhem.com/post-1005.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-bd-9c-e8-a1-8c-e8-80-85m-e7-9a-84css2-e7-ac-94-e8-ae-b0-ef-bc-88-e4-b8-80-ef-bc-89" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-994.html" class="article-date">
+  <time datetime="2012-05-14T05:03:11.000Z" itemprop="datePublished">May 14 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-994.html">潜行者m的CSS2笔记（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前读书，被强迫着做笔记，但是从来没认真的做过。现在读书，基本上每本书看完都要做一下笔记，这个真的非常重要，一本书你看完会有很多之前没有见过的知识点等，这些东西，就需要记下来，一方面用到的时候快速查询，另一方面记下来。《css网站布局实录-基于web标准的网站设计指南》（第二版）这本书，我买了很久了，看了也有3遍了，2个月前又看了一遍，做了一下笔记，现在拿出来共享一下。</p>
+<p><strong>注意，这份笔记不适合新手，这里面的知识点，不是系统的基础的，而是经常不小心忽略掉但是又常用的。</strong>有经验的朋友，可以看一下，里面的知识点你忽略了多少。</p>
+<p>1，相同类型的css定义，默认执行后面的一个，可以用！important语法修改优先性。例如：background-color:red;!important</p>
+<p>2，标注某些css hack的地方，使用hack；没完成的地方使用todo。（在大型的工程中，用注释标注一下，方便查询修改）</p>
+<p>3，block块状对象占据整行，其他的都移到下一行；in-line行间（内联）允许与下一对象共享一行。</p>
+<p>4，尽量减少div的嵌套，会增加浏览器解析的难度。</p>
+<p>5，最终宽度=左外边距+左边框+左内边距+宽度+右内边距+右边框+右外边距，最终高度也是如此，需要精确计算，放置错位。</p>
+<p>6，重叠的margin会叠加显示，以大值为准。当两个div设定float之后，就不会叠加了。</p>
+<p>7，浮动的清理（clear）。使用clear属性来拒绝某个方向上的浮动，这样就不会浮动到上一层了。（这个最好实践一下）</p>
+<p>8，父position:relative;子position:absolute。子在父中绝对定位，将以父位置为基准。</p>
+<p>9，div应当重点放在大面积区域上，对于简单的导航等，用ul解决。</p>
+<p>10，下拉菜单等，可以通过伪类选择器以及display属性来控制。display:none;表示隐藏当前元素。（通常使用javascript来实现下拉菜单，但是现在用纯css也可以实现的很好）</p>
+<p>11，css hack:*html—这种方式仅被IE浏览器支持解析，是最常用的css hack之一。</p>
+<p>12，div是一个块，用来整体布局设计——block<br>span是一个范围，用来区别内容——in-line</p>
+<p>13，background-attachment:scroll/fixed;设置背景图片的滚动方式。</p>
+<p>14，background-color:transparent;透明模式，显示背景。</p>
+<p>15，background-position:左对齐方式 上对齐方式 ;用它可以对图像进行精确的定位，同时实现css sprites功能。例如：background-position:0px -27px;</p>
+<p>16，ul/ol属性：<br>list-style-image:none/url;设置图片作为列表中的项目。<br>list-style-position:inside/outside;设置项目符号的放置位置。<br>list-style-type:none/disc/……;设置li的表现形式（没有/点状/圆圈/方块等等）</p>
+<p>17，display属性：<br>block：将对象显示成盒状，后一个对象换行显示。<br>none：隐藏/不显示对象。<br>inline：行间内联样式，将对象排列成一行。<br>inline-block：对象显示成块状，但呈现内联样式。<br>list-item：将对象作为列表项显示</p>
+<p>18，float:left;更适合对象布局，但是浮动多了，容易造成浏览器解析混乱。希望让信息显示为段落，最好使用display:inline;（通常设置一个原子类fl{float:left;display:inline;}，元素浮动的时候，加上class=”fl”)</p>
+<p>19，text-indent:value;用于控制段落文本的首行缩进想过。text-indent:20px;表示对象首行缩进20px。如果想要比其他提前一些，可以使用负数值来实现。text-indent:-88888px;设置超大的数值，还可以起到隐藏文本的效果。</p>
+<p>20，对于表单样式的控制最基本的方法就是使用border以及background-color。即对表单元素的背景、边框进行设置优化，消除默认难看的样式。</p>
+<p>先打这么多，剩下的留在<strong>潜行者m的CSS2笔记（二）</strong>中。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-994.html" data-id="ckgcma3c30037aa2a6vwaqfun" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="994" data-title="潜行者m的CSS2笔记（一）" data-url="http://www.qianxingzhem.com/post-994.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post-css-e4-b8-adclass-e7-a9-b6-e7-ab-9f-e6-98-af-e9-b8-a1-e8-82-8b-e8-bf-98-e6-98-af-e9-b8-a1-e8-82-89-ef-bc-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-952.html" class="article-date">
+  <time datetime="2012-04-16T05:59:52.000Z" itemprop="datePublished">Apr 16 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-952.html">css中class究竟是鸡肋还是鸡肉？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学习完了《html5与css3权威指南》，特别是css3部分，体验到了css3的超级强大。特别是一个比较常用的内容：选择器。</p>
+<p>css3中，提供了新型的，可以使用通配符的选择方法。例如：[id=^sec]{ }，表示将此样式，应用在所有id以sec开头的html元素，比如id为section、sec3等的元素都会受到这些规则的影响。这样，我们就可以通过元素命名，来区别不同功能区域，并且使用通配符选择器来统一样式。而这一点，和class的功能类似。class与id的区别就在于，id一个网页中，只能有一个，而class可以有多个，这样可以让多个元素使用相同的样式。</p>
+<p>因此，作者在书中说，不推荐使用class，class最终会消失。然而在另一本前端著作《编写高质量代码Web前端开发修炼之道》中，却推荐使用原子类的方法，来提高css样式的重用程度。之前，本人也写过<a href="http://www.qianxingzhem.com/post-939.html">一篇关于创建和使用原子类的文章</a>，并且在现在的设计中应用原子类，感觉非常方便灵活性非常强大。在这里，潜行者m不禁思考，class究竟可取不可取？是鸡肉还是鸡肋？</p>
+<h2 id="class和id的区别"><a href="#class和id的区别" class="headerlink" title="class和id的区别"></a>class和id的区别</h2><p>html中class和id属性，是用来标记元素、区别元素，这样就可以用css来精确控制样式，也可以使用javascript来控制元素。但class和id是有明显区别的，在网页中，id属性的值只能有一个，但是class的值是可以重复的。比如，我定义一个div的id为a，那么网页中不能再出现一个html元素的id为a；但是我定义一个div的class属性为b，我可以再其他的元素中，定义class属性为b。这样，就可以实现代码的重用，比如两个div都是红色背景，只需写出一个class（.r{background-color:#ff0000;})，然后在两个div中都指定class属性为 r 即可，而要使用id控制，则需要在两个div中，都写上background-color:#ff0000;。同时，id和class的优先级也是不同的，id的优先级要高于class，如果对同一个元素，分别用id和class指定同一属性不同的值，浏览器会优先解析id的值。</p>
+<h2 id="鸡肉说："><a href="#鸡肉说：" class="headerlink" title="鸡肉说："></a>鸡肉说：</h2><p>class可以极大的提高代码的重用，特别是使用原子类，既方便维护，又方便应用。而使用id，必须指定id然后指定大量重复的样式。css3中，虽然升级的强大的选择规则，但是仍然比较混乱，不利于维护。同时，存在即合理，w3c制定出class和id是有他们的道理的，负责不同的工作，class仍然会不断的被使用。</p>
+<h2 id="鸡肋说："><a href="#鸡肋说：" class="headerlink" title="鸡肋说："></a>鸡肋说：</h2><p>css3中，强大的id选择规则，已经可以对相近元素指定相同的样式，达到重用的目的。它已经完全可以取代class的作用，而且对于javascript来说，只能使用id来控制，说不定以后class就会消失了。</p>
+<p>亲，你怎么看？你觉得是鸡肋还是鸡肉？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-952.html" data-id="ckgcma3d1005haa2amxt45ewn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="952" data-title="css中class究竟是鸡肋还是鸡肉？" data-url="http://www.qianxingzhem.com/post-952.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ad-e6-9e-84-e5-bb-ba-e5-b9-b6-e4-bd-bf-e7-94-a8-e5-8e-9f-e5-ad-90-e7-b1-bb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-939.html" class="article-date">
+  <time datetime="2012-04-08T01:36:04.000Z" itemprop="datePublished">Apr 8 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-939.html">网页设计中构建并使用原子类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在《编写高质量代码 Web前端开发修炼之道》一书中，作者总结经验，认为网页设计中，css应当分为三层，分别为base层、common层、page层。其中base层为样式最底层，里面包含css reset代码和原子类，基本不需要维护。common层是中层的样式，设置一个网站频道等的样式。page层，则是具体页面的样式。如果把网页设计比作盖房子，base层就是地基，common层就是你这个房子的墙壁、结构，page层就是你房子的内饰等。</p>
+<p>之前，<a href="http://www.qianxingzhem.com/">潜行者m</a>已经写过<a href="http://www.qianxingzhem.com/post-610.html">一篇关于css reset的文章</a>，而今天，潜行者m就来介绍一下原子类。</p>
+<p>原子类是可以高度重用的css样式。例如width:10px;或者是float:left;这类样式，很多的元素都要用到这类样式，但是在每个元素的css样式中，都添加这条语句，无疑会增加代码数量，使其不够简洁，而且当css样式很多的时候，维护起来就会非常麻烦。于是就有了css通用原子类。</p>
+<p>如何编写？</p>
+<p>在css文件中，编写简单简洁的类，每个类实现一个具体的小功能，并且命名一个非常简单直观的名字，例如：</p>
+<p>.w{width:auto;}</p>
+<p>.w10{width:10px;}</p>
+<p>.fl{float:left;}</p>
+<p>.fr{float:right;}</p>
+<p>…………</p>
+<p>在上面，只写了几个样式，作为例子，实际的原子类文件中，会包含各种原子类。</p>
+<p>如何使用？</p>
+<p>编写完成之后，我们应该如何在元素中，使用原子类？这就要用到元素的class属性了。在一个页面元素中，class属性值可以重复，并且可以指定多个样式。例如，我想要让这个div元素，宽度为10px，并且向左浮动，那么我就可以这样写：</p>
+<p>&lt;div class=”w10 fl”&gt;&lt;/div&gt;</p>
+<p>这样写之后，就说明这个div元素，同时具有.w10 .fl两个类的css样式。而如果我想要另一个div元素，宽度10px，并且向右浮动，我们就可以这样写：</p>
+<p>&lt;div class=”w10 fr”&gt;&lt;/div&gt;</p>
+<p>而不必为每个div分别制定width:10px;，这样就可以节约代码，高度重用代码了。同时，简短形象的名字，也可以让人非常容易理解样式的意思，例如一个div的class属性是w100 h100 fl，我们就可以知道，这个div宽100px，高100px，向左浮动，日后修改等都是非常方便的。</p>
+<p>推荐使用 潜行者m 的 <a href="http://lab.qianxingzhem.com/app/csscreater/" target="_blank" rel="noopener">CSS creater</a> 在线生成包含 常用原子类的 CSS 文件。地址：<a href="http://lab.qianxingzhem.com/app/csscreater/" target="_blank" rel="noopener">http://lab.qianxingzhem.com/app/csscreater/</a></p>
+<div></div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-939.html" data-id="ckgcma3ce003vaa2a9nchzxzp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="939" data-title="网页设计中构建并使用原子类" data-url="http://www.qianxingzhem.com/post-939.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e6-b5-8f-e8-a7-88-e5-99-a8-e7-9a-84-e4-b8-8d-e5-85-bc-e5-ae-b9-e9-97-ae-e9-a2-98-e5-87-ba-e5-9c-a8css-e4-bb-a3-e7-a0-81-e4-b8-8a-e9-9d-a2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-719.html" class="article-date">
+  <time datetime="2012-02-20T01:50:16.000Z" itemprop="datePublished">Feb 20 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-719.html">浏览器的显示效果不同的问题出在CSS代码上面</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近受到<a href="http://blog.3qsami.info/485" target="_blank" rel="noopener">Sami大叔</a>的激励，努力花了一天的功夫，又把<a href="http://www.qianxingzhem.com/mytheme">博客模板</a>改版了一下，升级了一下，几乎把所有的css代码又重新写了一遍。我发现，实践真的是最好的老师之一，通过实践，可以让你的技术层次更深一步增加。这一次的升级，让我得到了非常多的经验，例如本文要说的。</p>
+<p>浏览器都是不同的，解析用的内核也是不同的（这里的浏览器不算360、搜狗等借用其他浏览器内核的浏览器）。这样就出现了不兼容的问题。例如，一行css代码，在这个浏览器可能会正常解析，而在那一个浏览器，却无法解析或者进行了加粗等等。这样就出现了一个很头疼的问题，一个页面，可能在火狐浏览器中显示很好很正常，但是到了IE浏览器下面，却错位，严重影响版面。</p>
+<p>面对这个兼容的问题，大多数人都选择了进行修补，但是通过这次，我发现了，<strong>这种不兼容的原因，大部分还是因为你编写的css代码上。</strong>下面请看<a href="http://www.qianxingzhem.com">潜行者m</a>在升级模板的时候，发现的两个案例：</p>
+<p><strong>1，显示文章摘要的框，在火狐浏览器等都是正常的，而在IE浏览器中，却莫名的增高了。</strong>重写css代码的时候，发现，在定义文章摘要框的时候，由于演示边框效果，临时定义了高160px。在整个定义整个文章框的时候，又强制定义了高度，由于类的优先性，这样就把文章摘要框的过高部分截掉了。所以就忽视了当时临时定义的高度属性。在火狐等浏览器中，都正常解释。但是在IE早期的版本，可能无法处理这种叠加效果，所以就全部显示出来了。导致每一个文章框的高度都很高。问题的解决方法，删掉对于文章摘要框的高度定义即可。</p>
+<p><strong>2，当我设计完这套模板的时候，在其他浏览器中均显示正常，但是在IE5.5和IE6中的“文章模块”显示中，边栏却错位。</strong>在“页面模块”显示中，却没有错位。由于“页面模块”是由“文章模块”衍生出来的，肯定是“文章模块”中某个地方的原因，导致边栏错位。经过仔细的对比观察发现，在文章下面的“文章信息”这一个块中，由于添加了两个虚线，导致整体宽度是642px，而文章内容是640px。正是由于多出了这2px的宽度，把边栏挤下去了。修改方法，设置“文档信息”的宽度为638px。</p>
+<p>通过这两个例子，不得不让我思考，网页错位等原因，究竟是什么造成的？很显然，是由不完善的css代码造成的，是人为造成的。浏览器确实针对某些css样式的解释不同，显示的效果不同。但是绝大多数浏览器对于基础的css样式解释是没有问题的，比如：width:900px;绝对没有一个浏览器会把这条语句中的900px的宽度，显示成1000px的宽度。所以说，对于常用的常见的css样式规则，浏览器全部都完美支持，只是有部分比较生僻的标签样式或者某些高级的样式应用技巧，对于某些比较旧的浏览器来说，显示不出来应有的效果，仅此而已。所以，如果你的网页中，出现了不应该出现的显示效果，请仔细检查你的css代码，看看是不是有一些低级的错误。</p>
+<p>对于一个人编写的css样式表来说，这种错误会很容易避免，因为css代码比较少，一个人去写，风格也能统一。但是对于一个比较大型的网站，对于一个需要团队共同维护的css样式表来说，麻烦就来了。每个人的编写风格都不同，而且代码很多，出现错误不易检查。所以，本人总结出了几条针对不兼容问题的应对方法：</p>
+<p><strong>1，尽量使用最低级，最简单的样式。因为这种基础样式在所有浏览器中的显示效果都是一样的。</strong></p>
+<p><strong>2，统一编写风格，细化样式控制，尽量避免在一个区块叠加多个样式，意思就是说，对于一个div或者区域，就用一个样式去控制，不要再添加多个样式，让这个div继承其他样式。这样，哪一个区域出现问题，可以迅速的查找原因，而且不会出现其他继承样式优先级等导致的意外情况。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-719.html" data-id="ckgcma3c10030aa2atyscwdyz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="719" data-title="浏览器的显示效果不同的问题出在CSS代码上面" data-url="http://www.qianxingzhem.com/post-719.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+    <article id="post--e7-bd-91-e9-a1-b5-e8-ae-be-e8-ae-a1-e4-b8-ba-e4-bb-80-e4-b9-88-e8-a6-81-e4-bd-bf-e7-94-a8css-reset" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/post-610.html" class="article-date">
+  <time datetime="2012-02-15T02:27:03.000Z" itemprop="datePublished">Feb 15 2012</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/post-category/前端相关/">前端相关</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/post-610.html">网页设计为什么要使用 CSS reset</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="先来简单的介绍一些-css-reset"><a href="#先来简单的介绍一些-css-reset" class="headerlink" title="先来简单的介绍一些 css reset"></a>先来简单的介绍一些 css reset</h2><p>从字面意思中，我们可以看出，css reset的功能就是把网页标签样式使用 css 重置。学过 html 的朋友都知道，html 标签是有它默认的样式的，例如：&lt;h*&gt;标签表示标题，通常会对文字进行加粗，并且会让文字变大；&lt;p&gt;是段落标签，表示一个段落，通常会与其他文字空开一段距离。</p>
+<p>那我们为什么要把网页的标签样式进行重置呢？原因很简单，<a href="http://www.qianxingzhem.com/post-612.html">内核不同的浏览器，它对于网页标签的解析是不同的。</a>举个不恰当的例子，某浏览器对于&lt;h1&gt;标签，可能会对文字进行加粗，并且调整文字大小为24px，之后在屏幕中输出。但是另一个浏览器，可能不会这样解析，它可能不会对文字进行加粗，文字大小也可能是20px。这样，同一个网页，在不同浏览器的浏览下，就会发生较大的区别，可能在某浏览器中是正常的，在另一个浏览器中，就错位了不正常了。潜行者m之前写过比较一篇关于几个主流浏览器的区别，有兴趣的可以看一下  <a href="http://www.qianxingzhem.com/post-612.html">firefox、chrome、opera和IE 7的区别</a> 。</p>
+<p>但是，所有的主流浏览器，对于css的支持都是不错的，所以我们可以使用css reset来解决上面的问题。我们使用css来控制页面标签的样式，比如把&lt;h*&gt;标题的加粗、扩大、边距等样式清除，让它和普通文字一样；把&lt;ul&gt;等列表标签的前面标志、空格等清除。这样，把所有的标签样式清除了，当我们需要某一种样式的时候，只需要在css文件中，对其进行控制即可。这样的好处就是，能够尽量的消除各个浏览器对于页面标签样式的解析，尽量使网页在各个浏览器中显示效果一样。</p>
+<h2 id="那么css-reset如何编写"><a href="#那么css-reset如何编写" class="headerlink" title="那么css reset如何编写"></a>那么css reset如何编写</h2><p>目前在网络上，已经有很多关于css reset的框架，例如雅虎的 YUI 等，我们可以下载下来看看他们是怎么写的，是怎么处理的。同时也可以直接在网页中引用。但是对于小的页面，潜行者m并不推荐这种做法，那些大的框架，适合大型网站使用，里面几乎对所有的html标签进行了css reset，而我们制作的小页面，并不需要太多的标签，如果使用那么多无用的css reset代码，会导致页面体积变大。所以我推荐的做法是，根据自己页面用到的标签，去寻找相应的css reset代码。下面，是我从《编写高质量代码—web前端开发修炼之道》一书中，提取出来的一段css reset代码，大家可以根据自己的需要，选择引用：</p>
+<p><pre id="line1">/<em>CSS reset</em>/<br>html{color:#000;background:#fff;}<br>body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,<br>form,fieldset,legend,input,button,textarea,p,blockquote,<br>th,td{margin:0;padding:0;}table{border-collapse:collapse;<br>border-spacing:0;}fieldset,img{border:0;}address,caption,<br>cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;<br>font-weight:inherit;}del,ins{text-decoration:none;}<br>li{list-style:none;}caption,th{text-align:left;}h1,h2,<br>h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,<br>q:after{content:’’;}abbr,acronym{border:0;font-variant:normal;}<br>sup{vertical-align:baseline;}sub{vertical-align:baseline;}<br>legend{color:#000;}input,button,textarea,select,optgroup,<br>option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}<br>input,button,textarea,select{*font-size:100%;}input,button,select,<br>textarea{outline:none;}a {outline: 0;}</pre><br>上面就是一段还不错的css reset代码，在文章的后面，我补充了一些css reset资源。</p>
+<h2 id="关于-margin-0-padding-0"><a href="#关于-margin-0-padding-0" class="headerlink" title="关于*{margin:0;padding:0}"></a>关于*{margin:0;padding:0}</h2><p><em>{margin:0;padding:0}这就是一段非常简洁的css reset代码，有一些人仅仅使用这一句代码，表示将所有标签的内边距和外边距清除，达到css reset的效果。但是潜行者m不推荐使用。原因很简单，这一行代码不能算作是css reset代码，它仅仅清除了标签的内边距和外边距而已，而我们要的css reset效果，是要把ol和ul的列表样式、th的加粗、h标签的变大加粗等样式都清除，全部重置。之后，根据自己的设计需要来进行css的控制。而这句</em>{margin:0;padding:0}，没有把所有的样式清除。</p>
+<p>PS：补充一个资源 <a href="http://sofish.de/736" title="Permanent Links to 10款浏览器CSS Reset的方法" target="_blank" rel="noopener">10款浏览器CSS Reset的方法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.qianxingzhem.com/post-610.html" data-id="ckgcma3ci0042aa2a1kj1tzw5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="610" data-title="网页设计为什么要使用 CSS reset" data-url="http://www.qianxingzhem.com/post-610.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qxzm"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+
+  
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/">CSS</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/CSS/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/">HTML</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/HTML/前端相关/">前端相关</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/">JS/JQ</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/JS-JQ/前端相关/">前端相关</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/">作品</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/post-category/作品/网站与后台开发/">网站与后台开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/post-category/其他/">其他</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/前端相关/">前端相关</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/post-category/网站与后台开发/">网站与后台开发</a><span class="category-list-count">37</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/BUG/">BUG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustHost/">JustHost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/">SEO</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThinkSAAS/">ThinkSAAS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WP主题函数/">WP主题函数</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress/">WordPress</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WordPress主题/">WordPress主题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/">cookie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emmet/">emmet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery插件/">jQuery插件</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sublime-text-2/">sublime text 2</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp主题制作教程/">wp主题制作教程</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端优化/">前端优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客运营/">博客运营</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/思考/">思考</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/推广运营/">推广运营</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录生活/">记录生活</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计/">设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/资源分享/">资源分享</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/BUG/" style="font-size: 10px;">BUG</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML5/" style="font-size: 13.33px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/JustHost/" style="font-size: 11.67px;">JustHost</a> <a href="/tags/PHP/" style="font-size: 13.33px;">PHP</a> <a href="/tags/SEO/" style="font-size: 15px;">SEO</a> <a href="/tags/ThinkSAAS/" style="font-size: 11.67px;">ThinkSAAS</a> <a href="/tags/WP主题函数/" style="font-size: 11.67px;">WP主题函数</a> <a href="/tags/WordPress/" style="font-size: 11.67px;">WordPress</a> <a href="/tags/WordPress主题/" style="font-size: 10px;">WordPress主题</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/emmet/" style="font-size: 10px;">emmet</a> <a href="/tags/jQuery/" style="font-size: 18.33px;">jQuery</a> <a href="/tags/jQuery插件/" style="font-size: 13.33px;">jQuery插件</a> <a href="/tags/sublime-text-2/" style="font-size: 11.67px;">sublime text 2</a> <a href="/tags/wp主题制作教程/" style="font-size: 16.67px;">wp主题制作教程</a> <a href="/tags/前端优化/" style="font-size: 10px;">前端优化</a> <a href="/tags/博客运营/" style="font-size: 16.67px;">博客运营</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/思考/" style="font-size: 13.33px;">思考</a> <a href="/tags/推广运营/" style="font-size: 15px;">推广运营</a> <a href="/tags/记录生活/" style="font-size: 15px;">记录生活</a> <a href="/tags/设计/" style="font-size: 10px;">设计</a> <a href="/tags/资源分享/" style="font-size: 11.67px;">资源分享</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">March 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">February 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">January 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">September 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">August 2012</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a><span class="archive-list-count">14</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">January 2012</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">July 2011</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/06/">June 2011</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/post-2003.html">本博将停止更新</a>
+          </li>
+        
+          <li>
+            <a href="/post-2001.html">IE10 的一些前端有关的特性</a>
+          </li>
+        
+          <li>
+            <a href="/post-1995.html">Emmet 常用的高级功能</a>
+          </li>
+        
+          <li>
+            <a href="/post-1993.html">Firefox 下 text-overflow:ellipsis 的省略号会浮动在上面</a>
+          </li>
+        
+          <li>
+            <a href="/post-1989.html">Unicode 符号序号以及 HTML 实体字符表格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 潜行者m<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="http://js.tongji.linezing.com/2773162/tongji.js"></script><noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/2773162/tongji.gif"/></a></noscript>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
